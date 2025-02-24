@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "disabled": true,
+      "settings": {
+        "show_tags": false,
+        "show_author": false,
+        "show_date": false,
+        "show_share_buttons": true,
+        "pagination": "bar-reading"
+      }
+    },
+    "main_article_library_PEqMge": {
+      "type": "main-article-library",
+      "blocks": {
+        "promotion_banner_7TbRzF": {
+          "type": "promotion_banner",
+          "settings": {
+            "banner_image": "shopify:\/\/shop_images\/blog-promotion-banner.jpg",
+            "heading": "Can’t find the resource you’re looking for?",
+            "content": "<ul><li>Type in the resource topic<\/li><li>Include links (if any)<\/li><li>Get reviewed in 1 week or less<\/li><li>Start seeing your resource on our page<\/li><\/ul>",
+            "btn_label": "Send us a recommendation",
+            "btn_link": ""
+          }
+        },
+        "filters_block_tVdWnb": {
+          "type": "filters_block",
+          "settings": {
+            "heading": "Sauna Type",
+            "item1": "Traditional sauna",
+            "item2": "Infrared sauna",
+            "item3": "Hybrid sauna",
+            "item4": "",
+            "item5": ""
+          }
+        },
+        "filters_block_YUjXaE": {
+          "type": "filters_block",
+          "settings": {
+            "heading": "Sauna Method",
+            "item1": "Dry sauna",
+            "item2": "Steam sauna",
+            "item3": "Wet sauna",
+            "item4": "",
+            "item5": ""
+          }
+        },
+        "filters_block_LkfXUi": {
+          "type": "filters_block",
+          "settings": {
+            "heading": "Resource Type",
+            "item1": "Online articles",
+            "item2": "Scientific papers",
+            "item3": "",
+            "item4": "",
+            "item5": ""
+          }
+        }
+      },
+      "block_order": [
+        "promotion_banner_7TbRzF",
+        "filters_block_tVdWnb",
+        "filters_block_YUjXaE",
+        "filters_block_LkfXUi"
+      ],
+      "settings": {
+        "show_tags": false,
+        "show_author": false,
+        "show_date": false,
+        "banner_content": "{{ article.metafields.custom.post_banner_content | metafield_tag }}",
+        "show_share_buttons": false,
+        "pagination": "none"
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "disabled": true,
+      "settings": {
+        "comments_per_page": 16
+      }
+    },
+    "blogs_post_slider_bM6tdM": {
+      "type": "blogs-post-slider",
+      "settings": {
+        "title": "See resources for other health benefits",
+        "button-text": "",
+        "button-id": "",
+        "blog": "library-of-resources"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "main_article_library_PEqMge",
+    "article-comments",
+    "blogs_post_slider_bM6tdM"
+  ]
+}

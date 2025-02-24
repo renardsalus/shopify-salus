@@ -1,0 +1,812 @@
+{%- comment -%}theme-check-disable LiquidTag{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  {%- liquid
+    # constants
+    assign breakpoint_sm = 600
+    assign breakpoint_md = 769
+    assign breakpoint_lg = 1024
+
+    assign color_scheme = section.settings.color_scheme
+
+    if section.settings.image_ratio == 'shortest'
+      assign image_ratio = 0
+      for block in section.blocks
+        assign this_image_ratio = block.settings.image.aspect_ratio | default: 1.77
+        if this_image_ratio > image_ratio
+          assign image_ratio = this_image_ratio
+        endif
+      endfor
+    elsif section.settings.image_ratio == 'tallest'
+      assign image_ratio = 99
+      for block in section.blocks
+        assign this_image_ratio = block.settings.image.aspect_ratio | default: 1.77
+        if this_image_ratio < image_ratio
+          assign image_ratio = this_image_ratio
+        endif
+      endfor
+    else
+      assign image_ratio = section.settings.image_ratio
+    endif
+  -%}
+  {% style %}
+    {% if section.settings.column_size == 'small' %}
+      @media (min-width: {{ breakpoint_sm }}px) {
+        #{{ section.id }} .multi-column {
+          width: calc(50% - var(--column-gap));
+        }
+      }
+      @media (min-width: {{ breakpoint_md }}px) {
+        #{{ section.id }} .multi-column {
+          width: calc((100% / 3) - var(--column-gap));
+        }
+      }
+      @media (min-width: {{ breakpoint_lg }}px) {
+        #{{ section.id }}.g-large .multi-column {
+          width: calc(25% - 80px);
+        }
+        #{{ section.id }} .multi-column {
+          width: calc(25% - var(--column-gap));
+        }
+      }
+    {% else %}
+      @media (min-width: {{ breakpoint_md }}px) {
+        #{{ section.id }} .multi-column {
+          width: calc(50% - var(--column-gap));
+        }
+      }
+      {% if section.settings.column_size == 'medium' %}
+        @media (min-width: {{ breakpoint_lg }}px) {
+          #{{ section.id }} .multi-column {
+            width: calc((100% / 3) - var(--column-gap));
+          }
+        }
+      {% endif %}
+    {% endif %}
+  {% endstyle %}
+{% endif %}
+<div class="icons-popups-wrapper" id="our-icons">
+  {% for block in section.blocks %}
+    {% if block.settings.enable_popup %}
+      <div class="icon-popup" id="our-icon-{{ forloop.index }}">
+        <div class="icon-popup-content">
+          <span id="closePopup" class="close">{% render 'close-icon' %}</span>
+
+          <div class="icon-content-row">
+            <div class="icon-card-info">
+              <div class="icon--info-title">
+                <h3>
+                  {{ block.settings.heading }}
+                  <span>
+                    <img
+                      src="{{ 'icon-link-copy.svg' | asset_url }}"
+                      class="copy_link"
+                      data-href="{% if block.settings.link != blank %}{{ block.settings.link }}{% else %}{{ shop.url }}{% endif %}"
+                    >
+                    <span class="copy-link-tooltip">Copy Link</span>
+                  </span>
+                </h3>
+                <span>{{ block.settings.text }}</span>
+              </div>
+
+              <div class="icon--info-body">
+                <div class="icon--info-reviews">
+                  {% if block.settings.review_title1 != blank or block.settings.review_detail1 != blank %}
+                    <div class="icon-review">
+                      <div class="icon-revie-title">
+                        <h4>
+                          {{ block.settings.review_title1 -}}
+                        </h4>
+                        <span>1/{{ block.settings.no_reviews }}</span>
+                      </div>
+                      {{ block.settings.review_detail1 }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.review_title2 != blank or block.settings.review_detail2 != blank %}
+                    <div class="icon-review">
+                      <div class="icon-revie-title">
+                        <h4>
+                          {{ block.settings.review_title2 -}}
+                        </h4>
+                        <span>2/{{ block.settings.no_reviews }}</span>
+                      </div>
+                      {{ block.settings.review_detail2 }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.review_title3 != blank or block.settings.review_detail3 != blank %}
+                    <div class="icon-review">
+                      <div class="icon-revie-title">
+                        <h4>
+                          {{ block.settings.review_title3 }}
+                        </h4>
+                        <span>3/{{ block.settings.no_reviews }}</span>
+                      </div>
+                      {{ block.settings.review_detail3 }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.review_title4 != blank or block.settings.review_detail4 != blank %}
+                    <div class="icon-review">
+                      <div class="icon-revie-title">
+                        <h4>
+                          {{ block.settings.review_title4 }}
+                        </h4>
+                        <span>4/{{ block.settings.no_reviews }}</span>
+                      </div>
+                      {{ block.settings.review_detail4 }}
+                    </div>
+                  {% endif %}
+                </div>
+                {% if block.settings.products != blank %}
+                  <div class="icon--info-products">
+                    <h4>{{ block.settings.pd_title }}</h4>
+                    <div class="icon-pd-wrapper">
+                      <div class="swiper iconsProducts-slideShow">
+                        <div class="swiper-wrapper">
+                          {% for product in block.settings.products %}
+                            <div class="swiper-slide">
+                              <div class="icon-product-box">
+                                <div class="icon-product-img">
+                                  <img
+                                    src="{{ product.featured_image | img_url:'master' }}"
+                                    alt="{{ product.featured_image.alt }}"
+                                  >
+                                </div>
+                                <div class="icon-product-content">
+                                  <h4>{{ product.title }}</h4>
+                                  <p>{{ product.selected_or_first_available_variant.price | money }}</p>
+                                  <a href="{{ product.url }}">Buy Now</a>
+                                </div>
+                              </div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="icon-slider-btns">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="icon-card-media">
+              {% if block.settings.poster_image != blank %}
+                {% assign image = block.settings.poster_image | img_url: 'master' %}
+              {% elsif block.settings.video_shopify != blank %}
+                {% assign image = block.settings.video_shopify.preview_image | img_url: 'master' %}
+              {% else %}
+                {% assign image = '' %}
+              {% endif %}
+              {{
+                block.settings.video_shopify
+                | video_tag:
+                  poster: image,
+                  type: 'video/mp4',
+                  preload: 'metadata',
+                  autoplay: false,
+                  class: 'block w-full h-full'
+              }}
+
+              {% if block.settings.video_shopify != blank %}
+                <span class="play-btn">
+                  <img src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/play-btn.svg?v=1721897508" alt="">
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+<div
+  class="section milti-column-sec color-scheme color-scheme--{{- color_scheme -}}"
+  id="{{ section.id }}"
+>
+  {%- if section.settings.title != blank or section.settings.button_label != blank -%}
+    <div class="container">
+      <div
+        class="section__header {% if  section.settings.title == blank %}m-0{% endif %} items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"
+        {% if settings.animations_enabled != 'disabled' %}
+          data-cc-animate
+        {% endif %}
+      >
+        {%- if section.settings.title != blank -%}
+          <h2 class="h2 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
+            {{- section.settings.title | escape -}}
+          </h2>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="container">
+    <ul
+      class="loadMore__items flex flex-wrap gap-x-theme{% if color_scheme == 'none' %} gap-y-12 md:gap-y-6{% else %} gap-y-6{% endif %}"
+      role="list"
+    >
+      {%- for block in section.blocks -%}
+        {%- liquid
+          if section.settings.image_ratio == 'natural'
+            if block.settings.image != blank
+              assign image_ratio = block.settings.image.aspect_ratio
+            else
+              assign image_ratio = 1.77
+            endif
+          endif
+        -%}
+        <li
+          class="multi-column ourIcon-items grow w-full max-w-none"
+          data-id="our-icon-{{ forloop.index }}"
+          {{ block.shopify_attributes -}}
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+          {% endif %}
+        >
+          <div class="card {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %} relative flex flex-col h-full">
+            {%- if block.settings.enable_media -%}
+              {%- liquid
+                if section.settings.column_size == 'small'
+                  assign cols = 3
+                else
+                  assign cols = 2
+                endif
+                capture sizes
+                  render 'sizes-attribute', grid: true, min: 1, md: cols
+                endcapture
+              -%}
+
+              <div
+                class="card__media media relative w-full{% if section.settings.image_ratio == "natural" %} {{ section.settings.media_align }}{% endif %}"
+                style="{% unless section.settings.image_ratio == "natural" %}padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;{% endunless %}{% if section.settings.image_ratio == "natural" and block.settings.video_shopify %}padding-top: 56.25%;{% endif %}{% if block.settings.media_scale < 100 %} transform: scale({{ block.settings.media_scale | divided_by: 100.0 }});{% endif %}"
+              >
+                {%- if block.settings.image != blank %}
+                  {%- liquid
+                    assign image_class = 'video-played-hidden'
+                    unless section.settings.image_ratio == 'natural'
+                      assign image_class = image_class | append: ' img-fit'
+                    endunless
+                    if section.settings.image_ratio == 'natural'
+                      assign image_class = image_class | append: ' img-fit'
+                    endif
+                  -%}
+                  {% render 'image',
+                    image: block.settings.image,
+                    widths: '460, 700, 860, 1296',
+                    src_width: 700,
+                    sizes: sizes,
+                    section_index: section.index,
+                    class: image_class
+                  %}
+                {%- else -%}
+                  {%- liquid
+                    assign placeholder_class = 'media__placeholder'
+                    unless section.settings.image_ratio == 'natural'
+                      assign placeholder_class = placeholder_class | append: ' img-fit'
+                    endunless
+                  -%}
+                  {{- 'image' | placeholder_svg_tag: placeholder_class -}}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <div class="card__info flex flex-col flex-auto items-start pt-6{% if section.settings.column_align == 'center' %} text-center items-center{% endif %}">
+              {% if block.settings.subtext != blank %}
+                <p class="subtext">{{ block.settings.subtext }}</p>
+              {% endif %}
+              {%- if block.settings.heading != blank -%}
+                <h3 class="h5 card__title">{{ block.settings.heading | escape }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <div class="card__rte flex-auto rte">
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+
+              {% if block.settings.button_link %}
+                <div class="mt-8{% if section.settings.color_scheme == 'none' %} mb-8{% endif %}">
+                  <a
+                    class="card__button{% if block.settings.button_label == blank %}{% if section.settings.button_style == 'link' %} btn--primary{% else %} {{ section.settings.button_style }}{% endif %} btn btn--icon btn--lg has-ltr-icon{% else %} {{ section.settings.button_style }}{% endif %}"
+                    {% if block.settings.button_link != blank %}
+                      href="{{ block.settings.button_link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                  >
+                    {%- if block.settings.button_label != blank -%}
+                      {{- block.settings.button_label | escape -}}
+                    {%- else -%}
+                      <span class="visually-hidden">
+                        {{- 'general.labels.please_select' | t -}}
+                        {%- if block.settings.heading != blank %} {{ block.settings.heading }}{% endif -%}
+                      </span>
+                      {%- render 'icon-arrow-right' -%}
+                    {%- endif -%}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {% if section.settings.button_label != blank and section.blocks.size > 12 %}
+      <div class="load-more">
+        <a href="" class="btn">{{ section.settings.button_label | escape }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const playbtn = document.querySelectorAll(".icon-card-media span.play-btn");
+    const video = document.querySelectorAll(".icon-card-media video");
+    const copy_link = document.querySelectorAll('.copy_link');
+    const tooptip = document.querySelectorAll('.copy-link-tooltip');
+     let ourIcons = document.querySelectorAll('.ourIcon-items');
+    let allPopups = document.querySelectorAll('.icon-popup');
+
+    ourIcons.forEach((icon) => {
+      icon.addEventListener('click', () => {
+        let activeIcon = icon.getAttribute('data-id');
+
+        allPopups.forEach(popup => {
+          popup.classList.remove('active');
+        });
+
+        // Add 'active' class to the corresponding popup
+        let targetPopup = document.getElementById(activeIcon);
+        if (targetPopup) {
+          targetPopup.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('.close').forEach((close, index) =>{
+      close.addEventListener('click', () =>{
+        allPopups.forEach(popup => {
+            popup.classList.remove('active');
+              video.forEach(vid => {
+                vid.pause();
+              });
+              playbtn.forEach(btn => {
+                btn.classList.remove('play');
+              })
+
+            // video[index].pause();
+            // playbtn[index].classList.remove("play");
+        })
+      });
+    });
+
+
+    playbtn.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        console.log("po");
+        video.forEach((vid, vidIndex) => {
+          if (vidIndex === index) {
+            if (vid.paused) {
+              vid.play();
+              btn.classList.add("play");
+            } else {
+              vid.pause();
+              btn.classList.remove("play");
+            }
+          } else {
+            vid.pause();
+            playbtn[vidIndex].classList.remove("play");
+          }
+        });
+      });
+    });
+    copy_link.forEach((link , link_index) =>{
+        link.addEventListener('click', ()=>{
+          let dataHref = link.getAttribute('data-href');
+
+          navigator.clipboard.writeText(dataHref).then(function() {
+            console.log('Copied to clipboard:', dataHref);
+          }).catch(function(error) {
+              console.error('Error copying to clipboard:', error);
+          });
+          tooptip.forEach((tt , tt_index) => {
+            if(link_index == tt_index){
+              tt.textContent = "Copied!";
+              setTimeout(()=>{ tt.textContent = "Copy Link"},1200);
+            }
+          });
+        });
+
+
+      });
+
+
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Our Icons",
+  "class": "cc-multi-column",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Multi-column"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Center"
+        },
+        {
+          "value": "text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "View more label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "View more link"
+    },
+    {
+      "type":"checkbox",
+      "id":"enable_load_more",
+      "label":"Enable Load More",
+      "info":"if you enable this then 12 card show initially,"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "column_size",
+      "label": "Column size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "column_align",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "media_align",
+      "label": "Media alignment",
+      "info": "Applies to small images with a \"Natural\" aspect ratio.",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Center"
+        }
+      ],
+      "default": "text-center"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Media aspect ratio",
+      "options": [
+        {
+          "value": "natural",
+          "label": "Natural"
+        },
+        {
+          "value": "shortest",
+          "label": "Height of shortest image"
+        },
+        {
+          "value": "tallest",
+          "label": "Height of tallest image"
+        },
+        {
+          "value": "1.77",
+          "label": "Landscape"
+        },
+        {
+          "value": "1",
+          "label": "Square"
+        },
+        {
+          "value": "0.75",
+          "label": "Portrait"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "4",
+          "label": "Scheme 4"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Buttons",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link"
+        },
+        {
+          "value": "btn btn--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "btn btn--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "btn btn--secondary"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "id": "enable_media",
+          "type": "checkbox",
+          "label": "Enable media",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+
+        {
+          "type": "range",
+          "id": "media_scale",
+          "min": 65,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Media scale",
+          "default": 100
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Column"
+        },
+        {
+          "type":"text",
+          "id":"subtext",
+          "label":"Subtext"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Pair text with an image to focus on a product, collection or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "info": "Leave blank for an arrow button"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type":"header",
+          "content":"Popup Content"
+        },
+        {
+          "type":"checkbox",
+          "id":"enable_popup",
+          "label":"Enable Popup"
+        },
+        {
+          "type": "video",
+          "id": "video_shopify",
+          "label": "Video upload",
+          "info": "Hosted by Shopify. Video will autoplay and be muted. [Read more](https://cleancanvas.co.uk/support/enterprise/using-videos)"
+        },
+        {
+          "type":"image_picker",
+          "id":"poster_image",
+          "label":"Poster Image"
+        },
+        {
+          "type":"header",
+          "content":"Reviews"
+        },
+        {
+          "type":"range",
+          "id":"no_reviews",
+          "label":"Number of Reviews",
+          "min":1,
+          "max":4,
+          "step": 1,
+          "default":3
+        },
+        {
+          "type":"header",
+          "content":"First Review"
+        },
+        {
+          "type":"text",
+          "id":"review_title1",
+          "label":"Title"
+        },
+        {
+          "type":"richtext",
+          "id":"review_detail1",
+          "label":"Content"
+        },
+
+        {
+          "type":"header",
+          "content":"Second Review"
+        },
+        {
+          "type":"text",
+          "id":"review_title2",
+          "label":"Title"
+        },
+        {
+          "type":"richtext",
+          "id":"review_detail2",
+          "label":"Content"
+        },
+
+        {
+          "type":"header",
+          "content":"Third Review"
+        },
+        {
+          "type":"text",
+          "id":"review_title3",
+          "label":"Title"
+        },
+        {
+          "type":"richtext",
+          "id":"review_detail3",
+          "label":"Content"
+        },
+
+        {
+          "type":"header",
+          "content":"Forth Review"
+        },
+        {
+          "type":"text",
+          "id":"review_title4",
+          "label":"Title"
+        },
+        {
+          "type":"richtext",
+          "id":"review_detail4",
+          "label":"Content"
+        },
+        {
+          "type":"header",
+          "content":"Products"
+        },
+        {
+          "type":"text",
+          "id":"pd_title",
+          "label":"Title"
+        },
+        {
+          "type":"product_list",
+          "id":"products",
+          "label":"Products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Icons",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "aside"
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+<li class="js-pagination-result collection-grid-banner {{ class }}">
+  <div class="col-banner-wrapper">
+    <div class="col-banner-image">
+      <img src="{{ banner.banner_image | img_url:'master' }}" alt="{{ banner.banner_image.alt }}">
+    </div>
+    <div class="col-banner-content">
+      <h3>{{ banner.banner_text }}</h3>
+      <div class="col-banner-btn">
+        <a href="{{ banner.button_url }}" class="btn btn--primary">{{ banner.button_label }}</a>
+      </div>
+    </div>
+  </div>
+</li>
+
+{% if banner.upsell_product != blank %}
+  {% assign upsell_product = banner.upsell_product.value %}
+  <li class="js-pagination-result collection-upsell-product">
+    {% render 'product-card',
+      product: upsell_product,
+      collection: collection,
+      image_ratio: image_ratio,
+      show_compare: settings.enable_compare,
+      enable_quick_add: section.settings.enable_quick_add,
+      show_category_tag: section.settings.show_category_tag,
+      show_shipping_tag: section.settings.show_shipping_tag,
+      show_delivery_tag: section.settings.show_delivery_tag,
+      show_person_tag: section.settings.show_person_tag
+    %}
+  </li>
+{% endif %}

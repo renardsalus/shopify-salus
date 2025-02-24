@@ -1,0 +1,191 @@
+/* CART PAGE -- STYLING  */
+
+.brc-wrapper ul {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 28px;
+}
+.brc-wrapper ul li {
+  position: relative;
+  /* display: block; */
+}
+.brc-wrapper ul li a {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  display: block;
+  width: 100%;
+  color: #222120;
+}
+.brc-wrapper ul li:not(:last-child)::after {
+  position: absolute;
+  content: "";
+  background-image: url("https://cdn.shopify.com/s/files/1/0720/7695/1854/t/39/assets/cart-arrow.svg?v=1722508752");
+  width: 14px;
+  height: 9px;
+  background-size: 14px 9px;
+  top: 50%;
+  right: -22px;
+  transform: translateY(-50%);
+}
+.js-cart-title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d8d8d8;
+  text-transform: capitalize;
+}
+.cart-item .tap-target::after {
+  display: none;
+}
+quick-add-drawer .product-message__box {
+  display: none !important;
+}
+.cart__summary {
+  padding: 60px 40px 40px;
+  border: none !important;
+  background: #fbf2e9;
+  border-radius: 10px;
+}
+.cart__summary .h5 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+}
+.cart-item.freebies {
+  /* display: none; */
+}
+.upsell_tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  padding: 40px 0px 30px;
+}
+.upsell_tr td {
+  border: 0.5px solid #b4b4b4;
+}
+.upsell_tr .card.card--row {
+  flex-direction: column;
+  background-color: transparent;
+  padding: 0;
+}
+.upsell_tr .card--related .card__info {
+  padding-inline-start: 0;
+}
+.upsell_tr .card__info a.card-link {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.upsell_tr .card__info button.btn.js-quick-add {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+  padding: 12px 10px;
+  border: 1px solid #222120;
+  color: #222120;
+  font-weight: 500;
+  font-size: 16px;
+}
+.upsell_tr .card__info button.btn.js-quick-add:hover {
+  background-color: #000;
+  color: #fff;
+}
+.upsell_tr .upsell__heading {
+  grid-column: 1 / 4;
+  border: none;
+  padding: 0;
+}
+.upsell_tr .upsell_save_price {
+  background: #1f8a81;
+  width: max-content;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+.upsell_tr .upsell__heading h3 {
+  font-family: Poppins;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+}
+.cart__items .cart-page-recommendations {
+  display: none;
+}
+.template--cart .msg-box-wrappper {
+  display: flex;
+  padding: 20px 25px;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.msg-box-img img {
+  display: block;
+  width: 100%;
+  max-width: 59px !important;
+}
+.msg-box-wrappper .msg-box-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  margin-bottom: 5px;
+}
+.template--cart .cart__summary-wrapper .msg-box-content :is(p, a) {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #222120;
+  margin-bottom: 0 !important;
+}
+.cart__summary .h5 {
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid #d8d8d8;
+}
+/* .template--cart .shopify-cleanslate .Vru56DW5IUIiRpxbGTDg {
+  height: 67px !important;
+}
+.template--cart
+  .cart__summary-wrapper
+  .dynamic-cart-btns
+  [data-shopify-buttoncontainer]
+  [role="button"] {
+  height: 100% !important;
+}
+.template--cart .shopify-cleanslate .KHqjJyKjVNT1lCGf2bnQ,
+.template--cart .shopify-cleanslate .KHqjJyKjVNT1lCGf2bnQ .frame-root {
+  max-height: 67px !important;
+  height: 67px !important;
+} */
+.cart__payment {
+  margin-top: 30px;
+  text-align: center;
+}
+.cart__payment p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 0px;
+}
+.cart__payment ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 20px;
+}
+.cart__payment ul .list-payment__item svg {
+  width: 57px;
+  height: 40px;
+}
+.cart__payment .list-payment__item.counter {
+  padding: 5px 15px;
+  border: 1px solid #dedede;
+  border-radius: 6.25px;
+}

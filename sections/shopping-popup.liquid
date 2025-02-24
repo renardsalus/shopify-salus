@@ -1,0 +1,150 @@
+<style>
+  .shipping-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .shipping-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .shipping-popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .custom-warning-icon {
+    width: 50px;
+    /* Ajustar el tamaño según el diseño */
+    height: 50px;
+    /* Ajustar el tamaño según el diseño */
+    margin: 0 auto 10px;
+    /* Centrar y agregar margen */
+    display: block;
+    /* Asegura que la imagen esté centrada en su contenedor */
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  #continue-checkout:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+
+</style>
+
+<div
+  id="shipping-popup"
+  class="shipping-popup-overlay"
+  style="display:none;">
+  <div class="shipping-popup-content">
+    <span
+      class="shipping-popup-close"
+      id="close-popup"
+      style="cursor:pointer;">&times;</span>
+    <!-- Cambiar el icono de advertencia aquí -->
+    <div class="warning-icon">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/warning-icon.png?v=1728482255"
+        alt="Warning Icon"
+        class="custom-warning-icon" />
+    </div>
+    <h2>
+      <strong>Important Shipping Information</strong>
+    </h2>
+    <p>Shipping for your order includes <strong>curbside delivery only</strong>, meaning we’ll deliver to your curb or driveway entrance. If you live in a rural area, highway, or if a freight truck is not able to access your location, or if you require anything more than curbside delivery— additional shipping charges may apply.</p>
+    <div class="checkbox-container">
+      <input type="checkbox" id="shipping-agreement" />
+      <label for="shipping-agreement">I have read and understand</label>
+    </div>
+    <button
+      id="continue-checkout"
+      class="btn btn--primary btn--icon-with-text w-full"
+      disabled>Continue to Checkout</button>
+    <hr/>
+    <p style="margin-top: 10px;">Need help with your order?
+      <a href="/contact" style="color: blue;">Contact us</a>
+    </p>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var popup = document.getElementById("shipping-popup");
+        var closePopupButton = document.getElementById("close-popup");
+        var shippingAgreement = document.getElementById("shipping-agreement");
+        var continueCheckout = document.getElementById("continue-checkout");
+        var checkoutButton = document.querySelector('button[name="checkout"]'); // Selector actualizado
+
+        // Mostrar el pop-up
+        function showPopup() {
+            popup.style.display = "flex"; // Mostrar el pop-up
+        }
+
+        // Cerrar el pop-up
+        function closePopup() {
+            popup.style.display = "none"; // Ocultar el pop-up
+        }
+
+        // Habilitar/deshabilitar el botón "Continuar al checkout"
+        function enableCheckoutButton() {
+            continueCheckout.disabled = !shippingAgreement.checked; // Habilitar o deshabilitar según el checkbox
+        }
+
+        // Cerrar el pop-up
+        closePopupButton.addEventListener("click", closePopup);
+
+        // Habilitar el botón "Continuar al checkout" cuando se marque el checkbox
+        shippingAgreement.addEventListener("change", enableCheckoutButton);
+
+        // Prevenir el envío del formulario al hacer clic en el botón de checkout original
+        checkoutButton.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevenir el envío inmediato del formulario
+            showPopup(); // Mostrar el pop-up
+            checkoutButton.disabled = true; // Deshabilitar temporalmente el botón
+        });
+
+        // Enviar el formulario manualmente cuando se haga clic en "Continuar al checkout"
+        continueCheckout.addEventListener("click", function () {
+            if (shippingAgreement.checked) {
+            // Cambiar la URL a la página de checkout
+            sessionStorage.setItem("comingFromCheckout", "true");
+            window.location.href = "/checkout";
+            }
+        });
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Shopping Popup",
+    "presets": [
+      {
+        "name": "Shopping Popup"
+      }
+    ]
+  }
+{% endschema %}

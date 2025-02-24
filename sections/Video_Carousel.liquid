@@ -1,0 +1,127 @@
+{% comment %} ***** SECTION STATUS ***** {% endcomment %}
+{% assign show_section = false %}
+{% assign section_name = 'Video Carousel' %}
+
+{% if template.name == 'index'
+  or template.name == 'collection'
+  or template.name == 'blog'
+  or template.name == 'page'
+  or template.name == 'article'
+%}
+  {% assign show_section = true %}
+{% endif %}
+{% if template.name == 'product' and product.metafields.custom.product_sections != blank %}
+  {% for value in product.metafields.custom.product_sections.value %}
+    {% if value.section_name == section_name %}
+      {% assign show_section = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% comment %} ***** SECTION STATUS ***** {% endcomment %}
+
+{% if show_section %}
+<section class="video-carousel">
+  <div class="container">
+    <div class="video-carousel-title">
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+    <div class="videoCarousel">
+      <div class="swiper videoCaro">
+        <div class="swiper-wrapper">
+          {% for video in section.blocks %}
+            <div class="swiper-slide">
+              {% if video.settings.poster != blank %}
+                {% assign image = video.settings.poster | img_url: 'master' %}
+
+              {% else %}
+                {% assign image = "" %}
+              {% endif %}
+              <video
+                class="block w-full h-full"
+                data-autoplay="{% if section.settings.video_autoplay %}true{% else %}false{% endif %}"
+                data-background="false"
+                data-description="{{ video.settings.description | escape }}"
+                data-video-id="false"
+                data-video-src="{{ video.settings.video | video_tag: playsinline: true, autoplay: section.settings.video_autoplay, poster:image }}
+            </video>
+
+              {% if video.settings.video != blank %}
+                <span class="play-btn">
+                  <img src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/play-btn.svg?v=1721897508" alt="">
+                </span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="videoCarouselbtn">
+      {% if section.settings['button-text'] != blank %}
+        <a href="{{ section.settings.link }}">{{ section.settings['button-text'] }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Video Carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading And Button"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name":"video",
+      "settings": [
+        {
+           "type": "video",
+            "id": "video",
+            "label": "Add You Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Video Thumb Image"
+        },
+        {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay",
+      "info": "Some devices will not autoplay videos under certain circumstances. In accordance with Google's guidelines, autoplaying videos will be muted by default. [Learn more](https://cleancanvas.co.uk/support/enterprise/using-videos)",
+      "default": true
+    },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Carousel",
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+{% if list.size > 0 %}
+  <div id="faqs-list">
+    {% capture faqs_topic_list %}
+  <div class="facets__filters-wrapper">
+    <div class="flex justify-between items-center">
+      <span class="flex-auto font-bold filter-title">
+        {%- render 'filter-icon' %}
+        Filters
+      </span>
+    </div>
+    <details-disclosure>
+      <details class="filter disclosure" open>
+        <summary class="filter__toggle">
+          <div class="flex justify-between items-center">
+            <span class="flex-auto font-bold">FAQ Topic</span>
+            <span class="disclosure__toggle">
+              {%- if settings.disclosure_toggle == 'plus' -%}
+                {% render 'icon-plus' %}
+              {%- else -%}
+                {% render 'icon-chevron-down' %}
+              {%- endif -%}
+            </span>
+          </div>
+        </summary>
+        <div class="disclosure__panel has-motion">
+          <div class="disclosure__content">
+            <div class="filter__content">
+              <ul role="list">
+                {% for itm in list %}
+                  <li class="filter-list-item faq-list-item" data-id="{{ itm.settings.title | handleize }}">
+                    <input type="checkbox" class="checkbox visually-hidden focus-label-before">
+                    <label class="filter__label flex items-start w-full m-0"
+                      ><span class="flex-auto">{{  itm.settings.title | escape }}</span></label
+                    >
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </details-disclosure>
+  </div>
+  {% endcapture %}
+    {{ faqs_topic_list }}
+  </div>
+{% endif %}

@@ -1,0 +1,215 @@
+{% if product.metafields.vid_link.link != blank or product.metafields.product_video.video != blank %}
+  {%- if section.index > 2 -%}
+    <link rel="stylesheet" href="{{ 'media-with-text.css' | asset_url }}" media="print" onload="this.media='all'">
+  {%- else -%}
+    {{ 'media-with-text.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+
+  {%- liquid
+    # constants
+    assign gutter_sm = 20
+
+    assign media_type = 'image'
+    assign image = product.metafields.vid_thumbnail.image.value
+
+    if product.metafields.product_video.video != blank or product.metafields.vid_thumbnail.image != blank
+      assign media_type = 'video'
+      assign using_video_tag = false
+
+      if product.metafields.product_video.video != blank
+        assign using_video_tag = true
+
+        if image == blank
+          assign image = product.metafields.product_video.video.preview_image
+        endif
+      endif
+    endif
+  -%}
+
+  {%- if media_type == 'video' -%}
+    {{ 'video.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- liquid
+    assign color_scheme = section.settings.color_scheme
+    assign bg_color = false
+
+    if color_scheme == '1'
+      assign bg_color = settings.color_scheme_1_bg
+    elsif color_scheme == '2'
+      assign bg_color = settings.color_scheme_2_bg
+    elsif color_scheme == '3'
+      assign bg_color = settings.color_scheme_3_bg
+    endif
+
+    if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+      assign bg_color = false
+    endif
+
+    assign quality = settings.image_quality
+    if section.settings.image_fit == 'cover'
+      assign quality = 1.4
+    endif
+  -%}
+
+  {%- capture video_component -%}
+  <video-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} absolute top-0 left-0 w-full h-full"
+                   {%- unless using_video_tag %}data-video-url="{{ product.metafields.vid_link.link.value | escape }}" {% endunless -%}
+                   data-video-id="{{ section.id }}"
+                   data-autoplay="false"
+                   data-background="false"
+                   data-natural-width="true"
+                   data-description="{{ section.settings.video_description | escape }}">
+    {%- if using_video_tag -%}
+      {{ product.metafields.product_video.video.value | video_tag: playsinline: true, autoplay: false, muted:false, controls: true, poster: '' | replace: '<img ', '<img loading="lazy" hidden ' }}
+
+    {%- endif -%}
+  </video-component>
+{%- endcapture -%}
+
+  <div
+    class="video-carousel model-video section section-media-with-text section--full-width {% unless color_scheme == 'none' or section.settings.only_content_color_scheme %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+  >
+    <div class="container">
+      <div class="video-carousel-title">
+        {% if product.metafields.vid_heading.heading != blank %}
+          <h2>{{ product.metafields.vid_heading.heading.value }}</h2>
+        {% endif %}
+      </div>
+      <div
+        style="--media-width: 100%"
+      >
+        <div
+          class="media-with-text__media{% if media_type == 'video' %} video-section{% endif %} relative flex flex-col justify-center overflow-hidden"
+          style="--media-scale: {{ 100 | times: 0.01 }}"
+        >
+          <div
+            class="media w-full{% if media_type == 'video' %} absolute{% if section.settings.image_fit == "cover" %} top-0 left-0 h-full{% else %} video-section__media{% endif %} video-played-hidden{% else %} relative{% if section.settings.image_fit == "cover" %} h-full video-section__media--cover{% endif %}{% endif %}"
+            {% if media_type == 'image' and image != blank %}
+              style="padding-top: {{ 1 | divided_by: image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {%- if image != blank -%}
+              {%- capture sizes_md %}calc((50vw - {{ gutter_sm | times: 2 }}px) + 9px){% endcapture -%}
+              {%- capture sizes -%}
+              {%- render 'sizes-attribute', min: 'page', sm: 'page', md: sizes_md, lg: '536px', xl: false, max: false -%}
+            {%- endcapture -%}
+              {% render 'image',
+                image: image,
+                quality: quality,
+                widths: '536, 800, 1072, 1280',
+                mobile_widths: '690, 800',
+                src_width: 536,
+                sizes: sizes,
+                section_index: section.index,
+                class: 'img-fit'
+              %}
+            {%- endif -%}
+          </div>
+
+          {%- if media_type == 'video' -%}
+            {%- if section.settings.video_autoplay -%}
+              <deferred-media class="video-section__media{% if section.settings.image_fit == "contain" %} relative{% endif %} block w-full no-js-hidden">
+                <template>{{ video_component }}</template>
+              </deferred-media>
+
+              <noscript>
+                <div class="video-section__media block w-full">
+                  {{ video_component }}
+                </div>
+              </noscript>
+            {%- else -%}
+              <deferred-media class="video-section__media{% if section.settings.image_fit == "contain" %} relative{% endif %} height-clip block w-full no-js-hidden">
+                <button
+                  type="button"
+                  class="video-section__play-btn video-played-hidden absolute top-0 left-0 flex justify-center items-center w-full h-full js-load-media"
+                >
+                  <span class="visually-hidden">{{ 'general.icon_labels.play' | t }}</span>
+                  {%- render 'icon-play' -%}
+                </button>
+                <template>
+                  {{ video_component }}
+                </template>
+              </deferred-media>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Video",
+  "class":"product-video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading And Button"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Media fit on large screens",
+      "info": "Choose \"Natural\" to avoid cropping the media or \"Cover\" to fill available space (media may be cropped).",
+      "options": [
+        {
+          "value": "contain",
+          "label": "Natural"
+        },
+        {
+          "value": "cover",
+          "label": "Cover"
+        }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Video",
+    }
+  ]
+}
+{% endschema %}

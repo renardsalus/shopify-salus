@@ -1,0 +1,353 @@
+{% style %}
+  .comparison-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display:none;
+  }
+  .comparison-popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width:max-content;
+    max-width: 850px;
+    min-height: 450px;
+    max-height:max-content;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    padding:50px;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 38px;
+    cursor: pointer;
+  }
+{% endstyle %}
+{% comment %} ***** SECTION STATUS ***** {% endcomment %}
+{% assign show_section = false %}
+{% assign section_name = 'Product Comparision' %}
+
+{% if template.name == 'index'
+  or template.name == 'collection'
+  or template.name == 'blog'
+  or template.name == 'page'
+  or template.name == 'article'
+%}
+  {% assign show_section = true %}
+{% endif %}
+{% if template.name == 'product' and product.metafields.custom.product_sections != blank %}
+  {% for value in product.metafields.custom.product_sections.value %}
+    {% if value.section_name == section_name %}
+      {% assign show_section = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% comment %} ***** SECTION STATUS ***** {% endcomment %}
+{% capture 'allMetaFields' %}
+    {
+      {% for collection in collections %}
+        {% paginate collection.products by 250 %}
+          {% for product in collection.products %}
+                  "{{ product.handle }}" : {
+                      product_ampere: "{{product.metafields.custom.amps}}",
+                      product_voltage : "{{product.metafields.custom.voltage}}",
+                      person_capacity : "{{ product.metafields.custom.capacity }}"
+                  },
+              {% endfor %}
+          {% endpaginate %}
+      {% endfor %}
+    }
+{% endcapture %}
+<script type="text/javascript">
+  let allMetafield = {{ allMetaFields }}
+    // console.log(allMetafield);
+</script>
+
+{% if show_section %}
+  <div class="section">
+    <div class="container">
+      <div id="product-comparison">
+        <div class="product-compr-top">
+          <h2>{{ section.settings.heading }}</h2>
+          {{ section.settings.content }}
+          {% if section.settings.compare_btn_label != blank %}
+            <div class="compr-btn">
+              <button onclick="compareProducts()" class="btn btn--primary">
+                {{ section.settings.compare_btn_label }}
+              </button>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-box">
+            <div class="compare-select-wrapper">
+              <div class="select relative">
+                <select class="w-full input" id="collection1" onchange="loadProducts(this, 'product1')">
+                  <option value="" class="default--opt">Pick a collection</option>
+                  {% for collection in collections %}
+                    {% if collection.handle != 'all' %}
+                      <option value="{{ collection.handle }}">{{ collection.title }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="select relative">
+                <select class="w-full input" id="product1" onchange="showProductDetails('product1')">
+                  <option value="">Pick a model</option>
+                </select>
+              </div>
+            </div>
+            <div id="product-details1" class="product-details-wrapper">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624"
+                alt="Placeholder"
+              >
+              <div class="product-details-inner">
+                <h3>N/A</h3>
+                <p class="compr-price">N/A</p>
+                <a class="cp-btn btn btn--primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="compare-box">
+            <div class="compare-select-wrapper">
+              <div class="select relative">
+                <select class="w-full input" id="collection2" onchange="loadProducts(this, 'product2')">
+                  <option value="">Pick a collection</option>
+                  {% for collection in collections %}
+                    {% if collection.handle != 'all' %}
+                      <option value="{{ collection.handle }}">{{ collection.title }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="select relative">
+                <select class="w-full input" id="product2" onchange="showProductDetails('product2')">
+                  <option value="">Pick a model</option>
+                </select>
+              </div>
+            </div>
+            <div id="product-details2" class="product-details-wrapper">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624"
+                alt="Placeholder"
+              >
+              <div class="product-details-inner">
+                <h3>N/A</h3>
+                <p class="compr-price">N/A</p>
+                <a class="cp-btn btn btn--primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="compare-box">
+            <div class="compare-select-wrapper">
+              <div class="select relative">
+                <select class="w-full input" id="collection3" onchange="loadProducts(this, 'product3')">
+                  <option value="">Pick a collection</option>
+                  {% for collection in collections %}
+                    {% if collection.handle != 'all' %}
+                      <option value="{{ collection.handle }}">{{ collection.title }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="select relative">
+                <select class="w-full input" id="product3" onchange="showProductDetails('product3')">
+                  <option value="">Pick a model</option>
+                </select>
+              </div>
+            </div>
+            <div id="product-details3" class="product-details-wrapper">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624"
+                alt="Placeholder"
+              >
+              <div class="product-details-inner">
+                <h3>N/A</h3>
+                <p class="compr-price">N/A</p>
+                <a class="cp-btn btn btn--primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Popup -->
+  <div id="comparisonPopup" class="comparison-popup">
+    <div class="comparison-popup-content">
+      <span class="close" onclick="closeComparisonPopup()">&times;</span>
+      <h2>Product Comparison</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Product 1</th>
+            <th>Product 2</th>
+            <th>Product 3</th>
+          </tr>
+        </thead>
+        <tbody id="comparisonBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+  const placeholderImageUrl = 'https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624';
+  const placeholderTitle = 'N/A';
+  const placeholderPrice = 'N/A';
+  const placeholderLink = 'Learn More';
+
+  async function loadProducts(collectionSelect, productSelectId) {
+    const collectionHandle = collectionSelect.value;
+    const productSelect = document.getElementById(productSelectId);
+    productSelect.innerHTML = '<option value="">Pick a model</option>';
+
+    const response = await fetch(`/collections/${collectionHandle}/products.json`);
+    const data = await response.json();
+
+    data.products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.handle;
+      option.text = product.title;
+      productSelect.appendChild(option);
+    });
+
+    showProductDetails(productSelectId); // Reset product details when a new collection is selected
+  }
+
+  async function showProductDetails(productSelectId) {
+    const productHandle = document.getElementById(productSelectId).value;
+    const productDetailsDiv = document.getElementById(`product-details${productSelectId.charAt(productSelectId.length - 1)}`);
+
+    if (!productHandle) {
+      
+      productDetailsDiv.innerHTML = `
+      
+        <img src="${placeholderImageUrl}" alt="${placeholderTitle}">
+        <div class="product-details-inner">
+        <h3>${placeholderTitle}</h3>
+        <p class='compr-price'>${placeholderPrice}</p>
+        <a class='cp-btn btn btn--primary'>${placeholderLink}</a>
+        </div>
+      `;
+      return;
+    }
+
+    const response = await fetch(`/products/${productHandle}.json`);
+    const product = await response.json();
+
+    productDetailsDiv.innerHTML = `
+    
+      <img src="${product.product.images[0]?.src || placeholderImageUrl}" alt="${product.product.title}">
+      <div class="product-details-inner">
+      <h3>${product.product.title}</h3>
+      <p class='compr-price'>$${parseFloat(product.product.variants[0].price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+      <a class='cp-btn active btn btn--primary' href='/products/${product.product.handle}'>Learn More</a>
+      </div>
+    `;
+  }
+
+  async function compareProducts() {
+    const comparisonBody = document.getElementById('comparisonBody');
+    comparisonBody.innerHTML = '';
+    const productHandles = [
+      document.getElementById('product1').value,
+      document.getElementById('product2').value,
+      document.getElementById('product3').value
+    ];
+
+    if (productHandles.includes('')) {
+      alert('Please select all three products.');
+      return;
+    }else{
+      document.getElementById('comparisonPopup').style.display= "block";
+    }
+
+    
+
+    const productDetails = await Promise.all(productHandles.map(handle => fetch(`/products/${handle}.json`).then(res => res.json())));
+
+    const features = ['images', 'title', 'price', 'vendor', 'product_type', 'Person Capacity', 'voltage' , 'ampere']; // Add more features as needed
+    features.forEach(feature => {
+      const row = document.createElement('tr');
+      const featureCell = document.createElement('td');
+      featureCell.textContent = feature.charAt(0).toUpperCase() + feature.slice(1);
+      row.appendChild(featureCell);
+
+      productDetails.forEach((product, index) => {
+      const cell = document.createElement('td');
+        
+       const metafields = allMetafield[product.product.handle];
+        if (feature === 'images') {
+          cell.innerHTML = `<img src="${product.product.images[0]?.src || placeholderImageUrl}" alt="${product.product.title}" style="max-width: 100px;">`;
+        }else if(feature === 'price'){
+          cell.textContent = product.product.variants[0][feature] || 'N/A'; 
+        }else if(feature === 'Person Capacity'){
+           cell.textContent = metafields.person_capacity || 'N/A';
+        }
+          else if(feature === 'voltage'){
+           cell.textContent = metafields.product_voltage+'V' || 'N/A';
+        }else if(feature === 'ampere'){
+           cell.textContent = metafields.product_ampere+'Amp' || 'N/A';
+        }
+        else {
+          cell.textContent = product.product[feature] || 'N/A';
+        }
+        row.appendChild(cell);
+      });
+
+      comparisonBody.appendChild(row);
+    });
+
+    document.getElementById('comparisonPopup').style.display = 'flex';
+  }
+
+  function closeComparisonPopup() {
+    document.getElementById('comparisonPopup').style.display = 'none';
+  }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "class": "cc-dynamic-product-compare",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading",
+      "label": "Heading"
+    },
+    {
+      "type":"richtext",
+      "id":"content",
+      "label":"Content"
+    },
+    {
+      "type": "text",
+      "id":"compare_btn_label",
+      "label": "Compare Button Label"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Product Comparison"
+    }
+  ]
+}
+{% endschema %}

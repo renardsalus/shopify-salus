@@ -1,0 +1,126 @@
+{% assign variant_metafields_string = '' %}
+{% for product in collections['uncategorized'].products %}
+  {% for variant in product.variants %}
+    {% if variant.metafields.global.description != blank %}
+      {% assign variant_metafields_string = variant_metafields_string | append: variant.id | append: '<delimiter_first>' | append: variant.metafields.global.description | append: '<delimiter_second>' %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% liquid
+  assign last_character = variant_metafields_string | slice: -1
+  assign vms_length_min_one = variant_metafields_string.size | minus: 1
+%}
+{% if last_character == '<delimiter_second>' %}
+  {% assign variant_metafields_string = variant_metafields_string | slice: 0, vms_length_min_one %}
+{% endif %}
+<script>
+  const vmsString = {{variant_metafields_string |  json}};
+  const vmMap = new Map();
+  let variantIds = {
+    value: [],
+  };
+  vmsString
+    .split("<delimiter_second>")
+    .map((val) => val.split("<delimiter_first>"))
+    .forEach(([id, description]) => {
+      vmMap.set(id, description);
+    });
+  // Utility function to compare two arrays for equality (ignores order)
+  function areArraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    return arr1.every((value, index) => value === arr2[index]);
+  }
+  // Function to trigger on array change
+  function onArrayChange(newArray) {
+    for (let val of newArray) {
+      if (!vmMap.has(val)) {
+        continue;
+      }
+      const tooltipParent = document
+        .querySelector(`input[gpo-data-variant-id="${val}"]`)
+        ?.nextElementSibling?.querySelector("div.gpo-tooltip.zoom-image")
+      
+      tooltipParent.style.width = '500px'
+      const childDivs = tooltipParent?.querySelectorAll("div");
+      for (let i = 0; i < childDivs.length; i++) {
+        if (childDivs[i].classList.contains('gpo-tooltip__title')) {
+          childDivs[i].style.textAlign = 'left'
+          childDivs[i].style.fontSize = '16px'
+          childDivs[i].style.paddingTop = '5px'
+          childDivs[i].style.paddingBottom = '5px'
+        }
+        if (i === childDivs.length - 1) {
+          // Inject a span after the last div
+          const lastDiv = childDivs[i];
+          const newSpan = document.createElement("span");
+          newSpan.innerHTML = vmMap.get(val); // Add content to the new span as needed
+          
+          let newDiv = document.createElement('div');
+          newDiv.style.textAlign = "left"
+          newDiv.style.fontSize = "14px"
+          newDiv.style.lineHeight = 1.5
+          newDiv.style.paddingTop = "10px"
+          
+          newDiv.appendChild(newSpan)
+          // Insert the new span after the last div
+          lastDiv.parentNode.insertBefore(newDiv, lastDiv.nextSibling);
+        }
+      }
+    }
+  }
+  // Create a proxy to watch for\ changes to the array
+  const arrayProxyHandler = {
+    set(target, property, value) {
+      // If the property being set is "value" or an index, check for changes
+      if (property === "value" && !isNaN(property)) {
+        return false;
+      }
+      // Temporarily modify the array to reflect the change
+      const tempArray = target[property];
+      // Compare arrays
+      if (!areArraysEqual(tempArray, value)) {
+        // If there is a change in content or size, update the array and trigger the function
+        onArrayChange(value);
+      }
+      target[property] = value;
+      return true;
+    },
+  };
+  // Create a proxy around the original array
+  const newarr = new Proxy(variantIds, arrayProxyHandler);
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select the target node where new elements might be added (could be 'body' or a more specific container)
+    const targetNode = document.body;
+    // Create a callback function to execute when mutations are observed
+    const callback = function (mutationsList, observer) {
+      mutationsList.forEach((mutation) => {
+        // Check if any new nodes were added
+        mutation.addedNodes.forEach((addedNode) => {
+          // Check if the added node has the class 'gpo-tooltip' or contains children with that class
+          const newVariantIds = [];
+          if (
+            addedNode.nodeType === 1 &&
+            (addedNode.classList.contains("gpo-swatches") ||
+              addedNode.querySelector(".gpo-swatches"))
+          ) {
+            // Select and log all elements with the class '.gpo-swatches'
+            const inputs = document.querySelectorAll(
+              "input[gpo-data-variant-id]"
+            );
+            inputs.forEach((input) => {
+              const variantId = input.getAttribute("gpo-data-variant-id");
+              newVariantIds.push(variantId);
+            });
+          }
+          newarr.value = newVariantIds;
+        });
+      });
+    };
+    // Create a MutationObserver instance linked to the callback function
+    const observer = new MutationObserver(callback);
+    // Define the configuration for the observer (observe child nodes and subtree)
+    const config = { childList: true, subtree: true };
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+  });
+</script>

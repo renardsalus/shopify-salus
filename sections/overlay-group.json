@@ -1,0 +1,211 @@
+{
+  "type": "aside",
+  "name": "Overlay group",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "show_cart_page_link": true,
+        "show_backorder_text": true,
+        "show_vendor": true,
+        "position_cart_summary": "bottom",
+        "stick_footer": true,
+        "show_order_note": true,
+        "show_shipping_text_notice": true,
+        "show_additional_checkout_buttons": false,
+        "show_checkout_button": true,
+        "cart_terms_page": "",
+        "show_shipping_calculator": false,
+        "shipping_calculator_default_country": "United States",
+        "promoted_products_visibility": "always",
+        "promoted_products_heading": "Promoted products",
+        "promoted_products_list": [],
+        "promoted_products_layout": "carousel",
+        "show_media_promotion": false,
+        "media_promotion_visibility": "always",
+        "link_url": "",
+        "media_promotion_min_height": 150,
+        "content": "<p>Promotion text<\/p>",
+        "text_type_scale": "1em",
+        "text_width": 400,
+        "text_alignment": "justify-center items-center text-center",
+        "button_label": "",
+        "button_style": "btn btn--secondary",
+        "text_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 20
+      }
+    },
+    "product-compare": {
+      "type": "product-compare",
+      "blocks": {
+        "compare-1": {
+          "type": "image",
+          "settings": {
+            "show_line": false
+          }
+        },
+        "compare-2": {
+          "type": "vendor",
+          "settings": {
+            "show_line": false
+          }
+        },
+        "compare-3": {
+          "type": "title",
+          "settings": {
+            "show_line": false
+          }
+        },
+        "compare-4": {
+          "type": "price",
+          "settings": {
+            "show_line": false
+          }
+        },
+        "compare-5": {
+          "type": "description",
+          "settings": {
+            "truncate_description": false,
+            "words_to_show": 20,
+            "show_line": false
+          }
+        },
+        "compare-6": {
+          "type": "variants",
+          "settings": {
+            "show_line": false
+          }
+        }
+      },
+      "block_order": [
+        "compare-1",
+        "compare-2",
+        "compare-3",
+        "compare-4",
+        "compare-5",
+        "compare-6"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "partner_form_popup_wecWJ7": {
+      "type": "partner-form-popup",
+      "blocks": {
+        "first_name_naBBby": {
+          "type": "first_name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "last_name_QibTVk": {
+          "type": "last_name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "email_6WNzJy": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "socmed_link_Rpxdra": {
+          "type": "socmed_link",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "preferred_code_rVq3zh": {
+          "type": "preferred_code",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "first_name_naBBby",
+        "last_name_QibTVk",
+        "email_6WNzJy",
+        "socmed_link_Rpxdra",
+        "preferred_code_rVq3zh"
+      ],
+      "settings": {
+        "heading": "Interested in becoming an affiliate? Let’s get to know each other!",
+        "heading_align": "text-center",
+        "send_link": "https:\/\/formspree.io\/f\/xgvebrlg",
+        "image_position": "top",
+        "color_scheme": "none",
+        "full_width": true,
+        "button_style": "btn btn--primary"
+      }
+    },
+    "become_a_partner_popup_YPiqjw": {
+      "type": "become-a-partner-popup",
+      "blocks": {
+        "first_name_G8HcMt": {
+          "type": "first-name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "last_name_hAwxBV": {
+          "type": "last-name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "social_handles_KnMTpA": {
+          "type": "social_handles",
+          "settings": {
+            "social_label": "Online Handles ",
+            "insta_required": true,
+            "facebook_required": true,
+            "tiktok_required": true,
+            "youtube_required": true,
+            "personal_web_link_required": true,
+            "note": ""
+          }
+        },
+        "body_UWnWJU": {
+          "type": "body",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "first_name_G8HcMt",
+        "last_name_hAwxBV",
+        "social_handles_KnMTpA",
+        "body_UWnWJU"
+      ],
+      "settings": {
+        "heading": "Contact Partner@",
+        "icon": "shopify:\/\/shop_images\/contact-title.svg",
+        "submit_btn_label": "Send and apply to be a partner",
+        "send_link": "https:\/\/formspree.io\/f\/mwppzewb",
+        "subject_line": "Partnership proposal: I’m interested in partnering with Salus Saunas"
+      }
+    },
+    "shopping_popup_TYLpgL": {
+      "type": "shopping-popup",
+      "settings": {}
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "product-compare",
+    "partner_form_popup_wecWJ7",
+    "become_a_partner_popup_YPiqjw",
+    "shopping_popup_TYLpgL"
+  ]
+}

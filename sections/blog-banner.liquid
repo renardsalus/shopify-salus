@@ -1,0 +1,185 @@
+{{ 'collection-banner.css' | asset_url | stylesheet_tag }}
+
+{%- assign color_scheme = section.settings.color_scheme -%}
+<div
+  class="blog-banner {% unless color_scheme == 'default' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+>
+  <div class="container">
+    <div class="flex flex-col md:flex-row {{ section.settings.text_align }}{% if section.settings.color_scheme == "default" %} gap-y-6{% endif %}">
+      <div class="collection-banner__content flex flex-col collection-banner__content-wide {{ section.settings.text_align }}{% if section.settings.text_align == "items-center text-center" %} mx-auto{% endif %}">
+        <div class="block">
+          <h1 class="collection-banner__heading mb-0 inline">
+            {{- blog.title | escape -}}
+          </h1>
+
+          {% if section.settings.show_resource_count %}
+            <span class="font-heading collection-banner__count {% unless section.settings.text_align == "text-start" %} block {{ section.settings.text_align }}{% endunless %}">
+              {% if template.suffix == 'library-resources' %}
+                {% assign resources = 0 %}
+                {% paginate blog.articles by 200 %}
+                  {% for article in blog.articles %}
+                    {% if article.metafields.custom.resources_count != blank %}
+                      {% assign resources = resources | plus: article.metafields.custom.resources_count %}
+                    {% endif %}
+                  {% endfor %}
+                {% endpaginate %}
+                ({{ resources | append: ' Resources)' -}}
+
+              {% else %}
+                ({{ blog.articles_count }} Articles)
+              {% endif %}
+            </span>
+          {% endif %}
+        </div>
+
+        {%- if section.settings.content != blank -%}
+          <div class="rte mt-4 category-hero-content__description">
+            {{ section.settings.content }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% if section.settings.topic_list != blank %}
+  {% comment %}
+    <div class="collection-secondary-nav">
+      <div class="container">
+        <div class="blog-nav-inner">
+          <h4>Topic Categories:</h4>
+          <div class="col-nav">
+            <ul>
+              {% assign links = section.settings.topic_list | split: ',' %}
+              <li>
+                {% assign request_path = request.path | split: '/' | last %}
+                <a
+                  href="/blogs/{{ blog.handle }}"
+                  {% if request_path == blog.handle %}
+                    class="active"
+                  {% endif %}
+                >
+                  All Articles
+                </a>
+              </li>
+              {% for link in links %}
+                {% assign tag = link | handleize %}
+                <li>
+                  <a
+                    href="/blogs/{{ blog.handle }}/tagged/{{ tag }}"
+                    {% if request.path contains tag %}
+                      class="active"
+                    {% endif %}
+                  >
+                    {{- link -}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endcomment %}
+{% elsif section.settings.blog_menu != blank %}
+  <div class="collection-secondary-nav">
+    <div class="container">
+      <div class="blog-nav-inner">
+        <h4>Topic Categories:</h4>
+        <div class="col-nav">
+          <ul>
+            {% for link in section.settings.blog_menu.links %}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  {% if link.active %}
+                    class="active"
+                  {% endif %}
+                >
+                  {{- link.title -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Blog Banner",
+  "class": "cc-collection-banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_resource_count",
+      "label": "Show Resource count",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "items-center text-center",
+          "label": "Center"
+        },
+        {
+          "value": "items-end justify-end text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type":"link_list",
+      "id":"blog_menu",
+      "label":"Blog Menu"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "default"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Blog Banner"
+    }
+  ]
+}
+{% endschema %}

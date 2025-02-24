@@ -1,0 +1,80 @@
+<section class="salus-slider-cards">
+  <div class="container">
+    <div class="slider-cards-title">
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings['button-text'] != blank %}
+        <a href="{{ section.settings.button-id }}">{{ section.settings['button-text'] }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.blog != blank or section.settings.blog.articles_count > 0 %}
+    <div class="slider-card-row">
+      <div class="swiper CardsSlider">
+        <div class="swiper-wrapper">
+          {% for article in section.settings.blog.articles %}
+            {% if request.path != article.url %}
+              <div class="swiper-slide">
+                <div class="card_slider">
+                  <div class="blog_img">
+                    <img src="{{ article.image | img_url:'master'}}" alt="{{article.imagea.alt }}">
+                  </div>
+                  <div class="blog_content">
+                    <p>
+                      <a href="{{ article.url }}">{{ article.title }}</a>
+                    </p>
+                    {% if article.metafields.custom.resources_count != blank %}
+                      <span>{{ article.metafields.custom.resources_count }} resources</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="card-slider-pagination">
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "Blog Post Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Add you Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button-id",
+      "label": "Button Link"
+    },
+    {
+      "type":"blog",
+      "id":"blog",
+      "label": "Blog"
+    }
+
+  ],
+  "presets": [
+    {
+      "name":"Blog Post Slider"
+    }
+  ]
+}
+{% endschema %}

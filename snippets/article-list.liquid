@@ -1,0 +1,147 @@
+<div class="facets__filters-wrapper">
+  <div class="flex justify-between items-center">
+    {% unless sidebar_content %}
+      <span class="flex-auto font-bold filter-title">
+        {%- render 'filter-icon' %}
+        Filters
+      </span>
+    {% endunless %}
+  </div>
+  <details-disclosure>
+    <details class="filter disclosure" open>
+      <summary class="filter__toggle">
+        <div class="flex justify-between items-center {% if sidebar_content %}filter-title{% endif %}">
+          {% if sidebar_content %}
+            <span class="flex-auto font-bold">
+              {%- render 'icon-book' %}
+              Contents
+            </span>
+          {% else %}
+            <span class="flex-auto font-bold">
+              {%- if title != blank %}{{ title }}{% else %}Topics{% endif -%}
+            </span>
+          {% endif %}
+          <span class="disclosure__toggle">
+            {%- if settings.disclosure_toggle == 'plus' -%}
+              {% render 'icon-plus' %}
+            {%- else -%}
+              {% render 'icon-chevron-down' %}
+            {%- endif -%}
+          </span>
+        </div>
+      </summary>
+      <div class="disclosure__panel has-motion">
+        <div class="disclosure__content">
+          <div class="filter__content">
+            {% if links != blank %}
+              <ul role="list">
+                {%- for link in links limit: 10 -%}
+                  <li
+                    class="filter-list-item"
+                    data-url="{% if last_index %}{{ blog.handle }}/{{ link.handle | split:'/' | last }}{% else %}{{ link.url }}{% endif %}"
+                  >
+                    {% assign current_link = request.path | split: '/' | last %}
+                    <input
+                      type="checkbox"
+                      class="checkbox visually-hidden focus-label-before {{ link_url }}"
+
+                      {% if current_link == link_url %}
+                        checked
+                      {% endif %}
+                    >
+                    <label class="filter__label flex items-start w-full m-0">
+                      <span class="flex-auto">{{ link.title | escape }}</span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {% elsif tags != blank %}
+              <ul role="list">
+                {% assign links = tags | split: ',' %}
+                {% assign request_path = request.path | split: '/' | last %}
+                <li
+                  class="filter-list-item"
+                  data-url="/blogs/{{ blog.handle }}"
+                >
+                  <input
+                    type="checkbox"
+                    class="checkbox visually-hidden focus-label-before"
+
+                    {% if request_path contains blog.handle %}
+                      checked
+                    {% endif %}
+                  >
+                  <label class="filter__label flex items-start w-full m-0">
+                    <span class="flex-auto">All Articles</span>
+                  </label>
+                </li>
+                {%- for link in links limit: 10 -%}
+                  {% assign tag = link | handleize %}
+                  {% assign link_url = '/tagged/' | append: tag %}
+                  {% assign current_link = request.path | split: '/' | last %}
+
+                  <li
+                    class="filter-list-item"
+                    data-url="/blogs/{{ blog.handle }}{{ link_url }}"
+                    current-link="{{ current_link }}"
+                  >
+                    <input
+                      type="checkbox"
+                      class="checkbox visually-hidden focus-label-before {{ link_url }}"
+
+                      {% if link_url contains current_link %}
+                        checked
+                      {% endif %}
+                    >
+                    <label class="filter__label flex items-start w-full m-0">
+                      <span class="flex-auto">{{ link | escape }}</span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+            {% elsif sidebar_content %}
+              <ul class="content-list"></ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </details>
+  </details-disclosure>
+</div>
+<script>
+  let links = document.querySelectorAll('.filter-list-item input')
+  document.addEventListener('DOMContentLoaded', () =>{
+    document.querySelectorAll('.filter-list-item').forEach((item , index) =>{
+      item.addEventListener('click', ()=>{
+        links.forEach(link => {
+          link.checked = false;
+        });
+        links[index].checked = true;
+        const url= item.getAttribute('data-url');
+        console.log(url);
+        setTimeout(()=>{
+          window.location.href = url;
+        }, 1000);
+
+
+      })
+    })
+  })
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let filters = document.querySelectorAll('.blog-sidebar-filter details-disclosure .disclosure');
+    if(window.screen.width <= 1024){
+      console.log('width');
+      filters.forEach((filter, index) =>{
+        filter.removeAttribute('open');
+        filter.addEventListener('click',(currentIndex)=>{
+          // filters.forEach(f => f.removeAttribute('open'));
+
+          filter.setAttribute('open')
+        })
+      })
+    }
+  });
+</script>

@@ -1,0 +1,46 @@
+<style>
+  .reject-link {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    text-decoration: underline;
+    color: #000;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .reject-link:hover {
+    color: #166209;
+    /* Change to a different color on hover */
+  }
+</style>
+{% assign popup_name = "checkoutExitPagePopup" %}
+{% capture below_button_html %}
+    <input
+      type="text"
+      id="copyValue"
+      value={{section.settings.phone_number}}
+      readonly
+      class="hidden">
+    <a id="rejectOffer-{{ popup_name }}" class="reject-link">No, thank you</a>.
+{% endcapture %}
+{% render 'popup-with-button'
+  , popup: section.settings buttons: section.blocks below_button_html: below_button_html popup_name: popup_name %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let popup = document.getElementById("{{ popup_name }}");
+    if (sessionStorage.getItem("comingFromCheckout")) {
+      setTimeout(() => {
+        popup.style.display = "block";
+      }, 1000);
+      sessionStorage.removeItem("comingFromCheckout");
+    }
+    
+    document.getElementById("{{ popup_name }}-close").addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+    document.getElementById("rejectOffer-{{ popup_name }}").addEventListener("click", () => {
+      popup.style.display = "none";
+    }); 
+  });
+</script>

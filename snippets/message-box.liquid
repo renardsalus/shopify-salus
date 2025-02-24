@@ -1,0 +1,14 @@
+<div class="product-info__block product-info__block--sm product-message__box">
+  <div class="msg-box-wrappper">
+    {% if block.settings.icon != blank -%}
+      <div class="msg-box-img">
+        <img src="{{ block.settings.icon | img_url:'master' }}">
+      </div>
+    {%- endif %}
+
+    <div class="msg-box-content">
+      <h4>{{ block.settings.heading }}</h4>
+      {{ block.settings.content }}
+    </div>
+  </div>
+</div>

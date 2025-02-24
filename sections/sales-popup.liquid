@@ -1,0 +1,51 @@
+{% if template.name == 'index' or template.name == 'collection' %}
+  {% render 'sales-popup', popup: section.settings %}
+{% endif %}
+{% schema %}
+{
+  "name": "Sales Popup",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading",
+      "label":"Heading"
+    },
+    {
+      "type":"richtext",
+      "id":"content",
+      "label":"Content",
+    },
+    {
+      "type":"text",
+      "id":"button_label",
+      "label":"Button Label"
+    },
+    {
+      "type":"url",
+      "id":"button_link",
+      "label": "Button Link"
+    },
+    {
+      "type":"image_picker",
+      "id":"image",
+      "label":"Image"
+    },
+    {
+      "type":"checkbox",
+      "id":"mobile_bg",
+      "label":"show Background Image (Mobile)",
+      "info":"By enabling this, the same image will appear in the background in mobile view."
+    },
+    {
+      "type":"color",
+      "id":"color",
+      "label":"Text Backgound Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sales Popup"
+    }
+  ]
+}
+{% endschema %}

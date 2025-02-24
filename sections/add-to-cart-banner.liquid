@@ -1,0 +1,60 @@
+<div class="quick-atc-banner sticky">
+  <div class="container">
+    <div class="atc-banner-inner">
+      <div class="atc-title">
+        <h3>{{ product.title }}</h3>
+      </div>
+      <div class="atc-detail-wrapper">
+        <div class="atc-banner-price">
+          {% render 'price', product: product, use_variant: false %}
+        </div>
+        <div class="atc-banner-button">
+          <button
+            class="quick-banner-atc btn"
+            {% if product.available == false %}
+              disabled
+            {% endif %}
+          >
+            {%- if product.available -%}
+              Add to cart
+            {%- else -%}
+              {{- 'products.product.sold_out' | t -}}
+            {%- endif -%}
+          </button>
+        </div>
+        <div class="atc-banner-shiiping">
+          <p>Free Shipping Across USA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- UPDATE PRODUCT PRICING -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let banner_current_price = document.querySelector('.atc-banner-price .price .price__current');
+      let banner_price_was = document.querySelector('.atc-banner-price .price .price__was');
+      let product_price_current = document.querySelector('.product-info__price .price .price__current');
+      let product_price_was = document.querySelector('.product-info__price .price .price__was');
+      console.log(banner_current_price.textContent);
+      setInterval(function() {
+       product_price_current = document.querySelector('.product-info__price .price .price__current');
+       product_price_was = document.querySelector('.product-info__price .price .price__was');
+        if(product_price_current && banner_current_price){
+          banner_current_price.textContent = product_price_current.textContent.replace("USD", "");
+        }
+        if(product_price_was && banner_price_was){
+          banner_price_was.textContent = product_price_was.textContent.replace("USD", "");
+        }
+  }, 1000);
+
+
+    });
+</script>
+{% schema %}
+{
+  "name": "Add To Cart Banner",
+  "class": "cc-product-atc sticky",
+  "settings": [],
+}
+{% endschema %}

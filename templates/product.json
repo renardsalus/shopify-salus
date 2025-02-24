@@ -1,0 +1,757 @@
+{
+  "sections": {
+    "add_to_cart_banner_q9D9bA": {
+      "type": "add-to-cart-banner",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_weight": false
+          }
+        },
+        "vendor_sku_pLKcrj": {
+          "type": "vendor-sku",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_barcode": false
+          }
+        },
+        "product_tags_WenhVX": {
+          "type": "product_tags",
+          "settings": {
+            "no_tags": 5
+          }
+        },
+        "judge_me_reviews_preview_badge_X9NxFb": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "delivery_dTUxNH": {
+          "type": "delivery",
+          "settings": {
+            "delivery": "{{ product.metafields.custom.delivery.value }}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false
+          }
+        },
+        "richtext_rmaxgM": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Product Overview",
+            "text": "<p>{{ product.metafields.custom.brief | metafield_tag }}<\/p>"
+          }
+        },
+        "download_manual_MAdAyX": {
+          "type": "download_manual",
+          "settings": {
+            "link_label": "Download Owner's Manual",
+            "link": "{{ product.metafields.custom.owners_manual.value }}"
+          }
+        },
+        "richtext_xT69WE": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Product Overview",
+            "text": "<p>{{ product.description }}<\/p>"
+          }
+        },
+        "variant_picker_CHdtt9": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
+            "show_backorder_text": false,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "features_nwQakY": {
+          "type": "features",
+          "disabled": true,
+          "settings": {
+            "open": false
+          }
+        },
+        "product_accordions_JPfDhi": {
+          "type": "product_accordions",
+          "settings": {}
+        },
+        "judge_me_reviews_featured_carousel_axna7X": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "maxwidth": 1080
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": false,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": false,
+            "show_gift_card_recipient": false,
+            "show_msg_box": true,
+            "icon": "shopify:\/\/shop_images\/question-mark.png",
+            "heading": "Have questions about this model?",
+            "content": "<p><a href=\"mailto:sales@salussaunas.com\" title=\"Email\">Talk to an expert<\/a><\/p>",
+            "show_price": true
+          }
+        },
+        "pay_hsa_fsa_CtzPVC": {
+          "type": "pay_hsa_fsa",
+          "settings": {}
+        },
+        "delivery_detail_mAnc4b": {
+          "type": "delivery_detail",
+          "disabled": true,
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/free_shipping.svg",
+            "heading": "2-3 weeks delivery",
+            "content": "<ul><li>free shipping across US<\/li><li>A7-year warranty*<\/li><li>Expert Customer Support<\/li><li>Plug-and-sweet<\/li><\/ul>"
+          }
+        },
+        "copy_link_4kBkjc": {
+          "type": "copy_link",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_liquid_NEe7FL": {
+          "type": "custom-liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{% for collection in product.collections %}\n<p>{{collection.title}}<\/p>\n{% if  collection.metafields.custom.heading != blank %}\n<h1>{{ collection.metafields.custom.heading.value }}<\/h1>\n\n{%endif %}\n\n{% endfor %}"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor_sku_pLKcrj",
+        "product_tags_WenhVX",
+        "judge_me_reviews_preview_badge_X9NxFb",
+        "delivery_dTUxNH",
+        "price",
+        "richtext_rmaxgM",
+        "download_manual_MAdAyX",
+        "richtext_xT69WE",
+        "variant_picker_CHdtt9",
+        "features_nwQakY",
+        "product_accordions_JPfDhi",
+        "judge_me_reviews_featured_carousel_axna7X",
+        "buy-buttons",
+        "pay_hsa_fsa_CtzPVC",
+        "delivery_detail_mAnc4b",
+        "copy_link_4kBkjc",
+        "custom_liquid_NEe7FL"
+      ],
+      "settings": {
+        "stick_on_scroll": false,
+        "sticky_atc_panel": true,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "media_layout": "slider",
+        "media_size": "default",
+        "media_ratio": "1",
+        "media_crop": "none",
+        "hover_zoom": "large",
+        "enable_video_looping": false,
+        "stacked_scroll": "always",
+        "underline_active": true,
+        "media_thumbs": "always",
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
+        "media_arrows": "desktop",
+        "show_slide_count": false,
+        "border_color": "#ffffff",
+        "bg_color": "#ffffff",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "abx_responsive_gallery_FxQfrp": {
+      "type": "abx-responsive-gallery",
+      "custom_css": [
+        "h2 {font-weight: 600;}"
+      ],
+      "settings": {
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "color_scheme": "none",
+        "heading": "Measurements",
+        "heading_size": "h2",
+        "full_width": true,
+        "prevent_animation": false,
+        "image_width": 240,
+        "image_height": 240,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "details": {
+      "type": "product-details",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_xqC4fe": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_xqC4fe"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "freebies_section_i9kUNq": {
+      "type": "freebies-section",
+      "disabled": true,
+      "settings": {
+        "enable_padding": false,
+        "enable_gap": true,
+        "enable_fw": false,
+        "heading_align": "text-center",
+        "layout": "grid",
+        "column_size": "small",
+        "column_align": "left",
+        "media_align": "text-center",
+        "image_ratio": "1.77",
+        "color_scheme": "4"
+      }
+    },
+    "brands_comparison_7kxfG6": {
+      "type": "brands-comparison",
+      "settings": {
+        "color_scheme": "1"
+      }
+    },
+    "product_video_8ba4TM": {
+      "type": "product-video",
+      "settings": {
+        "title": "",
+        "image_fit": "contain",
+        "color_scheme": "none",
+        "button-text": "",
+        "link": ""
+      }
+    },
+    "sauna_difference_fAbfw7": {
+      "type": "sauna-difference",
+      "disabled": true,
+      "settings": {
+        "vertical_spacing": true,
+        "icon_size": 44,
+        "heading_align": "text-center",
+        "text_layout": "2",
+        "title_type_scale": "medium",
+        "text_type_scale": "medium",
+        "icon_position": "above",
+        "mobile_stack": true,
+        "section_height": "small",
+        "color_scheme": "2",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "product_specifications_pUqnpz": {
+      "type": "product-specifications",
+      "disabled": true,
+      "settings": {
+        "heading_align": "text-start",
+        "heading_size": "2",
+        "color_scheme": "none",
+        "full_width": true,
+        "enable_fw": true,
+        "top_padding": 170,
+        "bottom_padding": 60
+      }
+    },
+    "product_faqs_Mep7QQ": {
+      "type": "product-faqs",
+      "disabled": true,
+      "settings": {
+        "heading_align": "text-center",
+        "heading_size": "1",
+        "color_scheme": "4",
+        "full_width": true,
+        "enable_fw": false,
+        "top_padding": 170,
+        "bottom_padding": 170
+      }
+    },
+    "assembly_video_H4WpPp": {
+      "type": "assembly-video",
+      "settings": {
+        "enable_vertical_spacing": true,
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "3",
+        "button_label": "Watch Full Video",
+        "only_content_color_scheme": false
+      }
+    },
+    "product_sauna_compare_EgaFVg": {
+      "type": "product-sauna-compare",
+      "disabled": true,
+      "settings": {}
+    },
+    "abx_gallery_dynamic_8tRChz": {
+      "type": "abx-gallery-dynamic",
+      "blocks": {
+        "heading_E6p8Wc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Customer Photos",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_E6p8Wc"
+      ],
+      "custom_css": [
+        "h2 {font-weight: 600;}"
+      ],
+      "settings": {
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false,
+        "image_width": 240,
+        "image_height": 240,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "17223595897408148f": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_GR7bwQ": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_GR7bwQ"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You Might Also Like",
+        "heading_align": "text-center",
+        "layout": "carousel_on_mobile",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 16,
+        "enable_learn_more": true
+      }
+    },
+    "content_with_form_Q3amKV": {
+      "type": "content-with-form",
+      "blocks": {
+        "first_name_t789fG": {
+          "type": "first-name",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "last_name_fQMcVC": {
+          "type": "last-name",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "email_FwMYEc": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "phone_xFp8yF": {
+          "type": "phone",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "body_t4TYMD": {
+          "type": "body",
+          "settings": {
+            "required": false,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "first_name_t789fG",
+        "last_name_fQMcVC",
+        "email_FwMYEc",
+        "phone_xFp8yF",
+        "body_t4TYMD"
+      ],
+      "settings": {
+        "contact-title": "Contact Sales",
+        "icon": "shopify:\/\/shop_images\/contact-title.svg",
+        "title": "Have questions or concerns? Consult our sauna experts",
+        "contact-detail01": "<p><strong>Customer Support:<br\/><\/strong><a href=\"tel:(888) 287-0111\" title=\"(888) 287-0111\">(888) 287-0111<\/a><br\/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com<\/a><\/p>",
+        "contact-detail02": "<p><strong>For Technical Support:<br\/><\/strong>Click <a href=\"#\" title=\"#\"><strong>HERE<\/strong><\/a><\/p>",
+        "contact-detail03": "<p><strong>For Partnerships:<br\/><\/strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com<\/a><\/p>",
+        "contact-detail04": "<p><strong>For Mail Only:<br\/><\/strong>7345 164th Ave NE Ste 145-395Redmond, WA 98052<\/p>",
+        "note": "Please give our team 24-48 hours to reach back out to you.",
+        "submit_btn_label": ""
+      }
+    },
+    "video_carousel_ik4Hcz": {
+      "type": "Video_Carousel",
+      "blocks": {
+        "video_eAz9Hz": {
+          "type": "video",
+          "settings": {
+            "video": "{{ product.metafields.custom.product_detail_video.value }}",
+            "poster": "{{ product.metafields.custom.product_video_thumbnail.value }}",
+            "video_autoplay": false
+          }
+        }
+      },
+      "block_order": [
+        "video_eAz9Hz"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Learn what makes this model special",
+        "button-text": "",
+        "link": ""
+      }
+    },
+    "faq_8XpMFb": {
+      "type": "faq",
+      "blocks": {
+        "question_ndgbAc": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Material",
+            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "tabular_style": true
+          }
+        },
+        "question_Pi8xTz": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Dimensions",
+            "text": "<p><strong>Interior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Exterior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Shipping Dimensions <\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Bench Depth<\/strong><br\/>17.8<\/p><p><strong>Stave Thickness<\/strong><br\/>1.65<\/p>",
+            "tabular_style": true
+          }
+        },
+        "question_iM4R96": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Lightning",
+            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "tabular_style": true
+          }
+        },
+        "question_AHyqAq": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Power Supply",
+            "text": "<p><strong>Interior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Exterior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Shipping Dimensions <\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Bench Depth<\/strong><br\/>17.8<\/p><p><strong>Stave Thickness<\/strong><br\/>1.65<\/p>",
+            "tabular_style": true
+          }
+        }
+      },
+      "block_order": [
+        "question_ndgbAc",
+        "question_Pi8xTz",
+        "question_iM4R96",
+        "question_AHyqAq"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Detailed Specifications",
+        "heading_align": "text-start",
+        "heading_size": "2",
+        "color_scheme": "none",
+        "full_width": true,
+        "enable_fw": true,
+        "top_padding": 140,
+        "bottom_padding": 100
+      }
+    },
+    "faq_M3UWtW": {
+      "type": "faq",
+      "blocks": {
+        "question_kNkrMX": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Detailed Background",
+            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "tabular_style": true
+          }
+        }
+      },
+      "block_order": [
+        "question_kNkrMX"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Electrical Requirements",
+        "heading_align": "text-start",
+        "heading_size": "2",
+        "color_scheme": "none",
+        "full_width": true,
+        "enable_fw": true,
+        "top_padding": 0,
+        "bottom_padding": 100
+      }
+    },
+    "faq_37Uk8A": {
+      "type": "faq",
+      "blocks": {
+        "question_YFJNhF": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Detailed Background",
+            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "tabular_style": true
+          }
+        }
+      },
+      "block_order": [
+        "question_YFJNhF"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Shipping Details",
+        "heading_align": "text-start",
+        "heading_size": "2",
+        "color_scheme": "none",
+        "full_width": true,
+        "enable_fw": true,
+        "top_padding": 0,
+        "bottom_padding": 160
+      }
+    },
+    "dynamic_product_comparison_gCAKfY": {
+      "type": "dynamic-product-comparison",
+      "disabled": true,
+      "settings": {
+        "heading": "Can’t decide which sauna’s for you?",
+        "content": "<p>Use our comparison tool to help you decide<\/p>",
+        "compare_btn_label": "Compare sauna models"
+      }
+    },
+    "media_with_text_Pk3x7i": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_3eFf6R": {
+          "type": "heading",
+          "settings": {
+            "heading": "Own this model? Watch our guided assembly video",
+            "heading_size": "h4",
+            "heading_h1": false
+          }
+        },
+        "text_6jGUxH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Do you own this sauna model or just curious to see how easy our sauna setup is? Click the video on the right to see the short version or click the button below to see our full assembly video.<\/p>",
+            "enlarge_text": false
+          }
+        },
+        "button_awk7wK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Watch full assembly video",
+            "button_link": "#",
+            "button_style": "btn btn--secondary",
+            "show_btn_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_3eFf6R",
+        "text_6jGUxH",
+        "button_awk7wK"
+      ],
+      "disabled": true,
+      "settings": {
+        "sec_design": "2",
+        "enable_vertical_spacing": true,
+        "image": "shopify:\/\/shop_images\/guide-video-thmb.jpg",
+        "video_shopify": "shopify:\/\/files\/videos\/KELLAGAKOOS.mp4",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "3",
+        "only_content_color_scheme": false
+      }
+    },
+    "brand_comparison_hQAWFb": {
+      "type": "brand-comparison",
+      "blocks": {
+        "row_d6n8AW": {
+          "type": "row",
+          "settings": {
+            "col1": "Newfoundland",
+            "show_bdg1": false,
+            "col2": "Plung AllIn",
+            "show_bdg2": false,
+            "col3": "Core Chill",
+            "show_bdg3": false,
+            "col4": "cold Stoic3.0",
+            "show_bdg4": false,
+            "col5": "Alpine Terrian",
+            "show_bdg5": false,
+            "col6": "",
+            "show_bdg6": false
+          }
+        },
+        "row_3XeqLV": {
+          "type": "row",
+          "settings": {
+            "col1": "3-Point Filteration",
+            "show_bdg1": false,
+            "col2": "YES",
+            "show_bdg2": true,
+            "col3": "NO",
+            "show_bdg3": false,
+            "col4": "NO",
+            "show_bdg4": false,
+            "col5": "NO",
+            "show_bdg5": false,
+            "col6": "NO",
+            "show_bdg6": false
+          }
+        },
+        "row_kcK3QJ": {
+          "type": "row",
+          "settings": {
+            "col1": "Full Water Immersion",
+            "show_bdg1": false,
+            "col2": "YES",
+            "show_bdg2": true,
+            "col3": "NO",
+            "show_bdg3": false,
+            "col4": "YES",
+            "show_bdg4": true,
+            "col5": "NO",
+            "show_bdg5": false,
+            "col6": "NO",
+            "show_bdg6": false
+          }
+        },
+        "row_ymhafb": {
+          "type": "row",
+          "settings": {
+            "col1": "Tube Build Material",
+            "show_bdg1": false,
+            "col2": "Stainless Steel",
+            "show_bdg2": true,
+            "col3": "Acrylic (header to maintain temperature)",
+            "show_bdg3": false,
+            "col4": "Stainless Steel",
+            "show_bdg4": true,
+            "col5": "N\/A",
+            "show_bdg5": false,
+            "col6": "Acrylic (header to maintain temperature)",
+            "show_bdg6": false
+          }
+        },
+        "row_EABX9C": {
+          "type": "row",
+          "settings": {
+            "col1": "Pricepoint",
+            "show_bdg1": false,
+            "col2": "Below $10,0000",
+            "show_bdg2": true,
+            "col3": "Below $10,0000",
+            "show_bdg3": true,
+            "col4": "$17.490",
+            "show_bdg4": false,
+            "col5": "$10,699",
+            "show_bdg5": false,
+            "col6": "$10,619",
+            "show_bdg6": false
+          }
+        }
+      },
+      "block_order": [
+        "row_d6n8AW",
+        "row_3XeqLV",
+        "row_kcK3QJ",
+        "row_ymhafb",
+        "row_EABX9C"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "3",
+        "heading": "See how we compare to other brands",
+        "logo1": "shopify:\/\/shop_images\/salus-loggo.png",
+        "logo2": "shopify:\/\/shop_images\/salus-loggo.png",
+        "logo3": "shopify:\/\/shop_images\/salus-loggo.png",
+        "logo4": "shopify:\/\/shop_images\/salus-loggo.png",
+        "logo5": "shopify:\/\/shop_images\/salus-loggo.png"
+      }
+    }
+  },
+  "order": [
+    "add_to_cart_banner_q9D9bA",
+    "main",
+    "abx_responsive_gallery_FxQfrp",
+    "details",
+    "freebies_section_i9kUNq",
+    "brands_comparison_7kxfG6",
+    "product_video_8ba4TM",
+    "sauna_difference_fAbfw7",
+    "product_specifications_pUqnpz",
+    "product_faqs_Mep7QQ",
+    "assembly_video_H4WpPp",
+    "product_sauna_compare_EgaFVg",
+    "abx_gallery_dynamic_8tRChz",
+    "17223595897408148f",
+    "recommendations",
+    "content_with_form_Q3amKV",
+    "video_carousel_ik4Hcz",
+    "faq_8XpMFb",
+    "faq_M3UWtW",
+    "faq_37Uk8A",
+    "dynamic_product_comparison_gCAKfY",
+    "media_with_text_Pk3x7i",
+    "brand_comparison_hQAWFb"
+  ]
+}

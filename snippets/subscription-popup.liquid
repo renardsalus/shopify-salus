@@ -1,0 +1,265 @@
+{% style %}
+      .salusPopup-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 100;
+      }
+
+      .salusPopup-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          border-radius: 5px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          width: 100%;
+          max-width: 850px;
+          height: 100%;
+          max-height: 450px;
+          border-radius: 15px;
+          transition: transform 0.3s ease;
+      }
+
+      #salusPopup-close {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          font-size: 38px;
+          cursor: pointer;
+      }
+
+      .salusPopup-content-row {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 15px;
+      }
+
+      .salusPopup-info {
+          padding: 60px 20px 60px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .salusPopup-info h2 {
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 38px;
+          text-align: center;
+          color: #000;
+          margin-bottom: 20px;
+      }
+
+      .salusPopup-info p {
+          /* font-family: Poppins; */
+          font-size: 18px;
+          font-weight: 300;
+          line-height: 27px;
+          text-align: center;
+          color: #000000;
+          margin-bottom: 0;
+      }
+
+      .salusPopup-info a.btn {
+          display: block;
+          background: #1B413E;
+          width: 100%;
+          padding: 10px 20px;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 27px;
+          border-radius: 6px;
+          margin-top: 40px;
+      }
+
+      .salusPopup-media img {
+          display: block;
+          height: 100%;
+          max-height:450px;
+          width: 100%;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          object-fit: cover;
+      }
+
+      .salusPopup-media {
+          height: 100%;
+          background: #FBF2E9;
+      }
+      .salusPopup-form input {
+        border-radius: 5px;
+        border: 1px solid #E2E2E2;
+        padding: 15px 15px 15px 20px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27px;
+        margin-bottom:10px;
+    }
+    .salusPopup-form form .btn {
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+      margin-inline-end: 0;
+      margin-top: 20px;
+  }
+  @media only screen and (max-width:768px){
+    .salusPopup-content{
+      max-width:90%;
+    }
+    .salusPopup-info{
+      padding:40px 10px 40px 30px;
+    }
+    .salusPopup-info h2{
+      font-size:28px;
+      line-height:34px;
+    }
+    .salusPopup-form input{
+      padding:12px 12px 12px 20px;
+      font-size:16px;
+      line-height:25px;
+    }
+    .salusPopup-form form .btn{
+      font-size:16px;
+      line-height:25px;
+    }
+    .salusPopup-form input {
+        padding: 10px 10px 10px 15px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+  }
+  @media only screen and (max-width:575px){
+    .salusPopup-content{
+      max-height:400px;
+    }
+    .salusPopup-content-row{
+      grid-template-columns:100%;
+    }
+    .salusPopup-media{
+      display:none;
+    }
+    .salusPopup-info{
+      padding:40px;
+    }
+    .salusPopup-info h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .salusPopup-form input {
+        padding: 10px 10px 10px 15px;
+        font-size: 14px;
+        line-height: 23px;
+    }
+    .salusPopup-form form .btn{
+      font-size:14px;
+      line-height:23px;
+    }
+  }
+{% endstyle %}
+<div id="salusPopup" class="salusPopup-overlay">
+  <div class="salusPopup-content">
+    <span id="salusPopup-close" class="close">×</span>
+    <div class="salusPopup-content-row">
+      <div class="salusPopup-info">
+        {% if popup.heading != blank %}
+          <h2>{{ popup.heading }}</h2>
+        {% endif %}
+        {{ popup.content }}
+        <div class="salusPopup-form">
+          {% form 'customer', class: 'form', id: 'download-article__form' %}
+            <input type="hidden" name="contact[newsletter]" value="prospect, {{ 'newsletter, download-article' }}">
+
+            {% if return_to %}
+              <input type="hidden" name="return_to" value="{{ return_to }}?customer_posted=true">
+            {% endif %}
+
+            <div class="form__fields">
+              <input
+                type="text"
+                class="input w-full focus-inset"
+                id="fullName__{{- id }}"
+                name="contact[full_name]"
+                value="{{ form.name }}"
+                placeholder="Full Name"
+                autocomplete="name"
+
+                aria-required="true"
+                required
+              >
+              <input
+                type="email"
+                class="input w-full focus-inset"
+                id="{{ id }}"
+                name="contact[email]"
+                value="{{ form.email }}"
+                placeholder="{{ 'newsletter.placeholder' | t }}"
+                autocomplete="email"
+                {%- if form.posted_successfully? %}
+                  aria-describedby="{{ id }}-success"
+                {%- elsif form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="{{ id }}-error"
+                  autofocus
+                {%- endif %}
+                aria-required="true"
+                required
+              >
+
+              {%- if form.errors -%}
+                <p class="form__field-error" id="{{ id }}-error">
+                  {{ form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email }}
+                </p>
+              {%- endif -%}
+            </div>
+
+            {%- if form.posted_successfully? -%}
+              <div class="alert bg-success-bg text-success-text" id="{{ id }}-success" tabindex="-1" autofocus>
+                {{ 'newsletter.success' | t }}
+              </div>
+            {%- endif -%}
+            <div class="form__actions">
+              <button class="btn btn--primary w-full">{{ popup.foem_button_label }}</button>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+      <div class="salusPopup-media">
+        {% if popup.image != blank %}
+          <img src="{{ popup.image | img_url:'master' }}" alt="{{ popup.image.alt }}">
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let popup = document.getElementById("salusPopup");
+    let button = document.querySelector('.download-btn');
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+        setTimeout(() => {
+            popup.style.display = "block";
+        }, 500);
+    })
+
+    document.getElementById("salusPopup-close").addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+  });
+</script>

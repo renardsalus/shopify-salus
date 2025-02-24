@@ -1,0 +1,577 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  if section.settings.image_ratio == 'shortest'
+    assign image_ratio = 0
+    for article in blog.articles
+      if article.image.aspect_ratio > image_ratio
+        assign image_ratio = article.image.aspect_ratio
+      endif
+    endfor
+  elsif section.settings.aspec_ratio == '1.937'
+    assign image_ratio = 1.9379
+  elsif section.settings.image_ratio == 'tallest'
+    assign image_ratio = 99
+    for article in blog.articles
+      if article.image.aspect_ratio < image_ratio
+        assign image_ratio = article.image.aspect_ratio
+      endif
+    endfor
+  else
+    assign image_ratio = section.settings.image_ratio
+  endif
+-%}
+
+{% if section.settings.topics != blank %}
+  <div class="collection-secondary-nav">
+    <div class="container">
+      <div class="blog-nav-inner">
+        <h4>Topic Categories:</h4>
+        <div class="col-nav">
+          <ul>
+            {% assign links = section.settings.topics | split: ',' %}
+            <li>
+              {% assign request_path = request.path | split: '/' | last %}
+              <a
+                href="/blogs/{{ blog.handle }}"
+                {% if request_path == blog.handle %}
+                  class="active"
+                {% endif %}
+              >
+                All Articles
+              </a>
+            </li>
+            {% for link in links %}
+              {% assign tag = link | handleize %}
+              <li>
+                <a
+                  href="/blogs/{{ blog.handle }}/tagged/{{ tag }}"
+                  {% if request.path contains tag %}
+                    class="active"
+                  {% endif %}
+                >
+                  {{- link -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<div class="container">
+  {% if section.settings.show_blog_title
+    or section.settings.description != blank
+    or section.settings.show_share_links
+  %}
+    <div class="gap-x-theme flex flex-col {{ section.settings.text_align }}{% unless section.settings.description == blank and section.settings.show_share_links == false %} mb-16{% endunless %}">
+      {%- if section.settings.show_blog_title -%}
+        <h1 class="last:mb-0">{{ blog.title | escape }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="rte reading-width--inline mb-8 last:mb-0">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_share_links -%}
+        <div class="social-share flex items-center">
+          <p class="social-share__heading mb-0 font-bold">{{ 'general.social.share_heading' | t }}:</p>
+          {% render 'social-share', share_title: blog.title, share_url: blog.url %}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.show_tag_filter and blog.all_tags.size > 0 -%}
+    <script src="{{ 'blog-filter.js' | asset_url }}" defer="defer"></script>
+    <blog-filter>
+      {%- liquid
+        assign filter_label = 'blogs.filtering.filter_by' | t
+        assign filter_all = 'blogs.filtering.all' | t | append: ','
+        assign tag_values = blog.all_tags | join: ',' | prepend: '-,' | split: ','
+        assign tag_names = blog.all_tags | join: ',' | prepend: filter_all | split: ','
+
+        if current_tags
+          assign selected_Value = current_tags | join
+        endif
+      -%}
+      <div class="md:hidden">
+        <div id="blog-filter-dropdown">
+          {% render 'custom-select',
+            id: 'blog_tags',
+            label: filter_label,
+            default_option: filter_label,
+            hide_label: true,
+            option_values: tag_values,
+            option_names: tag_names,
+            selected_value: selected_Value
+          %}
+          <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+        </div>
+        <hr class="md-down:-mx-gutter w-auto">
+      </div>
+
+      <div class="border-top border-bottom hidden md:block no-js-visible">
+        <ul class="list-none flex flex-wrap pt-3 pb-3 -blog-mx-2 lg:blog-text-lg" id="blog-filter-links">
+          <li>
+            <a
+              href="{{ blog.url }}"
+              class="pt-2 pb-2 pl-4 pr-4 text-theme-text block{% unless current_tags %} font-bold underline{% endunless %}"
+              data-tag="-"
+            >
+              {{- 'blogs.filtering.all' | t -}}
+            </a>
+          </li>
+          {% for tag in blog.all_tags %}
+            <li>
+              <a
+                href="{{ tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first }}"
+                data-tag="{{ tag | escape }}"
+                class="pt-2 pb-2 pl-4 pr-4 text-theme-text block{% if current_tags contains tag %} font-bold underline{% endif %}"
+              >
+                {{- tag -}}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </blog-filter>
+  {%- endif -%}
+
+  {%- if section.settings.show_featured_post and current_tags == blank -%}
+    {%- for article in blog.articles -%}
+      <div class="mt-6 mb-6 lg:blog-mb-16 lg:blog-mt-16 md-down:-mx-gutter featured-card">
+        {% render 'article-card',
+          article: article,
+          blog_url: blog.url,
+          featured: true,
+          large_image: true,
+          color_scheme: section.settings.color_scheme,
+          show_image: section.settings.show_featured_image,
+          image_ratio: image_ratio,
+          show_author: section.settings.show_author,
+          show_date: section.settings.show_date,
+          show_tags: section.settings.show_tags,
+          show_excerpt: section.settings.show_excerpt,
+          show_button: section.settings.show_featured_button,
+          button_style: section.settings.featured_button_style
+        %}
+      </div>
+      {%- break -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if settings.pagination_style == 'modern' or settings.pagination_infinite -%}
+    <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  <div class="blog-row">
+    <div class="blog-sidebar">
+      <div class="blog-sidebar-filter">
+        {% render 'article-list', title: section.settings.filter_title, tags: section.settings.topics %}
+      </div>
+    </div>
+    {%- paginate blog.articles by section.settings.posts_per_page -%}
+      <custom-pagination
+        class="block mt-0 lg:blog-mt-0"
+        data-infinite-scroll="{{ settings.pagination_infinite }}"
+        data-pause-infinite-scroll="false"
+      >
+        <div class="blog-articles {% if image_ratio == '1.937' %}media-landscap{% endif %}">
+          <ul
+            class="grid grid-cols-1 gap-theme blog-gap-y-12 lg:blog-gap-y-16 sm:grid-cols-2 md:grid-cols-2{% unless section.settings.three_columns %} lg:grid-cols-4{% endunless %}"
+            role="list"
+          >
+            {%- for article in blog.articles -%}
+              {%- assign post_index = forloop.index -%}
+              {%- unless section.settings.show_featured_post
+                and forloop.first
+                and paginate.current_page == 1
+                and current_tags == blank
+              -%}
+                <li class="js-pagination-result">
+                  {% render 'article-card',
+                    article: article,
+                    blog_url: blog.url,
+                    show_image: section.settings.show_featured_image,
+                    image_ratio: image_ratio,
+                    show_author: section.settings.show_author,
+                    show_date: section.settings.show_date,
+                    show_tags: section.settings.show_tags,
+                    show_excerpt: section.settings.show_excerpt,
+                    show_button: section.settings.show_button,
+                    button_style: section.settings.button_style
+                  %}
+                </li>
+              {%- endunless -%}
+              {% for promotion in section.blocks %}
+                {% if promotion.type == 'wide_promotion' and post_index == 4 %}
+                  <li class="blog-wide-promotion">
+                    <div
+                      class="bw-promotion-inner"
+                      {% if promotion.settings.bg_image != blank %}
+                        style="background-image:url({{  promotion.settings.bg_image | img_url:'master' }})"
+                      {% endif %}
+                    >
+                      <div class="bw-promotion-content">
+                        <h2>{{ promotion.settings.heading }}</h2>
+                        {% if promotion.settings.btn_label != blank %}
+                          <a class="btn btn--secondary" href="{{ promotion.btn_link }}">
+                            {{- promotion.settings.btn_label -}}
+                          </a>
+                        {% endif %}
+                        {{ promotion.settings.content }}
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+
+                {% if promotion.type == 'card_promotion' and post_index == 8 %}
+                  <li class="blog-card-promotion">
+                    {% render 'blog-card-promotion', promotion: promotion %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {%- endfor -%}
+          </ul>
+
+          {%- if paginate.pages > 1 -%}
+            <hr class="mt-section js-when-paginated-only">
+            {% render 'pagination', paginate: paginate, style: settings.pagination_style %}
+          {%- endif -%}
+        </div>
+      </custom-pagination>
+    {%- endpaginate -%}
+  </div>
+</div>
+<!--
+  <script>
+     document.addEventListener('DOMContentLoaded', ()=>{
+        let url = "{{ shop.url }}/blogs/{{ blog.handle }}/barrel-saunas?section_id=template--23091614449966__collection-products";
+        fetch(url).then(response => response.text())
+                  .then(responseText =>{
+                      const new_html = new DOMParser().parseFromString(responseText, 'text/html').querySelector('.cc-collection-products').innerHTML;
+                      document.querySelector('.cc-collection-products').innerHTML = new_html;
+
+                      // Manually update srcset for each image
+                      document.querySelectorAll('.cc-collection-products img').forEach(img => {
+                          img.srcset = img.getAttribute('data-srcset') || img.srcset;
+                      });
+                  });
+    });
+  </script>
+-->
+
+{% schema %}
+{
+  "name": "Blog page",
+  "class": "cc-main-blog section section--template",
+  "settings": [
+    {
+      "type":"html",
+      "id":"topics",
+      "label":"Topic List",
+      "info":"Please ensure that the listed topics are added as blog post tags, otherwise, it will result in a 404 error page. Separate topic with a comma"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_blog_title",
+      "label": "Show the default blog title",
+      "info": "If hidden, you should provide a primary page heading (h1 tag) in another section with h1 option (rich text, image banner, slideshow, video) for SEO purposes.",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_links",
+      "label": "Show social share links",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "items-center text-center",
+          "label": "Center"
+        },
+        {
+          "value": "items-end text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type":"text",
+      "id":"filter_title",
+      "label":"Filter Title"
+    },
+    {
+      "type": "header",
+      "content": "Results layout"
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "checkbox",
+      "id": "three_columns",
+      "label": "Limit to 3 columns",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_filter",
+      "label": "Show tag filter",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_image",
+      "label": "Show featured image",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+
+        {
+          "value": "shortest",
+          "label": "Height of shortest image"
+        },
+        {
+          "value": "tallest",
+          "label": "Height of tallest image"
+        },
+        {
+          "value": "1.77",
+          "label": "Landscape"
+        },
+        {
+          "value": "1",
+          "label": "Square"
+        },
+        {
+          "value": "0.75",
+          "label": "Portrait"
+        },
+        {
+          "value":"1.937",
+          "label": "Image Ratio (2:1)"
+        }
+      ],
+      "default": "shortest"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show published date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "btn btn--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "btn btn--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "btn btn--secondary"
+    },
+    {
+      "type": "header",
+      "content": "Featured card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_post",
+      "label": "Feature latest post",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "featured_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "btn btn--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "btn btn--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "btn btn--secondary"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"wide_promotion",
+      "name":"Wide Promotion",
+      "limit":1,
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"bg_image",
+          "label": "Background Image"
+        },
+        {
+          "type":"text",
+          "id":"heading",
+          "label": "Heading"
+        },
+        {
+          "type":"richtext",
+          "id":"content",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id":"btn_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id":"btn_link",
+          "label": "Button Label"
+        }
+      ]
+    },
+    {
+      "type":"card_promotion",
+      "name":"Card Promotion",
+      "limit":1,
+      "settings":[
+        {
+          "type":"header",
+          "content":"Card"
+        },
+        {
+          "type":"image_picker",
+          "id":"bg_image",
+          "label":"Backgrpund Image"
+        },
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading"
+        },
+        {
+          "type":"text",
+          "id":"btn_label",
+          "label":"Button Label"
+        },
+        {
+          "type":"url",
+          "id":"btn_link",
+          "label":"Button Link"
+        },
+        {
+          "type":"header",
+          "content":"Promotion Product"
+        },
+        {
+          "type":"product",
+          "id":"product",
+          "label":"Product"
+        }
+      ]
+    }
+  ],
+}
+{% endschema %}

@@ -1,0 +1,387 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+  assign bg_color = false
+
+  if color_scheme == '1'
+    assign bg_color = settings.color_scheme_1_bg
+  elsif color_scheme == '2'
+    assign bg_color = settings.color_scheme_2_bg
+  elsif color_scheme == '3'
+    assign bg_color = settings.color_scheme_3_bg
+  endif
+
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .pswp-cad-gallery .cad-image-card .gallery__image-card {
+      /* flex-basis: calc(25% - 0.5rem); */
+    }
+  
+    .pswp-cad-gallery .cad-image-card .gallery__image-card img {
+      display: block;
+      width: {{ section.settings.image_width }}px;
+      height: {{ section.settings.image_height }}px;
+      object-fit: contain;
+      margin: auto;
+    }
+  }
+
+  .rte:last-child {
+    margin-bottom: 4rem !important;
+  }
+
+  .pswp-cad-gallery * {
+    box-sizing: border-box;
+  }
+
+  .pswp-cad-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pswp-cad-gallery .cad-image-card .gallery__image-card img {
+    display: block;
+    width: {{ section.settings.image_width | times: 1.25 | round: 0 }}px;
+    height: {{ section.settings.image_height | times: 1.25 | round: 0 }}px;
+    object-fit: contain;
+    margin: auto;
+  }
+
+  .pswp img {
+    height: auto !important;
+  }
+
+  /* For mobile */
+  @media screen and (max-width: 768px) {
+    .section--mobile {
+      display: block;
+    }
+
+    .section--desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .section--mobile {
+      display: none;
+    }
+
+    .section--desktop {
+      display: block;
+    }
+  }
+{%- endstyle -%}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+<div
+  class="section section--desktop{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if bg_color == false %} color-scheme--transparent{% endif %}"
+  id="{{ section.id }}"
+  {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+    data-cc-animate
+  {% endif %}
+>
+  
+  {% if product.metafields.custom.cad_images != blank %}
+    <!-- Heading -->
+    {%- if section.settings.heading != blank -%}
+      <{% if section.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading md-down:px-gutter {{ section.settings.heading_size }}" {{ block.shopify_attributes }} style="text-align: center;">
+        <span class="contained-heading inline-block">{{- section.settings.heading | escape -}}</span>
+      </{% if section.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+    {%- endif -%}
+
+    {% assign image_title = "Front View,Side View,Interior View <br> (from the top),Interior View <br> (from the front)" | split: ',' %}
+
+    <!-- CAD Images -->
+    <div class="container {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
+      <!-- Gallery code -->
+      <div class="pswp-cad-gallery" id="cad-gallery">
+        {% for cad_image in product.metafields.custom.cad_images.value %}
+          <div class="cad-image-card">
+            <a href="{{ cad_image | image_url: width: nil  }}"
+              class="gallery__image-card"
+              data-pswp-width="{{ cad_image.width }}"
+              data-pswp-height="{{ cad_image.height }}"
+            >
+              {{ cad_image | image_url: width: 400 | image_tag }}
+            </a>
+          
+            <p>{{ image_title[forloop.index0] }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<div
+  class="section section--mobile swiper {% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if bg_color == false %} color-scheme--transparent{% endif %}"
+  id="{{ section.id }}"
+  {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+    data-cc-animate
+  {% endif %}
+>
+  
+  {% if product.metafields.custom.cad_images != blank %}
+    <!-- Heading -->
+    {%- if section.settings.heading != blank -%}
+      <{% if section.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading md-down:px-gutter {{ section.settings.heading_size }}" {{ block.shopify_attributes }} style="text-align: center;">
+        <span class="contained-heading inline-block">{{- section.settings.heading | escape -}}</span>
+      </{% if section.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+    {%- endif -%}
+
+    {% assign image_title = "Front View,Side View,Interior View <br> (from the top),Interior View <br> (from the front)" | split: ',' %}
+
+    <!-- CAD Images -->
+    <div class="container swiper-wrapper {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}" style="padding: 0;">
+      <!-- Gallery code -->
+        {% for cad_image in product.metafields.custom.cad_images.value %}
+          <div class="cad-image-card swiper-slide">
+            <div class="gallery__image-card">{{ cad_image | image_url: width: 400 | image_tag }}</div>
+            <p>{{ image_title[forloop.index0] }}</p>
+          </div>
+        {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "ABX - Image Slider",
+  "tag": "section",
+  "class": "photo-swipe",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Center"
+        },
+        {
+          "value": "text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-center"
+    },
+    {
+      "type": "checkbox",
+      "id": "mob_center_text",
+      "label": "Center text on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rich text headline"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "h6",
+          "label": "Extra extra small"
+        },
+        {
+          "value": "h5",
+          "label": "Extra small"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h1",
+          "label": "Extra large"
+        },
+        {
+          "value": "h0",
+          "label": "Extra extra large"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section background full width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "SEO"
+    },
+    {
+      "type": "checkbox",
+      "id": "prevent_animation",
+      "label": "Load the section without animation",
+      "info": "If this section is visible when the page loads, enabling this setting can reduce CLS and may improve site speed scores. [Read more](https://cleancanvas.co.uk/support/enterprise/performance-guide)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "label": "Image width",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "label": "Image height",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "ABX - Image Slider"
+    }
+  ]
+}
+{% endschema %}
+
+{% javascript %}
+{% endjavascript %}
+
+<!-- Javascript -->
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#cad-gallery',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe'),
+  });
+
+  lightbox.init();
+</script>
+
+<!-- Testimonial section script for mobile -->
+
+<script type="module">
+  const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 5000,
+  },
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
+
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+</script>

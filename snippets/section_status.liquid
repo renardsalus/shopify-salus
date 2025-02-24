@@ -1,0 +1,12 @@
+{% assign show_section = false %}
+
+{% if template.name == 'index' or template.name == 'collection' or template.name == 'blog' or template.name == 'page' %}
+  {% assign show_section = true %}
+{% endif %}
+{% if template.name == 'product' and product.metafields.custom.product_section_list != blank %}
+  {% for value in product.metafields.custom.product_section_list.value %}
+    {% if value == section_name %}
+      {% assign show_section = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

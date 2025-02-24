@@ -1,0 +1,333 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+{% assign image_ratio = 1.9379 %}
+
+<div class="container">
+  {% if section.settings.show_share_links %}
+    <div class="gap-x-theme flex flex-col {{ section.settings.text_align }}">
+      <div class="social-share flex items-center">
+        <p class="social-share__heading mb-0 font-bold">{{ 'general.social.share_heading' | t }}:</p>
+        {% render 'social-share', share_title: blog.title, share_url: blog.url %}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if settings.pagination_style == 'modern' or settings.pagination_infinite -%}
+    <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  <div class="blog-row">
+    <div class="blog-sidebar">
+      <div class="blog-sidebar-filter">
+        {% render 'article-list', title: section.settings.filter_title, links: blog.articles, last_index: true %}
+      </div>
+    </div>
+
+    <div class="blog-articles">
+      {%- paginate blog.articles by section.settings.posts_per_page -%}
+        <custom-pagination
+          class="block"
+          data-infinite-scroll="{{ settings.pagination_infinite }}"
+          data-pause-infinite-scroll="false"
+        >
+          <ul
+            class="grid grid-cols-1 gap-theme blog-gap-y-12 lg:blog-gap-y-16 sm:grid-cols-2"
+            role="list"
+          >
+            {%- for article in blog.articles -%}
+              {%- assign post_index = forloop.index -%}
+
+              <li class="js-pagination-result">
+                {% render 'article-card',
+                  article: article,
+                  blog_url: blog.url,
+                  show_image: section.settings.show_featured_image,
+                  image_ratio: image_ratio,
+                  show_author: section.settings.show_author,
+                  show_date: section.settings.show_date,
+                  show_tags: section.settings.show_tags,
+                  show_excerpt: section.settings.show_excerpt,
+                  show_rescource_count: section.settings.show_rescource_count,
+                  show_button: section.settings.show_button,
+                  button_style: section.settings.button_style
+                %}
+              </li>
+
+              {% for promotion in section.blocks %}
+                {% if promotion.type == 'wide_promotion' and post_index == 4 %}
+                  <li class="blog-wide-promotion">
+                    <div
+                      class="bw-promotion-inner"
+                      {% if promotion.settings.bg_image != blank %}
+                        style="background-image:url({{  promotion.settings.bg_image | img_url:'master' }})"
+                      {% endif %}
+                    >
+                      <div class="bw-promotion-content">
+                        <h2>{{ promotion.settings.heading }}</h2>
+                        {% if promotion.settings.btn_label != blank %}
+                          <a class="btn btn--secondary" href="{{ promotion.btn_link }}">
+                            {{- promotion.settings.btn_label -}}
+                          </a>
+                        {% endif %}
+                        {{ promotion.settings.content }}
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+
+                {% if promotion.type == 'card_promotion' and post_index == 8 %}
+                  <li class="blog-card-promotion">
+                    {% render 'blog-card-promotion', promotion: promotion %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {%- endfor -%}
+          </ul>
+
+          {%- if paginate.pages > 1 -%}
+            <hr class="mt-section js-when-paginated-only">
+            {% render 'pagination', paginate: paginate, style: settings.pagination_style %}
+          {%- endif -%}
+        </custom-pagination>
+      {%- endpaginate -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Resource Blog page",
+  "class": "cc-main-blog section section--template",
+  "settings": [
+
+    {
+      "type": "checkbox",
+      "id": "show_share_links",
+      "label": "Show social share links",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "items-center text-center",
+          "label": "Center"
+        },
+        {
+          "value": "items-end text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type":"text",
+      "id":"filter_title",
+      "label": "Filter Title"
+    },
+    {
+      "type": "header",
+      "content": "Results layout"
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_image",
+      "label": "Show featured image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type":"checkbox",
+      "id":"show_rescource_count",
+      "label":"Show Resource Count"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show published date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "btn btn--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "btn btn--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "btn btn--secondary"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "featured_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "btn btn--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "btn btn--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "btn btn--secondary"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"wide_promotion",
+      "name":"Wide Promotion",
+      "limit":1,
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"bg_image",
+          "label": "Background Image"
+        },
+        {
+          "type":"text",
+          "id":"heading",
+          "label": "Heading"
+        },
+        {
+          "type":"richtext",
+          "id":"content",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id":"btn_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id":"btn_link",
+          "label": "Button Label"
+        }
+      ]
+    },
+    {
+      "type":"card_promotion",
+      "name":"Card Promotion",
+      "limit":1,
+      "settings":[
+        {
+          "type":"header",
+          "content":"Card"
+        },
+        {
+          "type":"image_picker",
+          "id":"bg_image",
+          "label":"Backgrpund Image"
+        },
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading"
+        },
+        {
+          "type":"text",
+          "id":"btn_label",
+          "label":"Button Label"
+        },
+        {
+          "type":"url",
+          "id":"btn_link",
+          "label":"Button Link"
+        },
+        {
+          "type":"header",
+          "content":"Promotion Product"
+        },
+        {
+          "type":"product",
+          "id":"product",
+          "label":"Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Resource Blog page"
+    }
+  ]
+}
+{% endschema %}

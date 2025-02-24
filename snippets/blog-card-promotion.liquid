@@ -1,0 +1,29 @@
+<div class="blog-card-promotion-row">
+  <div
+    class="blog-card-promotion-banner"
+    {% if promotion.settings.bg_image != blank %}
+      style="background-image:url({{  promotion.settings.bg_image | img_url:'master' }})"
+    {% endif %}
+  >
+    <div class="blog-card-promo-cntnt">
+      <h2>{{ promotion.settings.heading }}</h2>
+      {% if promotion.settings.btn_label != blank %}
+        <a class="btn btn--secondary" href="{{ promotion.btn_link }}">
+          {{- promotion.settings.btn_label -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="blog-card-promotion-product">
+    {% render 'product-card',
+      product: promotion.settings.product,
+      enable_quick_add: true,
+      collection: collection,
+      image_ratio: image_ratio,
+      show_category_tag: true,
+      show_shipping_tag: true,
+      show_delivery_tag: true,
+      show_person_tag: true
+    %}
+  </div>
+</div>

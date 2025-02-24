@@ -1,0 +1,37 @@
+{%- capture variant_labels -%}
+              {%- for variant in product.variants -%}
+               
+                {%- liquid
+                  assign variant_label = blank
+                  capture variant_label
+                    render 'product-label', product: product, variant: variant, is_product_card: false, limit: 99
+                  endcapture
+                -%}
+                
+                 {% comment %}
+                {% if variant.price < variant.compare_at_price and variant.compare_at_price != 0 %}
+                  {%  assign variant_label = variant.price | money %}
+                  {% endif %}
+                {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                  {%  assign variant_label = product.selected_or_first_available_variant.price | money %} test
+                  
+                  {% endif %}
+                {% endcomment %}
+                
+                {%- if variant_label != blank -%}
+                  <div class="variant-label js-variant-label" data-variant-id="{{ variant.id }}">
+                    {{ variant_label }}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endcapture -%}
+
+{%- if variant_labels != blank -%}
+  <variant-label
+    class="block product-info__block product-info__block--sm"
+    data-current-variant-id="{{ current_variant.id }}"
+  >
+    {{ variant_labels }}
+  </variant-label>
+  <script src="{{ 'variant-label.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

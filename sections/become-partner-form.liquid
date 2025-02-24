@@ -1,0 +1,626 @@
+{%- liquid
+  assign form_id = section.id | append: '-contact'
+-%}
+{% style %}
+  .detail-contact-form{
+    margin-top:{{section.settings.margin_top}}px;
+  }
+  @media only screen and (max-width:1024px){
+    .detail-contact-form{
+      margin-top:{{section.settings.margin_top | times:0.8 | round:0}}px;
+    }
+  }
+
+    @media only screen and (max-width:768px){
+    .detail-contact-form{
+      margin-top:{{section.settings.margin_top | times:0.6 | round:0}}px;
+    }
+  }
+
+    @media only screen and (max-width:575px){
+    .detail-contact-form{
+      margin-top:{{section.settings.margin_top | times:0.4 | round:0}}px;
+    }
+  }
+{% endstyle %}
+
+<section class="detail-contact-form" id="contact-partner">
+  <div class="container">
+    <div class="detail-form-row">
+      <div class="form-content">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="contact-details-row">
+          {% if section.settings['contact-detail01'] != blank %}
+            <div class="contact-detail">
+              {{ section.settings['contact-detail01'] }}
+            </div>
+          {% endif %}
+          {% if section.settings['contact-detail02'] != blank %}
+            <div class="contact-detail">
+              {{ section.settings['contact-detail02'] }}
+            </div>
+          {% endif %}
+          {% if section.settings['contact-detail03'] != blank %}
+            <div class="contact-detail">
+              {{ section.settings['contact-detail03'] }}
+            </div>
+          {% endif %}
+          {% if section.settings['contact-detail04'] != blank %}
+            <div class="contact-detail">
+              {{ section.settings['contact-detail04'] }}
+            </div>
+          {% endif %}
+        </div>
+        {% if section.settings.note != blank %}
+          <div class="note">
+            <span>{{ section.settings.note }}</span>
+          </div>
+        {% endif %}
+      </div>
+      <div class="Contact_form">
+        <div class="form-title">
+          <img src="{{ section.settings.icon | img_url:'master'}}" alt="">
+          <h3>{{ section.settings['contact-title'] }}</h3>
+        </div>
+
+        <form action="{{ section.settings.send_link }}" method="POST" class="form reading-width">
+          {% if section.settings.subject_line != blank %}
+            <input type="hidden" name="subject" value="{{ section.settings.subject_line }}">
+          {% endif %}
+          <div
+            class="form__grid grid grid-cols-2 gap-x-theme gap-y-6"
+            {% if settings.animations_enabled != 'disabled' %}
+              data-cc-animate
+            {% endif %}
+          >
+            {%- for block in section.blocks -%}
+              <div
+                class="col-span-2{% if block.settings.half_width %} md:col-span-1{% endif %}{% if block.settings.required %} is-required{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {%- case block.type -%}
+                    <div>
+                  {%- when 'first-name' -%}
+                    <label class="label" for="{{ form_id }}-first-name">Your Name</label>
+                    <input
+                      type="text"
+                      class="input w-full"
+                      id="first-name"
+                      name="First Name"
+                      autocomplete="first-name"
+                      placeholder="{{ 'contact.form.first-name' | t }}"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                  {%- when 'last-name' -%}
+                    <input
+                      type="text"
+                      class="input w-full"
+                      id="last-name"
+                      name="Last Name"
+                      autocomplete="last-name"
+                      placeholder="{{ 'contact.form.last-name' | t }}"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                    </div>
+                  {%- when 'email' -%}
+                    <label class="label" for="{{ form_id }}-email">{{ 'contact.form.email' | t }}</label>
+                    <input
+                      type="email"
+                      class="input w-full"
+                      id="{{ form_id }}-email"
+                      name="email"
+                      autocomplete="email"
+                      placeholder="i.e. johndoe@email.com"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                  {%- when 'phone' -%}
+                    <label class="label" for="phone-number">{{ 'contact.form.phone' | t }}</label>
+
+                    <input
+                      type="tel"
+                      class="input w-full"
+                      id="phone-number"
+                      name="Phone Number"
+                      pattern="[0-9\-]*"
+                      autocomplete="tel"
+                      placeholder=""
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                  {%- when 'body' -%}
+                    <label class="label" for="message-body">{{ 'contact.form.message' | t }}</label>
+                    <textarea
+                      class="input w-full"
+                      id="message-body"
+                      name="Message"
+                      placeholder="Tell us how and why you’d like to partner with us"
+                      rows="8"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif -%}
+                    >
+                </textarea>
+                  {% when 'social_handles' %}
+                    <div class="social-handles-wrapper is-required">
+                      <label class="label">
+                        {{- block.settings.social_label }}
+                      </label>
+                      {% if block.settings.social_label != blank -%}
+                        <span class="label-span">Fill in all that apply</span>
+                      {%- endif -%}
+
+                      <div class="social_handle">
+                        <span class="social-icon">
+                          {%- render 'icon-instagram' -%}
+                        </span>
+                        <input
+                          type="url"
+                          class="input w-full"
+                          id="-instagram-link"
+                          name="Instagram Link"
+                          placeholder="Enter Instagram Link"
+                          {%- if block.settings.insta_required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      </div>
+
+                      <div class="social_handle">
+                        <span class="social-icon">
+                          {%- render 'icon-facebook' -%}
+                        </span>
+                        <input
+                          type="url"
+                          class="input w-full"
+                          id="facebook-link"
+                          name="Facebook Link"
+                          placeholder="Enter Facebook Link"
+                          {%- if block.settings.facebook_required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      </div>
+
+                      <div class="social_handle">
+                        <span class="social-icon">
+                          {%- render 'icon-tiktok' -%}
+                        </span>
+                        <input
+                          type="url"
+                          class="input w-full"
+                          id="tiktok-link"
+                          name="Tiktok Link"
+                          placeholder="Enter TikTok Link"
+                          {%- if block.settings.tiktok_required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      </div>
+                      <div class="social_handle">
+                        <span class="social-icon">
+                          {%- render 'icon-youtube' -%}
+                        </span>
+                        <input
+                          type="url"
+                          class="input w-full"
+                          id="youtube-link"
+                          name="Youtube Link"
+                          placeholder="Enter Youtube Link"
+                          {%- if block.settings.tiktok_required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      </div>
+                      <div class="social_handle">
+                        <span class="social-icon">
+                          {%- render 'icon-globe' -%}
+                        </span>
+                        <input
+                          type="url"
+                          class="input w-full"
+                          id="personal-site-link"
+                          name="Personal website Link"
+                          placeholder="Enter personal website Link"
+                          {%- if block.settings.personal_web_link_required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      </div>
+                      <div class="social_handel_notes">
+                        <span>{{ block.settings.note }}</span>
+                      </div>
+                    </div>
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if section.blocks.size > 0 -%}
+            <div
+              class="mt-6"
+              {% if settings.animations_enabled != 'disabled' %}
+                data-cc-animate
+              {% endif %}
+            >
+              <button class="{{ section.settings.button_style }} w-full md:w-auto">
+                {% if section.settings.submit_btn_label == blank -%}
+                  Send it to our experts
+                {%- else -%}
+                  {{- section.settings.submit_btn_label -}}
+                {%- endif %}
+              </button>
+            </div>
+          {%- endif -%}
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Become A Partner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact-title",
+      "label": "Heading",
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Heading Icon"
+    },
+    {
+      "type": "header",
+      "content": "Contact Details"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+    },
+    {
+      "type": "richtext",
+      "id": "contact-detail01",
+      "label":"Add your contact detail"
+    },
+    {
+      "type": "richtext",
+      "id": "contact-detail02",
+      "label":"Add your contact detail"
+    },
+    {
+      "type": "richtext",
+      "id": "contact-detail03",
+      "label":"Add your contact detail"
+    },
+    {
+      "type": "richtext",
+      "id": "contact-detail04",
+      "label":"Add your contact detail"
+    },
+    {
+      "type": "text",
+       "id": "note",
+        "label": "Note For user",
+    },
+    {
+      "type":"text",
+      "id":"submit_btn_label",
+      "label":"Submit Button Label"
+    },
+    {
+      "type":"header",
+      "content":"Form"
+    },
+    {
+      "type":"url",
+      "id":"send_link",
+      "label":"Form Link"
+    },
+    {
+      "type":"text",
+      "id":"subject_line",
+      "label": "Subject Line"
+    },
+    {
+      "type":"header",
+      "content":"Section Spacing"
+    },
+    {
+      "type":"range",
+      "id":"margin_top",
+      "label":"Top Margin",
+      "unit":"px",
+      "min":0,
+      "max":120,
+      "step":10,
+      "default":0
+    }
+  ],
+   "blocks": [
+  {
+    "type": "first-name",
+    "name": "First-Name",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "last-name",
+    "name": "Last-Name",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "Email",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "REQUIRED - Contact form will not work if this block is removed."
+      },
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "phone",
+    "name": "Phone",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "body",
+    "name": "Message",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "custom",
+    "name": "Custom input",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Custom inputs require a label, and that label may only be used once in the form."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Label",
+        "default": "Custom input"
+      },
+      {
+        "type": "select",
+        "id": "type",
+        "label": "Input type",
+        "options": [
+          {
+            "value": "text",
+            "label": "Text (single line)"
+          },
+          {
+            "value": "textarea",
+            "label": "Text (multi line)"
+          },
+          {
+            "value": "email",
+            "label": "Email"
+          },
+          {
+            "value": "tel",
+            "label": "Phone"
+          },
+          {
+            "value": "number",
+            "label": "Number"
+          },
+          {
+            "value": "url",
+            "label": "URL"
+          }
+        ],
+        "default": "text"
+      },
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "dropdown",
+    "name": "Dropdown",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Dropdowns require a label, and that label may only be used once in the form."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Label",
+        "default": "Dropdown"
+      },
+      {
+        "type": "textarea",
+        "id": "options",
+        "label": "Options",
+        "info": "One option per line.",
+        "default": "Option 1\nOption 2\nOption 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "name": "Text",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Text content</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "half_width",
+        "label": "Half width on large screens",
+        "default": false
+      }
+    ]
+  },
+  {
+    "type":"social_handles",
+    "name":"Social Handles",
+    "limit": 1,
+    "settings": [
+      {
+        "type":"text",
+        "id":"social_label",
+        "label":"Fields Label"
+      },
+      {
+        "type":"header",
+        "content": "Required Fields"
+      },
+      {
+        "type":"checkbox",
+        "id": "insta_required",
+        "label": "Instagram Link Required"
+      },
+      {
+        "type":"checkbox",
+        "id": "facebook_required",
+        "label": "Facebook Link Required"
+      },
+      {
+        "type":"checkbox",
+        "id": "tiktok_required",
+        "label": "Tiktok Link Required"
+      },
+      {
+        "type":"checkbox",
+        "id": "youtube_required",
+        "label": "Youtube Link Required"
+      },
+      {
+        "type":"checkbox",
+        "id": "personal_web_link_required",
+        "label": "Personal Website Link Required"
+      },
+      {
+        "type":"text",
+        "id":"note",
+        "label":"Note"
+      }
+    ]
+  }
+],
+  "presets": [
+    {
+      "name": "Become A Partner",
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,146 @@
+<div class="facets__filters-wrapper">
+  <div class="flex justify-between items-center">
+    <span class="flex-auto font-bold filter-title">
+      {%- render 'filter-icon' %}
+      Filters
+    </span>
+  </div>
+  <details-disclosure>
+    {% for filter in filters %}
+      {% assign items = '' %}
+      {% if filter.type == 'filters_block' %}
+        {% if filter.settings.item1 != blank %}
+          {% assign items = filter.settings.item1 | append: ',' %}
+        {% endif %}
+
+        {% if filter.settings.item2 != blank %}
+          {% assign items = items | append: filter.settings.item2 | append: ',' %}
+        {% endif %}
+
+        {% if filter.settings.item3 != blank %}
+          {% assign items = items | append: filter.settings.item3 | append: ',' %}
+        {% endif %}
+
+        {% if filter.settings.item4 != blank %}
+          {% assign items = items | append: filter.settings.item4 | append: ',' %}
+        {% endif %}
+
+        {% if filter.settings.item5 != blank %}
+          {% assign items = items | append: filter.settings.item5 | append: ',' %}
+        {% endif %}
+
+        <details class="filter disclosure" open>
+          <summary class="filter__toggle">
+            <div class="flex justify-between items-center">
+              <span class="flex-auto font-bold">{{ filter.settings.heading }}</span>
+              <span class="disclosure__toggle">
+                {%- if settings.disclosure_toggle == 'plus' -%}
+                  {% render 'icon-plus' %}
+                {%- else -%}
+                  {% render 'icon-chevron-down' %}
+                {%- endif -%}
+              </span>
+            </div>
+          </summary>
+          <div class="disclosure__panel has-motion">
+            <div class="disclosure__content">
+              <div class="filter__content">
+                <ul role="list">
+                  {% if items != blank %}
+                    {% assign loop_item = items | split: ',' %}
+                    {% for itm in loop_item %}
+                      <li class="filter-list-item" data-url="{{ itm | handleize }}">
+                        <input type="checkbox" class="checkbox visually-hidden focus-label-before">
+                        <label class="filter__label flex items-start w-full m-0"
+                          ><span class="flex-auto">{{ itm | escape }}</span></label
+                        >
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </details>
+      {% endif %}
+    {% endfor %}
+  </details-disclosure>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function filterResources(params) {
+      const listItems = document.querySelectorAll('.article__content li');
+      const filterItems = document.querySelectorAll('.filter-list-item');
+      const paramKeys = Array.from(params.keys()).map(key => key.replace(/-/g, ' ').toLowerCase());
+
+      // Update the state of checkboxes based on whether their filter matches any list item
+      filterItems.forEach(item => {
+        const urlParam = item.getAttribute('data-url');
+        const checkbox = item.querySelector('.checkbox');
+        const matches = Array.from(listItems).some(li =>
+          li.textContent.toLowerCase().includes(urlParam.replace(/-/g, ' ').toLowerCase())
+        );
+
+        if (matches) {
+          checkbox.removeAttribute('disabled');
+          // Check the checkbox if it matches the current URL parameters
+          if (params.has(urlParam)) {
+            checkbox.setAttribute('checked', 'checked');
+          }
+        } else {
+          checkbox.setAttribute('disabled', 'disabled');
+          checkbox.removeAttribute('checked'); // Ensure unchecked if disabled
+        }
+      });
+
+      // If there are no parameters in the URL, show all <li> elements and the blog promotion
+      if (paramKeys.length === 0) {
+        listItems.forEach(li => li.style.display = '');
+        document.querySelector('.blog-wide-promotion').style.display = '';
+        return;
+      } else {
+        document.querySelector('.blog-wide-promotion').style.display = 'none';
+      }
+
+      // Filter the list items based on URL parameters
+      listItems.forEach(li => {
+        const liContent = li.textContent.toLowerCase();
+        li.style.display = paramKeys.some(key => liContent.includes(key)) ? '' : 'none';
+      });
+    }
+
+    // Get initial URL parameters
+    let params = new URLSearchParams(window.location.search);
+
+    // Initial filtering based on current URL parameters
+    filterResources(params);
+
+    document.querySelectorAll('.filter-list-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        const urlParam = item.getAttribute('data-url');
+        const checkbox = item.querySelector('.checkbox');
+
+        if (checkbox.hasAttribute('disabled')) {
+          // If the checkbox is disabled, do nothing
+          return;
+        }
+
+        if (params.has(urlParam)) {
+          // If the parameter is already in the URL, remove it
+          params.delete(urlParam);
+          checkbox.removeAttribute('checked');
+        } else {
+          // If the parameter is not in the URL, add it
+          params.append(urlParam, true);
+          checkbox.setAttribute('checked', 'checked');
+        }
+
+        // Update the URL without reloading the page
+        history.replaceState(null, '', '?' + params.toString());
+
+        // Reapply the filtering and update checkbox states after updating the URL
+        filterResources(params);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "blog_banner_9i3fKW": {
+      "type": "blog-banner",
+      "settings": {
+        "show_resource_count": true,
+        "content": "<p>Explore our comprehensive blogs collection covering sauna health benefits, cold therapy, and other essential wellness accessories. From research-backed insights to expert buying guides, find everything you need to make informed decisions and elevate your wellness journey.<\/p>",
+        "text_align": "text-start",
+        "blog_menu": "",
+        "color_scheme": "3"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "card_promotion_izPhyq": {
+          "type": "card_promotion",
+          "settings": {
+            "bg_image": "shopify:\/\/shop_images\/infrared-sauna-banner-2.jpg",
+            "heading": "Enjoy the health benefits of our time-tested traditional saunas",
+            "btn_label": "Browse Traditional Saunas",
+            "btn_link": "",
+            "product": "horizon-6-person-barrel-sauna"
+          }
+        }
+      },
+      "block_order": [
+        "card_promotion_izPhyq"
+      ],
+      "settings": {
+        "topics": "Saunas,\nCold Plunges,\nHealth,\nBuying Guides,\nhuum heater",
+        "show_blog_title": false,
+        "description": "",
+        "show_share_links": false,
+        "text_align": "text-start",
+        "filter_title": "Topics",
+        "posts_per_page": 12,
+        "three_columns": true,
+        "show_tag_filter": false,
+        "show_featured_image": true,
+        "image_ratio": "1.937",
+        "show_tags": true,
+        "show_excerpt": false,
+        "show_author": false,
+        "show_date": false,
+        "show_button": false,
+        "button_style": "btn btn--primary",
+        "show_featured_post": false,
+        "show_featured_excerpt": false,
+        "show_featured_button": false,
+        "color_scheme": "1",
+        "featured_button_style": "btn btn--secondary"
+      }
+    }
+  },
+  "order": [
+    "blog_banner_9i3fKW",
+    "main"
+  ]
+}

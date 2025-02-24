@@ -1,0 +1,220 @@
+<div
+  class="main-faqs-sec"
+  id="{{ section.settings.faq_topic_list_id | handleize}}"
+>
+  <div class="container">
+    <div
+      class="main-faqs-row"
+    >
+      <div class="faqs-topic-sidebar">
+        <div class="blog-sidebar-filter faqs-sidebar">
+          {% render 'faqs-topic-list' %}
+        </div>
+      </div>
+      <div
+        class="faqs-holder"
+        {% if settings.animations_enabled != 'disabled' %}
+          data-cc-animate
+        {% endif %}
+      >
+        {% for block in section.blocks %}
+          {% if block.settings.question != blank or block.settings.answer != blank %}
+            <details-disclosure>
+              <details class="disclosure disclosure--row faq-items">
+                <summary>
+                  <div class="flex justify-between items-center">
+                    <h4 class="disclosure__title xs:regular-text h6 font-body flex flex-auto items-center mb-0 text-current">
+                      {{- block.settings.question -}}
+                    </h4>
+                    <span class="disclosure__toggle">
+                      {%- if settings.disclosure_toggle == 'plus' -%}
+                        {% render 'icon-plus' %}
+                      {%- else -%}
+                        {% render 'icon-chevron-down' %}
+                      {%- endif -%}
+                    </span>
+                  </div>
+                </summary>
+                <div class="disclosure__panel has-motion">
+                  <div class="disclosure__content rte">
+                    {{ block.settings.answer }}
+                  </div>
+                </div>
+              </details>
+            </details-disclosure>
+          {% endif %}
+        {% endfor %}
+
+        {% if section.blocks.size > 15 %}
+          <div class="load-more">
+            <button class="load-more-faq">Load more FAQs</button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %}
+<script type="application/ld+json">
+  {%- capture faq_json -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.question != blank and block.settings.answer != blank -%}
+        {
+          "@type": "Question",
+          "name": {{ block.settings.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ block.settings.answer | json }}
+          }
+        },
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{ faq_json | remove_last: ',' }}
+    ]
+  }
+</script>
+{% endcomment %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () =>{
+    // ADD FAQ TOPIC LIST - SIDEBAR
+    const getList = document.getElementById('faqs-list').innerHTML;
+    const faqSidebar = document.querySelectorAll('.main-faqs-sec .faqs-sidebar');
+    faqSidebar.forEach(sidebar => {
+      if (!sidebar.classList.contains('faq-list-added')) {
+        sidebar.insertAdjacentHTML('beforeend', getList);
+        sidebar.classList.add('faq-list-added');
+      }
+    });
+
+
+    // Function to show the selected section and update active link
+    const sections = document.querySelectorAll('.main-faqs-sec');
+    const links = document.querySelectorAll('.faq-list-item');
+    function showSection(sectionId) {
+
+      sections.forEach(section => {
+        if (section.id === sectionId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+
+      links.forEach(link => {
+        const linkSectionId = link.getAttribute('data-id');
+        if (linkSectionId === sectionId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Add click event listeners to each link
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const sectionId = link.getAttribute('data-id');
+        showSection(sectionId);
+      });
+    });
+
+    // Show the initial section (you can set the default section here)
+  {% if section.settings.active_Section %}showSection('{{ section.settings.faq_topic_list_id | handleize }}');{% endif %}
+  });
+</script>
+
+<!-- LOAD - MORE FAQS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqSections = document.querySelectorAll(".main-faqs-sec");
+
+    faqSections.forEach(section => {
+      const faqItems = section.querySelectorAll('.faq-items');
+      const loadFaqButton = section.querySelector(".load-more-faq"); // Button for this section
+
+      // Initially hide items beyond the first 4
+      faqItems.forEach((item, index) => {
+        if (index >= 15) {
+          item.style.display = 'none';
+        }
+      });
+
+      // Handle the Load More button click for each section
+      if (loadFaqButton) {
+        loadFaqButton.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          // Get the hidden items for the current section
+          const hiddenItems = Array.from(faqItems).filter(item => item.style.display === 'none');
+
+          hiddenItems.slice(0, 5).forEach(item => {
+            item.style.display = '';
+            item.style.transition = 'height 0.3s ease-out';
+            item.style.height = 'auto';
+          });
+
+          // If no more items to show, disable the button for this section
+          if (hiddenItems.length == 0) {
+            loadFaqButton.setAttribute("disabled", "true");
+          }
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main FAQs Section",
+  "tag": "section",
+  "class": "cc-main-faqs",
+  "settings": [
+    {
+      "type":"text",
+      "id":"faq_topic_list_id",
+      "label": "Section ID"
+    },
+    {
+      "type":"checkbox",
+      "id":"active_Section",
+      "label":"Default Active Section"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"question",
+      "name":"Question",
+      "settings":[
+        {
+          "type":"text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type":"richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main FAQs Section",
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "aside"
+    ]
+  }
+}
+{% endschema %}

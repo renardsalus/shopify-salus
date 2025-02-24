@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "show_breadcrumbs": true,
+        "show_page_title": true,
+        "heading_align": "text-start",
+        "upsell_heading": "Upgrade your heater to save $1000s",
+        "addon_heading": "Add-ons popular with other customer",
+        "show_backorder_text": true,
+        "show_vendor": true,
+        "show_order_note": true,
+        "show_help_note": true,
+        "help_title": "Need help with your order?",
+        "help_content": "<p>Call us! <a href=\"tel:(888) 287-0111\" title=\"tel:(888) 287-0111\">(888) 287-0111<\/a><\/p>",
+        "show_tax_and_shipping": true,
+        "show_additional_checkout_buttons": true,
+        "cart_terms_page": "",
+        "continue_shopping_page": "",
+        "show_shipping_calculator": false,
+        "shipping_calculator_default_country": "United States"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

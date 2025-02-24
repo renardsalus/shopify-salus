@@ -1,0 +1,109 @@
+{% if product.metafields.brand_comparison.status %}
+  <section class="brand-compare-sec {% if section.settings.color_scheme != 'none' %}color-scheme color-scheme--{{- section.settings.color_scheme -}}{% endif %}">
+    <div class="container">
+      <div class="brand-comare-title">
+        <h2>{{ product.metafields.comparison_heading.heading.value }}</h2>
+      </div>
+
+      <div class="brand-comare-wrapper">
+        {% if product.metafields.comparision_table_image.image != blank %}
+          <div class="comparison-table-image">
+            <img
+              src="{{ product.metafields.comparision_table_image.image.value | img_url:'master'  }}"
+              alt="{{ product.title | handleize }}-comparison-table"
+              loading="lazy"
+            >
+          </div>
+        {% else %}
+          <div class="brand-logos">
+            {% for logo in product.metafields.product_images %}
+              <div class="logo-wrapper">
+                <img src="{{ logo | last | image_url }}">
+              </div>
+            {% endfor %}
+          </div>
+          <div class="brand-comare-table">
+            <div class="bct-row bct-head">
+              {% for name in product.metafields.product_names %}
+                <div class="bct-col">
+                  <span>
+                    {{- name | last -}}
+                  </span>
+                </div>
+              {% endfor %}
+            </div>
+            {% for proprty in product.metafields.compare_properties %}
+              {% assign loop_index = forloop.index %}
+              <div class="bct-row ">
+                <div class="bct-col">
+                  <span>
+                    {{- proprty | last -}}
+                  </span>
+                </div>
+
+                {% for value in product.metafields.property_value %}
+                  {% if loop_index == forloop.index %}
+                    {% assign values = value | last | metafield_text | split: ',' %}
+                    {% for val in values %}
+                      {% if forloop.index <= product.metafields.product_names.size %}
+                        <div class="bct-col">
+                          <span>
+                            {% if forloop.last %}
+                              {{- val | remove: 'and' -}}
+                            {% else %}
+                              {{ val }}
+                            {% endif %}
+                          </span>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name": "Brands Comparison",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "4",
+          "label": "Scheme 4"
+        }
+      ],
+      "default": "1"
+    },
+  ],
+  "presets": [
+    {
+      "name":"Brands Comparison"
+    }
+  ]
+}
+{% endschema %}

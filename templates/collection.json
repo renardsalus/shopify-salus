@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "collection-banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_title": true,
+        "show_product_count": true,
+        "counter_text": "products",
+        "show_collection_description": true,
+        "text_align": "text-start",
+        "collection_image": "natural",
+        "use_product_image": false,
+        "text_width": "standard",
+        "color_scheme": "3",
+        "collection_menu": "collection-menu"
+      }
+    },
+    "collection-products": {
+      "type": "main-collection-products",
+      "settings": {
+        "products_per_page": 15,
+        "card_size_mobile": "small",
+        "card_size": "medium",
+        "show_layout_toggle": true,
+        "enable_filtering": true,
+        "filters_open_lg": true,
+        "stick_on_scroll": true,
+        "show_filter_counts": true,
+        "expand_filters": true,
+        "max_filter_options": 7,
+        "enable_sorting": true,
+        "show_feat_sort_opt": true,
+        "sort_first": true,
+        "enable_quick_add": true,
+        "show_category_tag": true,
+        "show_shipping_tag": true,
+        "show_delivery_tag": true,
+        "show_person_tag": true
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "collection-products"
+  ]
+}

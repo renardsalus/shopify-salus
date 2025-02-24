@@ -1,0 +1,269 @@
+{% comment %} ***** SECTION STATUS ***** {% endcomment %}
+{% assign show_section = false %}
+{% for collection in product.collections %}
+  {% if collection.metafields.collection_questions.size > 0 %}
+    {% assign show_section = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% assign faqs_questions = product.metafields.product_questions %}
+{% assign faqs_answers = product.metafields.product_answers %}
+{% if faqs_questions.size > 0 %}
+  {% style %}
+    #{{section.id}}.faqs-section{
+      padding:{{section.settings.top_padding}}px 0px {{section.settings.bottom_padding}}px;
+    }
+    @media only screen and (max-width:1200px){
+      #{{section.id}}.faqs-section{
+        padding:{{section.settings.top_padding | times:0.8}}px 0px {{section.settings.bottom_padding | times:0.8}}px;
+      }
+    }
+    @media only screen and (max-width:1024px){
+      #{{section.id}}.faqs-section{
+        padding:{{section.settings.top_padding | times:0.75}}px 0px {{section.settings.bottom_padding | times:0.75}}px;
+      }
+    }
+    @media only screen and (max-width:768px){
+      #{{section.id}}.faqs-section{
+        padding:{{section.settings.top_padding | times:0.5}}px 0px {{section.settings.bottom_padding | times: 0.5}}px;
+      }
+    }
+    @media only screen and (max-width:575px){
+      #{{section.id}}.faqs-section{
+        padding:{{section.settings.top_padding | times:0.4}}px 0px {{section.settings.bottom_padding | times: 0.4}}px;
+      }
+    }
+  {% endstyle %}
+  {%- liquid
+    assign color_scheme = section.settings.color_scheme
+    assign bg_color = false
+
+    if color_scheme == '1'
+      assign bg_color = settings.color_scheme_1_bg
+    elsif color_scheme == '2'
+      assign bg_color = settings.color_scheme_2_bg
+    elsif color_scheme == '3'
+      assign bg_color = settings.color_scheme_3_bg
+    endif
+
+    if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+      assign bg_color = false
+    endif
+  -%}
+
+  {%- unless section.settings.full_width -%}
+    <div class="container">
+  {%- endunless -%}
+
+  <div
+    class="section faqs-section {% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %} {% if section.settings.remove_spacing %}vs-0{% endif %}"
+    id="faqs"
+  >
+    <div class="container {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if section.settings.enable_fw %} faq-fw{% endif %}">
+      <div
+        class="{% unless section.settings.enable_fw %}reading-width{% endunless %}"
+        {% if settings.animations_enabled != 'disabled' %}
+          data-cc-animate
+        {% endif %}
+      >
+        {% if product.metafields.product_faq.heading != blank %}
+          <h2 class="{% if section.settings.heading_size == '1' %}h4{% else %}h5{% endif %} section__heading mb-12 {{ section.settings.heading_align }}">
+            {{ product.metafields.product_faq.heading.value }}
+          </h2>
+        {% endif %}
+
+        {% for i in (1..faqs_questions.size) %}
+          {% assign loop_index = forloop.index %}
+          <details-disclosure>
+            <details class="disclosure disclosure--row">
+              <summary>
+                <div class="flex justify-between items-center">
+                  {% for question in faqs_questions %}
+                    {% if loop_index == forloop.index %}
+                      <h4 class="disclosure__title xs:regular-text h6 font-body flex flex-auto items-center mb-0 text-current">
+                        {{- question | last -}}
+                      </h4>
+                    {% endif %}
+                  {% endfor %}
+                  <span class="disclosure__toggle">
+                    {%- if settings.disclosure_toggle == 'plus' -%}
+                      {% render 'icon-plus' %}
+                    {%- else -%}
+                      {% render 'icon-chevron-down' %}
+                    {%- endif -%}
+                  </span>
+                </div>
+              </summary>
+              <div class="disclosure__panel has-motion">
+                <div class="disclosure__content rte">
+                  {% for answer in faqs_answers %}
+                    {% if loop_index == forloop.index %}
+                      {{ answer | last | metafield_tag }}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </details>
+          </details-disclosure>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {%- unless section.settings.full_width -%}
+    </div>
+  {%- endunless -%}
+
+  <script type="application/ld+json">
+    {%- capture faq_json -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.heading != blank and block.settings.text != blank -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.heading | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ block.settings.text | json }}
+            }
+          },
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {{ faq_json | remove_last: ',' }}
+      ]
+    }
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Product FAQs",
+  "tag": "section",
+  "class": "cc-faq cc-specification",
+  "settings": [
+
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "text-start",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Center"
+        },
+        {
+          "value": "text-end",
+          "label": "Right"
+        }
+      ],
+      "default": "text-center"
+    },
+    {
+      "type":"select",
+      "id":"heading_size",
+      "label":"Heading Size",
+      "options":[
+        {
+          "value":"1",
+          "label":"Heading Size 1"
+        },
+        {
+          "value":"2",
+          "label":"Heading Size 2"
+        }
+      ],
+      "default":"1"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "4",
+          "label": "Scheme 4"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section background full width",
+      "default": true
+    },
+    {
+      "type":"header",
+      "content": "Section Layout"
+    },
+    {
+      "type":"checkbox",
+      "id":"enable_fw",
+      "label":"Full Width"
+    },
+    {
+      "type":"header",
+      "content":"Section Padding"
+    },
+    {
+      "type":"range",
+      "id":"top_padding",
+      "label": "Top Padding",
+      "min":0,
+      "max":170,
+      "step": 10,
+      "unit": "px",
+      "default":170
+    },
+    {
+      "type":"range",
+      "id":"bottom_padding",
+      "label": "Top Padding",
+      "min":0,
+      "max":170,
+      "unit": "px",
+      "step": 10,
+      "default":170
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product FAQs",
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "aside"
+    ]
+  }
+}
+{% endschema %}

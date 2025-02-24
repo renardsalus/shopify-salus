@@ -1,0 +1,387 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+{{ 'article.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .article-banner-content .post-title {
+    background-color:{{settings.sale_label_bg_color}};
+    color:{{settings.sale_label_text_color}};
+
+  }
+{% endstyle %}
+{% for block in section.blocks %}
+  {% assign show_filters = 'false' %}
+  {% if block.type == 'filters_block' %}
+    {% assign show_filters = 'true' %}
+  {% endif %}
+{% endfor %}
+
+<article class="library-resources-article article js-article">
+  <div class="article-featured-banner">
+    {%- if article.image %}
+      <div class="article__image">
+        <img src="{{ article.image | img_url:'master' }}" alt="{{ article.image.alt }}" loading="lazy">
+      </div>
+    {%- endif -%}
+    <div class="article-banner-wrapper">
+      <div class="container">
+        <div class="article-banner-content">
+          {% if section.settings.banner_content != blank %}
+            <span class="post-title">{{ article.title | escape }}</span>
+            {{ section.settings.banner_content }}
+          {% else %}
+            <h1 class="mb-0">{{ article.title | escape }}</h1>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="article-body-wrapper">
+    <div class="container">
+      <div class="article-breadCrumbs">
+        <ul>
+          <li><a href="{{ shop.url }}">Home</a></li>
+          <li><a href="">Learn More</a></li>
+          <li>
+            <a href="{{ blog.url }}">{{ blog.title }}</a>
+          </li>
+          <li>
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="article-body-row {% if show_filters == 'false' %}no-filters{% endif %}">
+        {% if show_filters == 'true' %}
+          <div class="blog-sidebar">
+            <div class="blog-sidebar-filter">
+              {% render 'resources-list', filters: section.blocks %}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="article-content-inner">
+          {%- if section.settings.show_tags -%}
+            {%- capture tag_markup -%}
+              <div class="article__tags mb-4 lg:blog-mb-6 last:mb-0 reading-width mx-auto uppercase">
+                {%- for tag in article.tags -%}
+                  <a href="{{ tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first }}" class="text-theme-light text-sm">
+                    {{ tag }}{% unless forloop.last %}, {% endunless %}
+                  </a>
+                {%- endfor -%}
+              </div>
+            {%- endcapture -%}
+            {% if tag_markup contains '</a>' %}{{ tag_markup }}{% endif %}
+          {%- endif -%}
+
+          {%- if section.settings.show_author or section.settings.show_date -%}
+            <p class="text-theme-light reading-width mx-auto">
+              {%- if section.settings.show_author -%}
+                {{ article.author -}}
+                {%- if section.settings.show_date %} | {% endif %}
+              {%- endif -%}
+              {%- if section.settings.show_date -%}
+                {{ article.published_at | time_tag: format: 'date' }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+          <div class="article__content">
+            {{ article.content }}
+          </div>
+          {% if section.blocks.size > 0 %}
+            {% for promotion in section.blocks %}
+              {% if promotion.type == 'promotion_banner' %}
+                <div class="blog-wide-promotion">
+                  <div
+                    class="bw-promotion-inner"
+                    {% if promotion.settings.banner_image != blank %}
+                      style="background-image:url({{ promotion.settings.banner_image | img_url:'master' }})"
+                    {% endif %}
+                  >
+                    <div class="bw-promotion-content">
+                      <h2>{{ promotion.settings.heading }}</h2>
+
+                      {% if promotion.settings.btn_label != blank %}
+                        <a class="btn btn--secondary" href="{{ promotion.settings.btn_link }}">
+                          {{- promotion.settings.btn_label -}}
+                        </a>
+                      {% endif %}
+                      {{ promotion.settings.content }}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {%- if section.settings.pagination != 'none' -%}
+            {%- if section.settings.pagination != 'standard' -%}
+              {{ 'article-pagination.css' | asset_url | stylesheet_tag }}
+              <script src="{{ 'article-pagination.js' | asset_url }}" defer="defer"></script>
+            {%- endif -%}
+
+            <article-pagination class="article__pagination pagination__bar flex justify-between font-bold border-top{% if section.settings.pagination == "standard" %} border-bottom reading-width article-width mx-auto mt-12 lg:blog-mt-16{% else %} fixed bottom-0 left-0 w-full pl-4 pr-4{% endif %}">
+              <a
+                class="pt-4 pb-4 shrink-0 js-pagination-link has-ltr-icon"
+                {% if blog.previous_article %}
+                  href="{{ blog.previous_article }}" title="{{ blog.previous_article.title | escape }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+              >
+                {% render 'icon-chevron-left' -%}
+                <span
+                  {% if section.settings.pagination == 'bar-reading' %}
+                    class="hidden md:inline"
+                  {% endif %}
+                >
+                  {{- 'blogs.article.previous_post' | t -}}
+                </span>
+              </a>
+              {% if section.settings.pagination != 'standard' %}
+                <span
+                  class="article__pagination--text js-pagination-text no-js-hidden p-4 text-theme-text overflow-hidden"
+                  {% if section.settings.pagination == 'bar-reading' %}
+                    data-show-reading-time="true"
+                  {% endif %}
+                ></span>
+              {% endif %}
+              <a
+                class="pt-4 pb-4 shrink-0 js-pagination-link has-ltr-icon"
+                {% if blog.next_article %}
+                  href="{{ blog.next_article }}" title="{{ blog.next_article.title | escape }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+              >
+                <span
+                  {% if section.settings.pagination == 'bar-reading' %}
+                    class="hidden md:inline"
+                  {% endif %}
+                >
+                  {{- 'blogs.article.next_post' | t -}}
+                </span>
+                {%- render 'icon-chevron-right' %}
+              </a>
+            </article-pagination>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.show_share_buttons -%}
+        <div class="social-share reading-width article-width mx-auto flex items-center mt-12 lg:blog-mt-16">
+          <p class="social-share__heading mb-0 font-bold">{{ 'general.social.share_heading' | t }}:</p>
+          {% render 'social-share', share_title: article.title, share_url: article.url, share_image: article.image %}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</article>
+
+<script>
+  document.querySelectorAll('.article__content table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'scrollable-table';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+</script>
+
+<!-- APPEND LINK ICON TO THE LIST ITEM -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    let links = document.querySelectorAll('.article__content li a');
+    links.forEach(link => {
+      let img = document.createElement('img');
+      img.src = 'https://www.salussaunas.com/cdn/shop/t/39/assets/icon-link-copy.svg?v=8432545620479677551724152094';
+      img.classList.add('article-link-icon');
+      link.appendChild(img);
+    });
+  });
+</script>
+
+<!-- ADD BANNER IN THE MIDDLED OF THE CONTENT LI'S -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the .article_content , .article-banner elements and first ul/ol
+    const articleContent = document.querySelector('.article__content');
+    const articleBanner = document.querySelector('.blog-wide-promotion');
+    const list = articleContent.querySelector('ul, ol');
+
+    if(articleBanner){
+      if (list) {
+        const items = list.querySelectorAll('li');
+        if (items.length > 6) {
+          // Calculate the index of the middle <li>
+          const middleIndex = Math.floor(items.length / 2);
+          const middleItem = items[middleIndex];
+
+          // Insert the banner after the middle <li>
+          middleItem.after(articleBanner);
+        }else{
+          articleBanner.remove();
+        }
+      }else{
+        articleBanner.remove();
+      }
+    }
+  });
+</script>
+
+{% render 'structured-data-article', article: article %}
+
+{% schema %}
+{
+  "name": "Library Resource Article",
+  "class": "cc-main-article section section--template",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Article header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show published date",
+      "default": true
+    },
+    {
+      "type":"header",
+      "content":"Article Banner Content"
+    },
+    {
+      "type": "richtext",
+      "id":"banner_content",
+      "label":"Content",
+      "info":"To display dynamic content for each blog post, link this field with the metafield named 'Post Banner Content."
+    },
+
+    {
+      "type": "header",
+      "content": "Article footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show social share links",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "pagination",
+      "label": "Next/previous links",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "bar",
+          "label": "Fixed bar"
+        },
+        {
+          "value": "bar-reading",
+          "label": "Fixed bar with reading estimate"
+        }
+      ],
+      "default": "standard"
+    }
+  ],
+  "blocks": [
+    {
+      "type":"promotion_banner",
+      "name":"Promotion Banner",
+      "settings": [
+        {
+          "type":"header",
+          "content":"Article Promotion Banner"
+        },
+        {
+          "type":"image_picker",
+          "id":"banner_image",
+          "label":"Banner Image"
+        },
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading"
+        },
+        {
+          "type":"richtext",
+          "id":"content",
+          "label": "Content"
+        },
+        {
+          "type":"text",
+          "id":"btn_label",
+          "label":"Button Label"
+        },
+        {
+          "type":"url",
+          "id":"btn_link",
+          "label":"Button Label"
+        }
+
+      ]
+    },
+    {
+      "type": "filters_block",
+      "name":"Filters Block",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label": "Filter Heading"
+        },
+        {
+          "type":"header",
+          "content": "Filrers List"
+        },
+        {
+          "type":"text",
+          "id":"item1",
+          "label":"Item 1"
+        },
+        {
+          "type":"text",
+          "id":"item2",
+          "label":"Item 2"
+        },
+        {
+          "type":"text",
+          "id":"item3",
+          "label":"Item 3"
+        },
+        {
+          "type":"text",
+          "id":"item4",
+          "label":"Item 4"
+        },
+        {
+          "type":"text",
+          "id":"item5",
+          "label":"Item 5"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name":"Library Resource Article"
+    }
+  ]
+}
+{% endschema %}

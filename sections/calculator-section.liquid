@@ -1,0 +1,489 @@
+{% style %}
+  body {
+        font-family: Arial, sans-serif;
+      }
+      .tabs {
+        margin-bottom: 20px;
+      }
+      .tab-button {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #ddd;
+        border: none;
+        margin-right: 5px;
+      }
+      .tab-button.active {
+        background-color: #bbb;
+        font-weight: bold;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+
+      .range-value {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+{% endstyle %}
+
+{% comment %}
+  {% paginate collections.all.products by 250 %}
+    {% for product in collections.all.products %}
+      <p>{{ forloop.index }} - {{ product.title }}</p>
+    {% endfor %}
+  {% endpaginate %}
+{% endcomment %}
+
+{% capture 'allMetaFields' %}
+    {
+      {% for collection in collections %}
+        {% paginate collection.products by 250 %}
+          {% for product in collection.products %}
+                  "{{ product.handle }}" : {
+                      product_ampere: "{{product.metafields.custom.amps}}",
+                      product_voltage : "{{product.metafields.custom.voltage}}",
+                  },
+              {% endfor %}
+          {% endpaginate %}
+      {% endfor %}
+    }
+{% endcapture %}
+
+<script type="text/javascript">
+  let allMetafield = {{ allMetaFields }}
+    console.log(allMetafield);
+</script>
+<div
+  class="cost-calculator-sec color-scheme {% unless section.settings.color_scheme == 'none' %}color-scheme--{{- section.settings.color_scheme -}}{% endunless %}"
+  id="{{ section.id }}"
+>
+  <div class="container">
+    <div class="cost-calculator-row">
+      <div class="sel-collection-wrapper">
+        <div class="sel-collection-title">
+          <h2>
+            {{ section.settings.heading -}}
+            <img src="{{ 'icon-arrow-heading.svg' | asset_url }}">
+          </h2>
+        </div>
+        <div class="selection-display">
+          <div class="category-display">
+            <p>{{ section.settings.category_title }}</p>
+            <div class="categ--inner">
+              <div class="categ--inner-img">
+                <img src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/saunas-icon.png?v=1723826935">
+              </div>
+              <span id="selected-category">None</span>
+            </div>
+          </div>
+          <div class="collection-display">
+            <p>{{ section.settings.collection_title }}</p>
+            <div class="categ--inner">
+              <div class="categ--inner-img">
+                <img src="{{ 'collection-icon.svg' | asset_url }}">
+              </div>
+              <span id="selected-collection">None</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-display">
+          <p>
+            {{ section.settings.model_title }}
+          </p>
+          <div class="sel-product-card">
+            <a href="">
+              <img
+                class="sel-product-img"
+                src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624"
+              >
+              <div class="sel-product-info">
+                <span id="selected-product">Product Title</span>
+                <p class="sel-product-price">$0</p>
+                <a href="" class="sel-lern-more">Learn More</a>
+                <button class="btn btn--secondary">Add To Cart</button>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="calculatior-wrapper">
+        <div class="calculated-cost">
+          <h4 id="monthly-cost">$0.00</h4>
+          <p>Your monthly cost</p>
+        </div>
+
+        <div class="calculator-tabs">
+          <h5>What would you like to calculate?</h5>
+          <div class="tabs">
+            {% assign category_img = 'https://cdn.shopify.com/s/files/1/0720/7695/1854/files/saunas-icon.png?v=1723826935' %}
+            <button
+              class="tab-button active"
+              data-tab="sauna"
+              data-src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/saunas-icon.png?v=1723826935"
+              onclick="openTab(event, 'sauna', '{{ category_img }}')"
+            >
+              Sauna
+            </button>
+            <button
+              class="tab-button"
+              data-tab="coldPlunge"
+              data-src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/saunas-icon.png?v=1723826935"
+              onclick="openTab(event, 'coldPlunge', '{{ category_img }}')"
+            >
+              Cold Plunge
+            </button>
+          </div>
+
+          <!-- Sauna Tab Content -->
+          <div id="sauna" class="tab-content active">
+            <div class="selection-controls">
+              <div class="select-col">
+                <label>Which collection are you purchasing from?</label>
+                <div class="select relative">
+                  <select id="sauna-collection" class="w-full input">
+                    <option value="">Select a Collection</option>
+                    {% for collection in section.settings.sauna_collection %}
+                      <option value="{{ collection.handle }}">{{ collection.title }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="select-col">
+                <label>Which model are you purchasing?</label>
+                <div class="select relative">
+                  <select id="sauna-product" class="w-full input">
+                    <option value="">Select a Product</option>
+                    <!-- Options populated by server -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="range-slider-container">
+              <label for="sauna-hours"
+                >What is your estimated use per day? <span class="range-value" id="sauna-hours-value">0</span></label
+              >
+              <input type="range" id="sauna-hours" min="0" max="24" value="0">
+              <p>
+                <span>0h</span>
+                <span>24h</span>
+              </p>
+            </div>
+            <div class="range-slider-container">
+              <label for="sauna-billrate"
+                >Your local billing rate per kWh <span class="range-value" id="sauna-billrate-value">0</span></label
+              >
+              <input type="range" id="sauna-billrate" step="0.1" min="0" max="2" value="0">
+              <p>
+                <span>$0</span>
+                <span>$2</span>
+              </p>
+            </div>
+            <div class="claculate-button">
+              <button class="calc-submit btn btn--primary">Calculate</button>
+            </div>
+          </div>
+
+          <!-- Cold Plunge Tab Content -->
+          <div id="coldPlunge" class="tab-content">
+            <div class="selection-controls">
+              <div class="select-col">
+                <label>Which collection are you purchasing from?</label>
+                <div class="select relative">
+                  <select id="coldPlunge-collection" class="w-full input">
+                    <option value="">Select a Collection</option>
+                    {% for collection in section.settings.cold_plung_collection %}
+                      <option value="{{ collection.handle }}">{{ collection.title }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="select-col">
+                <label>Which model are you purchasing?</label>
+
+                <div class="select relative">
+                  <select id="coldPlunge-product" class="w-full input">
+                    <option value="">Select a Product</option>
+                    <!-- Options populated by server -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="range-slider-container">
+              <label for="coldPlunge-hours"
+                >What is your estimated use per day?
+                <span class="range-value" id="coldPlunge-hours-value">0</span></label
+              >
+              <input type="range" id="coldPlunge-hours" min="0" max="24" value="0">
+              <p>
+                <span>0h</span>
+                <span>24h</span>
+              </p>
+            </div>
+            <div class="range-slider-container">
+              <label for="coldPlunge-billrate"
+                >Your local billing rate per kWh
+                <span class="range-value" id="coldPlunge-billrate-value">0</span></label
+              >
+              <input type="range" id="coldPlunge-billrate" step="0.1" min="0" max="2" value="0">
+              <p>
+                <span>$0</span>
+                <span>$2</span>
+              </p>
+            </div>
+            <div class="claculate-button">
+              <button class="calc-submit btn btn--primary">Calculate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function openTab(evt, tabName, imgSrc) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
+      document.querySelectorAll(".tab-button").forEach(el => el.classList.remove("active"));
+  
+      const activeTab = document.getElementById(tabName);
+      if (activeTab) {
+          activeTab.classList.add("active");
+          evt.currentTarget.classList.add("active");
+          updateElementContent('#monthly-cost', '$0.00');
+          updateElementContent('#selected-category', tabName.charAt(0).toUpperCase() + tabName.slice(2));
+          updateElementContent('#selected-collection', 'N/A');
+          updateElementContent('#selected-product', 'N/A');
+          updateElementContent('.sel-product-price', '$0');
+          updateImageSrc('.sel-product-img', 'https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624');
+          document.querySelector('.sel-lern-more').href = '';
+          updateImageSrc('.categ--inner img', imgSrc);
+          disableElement(`#${tabName} .calc-submit`);
+      } else {
+          console.error(`Tab with id '${tabName}' does not exist.`);
+      }
+    }
+    function updateElementContent(selector, content) {
+      document.querySelector(selector).textContent = content;
+    }
+
+  function updateImageSrc(selector, src) {
+      document.querySelector(selector).src = src;
+  }
+
+  function disableElement(selector) {
+      document.querySelector(selector).disabled = true;
+  }
+
+  function enableElement(selector) {
+      document.querySelector(selector).disabled = false;
+  }
+    document.addEventListener('DOMContentLoaded', function() {
+      let current = 40;
+      let voltage = 220;
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+
+        async function loadProducts(collectionSelect, productSelectId) {
+            const productSelect = document.getElementById(productSelectId);
+            productSelect.innerHTML = '<option value="">Select a Product</option>';
+
+            try {
+                const response = await fetch(`/collections/${collectionSelect.value}/products.json`);
+                const data = await response.json();
+                data.products.forEach(product => {
+                    productSelect.add(new Option(product.title, product.handle));
+                });
+                disableElement(`#${productSelectId.includes('sauna') ? 'sauna' : 'coldPlunge'} .calc-submit`);
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        async function showProductDetails(productSelectId, tabName) {
+            const productHandle = document.getElementById(productSelectId).value;
+            if (!productHandle) return;
+
+            try {
+                const response = await fetch(`/products/${productHandle}.json`);
+                const product = (await response.json()).product;
+                const metafields = allMetafield[product.handle];
+                if(metafields.product_ampere != "") current = metafields.product_ampere;
+                if(metafields.product_voltage != "") voltage = metafields.product_voltage;
+              
+                console.log('Current : ' , current, 'Voltage : ',voltage , " - ", product.handle);
+
+
+                updateElementContent('#selected-product', product.title);
+                updateImageSrc('.sel-product-img', product.images[0]?.src || 'https://cdn.shopify.com/s/files/1/0720/7695/1854/files/compare-placeholder.png?v=1722336624');
+                updateElementContent('.sel-product-price', formatter.format(parseFloat(product.variants[0].price)));
+                document.querySelector('.sel-lern-more').href = `/products/${productHandle}`;
+                enableElement(`#${tabName} .calc-submit`);
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+            }
+        }
+
+        function handleCollectionSelection(collectionSelectId, tabName) {
+            updateElementContent('#selected-collection', document.getElementById(collectionSelectId).selectedOptions[0].text);
+            loadProducts(document.getElementById(collectionSelectId), `${tabName}-product`);
+        }
+
+        function calculateCost(tabName) {
+            const hours = document.getElementById(`${tabName}-hours`).value;
+            const billRate = document.getElementById(`${tabName}-billrate`).value;
+            const power = (voltage * current) / 1000;
+            updateElementContent('#monthly-cost', formatter.format(hours * billRate * 30 * power));
+        }
+
+        function setupEventListeners() {
+            document.querySelector('.sel-lern-more').addEventListener('click', function(e) {
+                if(this.getAttribute('href') == '') e.preventDefault();
+            });
+
+            document.querySelector('.tab-button.active')?.click();
+
+            document.querySelectorAll('.tab-button').forEach(button =>
+                button.addEventListener('click', event => openTab(event, button.dataset.tab, button.dataset.src))
+            );
+
+            document.querySelectorAll('input[type="range"]').forEach(slider =>
+                slider.addEventListener('input', () => updateElementContent(`#${slider.id}-value`, slider.value))
+            );
+
+            document.getElementById('sauna-collection').addEventListener('change', () => handleCollectionSelection('sauna-collection', 'sauna'));
+            document.getElementById('sauna-product').addEventListener('change', () => showProductDetails('sauna-product', 'sauna'));
+            document.getElementById('coldPlunge-collection').addEventListener('change', () => handleCollectionSelection('coldPlunge-collection', 'coldPlunge'));
+            document.getElementById('coldPlunge-product').addEventListener('change', () => showProductDetails('coldPlunge-product', 'coldPlunge'));
+
+            document.querySelectorAll('.calc-submit').forEach(button =>
+                button.addEventListener('click', () => calculateCost(button.closest('.tab-content').id))
+            );
+        }
+
+        setupEventListeners();
+    });
+</script>
+
+<script>
+        const saunaHour = document.getElementById('sauna-hours');
+        const saunaRate = document.getElementById('sauna-billrate');
+  
+        const coldPlungHour = document.getElementById('coldPlunge-hours');
+        const coldPlungRate = document.getElementById('coldPlunge-billrate');
+
+
+        function saunasSliders() {
+            const value = (saunaHour.value - saunaHour.min) / (saunaHour.max - saunaHour.min) * 100;
+            saunaHour.style.setProperty('--percent', `${value}%`);
+
+            const value2 = (saunaRate.value - saunaRate.min) / (saunaRate.max - saunaRate.min) * 100;
+            saunaRate.style.setProperty('--percent', `${value2}%`);
+        }
+
+        function coldPlungeSliders() {
+            const value3 = (coldPlungHour.value - coldPlungHour.min) / (coldPlungHour.max - coldPlungHour.min) * 100;
+            coldPlungHour.style.setProperty('--percent', `${value3}%`);
+
+            const value4 = (coldPlungRate.value - coldPlungRate.min) / (coldPlungRate.max - coldPlungRate.min) * 100;
+            coldPlungRate.style.setProperty('--percent', `${value4}%`);
+        }
+
+        saunaHour.addEventListener('input', saunasSliders);
+        saunaRate.addEventListener('input', saunasSliders);
+
+        coldPlungHour.addEventListener('input', coldPlungeSliders);
+        coldPlungRate.addEventListener('input', coldPlungeSliders);
+        // Initialize slider background
+        saunasSliders();
+        coldPlungeSliders();
+</script>
+
+{% schema %}
+{
+  "name": "Caclculator",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "4",
+          "label": "Scheme 4"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type":"text",
+      "id":"category_title",
+      "label": "Category Title"
+    },
+    {
+      "type":"text",
+      "id":"collection_title",
+      "label": "Collection Title"
+    },
+    {
+      "type":"text",
+      "id":"model_title",
+      "label": "Model Title"
+    },
+    {
+      "type": "header",
+      "content":"Collections"
+    },
+    {
+      "type":"collection_list",
+      "id":"sauna_collection",
+      "label":"Sauna Collections"
+    },
+    {
+      "type":"collection_list",
+      "id":"cold_plung_collection",
+      "label":"Cold Plung Collections"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Caclculator"
+    }
+  ]
+}
+{% endschema %}

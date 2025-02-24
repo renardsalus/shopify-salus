@@ -1,0 +1,83 @@
+{% style %}
+  #{{section.id}}{
+    padding:{{section.settings.padding_top}}px 0px {{section.settings.padding_bottom}}px;
+  }
+  @media only screen and (max-width: 1200px){
+    #{{section.id}}{
+    padding:{{section.settings.padding_top | times:0.8 | round:0 }}px 0px {{section.settings.padding_bottom | times:0.8 | round:0}}px;
+    }
+  }
+  @media only screen and (max-width: 1024px){
+    #{{section.id}}{
+    padding:{{section.settings.padding_top | times:0.6 | round:0 }}px 0px {{section.settings.padding_bottom | times:0.6 | round:0}}px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    #{{section.id}}{
+    padding:{{section.settings.padding_top | times:0.4 | round:0 }}px 0px {{section.settings.padding_bottom | times:0.4 | round:0}}px;
+    }
+  }
+{% endstyle %}
+<section class="image-with-content" id="{{ section.id }}">
+  <div class="container">
+    <div class="img-cntnt-wrapper">
+      {% if section.settings.content != blank %}
+        <div class="content-wrapper">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+      {% if section.settings.image != blank %}
+        <div class="image-wrapper">
+          <img src="{{ section.settings.image | img_url:'master' }}">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Image With Content",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type":"header",
+      "content": "Section Padding"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom Paddiing",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Content"
+    }
+  ]
+}
+{% endschema %}

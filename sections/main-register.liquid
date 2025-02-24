@@ -1,0 +1,170 @@
+<div class="main-register">
+  <div class="container p-0">
+    <div class="register-row">
+      <div class="register-form-wrapper">
+        <div id="register">
+          <div class="section__header text-center">
+            <h1 class="h2">{{ 'customer.register.title' | t }}</h1>
+          </div>
+
+          {% comment %}
+            {%- form 'create_customer', class: 'form form-width mx-auto', novalidate: 'novalidate' -%}
+          {% endcomment %}
+          {%- form 'create_customer', class: 'form form-width mx-auto' -%}
+            {%- if form.errors -%}
+              <div class="alert mb-8 bg-error-bg text-error-text" tabindex="-1" autofocus>
+                <h2 class="h5 text-current">{{ 'contact.form.error_heading' | t }}</h2>
+                <ul class="styled-list">
+                  {%- for field in form.errors -%}
+                    <li>
+                      {%- if field == 'form' -%}
+                        {{ form.errors.messages[field] }}
+                      {%- else -%}
+                        <a class="link text-current" href="#register-{{ field }}">
+                          {{- form.errors.translated_fields[field] | capitalize }}
+                          {{ form.errors.messages[field] -}}
+                        </a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            <div class="form__field required">
+              <label class="label" for="register-first-name">{{ 'customer.register.first_name' | t }}</label>
+              <input
+                type="text"
+                class="input w-full"
+                id="register-first-name"
+                name="customer[first_name]"
+                placeholder="First Name"
+                {%- if form.first_name %}
+                  value="{{ form.first_name }}"
+                {%- endif %}
+                autocomplete="given-name"
+                required
+                maxlength="20"
+                minlength="3"
+              >
+            </div>
+
+            <div class="form__field required">
+              <label class="label" for="register-last-name">{{ 'customer.register.last_name' | t }}</label>
+              <input
+                type="text"
+                class="input w-full"
+                id="register-last-name"
+                name="customer[last_name]"
+                placeholder="Last Name"
+                {%- if form.last_name %}
+                  value="{{ form.last_name }}"
+                {%- endif %}
+                autocomplete="family-name"
+                required
+                maxlength="20"
+                minlength="3"
+              >
+            </div>
+
+            <div class="form__field required">
+              <label class="label" for="register-email">{{ 'customer.register.email' | t }}</label>
+              <input
+                type="email"
+                class="input w-full"
+                id="register-email"
+                name="customer[email]"
+                placeholder="Email"
+                {%- if form.email %}
+                  value="{{ form.email }}"
+                {%- endif %}
+                autocomplete="email"
+                {%- if form.errors contains 'email' %}
+                  aria-invalid="true"
+                  aria-describedby="register-email-error"
+                {%- endif %}
+                aria-required="true"
+                required
+              >
+              {%- if form.errors contains 'email' -%}
+                <p class="form__field-error" id="register-email-error">
+                  {{ form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email }}.
+                </p>
+              {%- endif -%}
+            </div>
+
+            <div class="form__field required">
+              <label class="label" for="register-password">{{ 'customer.register.password' | t }}</label>
+              <div class="login-password relative">
+                <input
+                  type="password"
+                  class="login-password__input input w-full"
+                  id="register-password"
+                  name="customer[password]"
+                  placeholder="Password"
+                  autocomplete="new-password"
+                  {%- if form.errors contains 'password' %}
+                    aria-invalid="true"
+                    aria-describedby="register-password-error"
+                  {%- endif %}
+                  aria-required="true"
+                  required
+                  pattern="^.{6,20}$"
+                >
+                <button id="togglePassword">
+                  <img src="{{ 'icon-eye.svg' | asset_url }}" class="show">
+                  <img src="{{ 'icon-close-eye.png' | asset_url }}" class="hide">
+                </button>
+              </div>
+              {%- if form.errors contains 'password' -%}
+                <p class="form__field-error" id="register-password-error">
+                  {{ form.errors.translated_fields.password | capitalize }}
+                  {{ form.errors.messages.password }}.
+                </p>
+              {%- endif -%}
+            </div>
+
+            <div class="mt-6">
+              <button class="btn btn--primary w-full">{{ 'customer.register.submit' | t }}</button>
+            </div>
+
+            <p class="mt-8 mb-0 text-center creat-acc">
+              {{ 'customer.register.have_account' | t }}
+              <a class="link" href="{{ routes.account_login_url }}">{{ 'customer.register.log_in' | t }}</a>
+            </p>
+          {%- endform -%}
+        </div>
+      </div>
+      <div class="register--media">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | img_url:'master' }}"
+            alt="{{ section.settings.image.alt }}"
+            loading="lazy"
+          >
+        {% else %}
+          <img
+            src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/salus-login.jpg?v=1723548758"
+            alt="login"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Register",
+  "class": "cc-main-register section section--template account--template",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id":"image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

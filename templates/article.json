@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "promotion_banner_CJR7TH": {
+          "type": "promotion_banner",
+          "settings": {
+            "banner_image": "shopify:\/\/shop_images\/infrared-sauna-banner-2.jpg",
+            "heading": "Enjoy the health benefits of our time-tested traditional saunas",
+            "content": "",
+            "btn_label": "Browse Traditional Sauna",
+            "btn_link": "shopify:\/\/collections\/traditional-saunas"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_banner_CJR7TH"
+      ],
+      "settings": {
+        "show_tags": false,
+        "show_author": true,
+        "show_date": true,
+        "sidebar_content": "",
+        "writer_detail": "{{ article.metafields.custom.writer_detail | metafield_tag }}",
+        "show_newsletter": false,
+        "nl_heading": "Get weekly updates on the best sauna content",
+        "show_share_buttons": false,
+        "pagination": "bar-reading",
+        "heading": "Free, downloadable PDFs on everything sauna related",
+        "content": "",
+        "image": "shopify:\/\/shop_images\/download-article-popup-media.jpg",
+        "foem_button_label": "Send me the article"
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "disabled": true,
+      "settings": {
+        "comments_per_page": 16
+      }
+    },
+    "blogs_post_slider_Uz9UnE": {
+      "type": "blogs-post-slider",
+      "settings": {
+        "title": "Related Blog Posts",
+        "button-text": "",
+        "button-id": "",
+        "blog": "blog"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "article-comments",
+    "blogs_post_slider_Uz9UnE"
+  ]
+}

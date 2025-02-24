@@ -1,0 +1,92 @@
+{{ 'article.css' | asset_url | stylesheet_tag }}
+{% assign color_scheme = section.settings.color_scheme %}
+
+{%- if section.settings.show_page_title -%}
+  <div
+    class="page-banner {% unless color_scheme == 'default' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+  >
+    <div class="container">
+      <div class="banner-title">
+        <h2>{{ page.title }}</h2>
+      </div>
+
+      {% if section.settings.content != blank %}
+        <div class="category-hero-content__description mt-4">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% comment %}
+    <div class="reading-width rte mb-6 md:mb-8 mt-10 md:mt-16 mx-auto">
+      <h1 class="page__title lg:mt-8 {{ section.settings.heading_align }}">{{ page.title | escape }}</h1>
+    </div>
+  {% endcomment %}
+{% endif %}
+
+{% comment %}
+  <div class="page__content reading-width rte article-content mt-12 mx-auto">
+    {{ page.content }}
+  </div>
+{% endcomment %}
+<section class="image-with-content page__content mt-16">
+  <div class="container">
+    <div class="content-wrapper">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.page__content table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'scrollable-table';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Page",
+  "class": "cc-main-page section section--template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_page_title",
+      "label": "Show the default page heading",
+      "info": "If hidden, you should provide a primary page heading (h1 tag) in another section with h1 capability (e.g. image banner, slideshow or background video) for SEO purposes.",
+      "default": true
+    },
+    {
+      "type":"richtext",
+      "id":"content",
+      "label": "Content"
+    },
+     {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "default"
+    },
+  ]
+}
+{% endschema %}

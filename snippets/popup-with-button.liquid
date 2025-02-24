@@ -1,0 +1,204 @@
+{%- comment -%}
+  Usage:
+  {% render 'popup-with-button', popup: section.settings buttons: section.blocks below_button_html: <html_code> popup_name: string %}
+{%- endcomment -%}
+<style>
+  /* Popup overlay */
+  .generalPopUp-overlay {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+  /* Popup content */
+  .generalPopUp-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 820px;
+    height: 100%;
+    max-height: 450px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+  .generalPopUp-content-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  .generalPopUp-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .generalPopUp-media {
+    height: 100%;
+    background: #FBF2E9;
+  }
+  .generalPopUp-media img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    object-fit: fill;
+  }
+  .generalPopUp-info {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+  }
+  .generalPopUp-info h2 {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  .generalPopUp-info p {
+    /* font-family: Poppins; */
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 0;
+  }
+  .generalPopUp-info a.btn {
+    display: block;
+    background: #1B413E;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    border-radius: 6px;
+    margin-top: 40px;
+  }
+  @media only screen and (max-width: 768px) {
+    .generalPopUp-content {
+      max-width: 92%;
+    }
+    .generalPopUp-info {
+      margin: 0 0 0 10px;
+      padding: 20px 0 20px 20px;
+    }
+    .generalPopUp-info h2 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .generalPopUp-info h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .generalPopUp-info p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+    }
+    .generalPopUp-info {
+      padding: 30px;
+      margin: 0;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .generalPopUp-content {
+      max-height: 600px;
+      border-radius: 10px;
+    }
+    {% if popup.image != blank and popup.mobile_bg %}
+      .generalPopUp-content {
+        background-image: url("{{ popup.image | img_url:'master' }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .generalPopUp-info {
+        background: rgba({{popup.color.rgb | replace:' ', ', '}}, 0.85);
+      }
+    {% endif %}
+    .generalPopUp-content-row {
+      display: flex !important;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .generalPopUp-info a.btn {
+      padding: 7px 10px;
+      font-size: 16px;
+      line-height: 24px;
+      margin-top: 30px;
+    }
+  }
+</style>
+<div
+  id="{{ popup_name }}"
+  class="generalPopUp-overlay"
+  style="display:none">
+  <div class="generalPopUp-content">
+    <span id="{{ popup_name }}-close" class="close generalPopUp-close ">&times;</span>
+    <div class="generalPopUp-content-row">
+      <div class="generalPopUp-info">
+        <h2>{{ popup.heading }}</h2>
+        {{ popup.content }}
+        {% for button in buttons %}
+          {% if button.settings.button_label != blank %}
+            {% style %}
+              .btn-{{ popup_name }}-popup-{{ forloop.index }} {
+                background: {{ button.settings.button_bg_color }}
+                 !important;
+                color: {{ button.settings.button_text_color }};
+                margin-top: {{ button.settings.margin_top }}
+                 !important;
+              }
+              .btn-{{ popup_name }}-popup-{{ forloop.index }}:hover {
+                background: {{ button.settings.hover_button_bg_color }}
+                 !important;
+                color: {{ button.settings.hover_button_text_color }} !important;
+              }
+            {% endstyle %}
+            <a
+              id="{{ button.settings.button_id }}"
+              class="btn btn--primary btn-{{ popup_name }}-popup-{{ forloop.index }}"
+              href="{{ button.settings.button_link }}">
+              {{ button.settings.button_label }}
+            </a>
+          {% endif %}
+        {% endfor %}
+        {{ below_button_html }}
+      </div>
+      <div class="generalPopUp-media">
+        {% if popup.image != blank %}
+          <img
+            src="{{ popup.image | img_url:'master' }}"
+            alt="{{ popup.image.alt }}"
+            height="{{popup.image.height}}"
+            width="{{popup.image.width}}">
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

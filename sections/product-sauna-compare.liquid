@@ -1,0 +1,45 @@
+{% if product.metafields.enable_model_compare.status %}
+  <style>
+    .sauna-compare
+    {
+      background-image:url("https://cdn.shopify.com/s/files/1/0720/7695/1854/files/bg.png?v=1721829976");
+    }
+  </style>
+
+  <section class="sauna-compare">
+    <div class="container">
+      <div class="sauna-compare-title">
+        {% if product.metafields.model_compare.heading != blank %}
+          <h2>{{ product.metafields.model_compare.heading.value }}</h2>
+        {% endif %}
+        {% if product.metafields.model_compare_btn.label != blank %}
+          <a href="{{ product.metafields.model_compare_btn_link.link.value.url }}">
+            {{- product.metafields.model_compare_btn.label.value -}}
+          </a>
+        {% endif %}
+      </div>
+      {% assign images = product.metafields.model_compare_images %}
+      {% if images.size > 0 %}
+        <div class="compare-sauna">
+          {% for image in images %}
+            <div class="saunaBox">
+              <img src="{{ image | last | image_url }}" alt="" loading="lazy">
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Model Compare",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Model Compare"
+    }
+  ]
+}
+{% endschema %}

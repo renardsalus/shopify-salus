@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "blog_banner_9i3fKW": {
+      "type": "blog-banner",
+      "settings": {
+        "show_resource_count": true,
+        "content": "<p>Sauna bathing has been extensively researched since 1765, resulting in a wealth of articles and studies online. This page aims to streamline and organize these resources to highlight the health benefits of sauna use, making them easier to navigate.<\/p>",
+        "text_align": "text-start",
+        "blog_menu": "",
+        "color_scheme": "3"
+      }
+    },
+    "main": {
+      "type": "main-resource-blog",
+      "blocks": {
+        "wide_promotion_6dL7g3": {
+          "type": "wide_promotion",
+          "disabled": true,
+          "settings": {
+            "bg_image": "shopify:\/\/shop_images\/blog-promotion-banner.jpg",
+            "heading": "Can’t find the resource you’re looking for?",
+            "content": "<ul><li>Type in the resource topic<\/li><li>Include links (if any)<\/li><li>Get reviewed in 1 week or less<\/li><li>Start seeing your resource on our page<\/li><\/ul>",
+            "btn_label": "Send us a recommendation",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "wide_promotion_6dL7g3"
+      ],
+      "settings": {
+        "show_share_links": false,
+        "text_align": "text-start",
+        "filter_title": "Health Benefits",
+        "posts_per_page": 14,
+        "show_featured_image": true,
+        "show_tags": false,
+        "show_rescource_count": true,
+        "show_excerpt": false,
+        "show_author": false,
+        "show_date": false,
+        "show_button": false,
+        "button_style": "btn btn--secondary",
+        "color_scheme": "1",
+        "featured_button_style": "btn btn--secondary"
+      }
+    }
+  },
+  "order": [
+    "blog_banner_9i3fKW",
+    "main"
+  ]
+}

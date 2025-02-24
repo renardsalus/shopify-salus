@@ -1,0 +1,57 @@
+<section class="promotion-banner collection-grid-banner">
+  <div class="container">
+    <div class="col-banner-wrapper">
+      {% if section.settings.banner_image != blank %}
+        <div class="col-banner-image">
+          <img
+            src="{{ section.settings.banner_image | img_url:'master' }}"
+            alt="{{ section.settings.banner_image.alt }}"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+      <div class="col-banner-content">
+        <h3>{{ section.settings.banner_heading }}</h3>
+        {% if section.settings.button_label != blank %}
+          <div class="col-banner-btn">
+            <a href="{{ section.settings.button_link }}" class="btn btn--primary">
+              {{- section.settings.button_label -}}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "promotion-banner",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id":"banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type":"text",
+      "id":"banner_heading",
+      "label": "Banner Heading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id":"button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Promotion Banner"
+    }
+  ]
+}
+{% endschema %}

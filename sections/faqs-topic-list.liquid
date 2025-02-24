@@ -1,0 +1,43 @@
+<section class="faqs-topic-list">
+  <div class="container">
+    <div class="collection-nav-inner">
+      <h4>Categories:</h4>
+      <div class="col-nav">
+        <ul>
+          {% for block in section.blocks %}
+            <li data-id="{{ block.settings.title | handleize }}" class="faq-list-item">{{ block.settings.title }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="display:none;">
+  {% render 'faqs-topic-list', list: section.blocks %}
+</div>
+{% schema %}
+{
+  "name": "FAQ Topic List",
+  "class": "faqs-topic-list",
+  "settings": [],
+  "blocks": [
+    {
+      "name":"Topic Title",
+      "type":"topic_title",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Topic List"
+    }
+  ]
+}
+{% endschema %}
