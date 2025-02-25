@@ -266,7 +266,7 @@
                   %}
                 </li>
 
-                <!-- CHECK IF THE BANNER IS AVAIABLE -->
+              <!-- CHECK IF THE BANNER IS AVAIABLE -->
                 {% comment %}
                   {% if banners != blank %}
                   <!-- IF THE COLLECTION HAS LESS THAN 6 PRODUCTS SHOW BANNER AFTER 3RD PRODUCT -->
@@ -289,21 +289,22 @@
                   {% endfor %}
                   {% endif %}
                   {% endif %}
-                {% endcomment %}
-                {% if banners != blank and paginate.current_page == paginate.pages %}
+
+                  {% if banners != blank and paginate.current_page == paginate.pages %}
                   {% if product_index == collection.products.size %}
-                    {% for banner in banners limit: 2 %}
-                      {% if forloop.index == 1 %}
-                        {% render 'product-grid-banner'
-                          , banner: banner
-                          , class: 'test' %}
-                      {% elsif forloop.index == 2 %}
-                        {% render 'product-grid-banner'
-                          , banner: banner %}
-                      {% endif %}
-                    {% endfor %}
+                  {% for banner in banners limit: 2 %}
+                  {% if forloop.index == 1 %}
+                  {% render 'product-grid-banner'
+                  , banner: banner
+                  , class: 'test' %}
+                  {% elsif forloop.index == 2 %}
+                  {% render 'product-grid-banner'
+                  , banner: banner %}
                   {% endif %}
-                {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                  {% endif %}
+                {% endcomment %}
               {%- endunless -%}
             {%- endfor -%}
 
