@@ -1,61 +1,20 @@
-{% render 'form-popup', form_popup_name: "partner" %}
+{% assign popup_name = "custom-saunas" %}
+{% render 'form-popup'
+  , form_popup_name: "custom-saunas" %}
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    let affliliateProgram = document.querySelectorAll('a[href="https://af.uppromote.com/salus-saunas-9974/register"]')
-    let popup = document.getElementById("partner-contact-form");
+    let customSauna = document.querySelectorAll('a[href*="#custom-saunas"]')
+    let popup = document.getElementById("{{ popup_name }}-contact-form");
 
-    const inputField = document.querySelector('[id$="-preferred_alphanumeric_code"]'); // Matches IDs ending with "-preferred_alphanumeric_code";
-    const errorMessage = document.querySelector('#error-message');
-    const form = document.querySelector('#partner-form');
-
-    // Validate input on form submission
-    form.addEventListener('submit', function (e) {
-      const value = inputField.value;
-
-      // Check if input contains both letters and numbers
-      const hasLetter = /[a-zA-Z]/.test(value); // At least one letter
-      const hasNumber = /[0-9]/.test(value); // At least one number
-
-      if (!hasLetter || !hasNumber) {
-        e.preventDefault(); // Prevent form submission
-        errorMessage.style.display = 'block'; // Show error message
-        inputField.classList.add('error-field'); // Add red border
-      } else {
-        errorMessage.style.display = 'none'; // Hide error message
-        inputField.classList.remove('error-field'); // Remove red border
-      }
-    });
-
-
-    if (inputField) {
-      // Remove non-alphanumeric characters on input
-      inputField.addEventListener('input', function () {
-        this.value = this.value.replace(/[^a-zA-Z0-9]/g, ''); // Remove invalid characters
-
-        if (inputField.classList.contains('error-field')) {
-          inputField.classList.remove('error-field'); // Remove red border
-          errorMessage.style.display = 'none'; // Hide error message
-        }
-      });
-
-      // Prevent invalid characters from being typed
-      inputField.addEventListener('keydown', function (e) {
-        const invalidChars = /[^a-zA-Z0-9]/; // Pattern for invalid characters
-        if (invalidChars.test(e.key) && e.key.length === 1) { // Prevent typing invalid characters
-          e.preventDefault();
-        }
-      });
-    }
-
-    for (let i = 0; i < affliliateProgram.length; i++) {
-      affliliateProgram[i].addEventListener("click", (e) => {
+    for (let i = 0; i < customSauna.length; i++) {
+      customSauna[i].addEventListener("click", (e) => {
         e.preventDefault()
         popup.style.display = "block";
       })
     }
 
-    document.getElementById("partner-contact-form-close").addEventListener("click", () => {
+    document.getElementById("{{ popup_name }}-contact-form-close").addEventListener("click", () => {
       popup.style.display = "none";
     });
   });
@@ -63,7 +22,7 @@
 
 {% schema %}
   {
-    "name": "Partner Form",
+    "name": "Custom Saunas Form",
     "tag": "section",
     "class": "cc-contact-form",
     "settings": [
@@ -74,7 +33,7 @@
       {
         "type": "text",
         "id": "heading",
-        "default": "Interested in becoming an affiliate? Let’s get to know each other!",
+        "default": "Interested in a custom sauna?",
         "label": "Contact us"
       },
       {
@@ -182,8 +141,7 @@
             "default": false
           }
         ]
-      },
-      {
+      }, {
         "type": "last_name",
         "name": "Last Name",
         "limit": 1,
@@ -200,8 +158,7 @@
             "default": false
           }
         ]
-      },
-      {
+      }, {
         "type": "email",
         "name": "Email",
         "limit": 1,
@@ -218,27 +175,9 @@
             "default": false
           }
         ]
-      },
-      {
-        "type": "socmed_link",
-        "name": "Social Media Link",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "checkbox",
-            "id": "required",
-            "label": "Required",
-            "default": true
-          }, {
-            "type": "checkbox",
-            "id": "half_width",
-            "label": "Half width on large screens",
-            "default": false
-          }
-        ]
       }, {
-        "type": "preferred_code",
-        "name": "Preferred Code",
+        "type": "body",
+        "name": "Message",
         "limit": 1,
         "settings": [
           {
@@ -257,36 +196,25 @@
     ],
     "presets": [
       {
-        "name": "Partner Form",
+        "name": "Custom Saunas Form",
         "blocks": [
           {
             "type": "first_name",
             "settings": {
               "half_width": true
             }
-          },
-          {
+          }, {
             "type": "last_name",
             "settings": {
               "half_width": true
             }
-          },
-          {
+          }, {
             "type": "email",
             "settings": {
               "half_width": false
             }
-          },
-          {
-            "type": "socmed_link",
-            "settings": {
-              "half_width": false
-            }
           }, {
-            "type": "preferred_code",
-            "settings": {
-              "half_width": false
-            }
+            "type": "body"
           }
         ]
       }
