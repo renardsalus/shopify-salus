@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "presets": {
     "Digital": {
@@ -65,7 +74,7 @@
       "card_bg_color": "#ffffff",
       "card_text_color": "#26262b",
       "card_border_color": "#f2f2f2",
-      "compare_empty_field_text": "N\/A",
+      "compare_empty_field_text": "N/A",
       "inventory_threshold_low": 20,
       "inventory_threshold_very_low": 8,
       "inventory_show_notice": "always",
@@ -167,7 +176,7 @@
       "show_dividers": false,
       "compare_toggle": "toggle_off",
       "compare_show_empty_metafields": false,
-      "compare_empty_field_text": "N\/A",
+      "compare_empty_field_text": "N/A",
       "inventory_show_notice": "always",
       "inventory_show_count": "always",
       "in_stock_text_color": "#0da44a",
@@ -269,7 +278,7 @@
       "compare_toggle": "toggle_off",
       "compare_max": 8,
       "compare_show_empty_metafields": false,
-      "compare_empty_field_text": "N\/A",
+      "compare_empty_field_text": "N/A",
       "inventory_threshold_low": 10,
       "inventory_threshold_very_low": 2,
       "inventory_show_notice": "always",
@@ -384,7 +393,7 @@
     "card_text_color": "#26262b",
     "card_border_color": "#f2f2f2",
     "enable_compare": false,
-    "compare_empty_field_text": "N\/A",
+    "compare_empty_field_text": "N/A",
     "inventory_threshold_low": 20,
     "inventory_threshold_very_low": 8,
     "inventory_show_notice": "always",
@@ -405,10 +414,10 @@
     "card_colors_style": "none",
     "filter_color_style": "none",
     "swatch_colors": "Stainless Steel: #C0C0C0\nBlack:#000\nTan: #D2B48C\nNavy: #000080\nCharcoal Grey: #36454F",
-    "social_facebook_url": "https:\/\/www.facebook.com\/salussaunas\/",
-    "social_youtube_url": "https:\/\/www.youtube.com\/channel\/UCRcHX9zNGveeDQRbikNtBkQ",
-    "social_instagram_url": "https:\/\/www.instagram.com\/salussaunas\/?hl=en",
-    "social_tiktok_url": "https:\/\/www.tiktok.com\/@salus_saunas",
+    "social_facebook_url": "https://www.facebook.com/salussaunas/",
+    "social_youtube_url": "https://www.youtube.com/channel/UCRcHX9zNGveeDQRbikNtBkQ",
+    "social_instagram_url": "https://www.instagram.com/salussaunas/?hl=en",
+    "social_tiktok_url": "https://www.tiktok.com/@salus_saunas",
     "social_linkedin_url": "",
     "speech_icon_color": "#ff580d",
     "show_currency_code": false,
@@ -422,7 +431,7 @@
     "show_free_shipping_notice": true,
     "free_shipping_color_scheme": "1",
     "animations_enabled": "mobile_desktop",
-    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "favicon": "shopify://shop_images/favicon.png",
     "image_quality": "1.25",
     "blur_message_delay": 4,
     "vibrate_on_atc": true,
@@ -430,12 +439,12 @@
     "content_for_index": [],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
       "3720565183479497137": {
-        "type": "shopify:\/\/apps\/globo-product-option\/blocks\/app-embed-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+        "type": "shopify://apps/globo-product-option/blocks/app-embed-block/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
         "disabled": false,
         "settings": {}
       }
