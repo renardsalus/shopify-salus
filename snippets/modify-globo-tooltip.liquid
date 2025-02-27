@@ -13,23 +13,27 @@
 {% if last_character == '<delimiter_second>' %}
   {% assign variant_metafields_string = variant_metafields_string | slice: 0, vms_length_min_one %}
 {% endif %}
+
 <script>
   const vmsString = {{variant_metafields_string |  json}};
   const vmMap = new Map();
   let variantIds = {
     value: [],
   };
+
   vmsString
     .split("<delimiter_second>")
     .map((val) => val.split("<delimiter_first>"))
     .forEach(([id, description]) => {
       vmMap.set(id, description);
     });
+
   // Utility function to compare two arrays for equality (ignores order)
   function areArraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
     return arr1.every((value, index) => value === arr2[index]);
   }
+
   // Function to trigger on array change
   function onArrayChange(newArray) {
     for (let val of newArray) {
@@ -68,6 +72,7 @@
       }
     }
   }
+
   // Create a proxy to watch for\ changes to the array
   const arrayProxyHandler = {
     set(target, property, value) {
@@ -86,14 +91,30 @@
       return true;
     },
   };
+
   // Create a proxy around the original array
   const newarr = new Proxy(variantIds, arrayProxyHandler);
+
   document.addEventListener("DOMContentLoaded", function () {
     // Select the target node where new elements might be added (could be 'body' or a more specific container)
     const targetNode = document.body;
     // Create a callback function to execute when mutations are observed
     const callback = function (mutationsList, observer) {
       mutationsList.forEach((mutation) => {
+        const freebiesElement = document.querySelector(".freebies")
+        const childElements = freebiesElement.querySelectorAll(".gpo-ov-item")
+
+        for (const val of childElements) {
+            val.style.background = '#f5f5f5'
+            
+            const v = val.querySelectorAll("label")
+            v[0].style.borderColor = '#000'
+        }
+
+        freebiesElement.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+        })
         // Check if any new nodes were added
         mutation.addedNodes.forEach((addedNode) => {
           // Check if the added node has the class 'gpo-tooltip' or contains children with that class
