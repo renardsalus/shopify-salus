@@ -4788,7 +4788,7 @@
     padding: 7px 15px;
   }
   #become-partner-contact-form .submit-btn button {
-    adding: 10px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     line-height: 22px;
   }
@@ -4934,7 +4934,7 @@
     margin-left: -10px;
   }
 
-  .announcement__text .rte.icon--pym:before {
+  .announcement__text .rte.icon--banner:before {
     background-size: contain;
     width: 15px;
     height: 15px;

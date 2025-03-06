@@ -40,7 +40,7 @@
                 aria-roledescription="slide"
               {% endif %}
             >
-              <div class="rte {% if block.settings.show_pym_icon %}icon--pym{% endif %}">
+              <div class="rte {% unless block.settings.icon_select == "none" %}icon--banner icon--{{ block.settings.icon_select }}{% endunless %}">
                 {{- block.settings.text -}}
               </div>
             </div>
@@ -209,9 +209,36 @@
           "info": "If you have multiple announcements, keep them short as they may wrap on smaller screens."
         },
         {
-          "type":"checkbox",
-          "id":"show_pym_icon",
-          "label":"Show Payment Icon"
+          "type":"select",
+          "id":"icon_select",
+          "label":"Choose Icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "shipping",
+              "label": "Shipping"
+            },
+            {
+              "value": "rating",
+              "label": "Rating"
+            },
+            {
+              "value": "rta",
+              "label": "Rating A"
+            },
+            {
+              "value": "pig",
+              "label": "Pig"
+            },
+            {
+              "value": "pym",
+              "label": "Payment"
+            }
+          ],
+          "default": "none"   
         }
       ]
     }

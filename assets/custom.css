@@ -26,7 +26,7 @@ body {
   font-weight: 600;
 }
 
-.announcement__text .rte.icon--pym {
+.announcement__text .rte.icon--banner {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -42,6 +42,55 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.announcement__text .rte.icon--rating::before {
+  content: "";
+  position: relative;
+  background-image: url("https://cdn.shopify.com/s/files/1/0720/7695/1854/files/rating-new.svg?v=1722358749");
+  width: 50px;
+  height: 19px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1) brightness(2);
+}
+
+.announcement__text .rte.icon--shipping::before {
+  content: "";
+  position: relative;
+  background-image: url("https://cdn.shopify.com/s/files/1/0720/7695/1854/files/free-shipping.svg?v=1721657285");
+  width: 27px;
+  height: 25px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1) brightness(2);
+}
+
+.announcement__text .rte.icon--rta::before {
+  content: "";
+  position: relative;
+  background-image: url("https://cdn.shopify.com/s/files/1/0720/7695/1854/files/rating-a.svg?v=1721657284");
+  width: 40px;
+  height: 20px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1) brightness(2);
+}
+
+.announcement__text .rte.icon--pig::before {
+  content: "";
+  position: relative;
+  background-image: url("https://cdn.shopify.com/s/files/1/0720/7695/1854/files/min-price.svg?v=1721657285");
+  width: 35px;
+  height: 35px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1) brightness(2);
+}
+
 
 store-header.header:not(:has(.header__search)) .header__logo {
   grid-area: headerLogo;
