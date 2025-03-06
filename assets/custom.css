@@ -2106,7 +2106,7 @@ a.btn.btn--secondary:hover {
 }
 
 ul.main-nav li:last-child .mega-nav--promos-right ul.child-nav {
-  grid-template-columns: 1fr 1.26fr 1fr 1fr;
+  grid-template-columns: 0.7fr 1.26fr 1fr 1fr;
   overflow: hidden;
 }
 .mega-nav--promos-right ul.child-nav::after {
