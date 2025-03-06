@@ -14,13 +14,6 @@
     "announcement": {
       "type": "announcement",
       "blocks": {
-        "announcement_byDegw": {
-          "type": "announcement",
-          "settings": {
-            "text": "<p><strong>Over 282+ five-star Google Reviews.</strong> <a href=\"https://www.salussaunas.com/pages/reviews\" title=\"https://www.salussaunas.com/pages/reviews\">Learn more</a></p>",
-            "icon_select": "none"
-          }
-        },
         "announcement_YVH6F8": {
           "type": "announcement",
           "settings": {
@@ -45,7 +38,7 @@
         "announcement_zg7xbp": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>282+ Google reviews</strong></p>",
+            "text": "<p><strong>Over 282+</strong> Google Reviews <a href=\"https://www.salussaunas.com/pages/reviews\" title=\"https://www.salussaunas.com/pages/reviews\">Learn more</a></p>",
             "icon_select": "rating"
           }
         },
@@ -72,7 +65,6 @@
         }
       },
       "block_order": [
-        "announcement_byDegw",
         "announcement_YVH6F8",
         "announcement_q8b3be",
         "announcement-1",
