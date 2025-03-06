@@ -20,6 +20,7 @@
     },
     "custom_liquid_ahVteN": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<h1><strong>Frequently Asked Questions</strong></h1>\n<p>We’ve compiled answers to common questions about buying, installing, and using saunas. Whether you're considering infrared, traditional, or hybrid models, discover how they can boost your health and upgrade your home.</p>",
         "section_height": "small",
@@ -30,9 +31,8 @@
     },
     "main_page_banner_TtgUeJ": {
       "type": "main-page-banner",
-      "disabled": true,
       "settings": {
-        "heading": "Frequently Asked Question",
+        "heading": "Frequently Asked Questions",
         "content": "<p>We’ve compiled answers to common questions about buying, installing, and using saunas. Whether you're considering infrared, traditional, or hybrid models, discover how they can boost your health and upgrade your home.</p>",
         "show_counter": true,
         "counter_text": "68 FAQ",
