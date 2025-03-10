@@ -22,7 +22,7 @@
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<h1 style=\"text-align:center\">Sauna Reviews</h1>",
-        "section_height": "tight",
+        "section_height": "medium",
         "full_width": false,
         "dividers": "none",
         "prevent_animation": true
@@ -50,6 +50,9 @@
       "block_order": [
         "heading_qmLGqm",
         "text_QATE3K"
+      ],
+      "custom_css": [
+        "#template--24175757885742__rich_text_HPzQPT {padding-top: 0}"
       ],
       "settings": {
         "text_position": "justify-center",
