@@ -538,7 +538,9 @@
         "sugg_heading": "Not sure which sauna model’s the best fit for you?",
         "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
         "sugg_btn_label": "Find my perfect sauna",
+        "sugg_btn_label1": "Give us a call",
         "sugg_btn_link": "mailto:sales@salussaunas.com",
+        "phone_number": "(888)287-0111",
         "open_email": true
       }
     },
@@ -568,7 +570,9 @@
         "sugg_heading": "Not sure which sauna model’s the best fit for you?",
         "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
         "sugg_btn_label": "Find my perfect sauna",
+        "sugg_btn_label1": "Give us a call",
         "sugg_btn_link": "mailto:sales@salussaunas.com",
+        "phone_number": "(888)287-0111",
         "open_email": true
       }
     },
