@@ -386,6 +386,28 @@ p.card__tag {
   flex: initial;
 }
 
+@media only screen and (max-width: 575px) {
+  .products-card-sec .card_redirect {
+    flex-direction: column;
+  }
+}
+
+.products-card-sec .card_redirect {
+  display: flex;
+  column-gap: 20px;
+}
+
+.products-card-sec .card_redirect a:nth-of-type(1) {
+  background: #222120;
+  color: #fff !important;
+}
+
+.products-card-sec .card_redirect a:nth-of-type(2) {
+  background: transparent;
+  color: #222120 !important;
+  border-width: medium !important;
+}
+
 .products-card-sec .card_redirect a {
   display: block;
   width: max-content;
@@ -1761,10 +1783,16 @@ a.btn.btn--secondary:hover {
   border: 1px solid #000 !important;
 }
 
-.products-card-sec .card_redirect a:hover {
+.products-card-sec .card_redirect a:nth-of-type(1):hover {
   border-color: #1b413e !important;
   color: #fff !important;
   background: #1b413e;
+}
+
+.products-card-sec .card_redirect a:nth-of-type(2):hover {
+  border-color: #222120 !important;
+  color: #fff !important;
+  background: #222120;
 }
 
 .testimonails-cta a:hover {

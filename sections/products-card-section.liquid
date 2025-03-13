@@ -121,9 +121,16 @@
                     >
                       {{- section.settings.sugg_btn_label -}}
                     </a>
-                    {% comment %}
-                      <a href="{{ section.settings.sugg_btn_link }}">{{ section.settings.sugg_btn_label }}</a>
-                    {% endcomment %}
+                    <a
+                      id="copyButton"
+                      href=""                    
+                    >{{ section.settings.sugg_btn_label1 }}</a>
+                    <input
+                      type="text"
+                      id="copyValue"
+                      value={{section.settings.phone_number}}
+                      readonly
+                      class="hidden">
                   </div>
                 {% endif %}
               </div>
@@ -305,9 +312,22 @@
       "label": "Button Label"
     },
     {
+      "type":"text",
+      "id":"sugg_btn_label1",
+      "label": "Second Button Label",
+      "default":"Give us a call"
+    },
+    {
       "type":"url",
       "id":"sugg_btn_link",
       "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "0812345679",
+      "info": "Phone number copied when click 'call sales'"
     },
     {
       "type":"checkbox",
