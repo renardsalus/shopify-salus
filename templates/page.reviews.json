@@ -12,6 +12,7 @@
     "main": {
       "type": "main-page",
       "disabled": true,
+      "custom_css": [],
       "settings": {
         "show_page_title": true,
         "content": "",
@@ -20,6 +21,7 @@
     },
     "custom_liquid_WDjAzX": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<h1 style=\"text-align:center\">Sauna Reviews</h1>",
         "section_height": "medium",
@@ -51,9 +53,7 @@
         "heading_qmLGqm",
         "text_QATE3K"
       ],
-      "custom_css": [
-        "#template--24175757885742__rich_text_HPzQPT {padding-top: 0}"
-      ],
+      "custom_css": [],
       "settings": {
         "text_position": "justify-center",
         "text_align": "text-center",
