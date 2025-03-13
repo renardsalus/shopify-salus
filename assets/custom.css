@@ -354,7 +354,7 @@ p.card__tag {
 }
 
 .products-card-sec .card_redirect a:nth-of-type(2) {
-  background: #fbf2e9;
+  background: transparent;
   color: #222120 !important;
   border-width: medium !important;
 }
