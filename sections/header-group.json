@@ -427,12 +427,14 @@
         "button_qXDLxK"
       ],
       "custom_css": [
-        "h2 {font-size: 32px;}"
+        "h2 {font-size: 32px;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
       ],
       "settings": {
         "heading": "Get lucky this St. Patrick’s Day 🍀",
         "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
-        "image": "shopify://shop_images/St._patrick_s_day.png",
+        "image": "shopify://shop_images/st.patrick_square_fix.png",
+        "image1": "shopify://shop_images/St._patrick_s_day.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 5,
@@ -474,12 +476,14 @@
         "button_nPDh7K"
       ],
       "custom_css": [
-        "h2 {font-size: 32px;}"
+        "h2 {font-size: 32px;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
       ],
       "settings": {
         "heading": "Get lucky this St. Patrick’s Day 🍀",
         "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
-        "image": "shopify://shop_images/St._patrick_s_day.png",
+        "image": "shopify://shop_images/st.patrick_square_fix.png",
+        "image1": "shopify://shop_images/St._patrick_s_day.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 5,
