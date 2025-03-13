@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header Group",
@@ -8,28 +17,28 @@
         "announcement_byDegw": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Over 282+ five-star Google Reviews.<\/strong> <a href=\"https:\/\/www.salussaunas.com\/pages\/reviews\" title=\"https:\/\/www.salussaunas.com\/pages\/reviews\">Learn more<\/a><\/p>",
+            "text": "<p><strong>Over 282+ five-star Google Reviews.</strong> <a href=\"https://www.salussaunas.com/pages/reviews\" title=\"https://www.salussaunas.com/pages/reviews\">Learn more</a></p>",
             "show_pym_icon": false
           }
         },
         "announcement_YVH6F8": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Contact our experts at <\/strong><span style=\"text-decoration:underline\">sales@salussaunas.com<\/span><\/p>",
+            "text": "<p><strong>Contact our experts at </strong><span style=\"text-decoration:underline\">sales@salussaunas.com</span></p>",
             "show_pym_icon": false
           }
         },
         "announcement_q8b3be": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Build & unwind with our ready-to-assemble saunas<\/strong><\/p>",
+            "text": "<p><strong>Build & unwind with our ready-to-assemble saunas</strong></p>",
             "show_pym_icon": false
           }
         },
         "announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Sweat now, pay later with our 0% APR financing options<\/strong><\/p>",
+            "text": "<p><strong>Sweat now, pay later with our 0% APR financing options</strong></p>",
             "show_pym_icon": true
           }
         }
@@ -84,7 +93,7 @@
             "promo1_text_width": 100,
             "promo1_text_alignment": "justify-center items-center text-center",
             "promo2_content": "",
-            "promo2_link_url": "shopify:\/\/collections\/all",
+            "promo2_link_url": "shopify://collections/all",
             "promo2_text_size": 16,
             "promo2_text_width": 100,
             "promo2_text_alignment": "justify-center items-center text-center",
@@ -217,12 +226,12 @@
             "promo_text_color": "#ffffff",
             "promo_tint_color": "#000000",
             "promo_tint_opacity": 20,
-            "promo1_content": "<p>Become an affiliate<\/p><p>Earn a $250 fixed commission on all sauna purchases you refer to and give your customers a chance to save $100 on their purchase<\/p><p><a href=\"https:\/\/af.uppromote.com\/salus-saunas-9974\/register\" target=\"_blank\" title=\"https:\/\/af.uppromote.com\/salus-saunas-9974\/register\">Partner with us<\/a><\/p>",
+            "promo1_content": "<p>Become an affiliate</p><p>Earn a $250 fixed commission on all sauna purchases you refer to and give your customers a chance to save $100 on their purchase</p><p><a href=\"https://af.uppromote.com/salus-saunas-9974/register\" target=\"_blank\" title=\"https://af.uppromote.com/salus-saunas-9974/register\">Partner with us</a></p>",
             "promo1_link_url": "",
             "promo1_text_size": 16,
             "promo1_text_width": 100,
             "promo1_text_alignment": "justify-center items-center text-center",
-            "promo2_content": "<p>Join our partnership program<\/p><p>Join well-renowned athletes and figures like Joe Rogan, Justin Baldoni, Gordon Ryan, and more in our partnership program.<\/p><p><a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ\/viewform\" target=\"_blank\" title=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ\/viewform\">Apply now<\/a><\/p>",
+            "promo2_content": "<p>Join our partnership program</p><p>Join well-renowned athletes and figures like Joe Rogan, Justin Baldoni, Gordon Ryan, and more in our partnership program.</p><p><a href=\"https://docs.google.com/forms/d/e/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ/viewform\" target=\"_blank\" title=\"https://docs.google.com/forms/d/e/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ/viewform\">Apply now</a></p>",
             "promo2_link_url": "",
             "promo2_text_size": 16,
             "promo2_text_width": 100,
@@ -269,9 +278,9 @@
         "quicklinks_menu": "",
         "cta_show": true,
         "cta_icon": "none",
-        "cta_icon_image": "shopify:\/\/shop_images\/contact-icon.svg",
-        "cta_label": "Need help? <strong>Contact us<\/strong>",
-        "cta_link": "shopify:\/\/pages\/contact",
+        "cta_icon_image": "shopify://shop_images/contact-icon.svg",
+        "cta_label": "Need help? <strong>Contact us</strong>",
+        "cta_link": "shopify://pages/contact",
         "cta_border_color": "rgba(0,0,0,0)",
         "cta_bg_color": "rgba(0,0,0,0)",
         "cta_text_color": "#222120",
@@ -286,10 +295,10 @@
       "custom_css": [],
       "settings": {
         "heading": "The Nordic Series. Now $500 off.",
-        "content": "<p>Save $500 on our top-of-the line Nordic barrel sauna series. Limited time only.<\/p>",
+        "content": "<p>Save $500 on our top-of-the line Nordic barrel sauna series. Limited time only.</p>",
         "button_label": "Shop the sale",
         "button_link": "",
-        "image": "shopify:\/\/shop_images\/nordic-sales-image.png",
+        "image": "shopify://shop_images/nordic-sales-image.png",
         "mobile_bg": true,
         "color": "#fbf2e9"
       }
@@ -330,8 +339,8 @@
       ],
       "settings": {
         "heading": "Hey, wait a minute! Before you go...",
-        "content": "<p>You might be eligible for an additional discount. Want to give it a shot?<\/p>",
-        "image": "shopify:\/\/shop_images\/checkout_page_popup_image.png",
+        "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
+        "image": "shopify://shop_images/checkout_page_popup_image.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 5,
@@ -375,12 +384,100 @@
       "disabled": true,
       "settings": {
         "heading": "Valentine’s Day Offers",
-        "content": "<p>Love is in the air and we’re sharing some of it with you! Reach out to sales to get a Valentine’s Day discount.<\/p>",
-        "image": "shopify:\/\/shop_images\/Valentine.png",
+        "content": "<p>Love is in the air and we’re sharing some of it with you! Reach out to sales to get a Valentine’s Day discount.</p>",
+        "image": "shopify://shop_images/Valentine.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 600,
         "phone_number": "(844)618-0017"
+      }
+    },
+    "main_page_popup_qbKzjN": {
+      "type": "main-page-popup",
+      "blocks": {
+        "button_CHbCab": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_qXDLxK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_CHbCab",
+        "button_qXDLxK"
+      ],
+      "settings": {
+        "heading": "Get lucky this St. Patrick’s Day 🍀",
+        "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
+        "image": "shopify://shop_images/St._patrick_s_day.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888) 287-0111"
+      }
+    },
+    "product_page_popup_HDecQc": {
+      "type": "product-page-popup",
+      "blocks": {
+        "button_frD7La": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_nPDh7K": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_frD7La",
+        "button_nPDh7K"
+      ],
+      "settings": {
+        "heading": "Get lucky this St. Patrick’s Day 🍀",
+        "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
+        "image": "shopify://shop_images/St._patrick_s_day.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888) 287-0111"
       }
     }
   },
@@ -389,6 +486,8 @@
     "header",
     "sales_popup_kNEhy3",
     "checkout_page_exit_popup_naxcJ7",
-    "product_page_popup_KFMpDK"
+    "product_page_popup_KFMpDK",
+    "main_page_popup_qbKzjN",
+    "product_page_popup_HDecQc"
   ]
 }
