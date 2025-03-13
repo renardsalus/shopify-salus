@@ -450,6 +450,9 @@
         "button_CHbCab",
         "button_qXDLxK"
       ],
+      "custom_css": [
+        "h2 {font-size: 32px;}"
+      ],
       "settings": {
         "heading": "Get lucky this St. Patrick’s Day 🍀",
         "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
@@ -493,6 +496,9 @@
       "block_order": [
         "button_frD7La",
         "button_nPDh7K"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}"
       ],
       "settings": {
         "heading": "Get lucky this St. Patrick’s Day 🍀",
