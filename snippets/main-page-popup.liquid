@@ -14,7 +14,7 @@
     /* Change to a different color on hover */
   }
 </style>
-{% assign popup_name = "productPagePopup" %}
+{% assign popup_name = "mainPagePopup" %}
 {% capture below_button_html %}
     <input
       type="text"
@@ -29,19 +29,18 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     let popup = document.getElementById("{{ popup_name }}");
-    const isProductPage = "{{ template.name }}".includes("product") 
-    const popupDelay = {{ popup.popup_delay  }}
-   
-    if (isProductPage) {
+    if (!sessionStorage.getItem("isOpenMainPagePopup")) {
       setTimeout(() => {
         popup.style.display = "block";
-      }, popupDelay * 1000);
+      }, 1000);
+      sessionStorage.setItem("isOpenMainPagePopup", true);
     }
+    
     document.getElementById("{{ popup_name }}-close").addEventListener("click", () => {
       popup.style.display = "none";
     });
     document.getElementById("rejectOffer-{{ popup_name }}").addEventListener("click", () => {
       popup.style.display = "none";
-    });
+    }); 
   });
 </script>
