@@ -58,6 +58,22 @@
     border-bottom-right-radius: 15px;
     object-fit: fill;
   }
+
+  .generalPopUp-media .desktop-image {
+    display: block;
+  }
+  .generalPopUp-media .mobile-image {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .generalPopUp-media .desktop-image {
+      display: none;
+    }
+    .generalPopUp-media .mobile-image {
+      display: block;
+    }
+  }
   .generalPopUp-info {
     padding: 28px;
     display: flex;
@@ -175,7 +191,8 @@
               .btn-{{ popup_name }}-popup-{{ forloop.index }}:hover {
                 background: {{ button.settings.hover_button_bg_color }}
                  !important;
-                color: {{ button.settings.hover_button_text_color }} !important;
+                color: {{ button.settings.hover_button_text_color }}
+                 !important;
               }
             {% endstyle %}
             <a
@@ -191,10 +208,17 @@
       <div class="generalPopUp-media">
         {% if popup.image != blank %}
           <img
+            class="desktop-image"
             src="{{ popup.image | img_url:'master' }}"
             alt="{{ popup.image.alt }}"
             height="{{popup.image.height}}"
             width="{{popup.image.width}}">
+          <img
+            class="mobile-image"
+            src="{{ popup.image1 | img_url:'master' }}"
+            alt="{{ popup.image1.alt }}"
+            height="{{popup.image1.height}}"
+            width="{{popup.image1.width}}">
         {% else %}
           {{ 'product-1' | placeholder_svg_tag }}
         {% endif %}
