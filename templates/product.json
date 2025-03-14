@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "add_to_cart_banner_q9D9bA": {
@@ -28,7 +37,7 @@
           }
         },
         "judge_me_reviews_preview_badge_X9NxFb": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "delivery_dTUxNH": {
@@ -47,7 +56,7 @@
           "type": "richtext",
           "settings": {
             "heading": "Product Overview",
-            "text": "<p>{{ product.metafields.custom.brief | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.brief | metafield_tag }}</p>"
           }
         },
         "download_manual_MAdAyX": {
@@ -61,7 +70,7 @@
           "type": "richtext",
           "settings": {
             "heading": "Product Overview",
-            "text": "<p>{{ product.description }}<\/p>"
+            "text": "<p>{{ product.description }}</p>"
           }
         },
         "variant_picker_CHdtt9": {
@@ -88,7 +97,7 @@
           "settings": {}
         },
         "judge_me_reviews_featured_carousel_axna7X": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "disabled": true,
           "settings": {
             "maxwidth": 1080
@@ -102,9 +111,11 @@
             "show_pickup_availability": false,
             "show_gift_card_recipient": false,
             "show_msg_box": true,
-            "icon": "shopify:\/\/shop_images\/question-mark.png",
+            "icon": "shopify://shop_images/question-mark.png",
+            "icon1": "shopify://shop_images/Group_15658.png",
             "heading": "Have questions about this model?",
-            "content": "<p><a href=\"mailto:sales@salussaunas.com\" title=\"Email\">Talk to an expert<\/a><\/p>",
+            "content": "<p><a href=\"mailto:sales@salussaunas.com\" title=\"Email\">Talk to an expert</a></p>",
+            "content1": "<p>Call us <strong>(888) 287-0111</strong></p>",
             "show_price": true
           }
         },
@@ -116,9 +127,9 @@
           "type": "delivery_detail",
           "disabled": true,
           "settings": {
-            "icon": "shopify:\/\/shop_images\/free_shipping.svg",
+            "icon": "shopify://shop_images/free_shipping.svg",
             "heading": "2-3 weeks delivery",
-            "content": "<ul><li>free shipping across US<\/li><li>A7-year warranty*<\/li><li>Expert Customer Support<\/li><li>Plug-and-sweet<\/li><\/ul>"
+            "content": "<ul><li>free shipping across US</li><li>A7-year warranty*</li><li>Expert Customer Support</li><li>Plug-and-sweet</li></ul>"
           }
         },
         "copy_link_4kBkjc": {
@@ -130,7 +141,7 @@
           "type": "custom-liquid",
           "disabled": true,
           "settings": {
-            "custom_liquid": "{% for collection in product.collections %}\n<p>{{collection.title}}<\/p>\n{% if  collection.metafields.custom.heading != blank %}\n<h1>{{ collection.metafields.custom.heading.value }}<\/h1>\n\n{%endif %}\n\n{% endfor %}"
+            "custom_liquid": "{% for collection in product.collections %}\n<p>{{collection.title}}</p>\n{% if  collection.metafields.custom.heading != blank %}\n<h1>{{ collection.metafields.custom.heading.value }}</h1>\n\n{%endif %}\n\n{% endfor %}"
           }
         }
       },
@@ -201,7 +212,7 @@
       "type": "product-details",
       "blocks": {
         "judge_me_reviews_featured_carousel_xqC4fe": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "maxwidth": 1080
           }
@@ -344,7 +355,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_GR7bwQ": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         }
       },
@@ -415,12 +426,12 @@
       ],
       "settings": {
         "contact-title": "Contact Sales",
-        "icon": "shopify:\/\/shop_images\/contact-title.svg",
+        "icon": "shopify://shop_images/contact-title.svg",
         "title": "Have questions or concerns? Consult our sauna experts",
-        "contact-detail01": "<p><strong>Customer Support:<br\/><\/strong><a href=\"tel:(888) 287-0111\" title=\"(888) 287-0111\">(888) 287-0111<\/a><br\/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com<\/a><\/p>",
-        "contact-detail02": "<p><strong>For Technical Support:<br\/><\/strong>Click <a href=\"#\" title=\"#\"><strong>HERE<\/strong><\/a><\/p>",
-        "contact-detail03": "<p><strong>For Partnerships:<br\/><\/strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com<\/a><\/p>",
-        "contact-detail04": "<p><strong>For Mail Only:<br\/><\/strong>7345 164th Ave NE Ste 145-395Redmond, WA 98052<\/p>",
+        "contact-detail01": "<p><strong>Customer Support:<br/></strong><a href=\"tel:(888) 287-0111\" title=\"(888) 287-0111\">(888) 287-0111</a><br/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com</a></p>",
+        "contact-detail02": "<p><strong>For Technical Support:<br/></strong>Click <a href=\"#\" title=\"#\"><strong>HERE</strong></a></p>",
+        "contact-detail03": "<p><strong>For Partnerships:<br/></strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com</a></p>",
+        "contact-detail04": "<p><strong>For Mail Only:<br/></strong>7345 164th Ave NE Ste 145-395Redmond, WA 98052</p>",
         "note": "Please give our team 24-48 hours to reach back out to you.",
         "submit_btn_label": ""
       }
@@ -455,7 +466,7 @@
           "settings": {
             "icon": "none",
             "heading": "Material",
-            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "text": "<p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p>",
             "tabular_style": true
           }
         },
@@ -464,7 +475,7 @@
           "settings": {
             "icon": "none",
             "heading": "Dimensions",
-            "text": "<p><strong>Interior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Exterior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Shipping Dimensions <\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Bench Depth<\/strong><br\/>17.8<\/p><p><strong>Stave Thickness<\/strong><br\/>1.65<\/p>",
+            "text": "<p><strong>Interior Dimensions</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Exterior Dimensions</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Shipping Dimensions </strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Bench Depth</strong><br/>17.8</p><p><strong>Stave Thickness</strong><br/>1.65</p>",
             "tabular_style": true
           }
         },
@@ -473,7 +484,7 @@
           "settings": {
             "icon": "none",
             "heading": "Lightning",
-            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "text": "<p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p>",
             "tabular_style": true
           }
         },
@@ -482,7 +493,7 @@
           "settings": {
             "icon": "none",
             "heading": "Power Supply",
-            "text": "<p><strong>Interior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Exterior Dimensions<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Shipping Dimensions <\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Bench Depth<\/strong><br\/>17.8<\/p><p><strong>Stave Thickness<\/strong><br\/>1.65<\/p>",
+            "text": "<p><strong>Interior Dimensions</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Exterior Dimensions</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Shipping Dimensions </strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Bench Depth</strong><br/>17.8</p><p><strong>Stave Thickness</strong><br/>1.65</p>",
             "tabular_style": true
           }
         }
@@ -513,7 +524,7 @@
           "settings": {
             "icon": "none",
             "heading": "Detailed Background",
-            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "text": "<p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p>",
             "tabular_style": true
           }
         }
@@ -541,7 +552,7 @@
           "settings": {
             "icon": "none",
             "heading": "Detailed Background",
-            "text": "<p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p><p><strong>Barrel Material<\/strong><br\/>Heat-Treated Thermo-Spruce<\/p>",
+            "text": "<p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p><p><strong>Barrel Material</strong><br/>Heat-Treated Thermo-Spruce</p>",
             "tabular_style": true
           }
         }
@@ -566,7 +577,7 @@
       "disabled": true,
       "settings": {
         "heading": "Can’t decide which sauna’s for you?",
-        "content": "<p>Use our comparison tool to help you decide<\/p>",
+        "content": "<p>Use our comparison tool to help you decide</p>",
         "compare_btn_label": "Compare sauna models"
       }
     },
@@ -584,7 +595,7 @@
         "text_6jGUxH": {
           "type": "text",
           "settings": {
-            "text": "<p>Do you own this sauna model or just curious to see how easy our sauna setup is? Click the video on the right to see the short version or click the button below to see our full assembly video.<\/p>",
+            "text": "<p>Do you own this sauna model or just curious to see how easy our sauna setup is? Click the video on the right to see the short version or click the button below to see our full assembly video.</p>",
             "enlarge_text": false
           }
         },
@@ -607,8 +618,8 @@
       "settings": {
         "sec_design": "2",
         "enable_vertical_spacing": true,
-        "image": "shopify:\/\/shop_images\/guide-video-thmb.jpg",
-        "video_shopify": "shopify:\/\/files\/videos\/KELLAGAKOOS.mp4",
+        "image": "shopify://shop_images/guide-video-thmb.jpg",
+        "video_shopify": "shopify://files/videos/KELLAGAKOOS.mp4",
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
@@ -686,7 +697,7 @@
             "show_bdg3": false,
             "col4": "Stainless Steel",
             "show_bdg4": true,
-            "col5": "N\/A",
+            "col5": "N/A",
             "show_bdg5": false,
             "col6": "Acrylic (header to maintain temperature)",
             "show_bdg6": false
@@ -721,11 +732,11 @@
       "settings": {
         "color_scheme": "3",
         "heading": "See how we compare to other brands",
-        "logo1": "shopify:\/\/shop_images\/salus-loggo.png",
-        "logo2": "shopify:\/\/shop_images\/salus-loggo.png",
-        "logo3": "shopify:\/\/shop_images\/salus-loggo.png",
-        "logo4": "shopify:\/\/shop_images\/salus-loggo.png",
-        "logo5": "shopify:\/\/shop_images\/salus-loggo.png"
+        "logo1": "shopify://shop_images/salus-loggo.png",
+        "logo2": "shopify://shop_images/salus-loggo.png",
+        "logo3": "shopify://shop_images/salus-loggo.png",
+        "logo4": "shopify://shop_images/salus-loggo.png",
+        "logo5": "shopify://shop_images/salus-loggo.png"
       }
     }
   },
