@@ -415,6 +415,104 @@
         "popup_delay": 600,
         "phone_number": "(844)618-0017"
       }
+    },
+    "main_page_popup_qbKzjN": {
+      "type": "main-page-popup",
+      "blocks": {
+        "button_CHbCab": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_qXDLxK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_CHbCab",
+        "button_qXDLxK"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
+      ],
+      "settings": {
+        "heading": "Get lucky this St. Patrick’s Day 🍀",
+        "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
+        "image": "shopify://shop_images/st.patrick_square_fix.png",
+        "image1": "shopify://shop_images/St._patrick_s_day.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888)287-0111"
+      }
+    },
+    "product_page_popup_HDecQc": {
+      "type": "product-page-popup",
+      "blocks": {
+        "button_frD7La": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_nPDh7K": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_frD7La",
+        "button_nPDh7K"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
+      ],
+      "settings": {
+        "heading": "Get lucky this St. Patrick’s Day 🍀",
+        "content": "<p>Reach out to sales and snag a golden deal before it’s gone!</p>",
+        "image": "shopify://shop_images/st.patrick_square_fix.png",
+        "image1": "shopify://shop_images/St._patrick_s_day.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888)287-0111"
+      }
     }
   },
   "order": [
@@ -422,6 +520,8 @@
     "header",
     "sales_popup_kNEhy3",
     "checkout_page_exit_popup_naxcJ7",
-    "product_page_popup_KFMpDK"
+    "product_page_popup_KFMpDK",
+    "main_page_popup_qbKzjN",
+    "product_page_popup_HDecQc"
   ]
 }
