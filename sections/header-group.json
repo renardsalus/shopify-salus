@@ -431,7 +431,7 @@
       ],
       "settings": {
         "heading": "Psst... want to save more? 🤫",
-        "content": "<p>Fun fact: &lt;b style=\"color: red\"&gt;99%&lt;/b&gt; of shoppers who chat with us save more! Want to find out?</p>",
+        "content": "<p>Fun fact: &lt;b&gt;99%&lt;/b&gt; of shoppers who chat with us save more! Want to find out?</p>",
         "image": "shopify://shop_images/homepage_popup_desktop.png",
         "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
