@@ -427,6 +427,7 @@
       ],
       "custom_css": [
         "h2 {font-size: 32px;}",
+        "strong {color: red;}",
         ".generalPopUp-info p {padding-bottom: 10px;}"
       ],
       "settings": {
