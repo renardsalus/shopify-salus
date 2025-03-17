@@ -1,3 +1,26 @@
+<style>
+  .msg-box-content-interactive {
+    display: flex;
+    gap: 20px;
+  }
+
+  .msg-box-content-interactive div:nth-of-type(2) {
+    display: flex;
+    gap: 5px;
+  }
+
+  .msg-box-content-interactive img {
+    transform: scale(0.7);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .msg-box-content h4 {
+      padding-bottom: 5px;
+    }
+  }
+
+</style>
+
 <div class="product-info__block product-info__block--sm product-message__box">
   <div class="msg-box-wrappper">
     {% if block.settings.icon != blank -%}
@@ -8,7 +31,15 @@
 
     <div class="msg-box-content">
       <h4>{{ block.settings.heading }}</h4>
-      {{ block.settings.content }}
+      <div class="msg-box-content-interactive">
+        <div>
+          {{ block.settings.content }}
+        </div>
+        <div class="flex">
+          <img src="{{ block.settings.icon1 | img_url:'master' }}">
+          <a href="" id="copyButton">{{ block.settings.content1 }}</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
