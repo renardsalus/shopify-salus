@@ -407,11 +407,16 @@
         "button_ECFPbA",
         "button_696TXM"
       ],
+      "custom_css": [
+        "h2 {font-size: 32px;}",
+        "strong {color: red;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
+      ],
       "settings": {
-        "heading": "Hey, wait a minute! Before you go...",
-        "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
-        "image": "shopify://shop_images/checkout_page_popup_image.png",
-        "image1": "shopify://shop_images/checkout_page_popup_image.png",
+        "heading": "Psst... want to save more? 🤫",
+        "content": "<p>Fun fact: <strong>99% of shoppers</strong> who chat with us save more! Want to find out?</p>",
+        "image": "shopify://shop_images/homepage_popup_desktop.png",
+        "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 5,
@@ -542,6 +547,11 @@
       "block_order": [
         "button_VJ3dpf",
         "button_CCW7FL"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}",
+        "strong {color: red;}",
+        ".generalPopUp-info p {padding-bottom: 10px;}"
       ],
       "settings": {
         "heading": "Psst... want to save more? 🤫",
