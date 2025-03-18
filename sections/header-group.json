@@ -361,6 +361,52 @@
         "button_RPpGAT",
         "button_DfyKY3"
       ],
+      "disabled": true,
+      "settings": {
+        "heading": "Hey, wait a minute! Before you go...",
+        "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
+        "image": "shopify://shop_images/checkout_page_popup_image.png",
+        "image1": "shopify://shop_images/checkout_page_popup_image.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888)287-0111"
+      }
+    },
+    "checkout_page_exit_popup_Dtdibk": {
+      "type": "checkout-page-exit-popup",
+      "blocks": {
+        "button_ECFPbA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "cpe_tts_id"
+          }
+        },
+        "button_696TXM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_ECFPbA",
+        "button_696TXM"
+      ],
       "settings": {
         "heading": "Hey, wait a minute! Before you go...",
         "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
@@ -451,11 +497,57 @@
         "button_n8JnTM",
         "button_fmCFn7"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Hey there, just so you know...",
         "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
         "image": "shopify://shop_images/product_page_popup_image_cd570a86-cc29-4625-9a72-24ec2688a3d2.png",
         "image1": "shopify://shop_images/product_page_popup_image_cd570a86-cc29-4625-9a72-24ec2688a3d2.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 600,
+        "phone_number": "(844)618-0017"
+      }
+    },
+    "product_page_popup_zFUUjc": {
+      "type": "product-page-popup",
+      "blocks": {
+        "button_VJ3dpf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_CCW7FL": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_VJ3dpf",
+        "button_CCW7FL"
+      ],
+      "settings": {
+        "heading": "Psst... want to save more? 🤫",
+        "content": "<p>Fun fact: <strong>99% of shoppers</strong> who chat with us save more! Want to find out?</p>",
+        "image": "shopify://shop_images/homepage_popup_desktop.png",
+        "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 600,
@@ -568,8 +660,10 @@
     "header",
     "sales_popup_kNEhy3",
     "checkout_page_exit_popup_naxcJ7",
+    "checkout_page_exit_popup_Dtdibk",
     "product_page_popup_KFMpDK",
     "product_page_popup_FT7grJ",
+    "product_page_popup_zFUUjc",
     "main_page_popup_qbKzjN",
     "product_page_popup_HDecQc"
   ]
