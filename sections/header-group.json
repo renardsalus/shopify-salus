@@ -365,6 +365,7 @@
         "heading": "Hey, wait a minute! Before you go...",
         "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
         "image": "shopify://shop_images/checkout_page_popup_image.png",
+        "image1": "shopify://shop_images/checkout_page_popup_image.png",
         "mobile_bg": false,
         "color": "",
         "popup_delay": 5,
@@ -450,7 +451,6 @@
         "button_n8JnTM",
         "button_fmCFn7"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Hey there, just so you know...",
         "content": "<p>You might be eligible for an additional discount. Want to give it a shot?</p>",
