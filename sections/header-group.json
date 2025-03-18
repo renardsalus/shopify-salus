@@ -496,7 +496,6 @@
         "button_CHbCab",
         "button_qXDLxK"
       ],
-      "disabled": true,
       "custom_css": [
         "h2 {font-size: 32px;}",
         "strong {color: red;}",
