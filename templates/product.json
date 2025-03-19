@@ -130,7 +130,7 @@
           "settings": {
             "icon1": "shopify://shop_images/checklist_fix.svg",
             "icon2": "shopify://shop_images/guarantee.svg",
-            "icon3": "shopify://shop_images/text_bubble.svg",
+            "icon3": "shopify://shop_images/text_bubble.png",
             "first_text": "Limited Lifetime Warranty Included",
             "second_text": "Guaranteed Safe Checkout",
             "third_text": "Expert Customer Support"
