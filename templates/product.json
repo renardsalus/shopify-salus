@@ -113,6 +113,8 @@
             "show_msg_box": true,
             "icon": "shopify://shop_images/question-mark.png",
             "icon1": "shopify://shop_images/Group_15658.png",
+            "trust_signal_icon": "shopify://shop_images/trust_signal.svg",
+            "trust_signal_heading": "Trusted by 1,000s of customers",
             "heading": "Have questions about this model?",
             "content": "<p><a href=\"mailto:sales@salussaunas.com\" title=\"Email\">Talk to an expert</a></p>",
             "content1": "<p>Call us <strong>(888) 287-0111</strong></p>",
@@ -122,6 +124,17 @@
         "pay_hsa_fsa_CtzPVC": {
           "type": "pay_hsa_fsa",
           "settings": {}
+        },
+        "benefits_rG7wmT": {
+          "type": "benefits",
+          "settings": {
+            "icon1": "shopify://shop_images/checklist_fix.svg",
+            "icon2": "shopify://shop_images/guarantee.svg",
+            "icon3": "shopify://shop_images/text_bubble.png",
+            "first_text": "Limited Lifetime Warranty Included",
+            "second_text": "Guaranteed Safe Checkout",
+            "third_text": "Expert Customer Support"
+          }
         },
         "delivery_detail_mAnc4b": {
           "type": "delivery_detail",
@@ -161,6 +174,7 @@
         "judge_me_reviews_featured_carousel_axna7X",
         "buy-buttons",
         "pay_hsa_fsa_CtzPVC",
+        "benefits_rG7wmT",
         "delivery_detail_mAnc4b",
         "copy_link_4kBkjc",
         "custom_liquid_NEe7FL"

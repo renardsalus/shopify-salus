@@ -460,7 +460,10 @@
                           {{- 'products.product.add_to_cart' | t -}}
                         {%- endif -%}
                       {%- endcapture -%}
-
+                        <div class="trust-signal">
+                          <img src="{{ block.settings.trust_signal_icon | img_url:'master' }}">
+                          <span>{{ block.settings.trust_signal_heading }}</span>
+                        </div>
                         <button
                           type="submit"
                           data-add-to-cart-text="{{ add_to_cart_text | escape }}"
@@ -678,6 +681,21 @@
                   </div>
                 </div>
               </div>
+            {% when 'benefits' %}
+              <ul class="icon-with-text icon-with-text--horizontal list-unstyled content-container">
+                <li class="icon-with-text__item">
+                  <img src="{{ block.settings.icon1 | img_url:'master' }}" width="30" height="30">
+                  <span>{{ block.settings.first_text }}</span>
+                </li>
+                <li class="icon-with-text__item">
+                  <img src="{{ block.settings.icon2 | img_url:'master' }}" width="30" height="30">
+                  <span>{{ block.settings.second_text }}</span>
+                </li>
+                <li class="icon-with-text__item">
+                  <img src="{{ block.settings.icon3 | img_url:'master' }}" width="30" height="30">
+                  <span>{{ block.settings.third_text }}</span>
+                </li>
+              </ul>
             {%- when 'product-signup' -%}
               {%- liquid
                 assign show_block = true
@@ -1557,6 +1575,16 @@
           "label":"Second Icon"
         },
         {
+          "type":"image_picker",
+          "id":"trust_signal_icon",
+          "label":"Trust Signal Icon"
+        },
+        {
+          "type":"text",
+          "id":"trust_signal_heading",
+          "label":"Trust Signal Heading"
+        },
+        {
           "type":"text",
           "id":"heading",
           "label":"Heading"
@@ -1812,6 +1840,43 @@
           "type":"richtext",
           "id":"content",
           "label":"Content"
+        }
+      ]
+    },
+    {
+      "type":"benefits",
+      "name":"Benefits Detail",
+      "limit":1,
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"icon1",
+          "label":"First Icon"
+        },
+        {
+          "type":"image_picker",
+          "id":"icon2",
+          "label":"Second Icon"
+        },
+        {
+          "type":"image_picker",
+          "id":"icon3",
+          "label":"Third Icon"
+        },
+        {
+          "type":"text",
+          "id":"first_text",
+          "label":"First Description"
+        },
+        {
+          "type":"text",
+          "id":"second_text",
+          "label":"Second Description"
+        },
+        {
+          "type":"text",
+          "id":"third_text",
+          "label":"Third Description"
         }
       ]
     },
