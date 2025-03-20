@@ -6381,9 +6381,9 @@ body .products-card-sec .product_ratings .jdgm-preview-badge .jdgm-star {
   z-index: 1;
   background: #222120cc;
   color: #fff;
-  padding: 10px 12px;
+  padding: 5px 8px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 27px;
 }
