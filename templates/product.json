@@ -52,6 +52,10 @@
             "show_tax_and_shipping": false
           }
         },
+        "stock_left_VWbYiR": {
+          "type": "stock_left",
+          "settings": {}
+        },
         "richtext_rmaxgM": {
           "type": "richtext",
           "settings": {
@@ -165,6 +169,7 @@
         "judge_me_reviews_preview_badge_X9NxFb",
         "delivery_dTUxNH",
         "price",
+        "stock_left_VWbYiR",
         "richtext_rmaxgM",
         "download_manual_MAdAyX",
         "richtext_xT69WE",
