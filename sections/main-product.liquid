@@ -285,7 +285,21 @@
                 <div
                   class="product-info__block product-info__block--sm product-info__delivery"
                 >
-                  <p>{{ block.settings.delivery | append: ' Delivery' }}</p>
+                  <p>
+                    {{ block.settings.delivery | append: ' Delivery' }}
+                  </p>
+                </div>
+              {% endif %}
+            
+            {% when 'stock_left' %}
+              {% if product.selected_or_first_available_variant.inventory_quantity <= 3 %}
+                <div
+                  class="product-info__block product-info__block--sm product-info__stock-warning"
+                >
+                    <img src="{{ 'important.svg' | asset_url }}">
+                    <span>
+                      only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!
+                    </span>
                 </div>
               {% endif %}
 
@@ -310,7 +324,7 @@
               >
                 <div class="copy-button-wrapper">
                   <button id="copy_link" data-href="{{ shop.url }}/{{ product.url }}">
-                    <img src="{{ 'copy-to-clipboard.PNG' | asset_url }}">
+                    <img src="{{ 'assembly-video-play.svg' | asset_url }}">
                     <span class="copy-link-tooltip">Copy Link</span>
                   </button>
                 </div>
@@ -2180,6 +2194,11 @@
           "label":"Delivery"
         }
       ]
+    },
+    {
+      "type": "stock_left",
+      "name": "Stock Left Badge",
+      "limit": 1
     },
     {
       "type":"pay_hsa_fsa",

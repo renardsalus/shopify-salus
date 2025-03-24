@@ -75,6 +75,26 @@
   line-height: 31.5px;
   margin-bottom: 0;
 }
+
+.product-info__block--sm.product-info__stock-warning {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: max-content;
+  background: #F03636;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 550px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 31.5px;
+  margin-bottom: 0;
+}
+
+.product-info__stock-warning span {
+  text-transform: uppercase;
+}
+
 .product-detail-link a {
   display: flex;
   gap: 5px;
