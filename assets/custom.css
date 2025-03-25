@@ -3714,6 +3714,9 @@ body:is(.template--for-first-responders, .template--electrical-information)
 .product-detail-cntnt .product-info__block + .product-info__block {
   margin-top: 0;
 }
+.product-detail-cntnt span {
+  font-size: 16px;
+}
 .header__icons nav.secondary-nav-container {
   display: flex;
   align-items: center;

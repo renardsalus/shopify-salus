@@ -292,7 +292,8 @@
               {% endif %}
             
             {% when 'stock_left' %}
-              {% if product.selected_or_first_available_variant.inventory_quantity <= 3 %}
+              {% assign available_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+              {% if available_quantity <= 3 and available_quantity > 0 %}
                 <div
                   class="product-info__block product-info__block--sm product-info__stock-warning"
                 >

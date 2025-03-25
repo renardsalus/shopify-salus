@@ -91,6 +91,10 @@
   margin-bottom: 0;
 }
 
+.product-info__block--sm.product-info__stock-warning:not(:has(+ .product-details__text)) {
+  margin-bottom: 30px;
+}
+
 .product-info__stock-warning span {
   text-transform: uppercase;
 }
@@ -119,7 +123,7 @@
   padding: 25px 0px;
 }
 .product-info .disclosure .disclosure__title {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 31.5px;
 }
@@ -273,7 +277,7 @@
   object-fit: cover;
 }
 .product-detail-title h3 {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 31.5px;
   margin-bottom: 20px;
