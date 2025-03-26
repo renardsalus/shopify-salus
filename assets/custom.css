@@ -393,6 +393,9 @@ p.card__tag {
   .product-detail-cntnt span {
     font-size: 14px !important;
   }
+  .product-detail-cntnt p {
+    font-size: 14px !important;
+  }
 }
 
 .products-card-sec .card_redirect {
@@ -3718,6 +3721,9 @@ body:is(.template--for-first-responders, .template--electrical-information)
   margin-top: 0;
 }
 .product-detail-cntnt span {
+  font-size: 16px;
+}
+.product-detail-cntnt p {
   font-size: 16px;
 }
 .header__icons nav.secondary-nav-container {
