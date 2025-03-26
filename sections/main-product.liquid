@@ -281,26 +281,24 @@
               </div>
 
             {% when 'delivery' %}
-              {% if block.settings.delivery != blank %}
+              {% if block.settings.delivery != blank%}
                 <div
-                  class="product-info__block product-info__block--sm product-info__delivery"
+                  class="product-info__block product-info__block--sm product-info__delivery flex"
                 >
                   <p>
                     {{ block.settings.delivery | append: ' Delivery' }}
                   </p>
-                </div>
-              {% endif %}
-            
-            {% when 'stock_left' %}
-              {% assign available_quantity = product.selected_or_first_available_variant.inventory_quantity %}
-              {% if available_quantity <= 3 and available_quantity > 0 %}
-                <div
-                  class="product-info__block product-info__block--sm product-info__stock-warning"
-                >
-                    <img src="{{ 'important.svg' | asset_url }}">
-                    <span>
-                      only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!
-                    </span>
+                  {% assign available_quantity = product.selected_or_first_available_variant.inventory_quantity %}
+                  {% if available_quantity <= 3 and available_quantity > 0 %}
+                    <div
+                      class="product-info__block product-info__block--sm product-info__stock-warning"
+                    >
+                        <img src="{{ 'important.svg' | asset_url }}">
+                        <span>
+                          only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!
+                        </span>
+                    </div>
+                  {% endif %}
                 </div>
               {% endif %}
 

@@ -62,7 +62,9 @@
   text-transform: capitalize;
 }
 .product-info__block--sm.product-info__delivery {
+  align-items: center;
   margin-bottom: 30px;
+  gap: 10px;
 }
 .product-info__delivery p {
   width: max-content;
@@ -70,7 +72,7 @@
   color: #fff;
   padding: 4px 20px;
   border-radius: 550px;
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 31.5px;
   margin-bottom: 0;
@@ -91,9 +93,9 @@
   margin-bottom: 0;
 }
 
-.product-info__block--sm.product-info__stock-warning:not(:has(+ .product-details__text)) {
-  margin-bottom: 30px;
-}
+/* .product-info__block--sm.product-info__stock-warning:not(:has(+ .product-details__text)) {
+  margin-bottom: 0px;
+} */
 
 .product-info__stock-warning span {
   text-transform: uppercase;
