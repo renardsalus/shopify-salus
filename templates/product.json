@@ -43,7 +43,8 @@
         "delivery_dTUxNH": {
           "type": "delivery",
           "settings": {
-            "delivery": "{{ product.metafields.custom.delivery.value }}"
+            "delivery": "{{ product.metafields.custom.delivery.value }}",
+            "stock_left": "{{ product.metafields.custom.stock_left.value }}"
           }
         },
         "price": {
@@ -51,10 +52,6 @@
           "settings": {
             "show_tax_and_shipping": false
           }
-        },
-        "stock_left_VWbYiR": {
-          "type": "stock_left",
-          "settings": {}
         },
         "richtext_rmaxgM": {
           "type": "richtext",
@@ -74,7 +71,7 @@
           "type": "richtext",
           "settings": {
             "heading": "Product Overview",
-            "text": "<p>{{ product.description }}</p>"
+            "text": "{{ product.description }}"
           }
         },
         "variant_picker_CHdtt9": {
@@ -169,7 +166,6 @@
         "judge_me_reviews_preview_badge_X9NxFb",
         "delivery_dTUxNH",
         "price",
-        "stock_left_VWbYiR",
         "richtext_rmaxgM",
         "download_manual_MAdAyX",
         "richtext_xT69WE",
