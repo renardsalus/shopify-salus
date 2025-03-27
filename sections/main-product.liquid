@@ -281,11 +281,23 @@
               </div>
 
             {% when 'delivery' %}
-              {% if block.settings.delivery != blank %}
+              {% if block.settings.delivery != blank%}
                 <div
-                  class="product-info__block product-info__block--sm product-info__delivery"
+                  class="product-info__block product-info__block--sm product-info__delivery flex"
                 >
-                  <p>{{ block.settings.delivery | append: ' Delivery' }}</p>
+                  <p>
+                    {{ block.settings.delivery | append: ' Delivery' }}
+                  </p>
+                  {% if block.settings.stock_left != blank%}
+                    <div
+                      class="product-info__block product-info__block--sm product-info__stock-warning"
+                    >
+                        <img src="{{ 'important.svg' | asset_url }}">
+                        <span>
+                          {{ block.settings.stock_left }}
+                        </span>
+                    </div>
+                  {% endif %}
                 </div>
               {% endif %}
 
@@ -310,7 +322,7 @@
               >
                 <div class="copy-button-wrapper">
                   <button id="copy_link" data-href="{{ shop.url }}/{{ product.url }}">
-                    <img src="{{ 'copy-to-clipboard.PNG' | asset_url }}">
+                    <img src="{{ 'assembly-video-play.svg' | asset_url }}">
                     <span class="copy-link-tooltip">Copy Link</span>
                   </button>
                 </div>
@@ -2178,6 +2190,11 @@
           "type":"text",
           "id":"delivery",
           "label":"Delivery"
+        },
+        {
+          "type":"text",
+          "id":"stock_left",
+          "label":"Stock Left Text"
         }
       ]
     },

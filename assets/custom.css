@@ -390,6 +390,12 @@ p.card__tag {
   .products-card-sec .card_redirect {
     flex-direction: column;
   }
+  .product-detail-cntnt span {
+    font-size: 14px !important;
+  }
+  .product-detail-cntnt p {
+    font-size: 14px !important;
+  }
 }
 
 .products-card-sec .card_redirect {
@@ -3713,6 +3719,12 @@ body:is(.template--for-first-responders, .template--electrical-information)
 } */
 .product-detail-cntnt .product-info__block + .product-info__block {
   margin-top: 0;
+}
+.product-detail-cntnt span {
+  font-size: 16px;
+}
+.product-detail-cntnt p {
+  font-size: 16px;
 }
 .header__icons nav.secondary-nav-container {
   display: flex;
