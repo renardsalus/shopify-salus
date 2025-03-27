@@ -291,19 +291,6 @@
             "button_link": ""
           }
         },
-        "column_MUyT9i": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/joe_rogan_speaker.jpg",
-            "media_scale": 100,
-            "heading": "Joe Rogan",
-            "subtext": "",
-            "text": "<p>Podcaster, Commentator, Comedian</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
         "column_WNXrha": {
           "type": "column",
           "settings": {
@@ -313,6 +300,19 @@
             "heading": "Frankie Edgar",
             "subtext": "",
             "text": "<p>Former UFC Lightweight Champion</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_MUyT9i": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/joe_rogan_speaker.jpg",
+            "media_scale": 100,
+            "heading": "Joe Rogan",
+            "subtext": "",
+            "text": "<p>Podcaster, Commentator, Comedian</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -388,8 +388,8 @@
         "column_XPFNy9",
         "column_AHwLrJ",
         "column_XfaGyE",
-        "column_MUyT9i",
         "column_WNXrha",
+        "column_MUyT9i",
         "multi-column-0",
         "column_UymgWR",
         "column_QFyAEQ",

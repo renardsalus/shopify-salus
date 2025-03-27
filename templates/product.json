@@ -43,8 +43,7 @@
         "delivery_dTUxNH": {
           "type": "delivery",
           "settings": {
-            "delivery": "{{ product.metafields.custom.delivery.value }}",
-            "stock_left": "{{ product.metafields.custom.stock_left.value }}"
+            "delivery": "{{ product.metafields.custom.delivery.value }}"
           }
         },
         "price": {
