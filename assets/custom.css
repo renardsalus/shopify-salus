@@ -3709,10 +3709,10 @@ body:is(.template--for-first-responders, .template--electrical-information)
   font-size: 15px;
   font-weight: 400;
 }
-.product-details__text:nth-child(10) .product-detail-title,
+/* .product-details__text:nth-child(10) .product-detail-title,
 .product-details__text:nth-child(7) .product-detail-title {
   display: none;
-}
+} */
 
 /* .download-link-wrapper ~ .product-details__text > .product-detail-title {
   display: none;

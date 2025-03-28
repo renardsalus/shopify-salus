@@ -12,19 +12,24 @@
   height: 35px;
   border-radius: 100%;
 }
-.media-gallery__viewer .pdp-tag {
+
+.media-gallery__viewer .tag-container {
   position: absolute;
   top: 45px;
   left: 45px;
   z-index: 1;
+}
+
+.media-gallery__viewer .pdp-tag {
   background: #43403e;
   color: #fff;
-  padding: 1px 8px;
+  padding: 5px 8px;
   font-size: 16px;
   font-weight: 600;
   line-height: 36px;
   border-radius: 5px;
 }
+
 #product-media .media-ctrl__btn .icon {
   width: 13px;
   height: 20px;

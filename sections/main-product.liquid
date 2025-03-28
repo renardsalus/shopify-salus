@@ -1051,6 +1051,19 @@
 {% render 'structured-data-product', product: product, current_variant: current_variant %}
 {% render 'modify-globo-tooltip' %}
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () { 
+    const titles = document.querySelectorAll(".product-detail-title");
+    if (titles.length > 1) {
+      titles.forEach((title, index) => {
+        if (index > 0) {
+          title.style.display = "none"; // Hide all but the first one
+        }
+      });
+    }
+  })
+</script>
+
 <!-- GLOBO - PRODUCT -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {

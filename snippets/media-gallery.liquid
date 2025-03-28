@@ -69,7 +69,10 @@
 
   <div class="media-gallery__viewer relative">
     {% if product.metafields.custom.product_tag != blank %}
-      <span class="pdp-tag">{{ product.metafields.custom.product_tag }}</span>
+      <div class="tag-container">
+        <span class="pdp-tag">{{ product.metafields.custom.product_tag }}</span>
+        <span class="pdp-tag">{{ product.metafields.custom.capacity }} Persons</span>
+      </div>
     {% endif %}
     <ul class="media-viewer flex" id="gallery-viewer" role="list" tabindex="0">
       {%- for media in product.media -%}
