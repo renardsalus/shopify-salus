@@ -218,9 +218,9 @@
   margin: calc(6 * var(--space-unit)) 0;
 }
 
-.product-details__block {
+/* .product-details__block {
   margin: var(--product-details-block-margin) 0;
-}
+} */
 
 .product-vendor-sku + .product-info__title {
   margin-top: -4px;
