@@ -7067,13 +7067,12 @@
   }
 
   body .media-gallery__viewer .tag-container {
-    top: 15px;
     left: 15px;
   }
 
   body .media-gallery__viewer .pdp-tag {
-    padding: 10px 10px;
-    font-size: 14px;
+    padding: 8px 8px;
+    font-size: 12px;
   }
 
   body .product-info__delivery p {
