@@ -169,11 +169,11 @@
   --product-info-block-margin: calc(6 * var(--space-unit));
 }
 
-.product-info__block,
+/* .product-info__block,
 .product-info__block--sm,
 .product-details__block {
   margin: var(--product-info-block-margin) 0;
-}
+} */
 .product-info__block:first-child,
 .product-info__block--sm:first-child,
 .product-details__block:first-child {
