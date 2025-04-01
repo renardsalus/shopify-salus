@@ -1,5 +1,31 @@
 <div class="quick-atc-banner sticky">
-  <div class="container">
+  <div class="container desktop-hidden">
+    <div class="atc-banner-inner">
+      <div class="atc-title">
+        <h3>{{ product.title }}</h3>
+      </div>
+      <div class="atc-detail-wrapper">
+        <div class="atc-banner-price">
+          {% render 'price', product: product, use_variant: false %}
+        </div>
+      </div>
+    </div>
+    <div class="atc-banner-button">
+        <button
+          class="quick-banner-atc btn"
+          {% if product.available == false %}
+            disabled
+          {% endif %}
+        >
+          {%- if product.available -%}
+            Add to cart
+          {%- else -%}
+            {{- 'products.product.sold_out' | t -}}
+          {%- endif -%}
+        </button>
+      </div>
+  </div>
+  <div class="container mobile-hidden">
     <div class="atc-banner-inner">
       <div class="atc-title">
         <h3>{{ product.title }}</h3>
