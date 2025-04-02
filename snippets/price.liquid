@@ -34,7 +34,7 @@
     <strong class="price__current">{%- render 'price-as-money', price: price -%}</strong>
     {%- if compare_at_price and compare_at_price > price -%}
       {% assign off_price = compare_at_price | minus: price | money %}
-      <sapn class="discount__price"> {{ off_price }} off </sapn>
+      <span class="discount__price"> {{ off_price }} off </span>
     {% endif %}
     <s class="price__was{% if settings.superscript_decimals %} price__was--supercents{% endif %}">
       {%- if compare_at_price and compare_at_price > price -%}

@@ -9613,3 +9613,33 @@ button.ButtonBase__ButtonContainer-sc-p43e7i-3.euBiGU.es-load-more-button:hover 
     transform: scale(0.8);
   }
 }
+
+.atc-banner-mobile .price__default > strong,
+.atc-banner-mobile .price__default > s {
+  font-size: 11px !important;
+}
+
+.atc-banner-mobile .price__default > span {
+  font-size: 9px !important;
+}
+
+.atc-banner-mobile .price__default > strong,
+.atc-banner-mobile .price__default > s {
+  font-size: 11px !important;
+}
+
+.atc-banner-mobile .price__default > span {
+  font-size: 9px !important;
+}
+
+.atc-banner-mobile .price__default > strong { 
+  order: 1;
+}
+
+.atc-banner-mobile .price__default > s {
+  order: 3 !important;
+}
+
+.atc-banner-mobile .price__default > span {
+  order: 2;
+}
