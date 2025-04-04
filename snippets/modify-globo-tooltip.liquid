@@ -170,7 +170,7 @@
     observer.observe(targetNode, config);
   });
 
-  window.onload = () => {
+  const priceCompare = () => {
     const variantIds = [];
     const inputs = document.querySelectorAll("input[gpo-data-variant-id]");
     inputs.forEach((input) => {
@@ -230,5 +230,12 @@
         }
       }
     }
+  }
+
+  if (document.readyState === "complete") {
+    // page is already loaded
+    priceCompare();
+  } else {
+    window.addEventListener("load", priceCompare);;
   }
 </script>
