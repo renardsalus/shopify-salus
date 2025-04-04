@@ -14,12 +14,37 @@
   {% assign variant_metafields_string = variant_metafields_string | slice: 0, vms_length_min_one %}
 {% endif %}
 
+{% assign variant_real_price_string = '' %}
+{% for product in collections['uncategorized'].products %}
+  {% for variant in product.variants %}
+    {% if variant.metafields.custom.real_price != blank %}
+      {% assign variant_real_price_string = variant_real_price_string | append: variant.id | append: '<delimiter_first>' | append: variant.metafields.custom.real_price | append: '<delimiter_second>' %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% liquid
+  assign last_character_vrp = variant_real_price_string | slice: -1
+  assign vrp_length_min_one = variant_real_price_string.size | minus: 1
+%}
+{% if last_character_vrp == '<delimiter_second>' %}
+  {% assign variant_real_price_string = variant_real_price_string | slice: 0, vrp_length_min_one %}
+{% endif %}
+
 <script>
   const vmsString = {{variant_metafields_string |  json}};
+  const vrpString = {{variant_real_price_string |  json}};
   const vmMap = new Map();
+  const vrpMap = new Map();
   let variantIds = {
     value: [],
   };
+
+  vrpString
+    .split("<delimiter_second>")
+    .map((val) => val.split("<delimiter_first>"))
+    .forEach(([id, price]) => {
+      vrpMap.set(id, price);
+    });
 
   vmsString
     .split("<delimiter_second>")
@@ -144,4 +169,65 @@
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
   });
+
+  window.onload = () => {
+    const variantIds = [];
+    const inputs = document.querySelectorAll("input[gpo-data-variant-id]");
+    inputs.forEach((input) => {
+      const variantId = input.getAttribute("gpo-data-variant-id");
+      variantIds.push(variantId);
+    });
+
+    for (let val of variantIds) {
+      if (!vmMap.has(val)) {
+        continue;
+      }
+      const tooltipParent = document
+        .querySelector(`input[gpo-data-variant-id="${val}"]`)
+        ?.nextElementSibling?.querySelector("div.gpo-tooltip.zoom-image")
+
+      const childDivs = tooltipParent?.querySelectorAll("div");
+      for (let i = 0; i < childDivs.length; i++) {
+        if (!childDivs[i].classList.contains('gpo-tooltip__title')) {
+          continue
+        }
+
+        if (!vrpMap.has(val)) {
+          continue
+        }
+
+        const addOn = childDivs[i].querySelector(".addOn");
+
+        if (addOn) {
+          addOn.remove();
+
+          const newDiv = document.createElement("div");
+          const secondDiv = document.createElement("div");
+
+          const priceCurr = document.createElement("strong");
+          const savePrice = document.createElement("span");
+          const priceWas = document.createElement("s");
+
+          childDivs[i].insertAdjacentElement('afterend', newDiv);
+          newDiv.appendChild(secondDiv);
+          secondDiv.classList.add("price__default", "gpo-tooltip__price-comparison");
+
+          const value = addOn?.textContent.trim();
+          const valNum = value?.match(/[\d,]+/)[0].replace(/,/g, "");
+          
+          secondDiv.appendChild(priceCurr);
+          priceCurr.textContent = "$" + parseInt(valNum).toLocaleString("en-US");
+          priceCurr.classList.add("price__current");
+          
+          secondDiv.appendChild(priceWas);
+          priceWas.textContent = `$${parseInt(vrpMap.get(val)).toLocaleString("en-US")}`;
+          priceWas.classList.add("price__was");
+          
+          secondDiv.appendChild(savePrice);
+          savePrice.textContent = `Save $${(parseInt(vrpMap.get(val)) - parseInt(valNum)).toLocaleString("en-US")}`;
+          savePrice.classList.add("discount__price");
+        }
+      }
+    }
+  }
 </script>
