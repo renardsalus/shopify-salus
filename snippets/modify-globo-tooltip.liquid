@@ -232,10 +232,21 @@
     }
   }
 
-  if (document.readyState === "complete") {
-    // page is already loaded
-    priceCompare();
-  } else {
-    window.addEventListener("load", priceCompare);;
+  function waitForElement(selector, callback) {
+    const observer = new MutationObserver(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        observer.disconnect();
+        callback(el);
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
   }
+
+  // Example usage:
+  waitForElement('.addOn', priceCompare);
 </script>
