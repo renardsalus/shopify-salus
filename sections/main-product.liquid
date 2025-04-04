@@ -1049,7 +1049,6 @@
 {%- endif -%}
 
 {% render 'structured-data-product', product: product, current_variant: current_variant %}
-{% render 'modify-globo-tooltip' %}
 
 <script>
   document.addEventListener("DOMContentLoaded", function () { 
@@ -1180,6 +1179,8 @@
       });
   });
 </script>
+
+{% render 'modify-globo-tooltip' %}
 
 {% schema %}
 {
