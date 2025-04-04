@@ -195,7 +195,8 @@
         if (!vrpMap.has(val)) {
           continue
         }
-
+        childDivs[i].style.marginBottom = '0px'
+        childDivs[i].style.fontWeight = '600'
         const addOn = childDivs[i].querySelector(".addOn");
 
         if (addOn) {
@@ -216,15 +217,15 @@
           const valNum = value?.match(/[\d,]+/)[0].replace(/,/g, "");
           
           secondDiv.appendChild(priceCurr);
-          priceCurr.textContent = "$" + parseInt(valNum).toLocaleString("en-US");
+          priceCurr.textContent = "$" + parseInt(valNum).toLocaleString("en-US") +" USD";
           priceCurr.classList.add("price__current");
           
           secondDiv.appendChild(priceWas);
-          priceWas.textContent = `$${parseInt(vrpMap.get(val)).toLocaleString("en-US")}`;
+          priceWas.textContent = `$${parseInt(vrpMap.get(val)).toLocaleString("en-US")} USD`;
           priceWas.classList.add("price__was");
           
           secondDiv.appendChild(savePrice);
-          savePrice.textContent = `Save $${(parseInt(vrpMap.get(val)) - parseInt(valNum)).toLocaleString("en-US")}`;
+          savePrice.textContent = `SAVE $${(parseInt(vrpMap.get(val)) - parseInt(valNum)).toLocaleString("en-US")}`;
           savePrice.classList.add("discount__price");
         }
       }
