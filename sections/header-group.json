@@ -407,6 +407,7 @@
         "button_ECFPbA",
         "button_696TXM"
       ],
+      "disabled": true,
       "custom_css": [
         "h2 {font-size: 32px;}",
         "strong {color: red;}",
@@ -415,6 +416,52 @@
       "settings": {
         "heading": "Psst... want to save more? 🤫",
         "content": "<p>Fun fact: <strong>99% of shoppers</strong> who chat with us save more! Want to find out?</p>",
+        "image": "shopify://shop_images/homepage_popup_desktop.png",
+        "image1": "shopify://shop_images/homepage_popup_mobile.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888)287-0111"
+      }
+    },
+    "checkout_page_exit_popup_QTeKpP": {
+      "type": "checkout-page-exit-popup",
+      "blocks": {
+        "button_x9Yhc9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "cpe_tts_id"
+          }
+        },
+        "button_RB9A3p": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_x9Yhc9",
+        "button_RB9A3p"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Psst… want to beat the new tariffs? 👀",
+        "content": "<p>New U.S. import changes might raise prices soon.<br/>Most shoppers who chat with us get in ahead of it. Want in?</p>",
         "image": "shopify://shop_images/homepage_popup_desktop.png",
         "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
@@ -548,6 +595,7 @@
         "button_VJ3dpf",
         "button_CCW7FL"
       ],
+      "disabled": true,
       "custom_css": [
         "h2 {font-size: 32px;}",
         "strong {color: red;}",
@@ -556,6 +604,51 @@
       "settings": {
         "heading": "Psst... want to save more? 🤫",
         "content": "<p>Fun fact: <strong>99% of shoppers</strong> who chat with us save more! Want to find out?</p>",
+        "image": "shopify://shop_images/homepage_popup_desktop.png",
+        "image1": "shopify://shop_images/homepage_popup_mobile.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 600,
+        "phone_number": "(844)618-0017"
+      }
+    },
+    "product_page_popup_tR3RE4": {
+      "type": "product-page-popup",
+      "blocks": {
+        "button_Ckz9gi": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_4cFJde": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_Ckz9gi",
+        "button_4cFJde"
+      ],
+      "settings": {
+        "heading": "Psst… want to beat the new tariffs? 👀",
+        "content": "<p>New U.S. import changes might raise prices soon.<br/>Most shoppers who chat with us get in ahead of it. Want in?</p>",
         "image": "shopify://shop_images/homepage_popup_desktop.png",
         "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
@@ -598,6 +691,7 @@
         "button_CHbCab",
         "button_qXDLxK"
       ],
+      "disabled": true,
       "custom_css": [
         "h2 {font-size: 32px;}",
         "strong {color: red;}",
@@ -606,6 +700,51 @@
       "settings": {
         "heading": "Psst... want to save more? 🤫",
         "content": "<p>Fun fact: <strong>99% of shoppers</strong> who chat with us save more! Want to find out?</p>",
+        "image": "shopify://shop_images/homepage_popup_desktop.png",
+        "image1": "shopify://shop_images/homepage_popup_mobile.png",
+        "mobile_bg": false,
+        "color": "",
+        "popup_delay": 5,
+        "phone_number": "(888)287-0111"
+      }
+    },
+    "main_page_popup_w9FiEA": {
+      "type": "main-page-popup",
+      "blocks": {
+        "button_xi8j4c": {
+          "type": "button",
+          "settings": {
+            "button_label": "Talk to sales",
+            "button_link": "mailto:sales@salussaunas.com?subject=Interested%20in%20a%20special%20for%20your%20sauna&body=Hey%20Salus,%0D%0A%0D%0AI%27m%20wondering%20about%20any%20additional%20discounts%20available!%20I%27m%20interested%20in%20[insert%20sauna,%20heater%20upgrade,%20and%20accessories].%0D%0A%0D%0AThank%20you!",
+            "button_bg_color": "#000000",
+            "button_text_color": "#ffffff",
+            "hover_button_bg_color": "#254440",
+            "hover_button_text_color": "#ffffff",
+            "margin_top": "10px",
+            "button_id": "tss_id"
+          }
+        },
+        "button_TFygC6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Sales",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "hover_button_bg_color": "#e7e7e7",
+            "hover_button_text_color": "#000000",
+            "margin_top": "10px",
+            "button_id": "copyButton"
+          }
+        }
+      },
+      "block_order": [
+        "button_xi8j4c",
+        "button_TFygC6"
+      ],
+      "settings": {
+        "heading": "Psst… want to beat the new tariffs? 👀",
+        "content": "<p>New U.S. import changes might raise prices soon.<br/>Most shoppers who chat with us get in ahead of it. Want in?</p>",
         "image": "shopify://shop_images/homepage_popup_desktop.png",
         "image1": "shopify://shop_images/homepage_popup_mobile.png",
         "mobile_bg": false,
@@ -671,10 +810,13 @@
     "sales_popup_kNEhy3",
     "checkout_page_exit_popup_naxcJ7",
     "checkout_page_exit_popup_Dtdibk",
+    "checkout_page_exit_popup_QTeKpP",
     "product_page_popup_KFMpDK",
     "product_page_popup_FT7grJ",
     "product_page_popup_zFUUjc",
+    "product_page_popup_tR3RE4",
     "main_page_popup_qbKzjN",
+    "main_page_popup_w9FiEA",
     "product_page_popup_HDecQc"
   ]
 }
