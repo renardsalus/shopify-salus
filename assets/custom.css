@@ -2321,7 +2321,7 @@ body.overflow-hidden {
   .media-thumbs__item
   .media-thumbs__btn
   img {
-  padding: 20px !important;
+  padding: 0px !important;
 }
 
 .template--product .product .product-info .disclosure > summary {
@@ -2972,11 +2972,11 @@ body cart-drawer product-form .btn {
 }
 
 .template--product .media-gallery .media-viewer > .media-viewer__item {
-  padding: 50px;
+  padding: 0px;
 }
-.template--product .media-gallery .media-viewer > .media-viewer__item.jpg-type {
+/* .template--product .media-gallery .media-viewer > .media-viewer__item.jpg-type {
   padding: 0;
-}
+} */
 .template--product .product-main .product-media {
   padding-bottom: 25px;
 }

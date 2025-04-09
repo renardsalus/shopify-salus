@@ -3752,7 +3752,7 @@
     .media-thumbs__item
     .media-thumbs__btn
     img {
-    padding: 5px !important;
+    padding: 0px !important;
   }
 
   .template--product .card--sticky-atc .card__media img {
