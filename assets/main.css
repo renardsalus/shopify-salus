@@ -1444,6 +1444,11 @@ address {
   transform: translateY(-50%);
 }
 
+.vertical-bottom {
+  top: 95%;
+  transform: translateY(-50%);
+}
+
 .tap-target {
   position: relative;
 }

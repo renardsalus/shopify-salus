@@ -165,7 +165,7 @@
   height: calc(44px + var(--media-gutter) * 2);
 }
 .media-ctrl__btn[name="prev"] {
-  left: var(--media-gutter);
+  right: calc(3 *var(--media-gutter));
 }
 .media-ctrl__btn[name="next"] {
   right: var(--media-gutter);
