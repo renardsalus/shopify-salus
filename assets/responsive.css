@@ -2119,7 +2119,7 @@
     column-gap: 22px;
   }
 
-  .template--collection .card--product .card__media:has(.png_type, .webp_type),
+  /* .template--collection .card--product .card__media:has(.png_type, .webp_type), */
   .template--search
     .card--product
     .card__media:has(.png_type, .webp_type)
@@ -8236,7 +8236,7 @@
   .assembly-video-btn a.btn img {
     width: 10px;
   }
-  .template--collection .card--product .card__media:has(.png_type, .webp_type),
+  /* .template--collection .card--product .card__media:has(.png_type, .webp_type), */
   .template--search
     .card--product
     .card__media:has(.png_type, .webp_type)

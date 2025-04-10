@@ -6373,9 +6373,13 @@ body .products-card-sec .product_ratings .jdgm-preview-badge .jdgm-star {
   border-radius: 5px;
 }
 
-.template--collection .card--product .card__media:has(.png_type, .webp_type),
+/* .template--collection .card--product .card__media:has(.png_type, .webp_type), */
 .template--search .card--product .card__media:has(.png_type, .webp_type) {
   padding: 25px;
+  background: #fbf2e9;
+}
+
+.template--collection .card--product .card__media:has(.png_type, .webp_type) {
   background: #fbf2e9;
 }
 
