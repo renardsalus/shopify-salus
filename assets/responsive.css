@@ -2726,6 +2726,15 @@
   }
 }
 
+@media only screen and (min-width: 1024px) { 
+  .mega-product-content h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 160px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .has--menu-products,
   .mega-nav--promos-right {
