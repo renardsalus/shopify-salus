@@ -9674,3 +9674,11 @@ button.ButtonBase__ButtonContainer-sc-p43e7i-3.euBiGU.es-load-more-button:hover 
   padding: 0 4px;
   border-radius: 2px;
 }
+
+.truncate-two-lines a {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

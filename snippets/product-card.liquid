@@ -294,7 +294,7 @@
           {%- endif -%}
 
           <div class="product-title-wrapper">
-            <p class="card__title font-bold{% if settings.show_dividers %} mb-1{% else %} mt-1 mb-0{% endif %}">
+            <p class="truncate-two-lines card__title font-bold{% if settings.show_dividers %} mb-1{% else %} mt-1 mb-0{% endif %}">
               <a href="{{ product_url }}" class="card-link text-current js-prod-link">
                 {{- product.title | escape -}}
               </a>
