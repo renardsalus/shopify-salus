@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -38,6 +47,7 @@
         "contact-email-3",
         "contact-body-5"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Drop us an email or call us at (888) 287-0111",
         "heading_align": "text-center",
@@ -45,6 +55,64 @@
         "color_scheme": "1",
         "full_width": false,
         "button_style": "btn btn--primary"
+      }
+    },
+    "content_with_form_3A7wrj": {
+      "type": "content-with-form",
+      "blocks": {
+        "first_name_GJkn9C": {
+          "type": "first-name",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "last_name_xMP3H4": {
+          "type": "last-name",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "email_aUL3Q8": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "phone_hrJxcR": {
+          "type": "phone",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "body_JU6bEY": {
+          "type": "body",
+          "settings": {
+            "required": false,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "first_name_GJkn9C",
+        "last_name_xMP3H4",
+        "email_aUL3Q8",
+        "phone_hrJxcR",
+        "body_JU6bEY"
+      ],
+      "settings": {
+        "contact-title": "Contact Sales",
+        "icon": "shopify://shop_images/contact-title.svg",
+        "title": "Have questions or concerns? Consult our sauna experts",
+        "contact-detail01": "<p><strong>Customer Support:<br/></strong><a href=\"tel:(888) 287-0111\" title=\"tel:(888) 287-0111\">(888) 287-0111</a><br/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com</a></p>",
+        "contact-detail02": "<p><strong>For Technical Support:<br/></strong>Click <a href=\"#\" title=\"#\"><strong>HERE</strong></a></p>",
+        "contact-detail03": "<p><strong>For Partnerships:<br/></strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com</a></p>",
+        "contact-detail04": "<p><strong>For Mail Only:<br/></strong>7345 164th Ave NE Ste 145-395 Redmond, WA 98052</p>",
+        "note": "Please give our team 24-48 hours to reach back out to you.",
+        "submit_btn_label": ""
       }
     },
     "newsletter": {
@@ -60,7 +128,7 @@
         "newsletter-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>",
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>",
             "enlarge_text": false
           }
         },
@@ -90,7 +158,7 @@
       "disabled": true,
       "settings": {
         "heading": "Can't decide which sauna's for you?",
-        "content": "<p>use our comparison tool to help you decide<\/p>",
+        "content": "<p>use our comparison tool to help you decide</p>",
         "compare_btn_label": "Compare sauna model"
       }
     }
@@ -98,6 +166,7 @@
   "order": [
     "main",
     "form",
+    "content_with_form_3A7wrj",
     "newsletter",
     "dynamic_product_comparison_eMax9D"
   ]
