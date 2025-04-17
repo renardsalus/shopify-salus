@@ -103,6 +103,9 @@
         "phone_hrJxcR",
         "body_JU6bEY"
       ],
+      "custom_css": [
+        "div.container {margin-top: 100px;}"
+      ],
       "settings": {
         "contact-title": "Contact Sales",
         "icon": "shopify://shop_images/contact-title.svg",
