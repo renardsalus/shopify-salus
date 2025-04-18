@@ -30,6 +30,39 @@
   {% assign variant_real_price_string = variant_real_price_string | slice: 0, vrp_length_min_one %}
 {% endif %}
 
+{%  style  %}
+  .globo-popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    color: white;
+  }
+
+  .globo-popup .price__was {
+    color: #868686;
+  }
+
+  .globoPopUp-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #212C36;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 92%;
+    max-height: 450px;
+    transition: transform 0.3s ease;
+    padding: 15px
+  }
+{% endstyle %}
+
 <script>
   const vmsString = {{variant_metafields_string |  json}};
   const vrpString = {{variant_real_price_string |  json}};
@@ -170,18 +203,19 @@
     observer.observe(targetNode, config);
   });
 
-  const priceCompare = () => {
-    const variantIds = [];
+  const priceCompareAndBuildModal = () => {
+    let variantIds = [];
     const inputs = document.querySelectorAll("input[gpo-data-variant-id]");
     inputs.forEach((input) => {
       const variantId = input.getAttribute("gpo-data-variant-id");
       variantIds.push(variantId);
     });
 
-    for (let val of variantIds) {
-      if (!vmMap.has(val)) {
-        continue;
-      }
+    variantIds = variantIds.filter(val => vmMap.has(val))
+    
+    const variantIdsSet = [... new Set(variantIds)]
+
+    for (let val of variantIdsSet) {
       const tooltipParent = document
         .querySelector(`input[gpo-data-variant-id="${val}"]`)
         ?.nextElementSibling?.querySelector("div.gpo-tooltip.zoom-image")
@@ -192,9 +226,6 @@
           continue
         }
 
-        if (!vrpMap.has(val)) {
-          continue
-        }
         childDivs[i].style.marginBottom = '0px'
         childDivs[i].style.fontWeight = '600'
         const addOn = childDivs[i].querySelector(".addOn");
@@ -219,6 +250,8 @@
           secondDiv.appendChild(priceCurr);
           priceCurr.textContent = "$" + parseInt(valNum).toLocaleString("en-US") +" USD";
           priceCurr.classList.add("price__current");
+
+          if (!vrpMap.has(val)) continue
           
           secondDiv.appendChild(priceWas);
           priceWas.textContent = `$${parseInt(vrpMap.get(val)).toLocaleString("en-US")} USD`;
@@ -230,6 +263,52 @@
         }
       }
     }
+
+    for (let [index, val] of variantIdsSet.entries()) {
+      const parentInput = document.querySelector(`input[gpo-data-variant-id="${val}"]`)
+      const parentTooltip = parentInput?.nextElementSibling
+        ?.querySelector("div.gpo-tooltip.zoom-image")
+
+      const copyParentTooltip = parentTooltip.cloneNode(true)
+
+      parentTooltip.classList.add('mobile-hidden')
+      
+      copyParentTooltip.classList.remove('gpo-tooltip')
+      if (copyParentTooltip instanceof Element) {
+        // Remove style attribute from the root element itself
+        copyParentTooltip.removeAttribute("style");
+      }
+
+      const popup = createPopup(index)
+      document.body.appendChild(popup)
+
+      const globoPopup = document.getElementById(`globo-order-${index}`)
+      const globoPopupChild = globoPopup?.querySelector('#globoPopUp-close')
+
+      globoPopupChild.insertAdjacentElement('afterend',copyParentTooltip)
+
+      parentInput.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) { 
+          globoPopup.style.display = "block";
+        }
+      })
+
+      globoPopupChild.addEventListener('click', () => {
+        globoPopup.style.display = "none";
+      })
+    }
+  }
+
+  function createPopup(index) {
+    const div = document.createElement('div');
+    div.className = 'globo-popup desktop-hidden';
+    div.id = `globo-order-${index}`
+    div.innerHTML = `
+      <div class="globoPopUp-content">
+        <span id="globoPopUp-close" class="close generalPopUp-close ">&times;</span>
+      </div>
+    `;
+    return div;
   }
 
   function waitForElement(selector, callback) {
@@ -248,5 +327,5 @@
   }
 
   // Example usage:
-  waitForElement('.addOn', priceCompare);
+  waitForElement('.addOn', priceCompareAndBuildModal);
 </script>
