@@ -54,7 +54,7 @@
         "button_dcgWBG"
       ],
       "settings": {
-        "image_desktop": "shopify://shop_images/our-icons-banner-min.jpg",
+        "image_desktop": "shopify://shop_images/ICONS_PAGE_COVER_IMAGE.png",
         "url": "",
         "height_mode": "fixed",
         "fixed_height_desktop": 650,
@@ -111,7 +111,7 @@
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/icon-1.jpg",
+            "image": "shopify://shop_images/Frankie_Edgar_-_Icons_Page_1.png",
             "media_scale": 100,
             "heading": "Gordon Ryan",
             "subtext": "Athlete",
@@ -170,7 +170,7 @@
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/Ian_Somerhalder.png",
+            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
             "media_scale": 100,
             "heading": "Ian Somerhalder",
             "subtext": "Celebrity",
@@ -228,7 +228,7 @@
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/icon-5.jpg",
+            "image": "shopify://shop_images/Frankie_Edgar_-_Icons_Page.png",
             "media_scale": 100,
             "heading": "Frankie Edgar",
             "subtext": "Athlete",
@@ -279,6 +279,7 @@
         },
         "column_iRTQyU": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/icon-10.jpg",
@@ -421,7 +422,7 @@
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/Sauna_PNGs_2_60f0b653-e8ca-40fe-9a43-bbb0bf4a8610.png",
+            "image": "shopify://shop_images/Kaleo_Wassman_-_Icons_Page.png",
             "media_scale": 100,
             "heading": "Kaleo Wassman",
             "subtext": "Artist",
@@ -554,7 +555,7 @@
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/icon-4.jpg",
+            "image": "shopify://shop_images/Justin_Baldoni_-_Icons_Page.png",
             "media_scale": 100,
             "heading": "Justin Baldoni",
             "subtext": "Celebrity",
