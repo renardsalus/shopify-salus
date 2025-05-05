@@ -138,10 +138,9 @@
         },
         "column_FVpdbA": {
           "type": "column",
-          "disabled": true,
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/icon-2.jpg",
+            "image": "shopify://shop_images/Joe_Rogan_-_Icons_Page.png",
             "media_scale": 100,
             "heading": "Joe Rogan",
             "subtext": "Celebrity",
