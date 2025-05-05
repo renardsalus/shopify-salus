@@ -306,6 +306,7 @@
         },
         "column_MUyT9i": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/joe_rogan_speaker.jpg",
@@ -319,6 +320,7 @@
         },
         "multi-column-0": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/sauna-journey-1-min.jpg",
@@ -345,6 +347,7 @@
         },
         "column_QFyAEQ": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/sauna-journey-6-min.jpg",
@@ -358,6 +361,7 @@
         },
         "column_QjnreV": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/sauna-journey-7-min.jpg",
