@@ -499,11 +499,20 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    let partnershipPopup = document.querySelectorAll('a[href="https://docs.google.com/forms/d/e/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ/viewform"]')
+    const partnershipPopup = document.querySelectorAll('a[href="https://docs.google.com/forms/d/e/1FAIpQLScQCLU9GVZMFrrR49s_wBHvT419f_7cTrPFKyXwkAbGamwdNQ/viewform"]')
+    const otherpartnership = document.querySelectorAll('a[href*="/pages/partnership-program"]')
+
     let Partner_popup = document.getElementById("become-partner-contact-form");
 
     for (let i = 0; i < partnershipPopup.length; i++) {
       partnershipPopup[i].addEventListener("click", (e) => {
+        e.preventDefault()
+        Partner_popup.style.display = "block";
+      })
+    }
+
+    for (let i = 0; i < otherpartnership.length; i++) {
+      otherpartnership[i].addEventListener("click", (e) => {
         e.preventDefault()
         Partner_popup.style.display = "block";
       })
