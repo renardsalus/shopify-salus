@@ -265,19 +265,6 @@
             "button_link": ""
           }
         },
-        "column_MUyT9i": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Joe_Rogan_-_Icons_Page.png",
-            "media_scale": 100,
-            "heading": "Joe Rogan",
-            "subtext": "",
-            "text": "<p>Podcaster, Commentator, Comedian</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
         "column_3Ah7eg": {
           "type": "column",
           "settings": {
@@ -287,6 +274,19 @@
             "heading": "Ian Somerhalder",
             "subtext": "",
             "text": "<p>Actor, Entrepreneur</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_MUyT9i": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/Joe_Rogan_-_Icons_Page.png",
+            "media_scale": 100,
+            "heading": "Joe Rogan",
+            "subtext": "",
+            "text": "<p>Podcaster, Commentator, Comedian</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -389,8 +389,8 @@
       "block_order": [
         "column_XPFNy9",
         "column_AHwLrJ",
-        "column_MUyT9i",
         "column_3Ah7eg",
+        "column_MUyT9i",
         "column_WNXrha",
         "column_XfaGyE",
         "multi-column-0",
