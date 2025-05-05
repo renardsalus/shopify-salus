@@ -239,19 +239,6 @@
     "multi-column": {
       "type": "multi-column",
       "blocks": {
-        "column_3Ah7eg": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
-            "media_scale": 100,
-            "heading": "Ian Somerhalder",
-            "subtext": "",
-            "text": "<p>Actor, Entrepreneur</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
         "column_XPFNy9": {
           "type": "column",
           "settings": {
@@ -278,19 +265,6 @@
             "button_link": ""
           }
         },
-        "column_XfaGyE": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Frame_17073.webp",
-            "media_scale": 100,
-            "heading": "Claire Thomas",
-            "subtext": "",
-            "text": "<p>Fitness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
         "column_MUyT9i": {
           "type": "column",
           "settings": {
@@ -304,6 +278,19 @@
             "button_link": ""
           }
         },
+        "column_3Ah7eg": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
+            "media_scale": 100,
+            "heading": "Ian Somerhalder",
+            "subtext": "",
+            "text": "<p>Actor, Entrepreneur</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
         "column_WNXrha": {
           "type": "column",
           "settings": {
@@ -313,6 +300,19 @@
             "heading": "Frankie Edgar",
             "subtext": "",
             "text": "<p>Former UFC Lightweight Champion</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_XfaGyE": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/Frame_17073.webp",
+            "media_scale": 100,
+            "heading": "Claire Thomas",
+            "subtext": "",
+            "text": "<p>Fitness Influencer</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -387,12 +387,12 @@
         }
       },
       "block_order": [
-        "column_3Ah7eg",
         "column_XPFNy9",
         "column_AHwLrJ",
-        "column_XfaGyE",
         "column_MUyT9i",
+        "column_3Ah7eg",
         "column_WNXrha",
+        "column_XfaGyE",
         "multi-column-0",
         "column_UymgWR",
         "column_QFyAEQ",
