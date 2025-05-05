@@ -265,15 +265,15 @@
             "button_link": ""
           }
         },
-        "column_3Ah7eg": {
+        "column_WNXrha": {
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
+            "image": "shopify://shop_images/sauna-journey-5-min.jpg",
             "media_scale": 100,
-            "heading": "Ian Somerhalder",
+            "heading": "Frankie Edgar",
             "subtext": "",
-            "text": "<p>Actor, Entrepreneur</p>",
+            "text": "<p>Former UFC Lightweight Champion</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -291,15 +291,15 @@
             "button_link": ""
           }
         },
-        "column_WNXrha": {
+        "column_3Ah7eg": {
           "type": "column",
           "settings": {
             "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-5-min.jpg",
+            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
             "media_scale": 100,
-            "heading": "Frankie Edgar",
+            "heading": "Ian Somerhalder",
             "subtext": "",
-            "text": "<p>Former UFC Lightweight Champion</p>",
+            "text": "<p>Actor, Entrepreneur</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -389,9 +389,9 @@
       "block_order": [
         "column_XPFNy9",
         "column_AHwLrJ",
-        "column_3Ah7eg",
-        "column_MUyT9i",
         "column_WNXrha",
+        "column_MUyT9i",
+        "column_3Ah7eg",
         "column_XfaGyE",
         "multi-column-0",
         "column_UymgWR",
