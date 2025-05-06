@@ -378,7 +378,7 @@
 
     {%- sections 'header-group' -%}
 
-    <main id="main-content">
+    <main id="main-content" {% if template == 'index' %} class="overflow-x-hidden" {% endif %}>
       {%- liquid
         assign show_breadcrumbs = false
         if settings.show_breadcrumbs_product and request.page_type == 'product'

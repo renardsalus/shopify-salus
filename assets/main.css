@@ -9682,3 +9682,7 @@ button.ButtonBase__ButtonContainer-sc-p43e7i-3.euBiGU.es-load-more-button:hover 
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
