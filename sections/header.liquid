@@ -592,7 +592,7 @@
                                           {% endif %}
                                         >
                                           {%- for grandchild_link in child_link.links -%}
-                                            <li>
+                                            <li {% if grandchild_link.title contains "Quiz" %} class="hidden"  {% endif %}>
                                               {%- assign grandchild_link_title_downcase = grandchild_link.title
                                                 | downcase
                                               -%}
