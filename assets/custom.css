@@ -3717,6 +3717,7 @@ body:is(.template--for-first-responders, .template--electrical-information)
 /* .download-link-wrapper ~ .product-details__text > .product-detail-title {
   display: none;
 } */
+
 .product-detail-cntnt .product-info__block + .product-info__block {
   margin-top: 0;
 }

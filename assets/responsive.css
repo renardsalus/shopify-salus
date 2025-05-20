@@ -4754,6 +4754,10 @@
   main-menu.main-menu nav.secondary-nav-container ul {
     margin-top: 20px;
   }
+
+  .download-link-wrapper.spec-sheet {
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (max-width: 600px) {

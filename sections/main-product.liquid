@@ -834,6 +834,17 @@
                   </div>
                 </div>
               {% endif %}
+            
+             {% when 'spec_sheet' %}
+              {% if block.settings.link != blank %}
+                <div class="product-info__block product-info__block--sm download-link-wrapper spec-sheet">  
+                  <div class="product-detail-link">
+                    <a href="{{ block.settings.link }}"
+                      ><img src="{{ 'download-icon.svg' | asset_url }}">{{ block.settings.link_label -}}
+                    </a>
+                  </div>
+                </div>
+              {% endif %}
 
             {%- when 'image' -%}
               <div class="product-info__block" {{ block.shopify_attributes }}>
@@ -1840,6 +1851,24 @@
           "type":"text",
           "id":"link_label",
           "label":"Link Label"
+        },
+        {
+          "type":"url",
+          "id":"link",
+          "label":"Link"
+        }
+      ]
+    },
+    {
+      "type":"spec_sheet",
+      "name":"Spec Sheet",
+      "limit":1,
+      "settings":[
+        {
+          "type":"text",
+          "id":"link_label",
+          "label":"Link Label",
+          "default":"Download Spec Sheet"
         },
         {
           "type":"url",
