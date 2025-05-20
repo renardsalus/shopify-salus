@@ -68,6 +68,13 @@
             "link": "{{ product.metafields.custom.owners_manual.value }}"
           }
         },
+        "spec_sheet_xfiPkx": {
+          "type": "spec_sheet",
+          "settings": {
+            "link_label": "Download Spec Sheet",
+            "link": "{{ product.metafields.custom.spec_sheet.value }}"
+          }
+        },
         "richtext_xT69WE": {
           "type": "richtext",
           "settings": {
@@ -169,6 +176,7 @@
         "price",
         "richtext_rmaxgM",
         "download_manual_MAdAyX",
+        "spec_sheet_xfiPkx",
         "richtext_xT69WE",
         "variant_picker_CHdtt9",
         "features_nwQakY",
