@@ -309,6 +309,41 @@
                         {{ block.settings.text }}
                       </div>
                     {%- endif -%}
+
+                  {%- when 'radio' -%}
+                    {%- liquid
+                        assign field_handle = block.settings.title | handleize
+                        assign field_options = block.settings.options | newline_to_br | strip_newlines | split: '<br />'
+                        assign native_name = 'contact[' | append: field_handle | append: ']'
+                    -%}
+                    {%- if block.settings.title != blank -%}
+                      <label class="label" for="{{ form_id }}-radio-{{ forloop.index }}">
+                        {{- block.settings.title -}}
+                      </label>
+                      
+                      <div class="form-radio">
+                        <ul role="list">
+                          {%- for option in field_options -%}
+                              <li class="radio-item">
+                                <input type="radio"
+                                        class="checkbox js-drawer-sort-by"
+                                        id="{{ form_id }}-radio-{{ forloop.index }}"
+                                        name="{{ native_name }}"
+                                        value="{{ option | escape }}"
+                                        {%- if block.settings.required %}
+                                          aria-required="true"
+                                          required
+                                        {%- endif %}>
+                                <label for="{{ form_id }}-radio-{{ forloop.index }}" class="flex items-start w-full m-0">
+                                  <span class="flex-auto" style="font-weight: 600;">{{- option | escape -}}</span>
+                                </label>
+                              </li>         
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                    {% endif %}
+                    
+                
                 {%- endcase -%}
 
                 {%- if form.errors contains block.type -%}
@@ -615,6 +650,35 @@
         "id": "half_width",
         "label": "Half width on large screens",
         "default": false
+      }
+    ]
+  },
+  {
+    "type": "radio",
+    "name": "Radio",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "required",
+        "label": "Required",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Radios require a label, and that label may only be used once in the form."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Label",
+        "default": "Radio"
+      },
+      {
+        "type": "textarea",
+        "id": "options",
+        "label": "Options",
+        "info": "One option per line.",
+        "default": "Option 1\nOption 2\nOption 3"
       }
     ]
   },
