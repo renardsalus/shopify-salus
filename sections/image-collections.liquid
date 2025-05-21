@@ -1,0 +1,42 @@
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 0 20px">
+    {% for block in section.blocks %}
+        {% if block.settings.img != blank %}
+            <div style="flex: 1 1 300px; max-width:{{ section.settings.max_width }}px;">
+                <img src="{{ block.settings.img | img_url: "master" }}" alt="Responder Image" style="width: 100%; border-radius: 12px;">
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Image Collections",
+  "settings": [
+    {
+      "type": "number",
+      "id": "max_width",
+      "label": "Image Max Width",
+      "default": 400
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Image Collections"
+    }
+  ]
+}
+{% endschema %}
