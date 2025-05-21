@@ -80,6 +80,9 @@
         "heading_rADjjt",
         "text_eGHDzW"
       ],
+      "custom_css": [
+        "div {padding: 20px 0px;}"
+      ],
       "name": "Rich text",
       "settings": {
         "text_position": "justify-center",
