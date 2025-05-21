@@ -261,6 +261,9 @@
                           id="{{ form_id }}-field-{{ forloop.index }}"
                           name="contact[{{ field_handle }}]"
                           value="{{ form[field_handle] }}"
+                          {% if block.settings.placeholder %}
+                            placeholder="{{ block.settings.placeholder }}"
+                          {%- endif -%}
                           {%- if block.settings.type == 'tel' %}
                             pattern="[0-9\-]*"
                           {% endif %}
@@ -577,6 +580,12 @@
         "id": "title",
         "label": "Label",
         "default": "Custom input"
+      },
+      {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Placeholder",
+        "default": "placeholder"
       },
       {
         "type": "select",
