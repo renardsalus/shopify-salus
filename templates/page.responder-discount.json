@@ -57,6 +57,58 @@
         "button_style": "btn btn--primary"
       }
     },
+    "rich_text_4h9yJ9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rADjjt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Thank You for Your Service — Enjoy an Exclusive First Responder Offer",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_eGHDzW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’re proud to support the heroes in our communities. First responders <strong>get special pricing on any of our sauna or cold plunge models</strong>. Claim your offer by filling out the form below — no commitment required.</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_rADjjt",
+        "text_eGHDzW"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "image_collections_r3aYJU": {
+      "type": "image-collections",
+      "blocks": {
+        "image_8CXBVm": {
+          "type": "image",
+          "settings": {
+            "img": "shopify://shop_images/responder-discount.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_8CXBVm"
+      ],
+      "name": "Image Collections",
+      "settings": {
+        "max_width": 1500
+      }
+    },
     "content_with_form_3A7wrj": {
       "type": "content-with-form",
       "blocks": {
@@ -88,11 +140,22 @@
             "half_width": false
           }
         },
-        "body_JU6bEY": {
-          "type": "body",
+        "custom_rCd3Vm": {
+          "type": "custom",
           "settings": {
-            "required": false,
+            "title": "Product Link / Product Name",
+            "placeholder": "i.e. Grand Monarch Outdoor Traditional Sauna",
+            "type": "text",
+            "required": true,
             "half_width": false
+          }
+        },
+        "radio_thPkPP": {
+          "type": "radio",
+          "settings": {
+            "required": true,
+            "title": "Which best describes your role?",
+            "options": "Police Officer\nFirefighter\nParamedic\nMilitary / Veteran\nOther"
           }
         }
       },
@@ -101,13 +164,14 @@
         "last_name_xMP3H4",
         "email_aUL3Q8",
         "phone_hrJxcR",
-        "body_JU6bEY"
+        "custom_rCd3Vm",
+        "radio_thPkPP"
       ],
       "custom_css": [
         "div.container {margin-top: 100px;}"
       ],
       "settings": {
-        "contact-title": "Contact Sales",
+        "contact-title": "Unlock your special discount",
         "icon": "shopify://shop_images/contact-title.svg",
         "title": "Have questions or concerns? Consult our sauna experts",
         "contact-detail01": "<p><strong>Customer Support:<br/></strong><a href=\"tel:(888) 287-0111\" title=\"tel:(888) 287-0111\">(888) 287-0111</a><br/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com</a></p>",
@@ -115,7 +179,7 @@
         "contact-detail03": "<p><strong>For Partnerships:<br/></strong><a href=\"mailto:partner@salussaunas.com\" target=\"_blank\" title=\"mailto:partner@salussaunas.com\">partner@salussaunas.com</a></p>",
         "contact-detail04": "<p><strong>For Mail Only:<br/></strong>7345 164th Ave NE Ste 145-395 Redmond, WA 98052</p>",
         "note": "Please give our team 24-48 hours to reach back out to you.",
-        "submit_btn_label": ""
+        "submit_btn_label": "Unlock your discount"
       }
     },
     "newsletter": {
@@ -169,6 +233,8 @@
   "order": [
     "main",
     "form",
+    "rich_text_4h9yJ9",
+    "image_collections_r3aYJU",
     "content_with_form_3A7wrj",
     "newsletter",
     "dynamic_product_comparison_eMax9D"
