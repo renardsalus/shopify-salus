@@ -736,36 +736,5 @@
         // });
       </script>
     {% endif %}
-
-    {%  if request.path contains "responder-discount" %}  
-      <script>
-        function waitForElement(selector, callback) {
-          const observer = new MutationObserver(() => {
-            const el = document.querySelector(selector);
-            if (el) {
-              observer.disconnect();
-              callback(el);
-            }
-          });
-
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
-        }
-
-        waitForElement('.needsclick', () =>  {
-          const klaviyoFloatButton = document.querySelector(".needsclick.kl-teaser-VWVACD");
-          klaviyoFloatButton.remove();
-        })
-
-        waitForElement('.needsclick.kl-private-reset-css-Xuajs1', () =>  {
-          const klaviyoModal = document.querySelector(".needsclick.kl-private-reset-css-Xuajs1");
-          klaviyoModal.remove();
-        })
-        
-      </script>
-    {% endif %} 
-   
   </body>
 </html>
