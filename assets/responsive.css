@@ -2835,7 +2835,7 @@
     grid-template-columns: 100%;
   }
   .detail-form-row .Contact_form {
-    grid-row-start: 2;
+    grid-row-start: 1;
   }
   .alert.mt-8.bg-success-bg.text-success-text.cc-animate-init.cc-animate-in {
     grid-area: 3/1;
@@ -2912,7 +2912,7 @@
   }
 
   .detail-form-row .cc-animate-init:has(button) {
-    grid-area: 3 / -2 / 3 / -1;
+    grid-area: 2 / -2 / 3 / -1;
   }
 
   .reading-width {
