@@ -29,12 +29,13 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     let popup = document.getElementById("{{ popup_name }}");
-    if (sessionStorage.getItem("comingFromCheckout")) {
-      setTimeout(() => {
-        popup.style.display = "block";
-      }, 1000);
-      sessionStorage.removeItem("comingFromCheckout");
-    }
+    // TODO: Uncomment the following lines if you want to show the popup when coming from checkout
+    // if (sessionStorage.getItem("comingFromCheckout")) {
+    //   setTimeout(() => {
+    //     popup.style.display = "block";
+    //   }, 1000);
+    //   sessionStorage.removeItem("comingFromCheckout");
+    // }
     
     document.getElementById("{{ popup_name }}-close").addEventListener("click", () => {
       popup.style.display = "none";
