@@ -3,6 +3,7 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'product-page.css' | asset_url | stylesheet_tag }}
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
+{{ 'popup.css' | asset_url | stylesheet_tag }}
 
 {%- assign messages = section.blocks | where: 'type', 'message' -%}
 {%- if messages -%}
