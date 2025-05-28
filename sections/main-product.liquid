@@ -1078,37 +1078,39 @@
 <!-- GLOBO - PRODUCT -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      let quickBannerButton = document.querySelector('.quick-banner-atc');
+      let quickBannerButton = document.querySelectorAll('.quick-banner-atc');
 
       if (quickBannerButton) {
-          quickBannerButton.addEventListener('click', function() {
-              let cloneAtcButton = document.querySelector('.gpo-clone-atc-button');
-              let orignalButton = document.querySelector('.product-info__add-button .product-atc-btn');
+          quickBannerButton.forEach(button => {
+              button.addEventListener('click', function() {
+                  let cloneAtcButton = document.querySelector('.gpo-clone-atc-button');
+                  let orignalButton = document.querySelector('.product-info__add-button .product-atc-btn');
 
-              if (cloneAtcButton) {
-                  cloneAtcButton.click();
-                  quickBannerButton.disabled = true;
-                  quickBannerButton.classList.add('is-loading');
+                  if (cloneAtcButton) {
+                      cloneAtcButton.click();
+                      quickBannerButton.disabled = true;
+                      quickBannerButton.classList.add('is-loading');
 
-                  setTimeout(() => {
-                    quickBannerButton.classList.remove('is-loading');
-                    quickBannerButton.disabled = false;
-                  },1200);
+                      setTimeout(() => {
+                        quickBannerButton.classList.remove('is-loading');
+                        quickBannerButton.disabled = false;
+                      },1200);
 
-              }
-              else if(orignalButton){
-                orignalButton.click();
-                  quickBannerButton.disabled = true;
-                    quickBannerButton.classList.add('is-loading');
-                  setTimeout(() => {
-                    quickBannerButton.disabled = false;
-                    quickBannerButton.classList.remove('is-loading');
+                  }
+                  else if(orignalButton){
+                    orignalButton.click();
+                      quickBannerButton.disabled = true;
+                        quickBannerButton.classList.add('is-loading');
+                      setTimeout(() => {
+                        quickBannerButton.disabled = false;
+                        quickBannerButton.classList.remove('is-loading');
 
-                  },1200);
+                      },1200);
 
-              } else {
-                  console.log('.gpo-clone-atc-button element not found');
-              }
+                  } else {
+                      console.log('.gpo-clone-atc-button element not found');
+                  }
+              });
           });
       } else {
           console.log('.quick-banner-atc button not found');

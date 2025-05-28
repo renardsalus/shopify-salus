@@ -58,19 +58,23 @@
 <!-- UPDATE PRODUCT PRICING -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-      let banner_current_price = document.querySelector('.atc-banner-price .price .price__current');
-      let banner_price_was = document.querySelector('.atc-banner-price .price .price__was');
       let product_price_current = document.querySelector('.product-info__price .price .price__current');
       let product_price_was = document.querySelector('.product-info__price .price .price__was');
-      console.log(banner_current_price.textContent);
+
+      let banner_current_prices = [...document.querySelectorAll('.atc-banner-price .price .price__current')]
+        .filter(val => val.parentElement.className !== 'price__no-variant');
+      let banner_price_was_multi = document.querySelectorAll('.atc-banner-price .price .price__was');
+
       setInterval(function() {
-       product_price_current = document.querySelector('.product-info__price .price .price__current');
-       product_price_was = document.querySelector('.product-info__price .price .price__was');
-        if(product_price_current && banner_current_price){
-          banner_current_price.textContent = product_price_current.textContent.replace("USD", "");
+        if(product_price_current && banner_current_prices.length > 0){
+          banner_current_prices.forEach((_, i) => {
+            banner_current_prices[i].textContent = product_price_current.textContent.replace("USD", "");
+          });
         }
-        if(product_price_was && banner_price_was){
-          banner_price_was.textContent = product_price_was.textContent.replace("USD", "");
+        if(product_price_was && banner_price_was_multi.length > 0){
+          banner_price_was_multi.forEach((_, i) => {
+            banner_price_was_multi[i].textContent = product_price_was.textContent.replace("USD", "");
+          });
         }
   }, 1000);
 
