@@ -1194,6 +1194,22 @@
   });
 </script>
 
+{% comment %} Tracking Klaviyo Add to Cart {% endcomment %}
+<script type="text/javascript">
+  let _learnq = _learnq || [];
+  let cloneAtcButton = document.querySelector('.gpo-clone-atc-button');
+  let originalAtcButton = document.querySelector('.gpo-original-atc-button');
+  
+  cloneAtcButton.addEventListener('click', () => {
+     _learnq.push(['track', 'Added to Cart', item]);
+  }, false)
+
+  originalAtcButton.addEventListener('click', () => {
+     _learnq.push(['track', 'Added to Cart', item]);
+  }, false)
+</script>
+
+
 {% render 'modify-globo-tooltip' %}
 
 {% schema %}
