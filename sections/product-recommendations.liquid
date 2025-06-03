@@ -12,6 +12,34 @@
   <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+<script>
+  function waitForElement(selector, callback) {
+    const observer = new MutationObserver(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        observer.disconnect();
+        callback(el);
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  waitForElement('.card__quick-add-btn', function() {
+    let submitButtons = document.querySelectorAll('.card__quick-add-btn');
+    var _learnq = window._learnq || [];
+
+    [...(submitButtons || [])].forEach((submitButton)  => {
+      submitButton.addEventListener('click', function () {
+        _learnq.push(['track', 'Added to Cart', item]);
+      });
+    })
+  });
+</script>
+
 {%- liquid
   assign carousel_desktop_small = ' md:auto-cols-3 lg:auto-cols-4 xl:auto-cols-5 small-cards-desktop'
   assign carousel_desktop_medium = ' sm:auto-cols-3 xl:auto-cols-4'

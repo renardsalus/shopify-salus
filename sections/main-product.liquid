@@ -1079,6 +1079,12 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
       let quickBannerButton = document.querySelectorAll('.quick-banner-atc');
+      let submitButton = document.querySelector('.product-info__add-button');
+      var _learnq = window._learnq || [];
+
+      submitButton?.addEventListener('click', function () {
+        _learnq.push(['track', 'Added to Cart', item]);
+      });
 
       if (quickBannerButton) {
           quickBannerButton.forEach(button => {
@@ -1191,26 +1197,6 @@
       }).catch(function(error) {
           console.error('Error copying to clipboard:', error);
       });
-  });
-</script>
-
-{% comment %} Tracking Klaviyo Add to Cart {% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var productForm = document.querySelector('form[action^="/cart/add"]');
-
-    if (productForm) {
-      productForm.addEventListener('submit', function () {
-        var _learnq = window._learnq || [];
-
-        _learnq.push(['track', 'Added to Cart', {
-          ProductName: "{{ product.title | escape }}",
-          ProductID: "{{ product.id }}",
-          VariantID: "{{ product.variants.first.id }}",
-          ProductURL: "{{ shop.url }}{{ product.url }}"
-        }]);
-      });
-    }
   });
 </script>
 

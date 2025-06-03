@@ -461,23 +461,25 @@
                   {%- endif -%}
                 {%- endcapture -%}
 
-                <button
-                  class="btn btn--primary w-full"
-                  data-add-to-cart-text="{{- button_text | escape -}}"
-                  name="add"
-                  aria-haspopup="dialog"
-                  {%- if current_variant.available == false %}
-                    disabled
-                  {% endif %}
-                >
-                  <span class="quick-add-btn-icon">
-                    <span class="visually-hidden">{{- button_text -}}</span>
-                    {% render 'icon-add-to-cart' %}
-                  </span>
-                  <span class="quick-add-btn-text">
-                    {{- button_text -}}
-                  </span>
-                </button>
+                <div class="card__quick-add-btn">
+                  <button
+                    class="btn btn--primary w-full"
+                    data-add-to-cart-text="{{- button_text | escape -}}"
+                    name="add"
+                    aria-haspopup="dialog"
+                    {%- if current_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span class="quick-add-btn-icon">
+                      <span class="visually-hidden">{{- button_text -}}</span>
+                      {% render 'icon-add-to-cart' %}
+                    </span>
+                    <span class="quick-add-btn-text">
+                      {{- button_text -}}
+                    </span>
+                  </button>
+                </div>
                 <a href="{{ product_url }}" class="btn btn--secondary quick-add-view-btn">
                   {{- 'products.product.view_details' | t -}}
                 </a>
