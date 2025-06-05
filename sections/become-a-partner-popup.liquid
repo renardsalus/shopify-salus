@@ -320,6 +320,7 @@
                       name="Last Name"
                       autocomplete="last-name"
                       placeholder="{{ 'contact.form.last-name' | t }}"
+                      aria-label="Last Name"
                       {%- if block.settings.required %}
                         aria-required="true"
                         required
@@ -391,6 +392,7 @@
                         <input
                           type="url"
                           class="input w-full"
+                          aria-label="Instagram Link"
                           id="instagram-link"
                           name="Instagram Link"
                           placeholder="Enter Instagram Link"
@@ -408,6 +410,7 @@
                         <input
                           type="url"
                           class="input w-full"
+                          aria-label="Facebook Link"
                           id="facebook-link"
                           name="Facebook Link"
                           placeholder="Enter Facebook Link"
@@ -426,6 +429,7 @@
                           type="url"
                           class="input w-full"
                           id="tiktok-link"
+                          aria-label="TikTok Link"
                           name="TikTok Link"
                           placeholder="Enter TikTok Link"
                           {%- if block.settings.tiktok_required %}
@@ -441,6 +445,7 @@
                         <input
                           type="url"
                           class="input w-full"
+                          aria-label="Youtube Link"
                           id="youtube-link"
                           name="Youtube Link"
                           placeholder="Enter Youtube Link"
@@ -458,6 +463,7 @@
                           type="url"
                           class="input w-full"
                           id="personal-site-link"
+                          aria-label="Personal website Link"
                           name="Personal website Link"
                           placeholder="Enter personal website Link"
                           {%- if block.settings.personal_web_link_required %}

@@ -244,7 +244,7 @@
                     <input
                       type="text"
                       class="input w-full"
-                      id="{{ form_id }}-name"
+                      id="{{ form_id }}-first_name"
                       name="First Name"
                       placeholder="First Name"
                       autocomplete="name"
@@ -255,14 +255,15 @@
                     >
 
                   {%- when 'last_name' -%}
-                    <label class="lastname-label hidden md:block invisible" for="{{ form_id }}-last_name"></label>
+                    <label class="lastname-label hidden md:block invisible" for="{{ form_id }}-last_name">LastName</label>
                     <input
                       type="text"
                       class="input w-full"
-                      id="{{ form_id }}-name"
+                      id="{{ form_id }}-last_name"
                       name="Last Name"
                       autocomplete="name"
                       placeholder="Last Name"
+                      aria-label="Last Name"
                       {%- if block.settings.required %}
                         aria-required="true"
                         required
@@ -289,7 +290,7 @@
                     <input
                       type="url"
                       class="input w-full"
-                      id="{{ form_id }}-url"
+                      id="{{ form_id }}-socmed_link"
                       name="Social Media/Website Link"
                       placeholder="i.e. www.instagram.com/salussaunas/"
                       autocomplete="url"

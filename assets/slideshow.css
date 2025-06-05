@@ -155,7 +155,7 @@ slide-show {
 .page-btn {
   --animation: var(--duration, 0s) forwards linear var(--play-state, paused);
   margin: 5px 2px;
-  color: rgba(var(--text-color) / 0.2);
+  color: rgba(var(--text-color) / 0.7);
   pointer-events: initial;
 }
 
