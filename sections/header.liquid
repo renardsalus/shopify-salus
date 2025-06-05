@@ -892,7 +892,7 @@
                                         <span class="mega-product-tag">{{ mega_nav.settings.product_tag_4 }}</span>
                                       {% endif %}
                                     {% endif %}
-                                    <img src="{{ product.featured_image | img_url:'master' }}">
+                                    <img src="{{ product.featured_image | img_url:'master' }}" alt="{{ product.featured_image.alt | escape }}">
                                   </div>
                                   <div class="mega-product-content">
                                     <h4>{{ product.title }}</h4>

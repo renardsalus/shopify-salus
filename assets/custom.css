@@ -343,7 +343,7 @@ body .products-card-sec .grid li .price .price__current {
 }
 
 p.card__tag {
-  background: #1f8a81;
+  background: #13736c;
   width: max-content;
   padding: 11px 16px;
   font-weight: 600;
@@ -620,7 +620,7 @@ blockquote.testimonial__quote p {
   font-size: 18px;
   font-weight: 300;
   line-height: 27px;
-  color: #868686;
+  color: #595959;
 }
 
 .Testi_section_cus .testimonial__author-image {
@@ -831,7 +831,7 @@ body .shopify-section .section.products-card-sec .card__media > a > img {
 /* Image with Text  */
 
 .section-media-with-text .subheading {
-  background-color: #1f8a81;
+  background-color: #13736c;
   width: fit-content;
   padding: 7px 16px;
   display: inline-block;
@@ -1328,7 +1328,7 @@ body .detail-contact-form .note:before {
   font-size: 18px;
   font-weight: 300;
   line-height: 27px;
-  color: #868686;
+  color: #595959 ;
   margin-top: 6px;
   text-decoration: underline;
   width: fit-content;
@@ -1658,7 +1658,7 @@ body
 }
 
 .suggestion-card-cntnt > p {
-  color: #868686;
+  color: #595959;
 }
 
 .Testi_section_cus.section {
@@ -1882,7 +1882,7 @@ a.btn.btn--secondary:hover {
 
 .Testi_section_cus .testimonials button[name="prev"] {
   left: 77px;
-  color: #00000059;
+  color: #595959;
   top: -50px;
 }
 
@@ -1894,7 +1894,7 @@ a.btn.btn--secondary:hover {
 
 .Testi_section_cus .testimonials button[name="next"] {
   right: 77px;
-  color: #00000059;
+  color: #595959;
   top: -50px;
 }
 
@@ -2046,7 +2046,7 @@ a.btn.btn--secondary:hover {
   font-weight: 500;
   line-height: 24px;
   text-align: left;
-  color: #868686;
+  color: #595959 ;
   padding-bottom: 10px !important;
   margin: 0;
 }
@@ -2331,7 +2331,7 @@ body.overflow-hidden {
   margin-bottom: 25px;
 }
 .template--product .product .gpo-element .gpo-selected-values {
-  color: #868686 !important;
+  color: #595959  !important;
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;
@@ -2720,7 +2720,7 @@ body .jdgm-rev-widg__summary,
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  color: #868686 !important;
+  color: #595959  !important;
 }
 
 .template--cart .cart__items .cart-item__info .cart-item__variants > dl {
@@ -3057,7 +3057,7 @@ product-card .product_ratings .rating__count {
   font-weight: 300;
   line-height: 27px;
   text-align: left;
-  color: #868686;
+  color: #595959 ;
 }
 product-card .product_ratings .rating__stars {
   font-size: 17.5px;
