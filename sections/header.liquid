@@ -515,7 +515,7 @@
                                     {% endif %}
                                   >
                                     <details open>
-                                      <summary class="child-nav__item--toggle main-nav__item--toggle relative{% if mega_nav %} js-no-toggle-md{% if mega_nav_has_columns and mega_nav.settings.show_underline == false %} nav__item--no-underline{% endif %}{% if mega_nav.type == "sidebar" %} js-sidebar-hover{% if forloop.first %} is-visible{% endif %}{% endif %}{% endif %}">
+                                      <summary class="child-nav__item--toggle main-nav__item--toggle relative{% if mega_nav %} js-no-toggle-md{% if mega_nav_has_columns and mega_nav.settings.show_underline == false %}{% endif %}{% if mega_nav.type == "sidebar" %} js-sidebar-hover{% if forloop.first %} is-visible{% endif %}{% endif %}{% endif %}">
                                         <div class="main-nav__item-content{% if mega_nav.settings.collection_images != 'none' %} child-nav__collection-image w-full{% endif %}">
                                           {%- if collection_image -%}
                                             {%- liquid
@@ -536,16 +536,15 @@
                                               %}
                                             </div>
                                           {%- endif -%}
-                                          <a
+                                          <div
                                             class="child-nav__item main-nav__item main-nav__item-content{% if child_link.current %} is-active{% endif %}{% if featured_links contains child_link_title_downcase %} main-nav__link--featured{% endif %}"
-                                            href="{{ child_link.url }}"
                                             {% if settings.preload_links %}
                                               data-no-instant
                                             {% endif %}
                                           >
                                             {{- child_link.title | escape -}}
                                             {% render 'icon-nav-arrow' %}
-                                          </a>
+                                          </div>
                                         </div>
                                       </summary>
 
@@ -1022,6 +1021,38 @@
     customElements.define('nav-menu', NavMenu);
   });
 {% endjavascript %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const disclosures = document.querySelectorAll("summary.child-nav__item--toggle");
+
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    function enforceDisclosureBehavior() {
+      [...disclosures].forEach((disclosure) => {
+         if (!isMobile()) {
+          // On desktop: force it closed and prevent toggling
+          disclosure.addEventListener("click", preventToggle);
+        } else {
+          // On mobile: allow toggling
+          disclosure.removeEventListener("click", preventToggle);
+        }
+      })
+    }
+
+    function preventToggle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    enforceDisclosureBehavior();
+
+    // Re-check on resize
+    window.addEventListener("resize", enforceDisclosureBehavior);
+  });
+</script>
 
 {% render 'structured-data-header' %}
 

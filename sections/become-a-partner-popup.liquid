@@ -180,12 +180,12 @@
           }
         }
 
-        #become-partner-contact-form label::after {
+        #become-partner-contact-form span.label::after {
           content: "*";
           color: red;
         }
 
-        #become-partner-contact-form label {
+        #become-partner-contact-form span.label {
           font-size: 14px;
           color: #000;
         }
@@ -377,9 +377,9 @@
                   {% when 'social_handles' %}
                     <div class="social-handles-wrapper is-required">
                       <div class="social-main-label">
-                        <label class="label">
+                        <span class="label">
                           {{- block.settings.social_label }}
-                        </label>
+                        </span>
                         {% if block.settings.social_label != blank -%}
                           <span class="label-span">Fill in all that apply</span>
                         {%- endif -%}

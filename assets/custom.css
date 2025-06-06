@@ -607,7 +607,7 @@ blockquote.testimonial__quote p {
   object-fit: contain;
 }
 
-.testimonial__author-text p.font-bold {
+.testimonial__author-text h5.font-bold {
   font-family: var(--custom-body-font);
   font-size: 24px;
   font-weight: 600;
@@ -615,7 +615,7 @@ blockquote.testimonial__quote p {
   letter-spacing: -0.7px !important;
 }
 
-.testimonial__author-text p:not(p.font-bold) {
+.testimonial__author-text h5:not(h5.font-bold) {
   font-family: var(--custom-body-font);
   font-size: 18px;
   font-weight: 300;
@@ -1311,7 +1311,7 @@ body .detail-contact-form .note:before {
   display: block;
 }
 
-.card_slider .blog_content p {
+.card_slider .blog_content h5 {
   font-family: var(--custom-body-font);
   font-size: 24px;
   font-weight: 600;
@@ -1321,7 +1321,7 @@ body .detail-contact-form .note:before {
   margin: 0;
 }
 
-.card_slider .blog_content span > p,
+.card_slider .blog_content span > h5,
 .card_slider .blog_content span {
   display: block;
   font-family: var(--custom-body-font);
@@ -3080,12 +3080,12 @@ span.mega-product-tag:empty {
   object-fit: contain;
 }
 
-.testimonial__author-text > p:first-child {
+.testimonial__author-text > h5:first-child {
   position: relative;
   padding-right: 28px;
 }
 
-.testimonial__author-text > p:first-child::after {
+.testimonial__author-text > h5:first-child::after {
   content: "";
   position: absolute;
   top: 6px;
