@@ -117,7 +117,8 @@
       {% if show_category_tag and product.metafields.custom.product_tag != blank %}
         <span class="product-category-badge">{{ product.metafields.custom.product_tag }}</span>
       {% endif %}
-      <div
+      <a
+        href="{{ product_url }}"
         aria-label="{{ product.title | escape }}"
         class="media block relative{% if settings.blend_product_images %} image-blend{% endif %} js-prod-link"
         style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;"
@@ -181,7 +182,7 @@
         {%- else -%}
           {{ 'image' | placeholder_svg_tag: 'media__placeholder img-fit' }}
         {%- endif -%}
-      </div>
+      </a>
 
       {%- liquid
         if settings.product_label_card_position != 'none'
@@ -294,9 +295,9 @@
 
           <div class="product-title-wrapper">
             <p class="truncate-two-lines card__title font-bold{% if settings.show_dividers %} mb-1{% else %} mt-1 mb-0{% endif %}">
-              <span class="card-link text-current js-prod-link">
+              <a href="{{ product_url }}" class="card-link text-current js-prod-link">
                 {{- product.title | escape -}}
-              </span>
+              </a>
               {% render 'product-label', product: product, is_product_card: true, limit: 1 %}
             </p>
           </div>
