@@ -65,6 +65,8 @@
               card_tag: section.settings.product_tag1,
               enable_quick_add: section.settings.enable_show_modal_btn,
               btn_label: section.settings.btn_label
+              image_as_link: section.settings.image_as_link
+              title_as_link: section.settings.title_as_link
             %}
           </li>
         {% endif %}
@@ -82,6 +84,8 @@
               card_tag: section.settings.product_tag2,
               enable_quick_add: section.settings.enable_show_modal_btn,
               btn_label: section.settings.btn_label
+              image_as_link: section.settings.image_as_link
+              title_as_link: section.settings.title_as_link
             %}
           </li>
         {% endif %}
@@ -99,6 +103,8 @@
               card_tag: section.settings.product_tag3,
               enable_quick_add: section.settings.enable_show_modal_btn,
               btn_label: section.settings.btn_label
+              image_as_link: section.settings.image_as_link
+              title_as_link: section.settings.title_as_link
             %}
           </li>
         {% endif %}
@@ -260,6 +266,18 @@
         }
       ],
       "default": "1"
+    },
+    {
+      "type":"checkbox",
+      "id":"image_as_link",
+      "label": "Image as Link",
+      "default": false
+    },
+     {
+      "type":"checkbox",
+      "id":"title_as_link",
+      "label": "Title as Link",
+      "default": false
     },
     {
       "type":"checkbox",

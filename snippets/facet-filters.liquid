@@ -422,12 +422,13 @@
                             <input
                               type="checkbox"
                               class="checkbox visually-hidden focus-label-before {{ link_url }}"
+                              id="sauna_type-{{ forloop.index }}"
 
                               {% if current_link == link_url %}
                                 checked
                               {% endif %}
                             >
-                            <label class="filter__label flex items-start w-full m-0">
+                            <label class="filter__label flex items-start w-full m-0" for="sauna_type-{{ forloop.index }}">
                               <span class="flex-auto">{{ sauna_type.filter_title }}</span>
                             </label>
                           </li>
