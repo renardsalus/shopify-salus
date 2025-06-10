@@ -221,7 +221,7 @@
           {% if show_shipping_tag and product.metafields.custom.product_tag_free_shipping != blank %}
             <div class="card-shipping-tag">
               <span
-                ><img src="{{ 'shipping-icon.svg' | asset_url }}" alt="shipping icon indicator">
+                ><img src="{{ 'shipping-icon.svg' | asset_url }}" alt="shipping">
                 {{- product.metafields.custom.product_tag_free_shipping -}}
               </span>
             </div>
@@ -465,6 +465,11 @@
           {% endif %}
         </div>
       </div>
+      {% if enable_quick_add and btn_label != blank  %}
+        <div class="card_redirect">
+          <a href="{{ product.url }}">{{ btn_label }}</a>
+        </div>
+      {% endif %}
 
       {%- if settings.enable_quick_add and disable_quickbuy != true and enable_quick_add != true -%}
         <div
