@@ -184,7 +184,7 @@
 
   {%- if lazy_load -%}
     <noscript>
-      {{ noscript_img }}
+       {{ noscript_img |  strip_html }}
     </noscript>
   {%- endif -%}
 {%- endif -%}
