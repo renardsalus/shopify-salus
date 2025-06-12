@@ -67,19 +67,22 @@
   {%- endif -%}
 
   {%- if section.settings.show_layout_toggle -%}
-    <div class="products-toolbar__layout flex items-center mis-auto">
-      <span class="label label--inline">{{ 'sections.collection.layout_label' | t }}</span>
-      <input type="radio" class="focus-label visually-hidden" name="products-layout" id="list-layout-opt" value="list">
-      <label for="list-layout-opt" class="tap-target">
-        <span class="visually-hidden">{{ 'sections.collection.list_layout' | t }}</span>
-        {% render 'icon-list' %}
-      </label>
-      <input type="radio" class="focus-label visually-hidden" name="products-layout" id="grid-layout-opt" value="grid" checked>
-      <label for="grid-layout-opt" class="tap-target">
-        <span class="visually-hidden">{{ 'sections.collection.grid_layout' | t }}</span>
-        {% render 'icon-grid' %}
-      </label>
-    </div>
+    <fieldset class="p-0 border-0">
+      <legend class="hidden">Toolbar</legend>
+      <div class="products-toolbar__layout flex items-center mis-auto">
+        <span class="label label--inline">{{ 'sections.collection.layout_label' | t }}</span>
+        <input type="radio" class="focus-label visually-hidden" name="products-layout" id="list-layout-opt" value="list">
+        <label for="list-layout-opt" class="tap-target">
+          <span class="visually-hidden">{{ 'sections.collection.list_layout' | t }}</span>
+          {% render 'icon-list' %}
+        </label>
+        <input type="radio" class="focus-label visually-hidden" name="products-layout" id="grid-layout-opt" value="grid" checked>
+        <label for="grid-layout-opt" class="tap-target">
+          <span class="visually-hidden">{{ 'sections.collection.grid_layout' | t }}</span>
+          {% render 'icon-grid' %}
+        </label>
+      </div>
+    </fieldset>
   {%- endif -%}
 </products-toolbar>
 
