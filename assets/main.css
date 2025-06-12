@@ -6567,7 +6567,7 @@ body .products-card-sec .product_ratings .jdgm-preview-badge .jdgm-star {
   width: 100%;
 }
 
-.collection-nav-inner h4 {
+.collection-nav-inner h2 {
   flex: 0 0 calc(252px + 12 * var(--space-unit));
   margin-inline-end: calc(12 * var(--space-unit));
   font-size: 18px;
@@ -9711,4 +9711,12 @@ button.ButtonBase__ButtonContainer-sc-p43e7i-3.euBiGU.es-load-more-button:hover 
 .gpo-tooltip__image img {
   width: 150px;
   height: 150px;
+}
+
+.border-0 {
+  border-width: 0;
+}
+
+.p-0 {
+  padding: 0;
 }

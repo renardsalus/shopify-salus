@@ -228,25 +228,28 @@
                   <div class="disclosure__panel has-motion">
                     <div class="disclosure__content">
                       <div class="filter__content">
-                        <ul role="list">
-                          {%- for option in results.sort_options -%}
-                            {%- unless option.value == 'manual' and section.settings.show_feat_sort_opt == false -%}
-                              {% if option.value != "title-ascending" and option.value != "title-descending" and option.value != "created-ascending" and option.value != "created-descending" %}
-                              <li class="filter-list-item">
-                                <input type="radio"
-                                       class="checkbox js-drawer-sort-by"
-                                       id="filter-sort-{{ forloop.index }}"
-                                       name="sort_by"
-                                       value="{{ option.value | escape }}"
-                                       {% if option.value == sort_by %}checked{% endif %}>
-                                <label for="filter-sort-{{ forloop.index }}" class="flex items-start w-full m-0">
-                                  <span class="flex-auto">{{- option.name | escape -}}</span>
-                                </label>
-                              </li>
-                                {% endif %}
-                            {%- endunless -%}
-                          {%- endfor -%}
-                        </ul>
+                        <fieldset class="border-0 p-0">
+                          <legend class="hidden">Sort</legend>
+                           <ul role="list">
+                            {%- for option in results.sort_options -%}
+                              {%- unless option.value == 'manual' and section.settings.show_feat_sort_opt == false -%}
+                                {% if option.value != "title-ascending" and option.value != "title-descending" and option.value != "created-ascending" and option.value != "created-descending" %}
+                                <li class="filter-list-item">
+                                  <input type="radio"
+                                        class="checkbox js-drawer-sort-by"
+                                        id="filter-sort-{{ forloop.index }}"
+                                        name="sort_by"
+                                        value="{{ option.value | escape }}"
+                                        {% if option.value == sort_by %}checked{% endif %}>
+                                  <label for="filter-sort-{{ forloop.index }}" class="flex items-start w-full m-0">
+                                    <span class="flex-auto">{{- option.name | escape -}}</span>
+                                  </label>
+                                </li>
+                                  {% endif %}
+                              {%- endunless -%}
+                            {%- endfor -%}
+                          </ul>
+                        </fieldset>
                       </div>
                     </div>
                   </div>
@@ -296,29 +299,31 @@
             {%- capture filter_markup -%}
               {%- case filter.type -%}
                 {%- when 'boolean' or 'list' -%}
-                  <ul role="list"{% if swatches %} class="filter__swatches"{% endif %}>
-                    {%- for value in filter.values -%}
-                      {%- assign selectable_filter_count = selectable_filter_count | plus: 1 -%}
-                      <li class="{% if selectable_filter_count > section.settings.max_filter_options %} js-hidden{% endif %} filter-list-item">
-                        <input type="checkbox"
-                                class="{% unless swatches %}checkbox {% endunless %}visually-hidden focus-label-before"
-                                id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
-                                name="{{ value.param_name }}"
-                                value="{{ value.value | escape }}"
-                                {% if value.active %}checked{% endif %}
-                          {% if value.count == 0 and value.active == false %}disabled{% endif %}>
-                        <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
-                                class="filter__label flex items-start w-full m-0"
-                        {%- if swatches %} data-swatch="{{ value.label | replace: '"', '' | downcase }}"{% endif %}>
-                          <span class="flex-auto">{{ value.label | escape }}{% if filter.label contains 'Occupancy' %}-Person{% endif %}</span>
-                          {% if section.settings.show_filter_counts -%}
-                            <span class="filter__count">({{ value.count }})</span>
-                          {%- endif -%}
-                        </label>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-
+                  <fieldset class="border-0 p-0">
+                    <legend class="hidden">Filter</legend>
+                    <ul role="list"{% if swatches %} class="filter__swatches"{% endif %}>
+                      {%- for value in filter.values -%}
+                        {%- assign selectable_filter_count = selectable_filter_count | plus: 1 -%}
+                        <li class="{% if selectable_filter_count > section.settings.max_filter_options %} js-hidden{% endif %} filter-list-item">
+                          <input type="checkbox"
+                                  class="{% unless swatches %}checkbox {% endunless %}visually-hidden focus-label-before"
+                                  id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                                  name="{{ value.param_name }}"
+                                  value="{{ value.value | escape }}"
+                                  {% if value.active %}checked{% endif %}
+                            {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+                          <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                                  class="filter__label flex items-start w-full m-0"
+                          {%- if swatches %} data-swatch="{{ value.label | replace: '"', '' | downcase }}"{% endif %}>
+                            <span class="flex-auto">{{ value.label | escape }}{% if filter.label contains 'Occupancy' %}-Person{% endif %}</span>
+                            {% if section.settings.show_filter_counts -%}
+                              <span class="filter__count">({{ value.count }})</span>
+                            {%- endif -%}
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </fieldset>  
                 {%- when 'price_range' -%}
                   {%- assign selectable_filter_count = selectable_filter_count | plus: 1 -%}
                   {% render 'price-range', filter: filter %}
