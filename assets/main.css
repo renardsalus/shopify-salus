@@ -2759,6 +2759,11 @@ td {
   height: 100%;
 }
 
+.card-link:hover {
+  text-decoration-line: underline;
+  color: #1b413e;
+}
+
 .card:not(.card--related) .price {
   padding-top: 12px;
 }
