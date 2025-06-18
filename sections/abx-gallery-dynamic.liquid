@@ -100,7 +100,7 @@
             data-pswp-width="{{ customer_image.width }}"
             data-pswp-height="{{ customer_image.height }}"
           >
-            {{ customer_image | image_url: width: 400 | image_tag }}
+            {{ customer_image | image_url: width: 400 | image_tag: alt: "customer" }}
           </a>
         {% endfor %}
       </div>
