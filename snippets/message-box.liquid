@@ -25,7 +25,7 @@
   <div class="msg-box-wrappper">
     {% if block.settings.icon != blank -%}
       <div class="msg-box-img">
-        <img src="{{ block.settings.icon | img_url:'master' }}">
+        <img src="{{ block.settings.icon | img_url:'master' }}" alt="{{ block.settings.icon.alt }}">
       </div>
     {%- endif %}
 
@@ -36,7 +36,7 @@
           {{ block.settings.content }}
         </div>
         <div class="flex">
-          <img src="{{ block.settings.icon1 | img_url:'master' }}">
+          <img src="{{ block.settings.icon1 | img_url:'master' }}" alt="{{ block.settings.icon1.alt }}">
           <a href="" id="copyButton">{{ block.settings.content1 }}</a>
         </div>
       </div>
