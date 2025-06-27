@@ -31,7 +31,7 @@
         "countdown-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "Flash Sale now on!",
+            "heading": "Special 4th of July Sale",
             "heading_size": "h2",
             "heading_h1": true
           }
@@ -46,8 +46,8 @@
         "countdown-countdown-3": {
           "type": "countdown",
           "settings": {
-            "end_date": "",
-            "end_time": "",
+            "end_date": "2025-07-04",
+            "end_time": "24:00",
             "end_text": "",
             "enlarge_end_text": false,
             "hide_on_end": false
@@ -92,11 +92,11 @@
         "enable_sorting": true,
         "show_feat_sort_opt": true,
         "sort_first": true,
-        "enable_quick_add": false,
-        "show_category_tag": false,
-        "show_shipping_tag": false,
-        "show_delivery_tag": false,
-        "show_person_tag": false
+        "enable_quick_add": true,
+        "show_category_tag": true,
+        "show_shipping_tag": true,
+        "show_delivery_tag": true,
+        "show_person_tag": true
       }
     },
     "promo-strip": {
