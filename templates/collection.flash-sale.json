@@ -59,7 +59,6 @@
         "countdown-text-2",
         "countdown-countdown-3"
       ],
-      "disabled": true,
       "settings": {
         "height_mode": "fixed",
         "fixed_height_desktop": 560,
