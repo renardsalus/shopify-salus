@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -45,7 +54,7 @@
         "button_wk3xyG"
       ],
       "settings": {
-        "image_desktop": "shopify:\/\/shop_images\/cost-calculator-sauna.jpg",
+        "image_desktop": "shopify://shop_images/cost-calculator-sauna.jpg",
         "url": "",
         "height_mode": "fixed",
         "fixed_height_desktop": 650,
@@ -76,10 +85,10 @@
           "hybrid-sauna"
         ],
         "cold_plung_collection": "cold-plunges",
-        "sauna_Category_icon": "shopify:\/\/shop_images\/saunas-category-icon.png",
-        "cold_plunges_category": "shopify:\/\/shop_images\/icon-bucket-ladel-thermometer.svg",
-        "sauna_collection_icon": "shopify:\/\/shop_images\/collection-icons.svg",
-        "cold_plung_collection_icon": "shopify:\/\/shop_images\/icon-stainless-steel.svg"
+        "sauna_Category_icon": "shopify://shop_images/saunas-category-icon.png",
+        "cold_plunges_category": "shopify://shop_images/icon-bucket-ladel-thermometer.svg",
+        "sauna_collection_icon": "shopify://shop_images/collection-icons.svg",
+        "cold_plung_collection_icon": "shopify://shop_images/icon-stainless-steel.svg"
       }
     },
     "content_with_form_Q3amKV": {
@@ -130,12 +139,12 @@
       ],
       "settings": {
         "contact-title": "Contact Sales",
-        "icon": "shopify:\/\/shop_images\/contact-title.svg",
+        "icon": "shopify://shop_images/contact-title.svg",
         "title": "Have questions or concerns? Consult our sauna experts",
-        "contact-detail01": "<p><strong>Customer Support:<br\/><\/strong><a href=\"tel:8882870111\" title=\"tel:8882870111\">(888) 287-0111<\/a><br\/><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\">sales@salussaunas.com<\/a><\/p>",
-        "contact-detail02": "<p><strong>For Technical Support:<br\/><\/strong>Click <a href=\"#\" title=\"#\"><strong>HERE<\/strong><\/a><\/p>",
-        "contact-detail03": "<p><strong>For Partnerships:<br\/><\/strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com<\/a><\/p>",
-        "contact-detail04": "<p><strong>For Mail Only:<br\/><\/strong>7345 164th Ave NE Ste 145-395Redmond, WA 98052<\/p>",
+        "contact-detail01": "<p><strong>Customer Support:<br/></strong><a href=\"tel:8882870111\" title=\"tel:8882870111\">(888) 287-0111</a><br/><a href=\"mailto:customerservice@salussaunas.com\" title=\"mailto:customerservice@salussaunas.com\">customerservice@salussaunas.com</a></p>",
+        "contact-detail02": "<p><strong>For Technical Support:<br/></strong>Click <a href=\"#\" title=\"#\"><strong>HERE</strong></a></p>",
+        "contact-detail03": "<p><strong>For Partnerships:<br/></strong><a href=\"mailto:social@salussaunas.com\" title=\"mailto:social@salussaunas.com\">social@salussaunas.com</a></p>",
+        "contact-detail04": "<p><strong>For Mail Only:<br/></strong>7345 164th Ave NE Ste 145-395Redmond, WA 98052</p>",
         "note": "Please give our team 24-48 hours to reach back out to you.",
         "submit_btn_label": ""
       }
