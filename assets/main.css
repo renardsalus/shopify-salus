@@ -6424,11 +6424,11 @@ body .products-card-sec .product_ratings .jdgm-preview-badge .jdgm-star {
   display: none;
 }
 
-/* .product-title-wrapper {
+.product-title-wrapper {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-} */
+  flex-direction:  column;
+}
+
 .product-title-wrapper .product-label-container {
   display: inline-block;
 }
