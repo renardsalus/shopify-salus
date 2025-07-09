@@ -683,8 +683,8 @@
     margin-inline-end: 0 !important;
   }
 
-  .collection-nav-inner h4,
-  .blog-nav-inner h4 {
+  .collection-nav-inner h2,
+  .blog-nav-inner h2 {
     margin-inline-end: 0;
   }
 
@@ -2110,8 +2110,8 @@
     gap: 30px;
   }
 
-  .collection-nav-inner h4,
-  .blog-nav-inner h4 {
+  .collection-nav-inner h2,
+  .blog-nav-inner h2 {
     flex: none;
   }
 
@@ -7467,8 +7467,8 @@
     --track-height: 5px;
   }
 
-  .collection-nav-inner h4,
-  .blog-nav-inner h4 {
+  .collection-nav-inner h2,
+  .blog-nav-inner h2 {
     font-size: 14px;
     line-height: 14px;
   }

@@ -171,15 +171,20 @@
     </picture>
   {%- endif -%}
 
+{%  capture noscript_img  %}  
+   <img src="{{ image | image_url: width: src_width }}"
+      loading="{% if lazy_load %}lazy{% else %}eager{% endif %}"
+      {% if class %}class="{{ class }}" {% endif -%}
+      {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
+      width="{{ image_width }}"
+      height="{{ image_height }}"
+      alt="{{ alt_text | default: image.alt | escape }}"
+    >
+{% endcapture %}
+
   {%- if lazy_load -%}
     <noscript>
-      <img src="{{ image | image_url: width: src_width }}"
-           loading="{% if lazy_load %}lazy{% else %}eager{% endif %}"
-           {% if class %}class="{{ class }}" {% endif -%}
-           {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
-           width="{{ image_width }}"
-           height="{{ image_height }}"
-           alt="{{ alt_text | default: image.alt | escape }}">
+      {{ noscript_img }}
     </noscript>
   {%- endif -%}
 {%- endif -%}

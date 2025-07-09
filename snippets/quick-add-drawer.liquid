@@ -28,7 +28,7 @@
           {% render 'icon', icon: 'check_mark_in_circle', width: 32, height: 32 %}
         </div>
         <div>
-          <p class="quick-add__alert-heading text-h5 font-bold mb-1">{{ 'products.product.added_to_cart' | t }}</p>
+          <h3 class="quick-add__alert-heading text-h5 font-bold mb-1">{{ 'products.product.added_to_cart' | t }}</h3>
           <a class="link text-current js-open-cart-drawer" href="{{ routes.cart_url }}"{% if settings.preload_links %} data-no-instant{% endif %}>{{ 'cart.general.view_cart' | t }}</a>
         </div>
       </div>

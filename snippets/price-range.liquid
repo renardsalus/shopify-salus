@@ -74,6 +74,7 @@
     <input
       type="range"
       class="price-range__slider-input m-0"
+      aria-label="Price Range Min"
       id="price-range-slider-min"
       value="{% if filter.min_value.value %}{{ min_value }}{% else %}0{% endif %}"
       min="0"
@@ -83,7 +84,8 @@
     >
     <input
       type="range"
-      class="price-range__slider-input m-0"
+      class="price-range__slider-input m-0"\
+      aria-label="Price Range Max"
       id="price-range-slider-max"
       value="{% if filter.max_value.value %}{{ max_value }}{% else %}{{ range_max }}{% endif %}"
       min="0"

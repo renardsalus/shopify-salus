@@ -111,7 +111,7 @@
   <div class="collection-secondary-nav">
     <div class="container">
       <div class="collection-nav-inner">
-        <h4>Collections</h4>
+        <h2>Collections</h2>
         <div class="col-nav">
           <ul>
             {% for link in section.settings.collection_menu.links %}
@@ -129,20 +129,40 @@
                   </a>
                 </li>
                 {% if link.links != blank %}
+                  {% assign curr_handle =  link.url | split: '/' | last %}
+                  {% assign curr_collection = collections[curr_handle] %}
+                  
                   {% for childlink in link.links %}
+                    {% if childlink.url contains 'luxury' or childlink.url contains 'accessories' or childlink.url contains 'stone'%}
+                      {% assign tag_handle = childlink.url | split: '/' | last |  split: '-' | join: ' ' %}
+                    {% else %}
+                      {% assign tag_handle = childlink.url | split: '/' | last %}
+                    {% endif %}
+                    
+                    {% assign has_product_with_tag = false %}
+                    {% if curr_collection %}
+                      {% for product in curr_collection.products %}
+                        {% if product.tags contains tag_handle %}
+                          {% assign has_product_with_tag = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
                     {% assign childlink_request_path = request.path | split: '/' | last %}
                     {% assign childlink_handle = childlink.url | split: '/' | last %}
 
-                    <li>
-                      <a
-                        href="{{ childlink.url }}"
-                        {% if childlink_request_path == childlink_handle %}
-                          class="active"
-                        {% endif %}
-                      >
-                        {{- childlink.title -}}
-                      </a>
-                    </li>
+                    {%  if has_product_with_tag %}
+                      <li>
+                        <a
+                          href="{{ childlink.url }}"
+                          {% if childlink_request_path == childlink_handle %}
+                            class="active"
+                          {% endif %}
+                        >
+                           {{- childlink.title -}}
+                        </a>
+                      </li>
+                    {% endif %}
                   {% endfor %}
                 {% endif %}
               {% endif %}

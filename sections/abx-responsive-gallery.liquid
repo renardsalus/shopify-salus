@@ -122,7 +122,7 @@
               data-pswp-width="{{ cad_image.width }}"
               data-pswp-height="{{ cad_image.height }}"
             >
-              {{ cad_image | image_url: width: 400 | image_tag }}
+              {{ cad_image | image_url: width: 400 | image_tag: alt: "cad" }}
             </a>
           
             <p>{{ image_title[forloop.index0] }}</p>

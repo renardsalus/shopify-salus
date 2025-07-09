@@ -5,10 +5,20 @@
   - collection {Object} - Collection object (optional).
   - image_ratio {Number} - Aspect ratio for the image(s).
   - disable_quickbuy {Boolean} - Force disables quickbuy (even if enabled in settings)
+  - image_as_link {Boolean} - Make image as a link
 
   Usage:
   {% render 'product-card', product: product %}
 {%- endcomment -%}
+
+{% if image_as_link == nil %}
+  {% assign image_as_link = true %}
+{% endif %}
+{% if title_as_link == nil %}
+  {% assign title_as_link = true %}
+{% endif %}
+
+
 
 {%- liquid
   if collection and settings.card_url_within_coll and product.collections contains collection
@@ -117,13 +127,23 @@
       {% if show_category_tag and product.metafields.custom.product_tag != blank %}
         <span class="product-category-badge">{{ product.metafields.custom.product_tag }}</span>
       {% endif %}
-      <a
-        href="{{ product_url }}"
-        aria-label="{{ product.title | escape }}"
-        class="media block relative{% if settings.blend_product_images %} image-blend{% endif %} js-prod-link"
-        style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;"
-        tabindex="-1"
-      >
+      {% if image_as_link == true %} 
+        <a
+          href="{{ product_url }}"
+          aria-label="{{ product.title | escape }}"
+          class="media block relative{% if settings.blend_product_images %} image-blend{% endif %} js-prod-link"
+          style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;"
+          tabindex="-1"
+        >
+      {% else %}
+        <div
+          aria-label="{{ product.title | escape }}"
+          class="media block relative{% if settings.blend_product_images %} image-blend{% endif %} js-prod-link"
+          style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;"
+          tabindex="-1"
+        >
+      {% endif %}
+       
         {%- if product.featured_media -%}
           {% assign media_ext = product.featured_media
             | img_url
@@ -182,7 +202,11 @@
         {%- else -%}
           {{ 'image' | placeholder_svg_tag: 'media__placeholder img-fit' }}
         {%- endif -%}
-      </a>
+      {% if image_as_link == true %} 
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
 
       {%- liquid
         if settings.product_label_card_position != 'none'
@@ -197,7 +221,7 @@
           {% if show_shipping_tag and product.metafields.custom.product_tag_free_shipping != blank %}
             <div class="card-shipping-tag">
               <span
-                ><img src="{{ 'shipping-icon.svg' | asset_url }}">
+                ><img src="{{ 'shipping-icon.svg' | asset_url }}" alt="shipping icon indicator">
                 {{- product.metafields.custom.product_tag_free_shipping -}}
               </span>
             </div>
@@ -295,9 +319,15 @@
 
           <div class="product-title-wrapper">
             <p class="truncate-two-lines card__title font-bold{% if settings.show_dividers %} mb-1{% else %} mt-1 mb-0{% endif %}">
-              <a href="{{ product_url }}" class="card-link text-current js-prod-link">
-                {{- product.title | escape -}}
-              </a>
+             {% if title_as_link == true %}
+                <a href="{{ product_url }}" class="card-link text-current js-prod-link">
+                  {{- product.title | escape -}}
+                </a>
+             {% else %}
+                <span class="card-link text-current js-prod-link">
+                  {{- product.title | escape -}}
+                </span>
+             {% endif %}
               {% render 'product-label', product: product, is_product_card: true, limit: 1 %}
             </p>
           </div>
@@ -429,7 +459,7 @@
           {%- endif -%}
         </div>
       </div>
-      {% if enable_quick_add %}
+      {% if enable_quick_add and btn_label != blank  %}
         <div class="card_redirect">
           <a href="{{ product.url }}">{{ btn_label }}</a>
         </div>

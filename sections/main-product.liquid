@@ -474,7 +474,7 @@
                         {%- endif -%}
                       {%- endcapture -%}
                         <div class="trust-signal">
-                          <img src="{{ block.settings.trust_signal_icon | img_url:'master' }}">
+                          <img src="{{ block.settings.trust_signal_icon | img_url:'master' }}" alt="{{ block.settings.trust_signal_icon.alt }}">
                           <span>{{ block.settings.trust_signal_heading }}</span>
                         </div>
                         <button
@@ -669,7 +669,7 @@
                 <div class="msg-box-wrappper">
                   {% if block.settings.icon != blank -%}
                     <div class="msg-box-img">
-                      <img src="{{ block.settings.icon | img_url:'master' }}">
+                      <img src="{{ block.settings.icon | img_url:'master' }}" alt="{{ block.settings.icon.alt }}">
                     </div>
                   {%- endif %}
 
@@ -697,15 +697,15 @@
             {% when 'benefits' %}
               <ul class="icon-with-text icon-with-text--horizontal list-unstyled content-container">
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon1 | img_url:'master' }}" width="30" height="30">
+                  <img src="{{ block.settings.icon1 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon1.alt }}">
                   <span>{{ block.settings.first_text }}</span>
                 </li>
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon2 | img_url:'master' }}" width="30" height="30">
+                  <img src="{{ block.settings.icon2 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon2.alt }}">
                   <span>{{ block.settings.second_text }}</span>
                 </li>
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon3 | img_url:'master' }}" width="30" height="30">
+                  <img src="{{ block.settings.icon3 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon3.alt }}">
                   <span>{{ block.settings.third_text }}</span>
                 </li>
               </ul>
@@ -830,7 +830,7 @@
                 <div class="product-info__block product-info__block--sm download-link-wrapper">
                   <div class="product-detail-link">
                     <a href="{{ block.settings.link }}"
-                      ><img src="{{ 'download-icon.svg' | asset_url }}">{{ block.settings.link_label -}}
+                      ><img src="{{ 'download-icon.svg' | asset_url }}" alt="download">{{ block.settings.link_label -}}
                     </a>
                   </div>
                 </div>
@@ -841,7 +841,7 @@
                 <div class="product-info__block product-info__block--sm download-link-wrapper spec-sheet">  
                   <div class="product-detail-link">
                     <a href="{{ block.settings.link }}"
-                      ><img src="{{ 'download-icon.svg' | asset_url }}">{{ block.settings.link_label -}}
+                      ><img src="{{ 'download-icon.svg' | asset_url }}" alt="download">{{ block.settings.link_label -}}
                     </a>
                   </div>
                 </div>

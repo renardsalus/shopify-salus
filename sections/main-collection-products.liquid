@@ -195,7 +195,7 @@
                   {%- unless rendered_product_ids contains product.id -%}
                     {%- assign rendered_product_ids = rendered_product_ids | append: product.id | append: ',' -%}
                     <li class="js-pagination-result">
-                      {% render 'product-card'
+                      {% render 'product-card-main-collection'
                         , product: product
                         , collection: collection
                         , image_ratio: image_ratio
@@ -205,6 +205,7 @@
                         , show_shipping_tag: section.settings.show_shipping_tag
                         , show_delivery_tag: section.settings.show_delivery_tag
                         , show_person_tag: section.settings.show_person_tag
+                        , image_as_link: false
                       %}
                     </li>
                   {%- endunless -%}
@@ -253,7 +254,7 @@
                 <li class="js-pagination-result">
                   {% assign banners = collection.metafields.custom.collection_bannner.value %}
 
-                  {% render 'product-card'
+                  {% render 'product-card-main-collection'
                     , product: product
                     , collection: collection
                     , image_ratio: image_ratio
@@ -263,6 +264,7 @@
                     , show_shipping_tag: section.settings.show_shipping_tag
                     , show_delivery_tag: section.settings.show_delivery_tag
                     , show_person_tag: section.settings.show_person_tag
+                    , image_as_link: false
                   %}
                 </li>
 
