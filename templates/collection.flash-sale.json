@@ -46,7 +46,7 @@
         "countdown-countdown-3": {
           "type": "countdown",
           "settings": {
-            "end_date": "2025-07-18",
+            "end_date": "2025-08-22",
             "end_time": "24:00",
             "end_text": "",
             "enlarge_end_text": false,
