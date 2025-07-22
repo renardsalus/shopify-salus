@@ -328,6 +328,25 @@
     });
   }
 
+  function addAltTextToImages (selector) {
+    return () => {
+      const divImages = document.querySelectorAll(selector);
+      divImages.forEach((divImg) => {
+        let img = null;
+        if (divImg.tagName.toLowerCase() === 'img') {
+          img = divImg;
+        } else {
+          img = divImg.querySelector('img');
+        }
+        if (img && img.tagName.toLowerCase() === 'img' && !img.hasAttribute('alt')) {
+          img.setAttribute('alt', 'Product Image');
+        }
+      });
+    };
+  }
+
   // Example usage:
   waitForElement('.addOn', priceCompareAndBuildModal);
+  waitForElement('.gpo-swatch__image', addAltTextToImages('.gpo-swatch__image'));
+  waitForElement('.gpo-tooltip__image', addAltTextToImages('.gpo-tooltip__image'));
 </script>
