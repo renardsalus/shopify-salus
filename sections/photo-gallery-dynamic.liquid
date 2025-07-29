@@ -79,33 +79,34 @@
     data-cc-animate
   {% endif %}
 >
-  {% if product.metafields.custom.product_gallery != blank %}
-    <div class="container {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
-      {%- for block in section.blocks -%}
+  <div class="container {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          {%- if block.settings.heading != blank -%}
+            <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading md-down:px-gutter {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+              <span class="contained-heading inline-block">{{- block.settings.heading -}}</span>
+            </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+    <!-- Gallery code for mobile -->
+    <div class="pswp-gallery" id="my-gallery">
+      {%- for block in section.blocks -%} 
         {%- case block.type -%}
-          {%- when 'heading' -%}
-            {%- if block.settings.heading != blank -%}
-              <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading md-down:px-gutter {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                <span class="contained-heading inline-block">{{- block.settings.heading -}}</span>
-              </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
-            {%- endif -%}
-        {%- endcase -%}
-      {%- endfor -%}
-      <!-- Gallery code for mobile -->
-      <div class="pswp-gallery" id="my-gallery">
-        {% for product_image in product.metafields.custom.product_gallery.value %}
-          <a
-            href="{{ product_image | image_url: width: nil  }}"
-            class="gallery__image-card"
-            data-pswp-width="{{ product_image.width }}"
-            data-pswp-height="{{ product_image.height }}"
-          >
-            {{ product_image | image_url: width: 400 | image_tag: alt: "customer" }}
-          </a>
-        {% endfor %}
-      </div>
+          {%- when 'image' -%}
+            <a
+              href="{{ block.settings.img | image_url: width: nil }}"
+              class="gallery__image-card"
+              data-pswp-width="{{ block.settings.img.width }}"
+              data-pswp-height="{{ block.settings.img.height }}"
+            >
+              {{ block.settings.img | image_url: width: 400 | image_tag: alt: "customer" }}
+            </a>
+          {%- endcase -%}
+      {% endfor %}
     </div>
-  {% endif %}
+  </div>
 </div>
 
 {% schema %}
@@ -287,6 +288,17 @@
         }
       ]
     },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        }
+      ]
+    }
   ],
   "presets": [
     {
