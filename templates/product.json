@@ -375,6 +375,34 @@
         "padding_bottom": 40
       }
     },
+    "photo_gallery_dynamic_eWxxkQ": {
+      "type": "photo-gallery-dynamic",
+      "blocks": {
+        "heading_f9pbXW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Photo Gallery",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_f9pbXW"
+      ],
+      "name": "ABX - Photo Gallery",
+      "settings": {
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false,
+        "image_width": 300,
+        "image_height": 300,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "17223595897408148f": {
       "type": "apps",
       "blocks": {
@@ -778,6 +806,7 @@
     "assembly_video_H4WpPp",
     "product_sauna_compare_EgaFVg",
     "abx_gallery_dynamic_8tRChz",
+    "photo_gallery_dynamic_eWxxkQ",
     "17223595897408148f",
     "recommendations",
     "content_with_form_Q3amKV",
