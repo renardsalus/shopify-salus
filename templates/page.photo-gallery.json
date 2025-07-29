@@ -57,59 +57,32 @@
         "button_style": "btn btn--primary"
       }
     },
-    "rich_text_4h9yJ9": {
-      "type": "rich-text",
+    "photo_gallery_dynamic_qkzUbG": {
+      "type": "photo-gallery-dynamic",
       "blocks": {
-        "heading_rADjjt": {
+        "heading_8iHmyt": {
           "type": "heading",
           "settings": {
-            "heading": "Thank You for Your Service — Enjoy an Exclusive First Responder Offer",
+            "heading": "Photo Gallery",
             "heading_size": "h2",
             "heading_h1": false
           }
-        },
-        "text_eGHDzW": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We’re proud to support the heroes in our communities. First responders <strong>get special pricing on any of our sauna or cold plunge models</strong>. Claim your offer by filling out the form below — no commitment required.</p>",
-            "enlarge_text": true
-          }
         }
       },
       "block_order": [
-        "heading_rADjjt",
-        "text_eGHDzW"
+        "heading_8iHmyt"
       ],
-      "custom_css": [
-        "div {padding: 20px 0px;}"
-      ],
-      "name": "Rich text",
+      "name": "ABX - Photo Gallery",
       "settings": {
-        "text_position": "justify-center",
         "text_align": "text-center",
         "mob_center_text": true,
-        "wide": false,
         "color_scheme": "none",
         "full_width": true,
-        "prevent_animation": false
-      }
-    },
-    "image_collections_r3aYJU": {
-      "type": "image-collections",
-      "blocks": {
-        "image_8CXBVm": {
-          "type": "image",
-          "settings": {
-            "img": "shopify://shop_images/responder-discount.png"
-          }
-        }
-      },
-      "block_order": [
-        "image_8CXBVm"
-      ],
-      "name": "Image Collections",
-      "settings": {
-        "max_width": 1500
+        "prevent_animation": false,
+        "image_width": 300,
+        "image_height": 300,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "content_with_form_3A7wrj": {
@@ -236,8 +209,7 @@
   "order": [
     "main",
     "form",
-    "rich_text_4h9yJ9",
-    "image_collections_r3aYJU",
+    "photo_gallery_dynamic_qkzUbG",
     "content_with_form_3A7wrj",
     "newsletter",
     "dynamic_product_comparison_eMax9D"
