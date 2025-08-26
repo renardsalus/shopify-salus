@@ -595,13 +595,8 @@
                                               {%- assign grandchild_link_title_downcase = grandchild_link.title
                                                 | downcase
                                               -%}
-                                              {% style  %}  
-                                                .hidden-priority {
-                                                  display: none !important;
-                                                }
-                                              {% endstyle %}
                                               <a
-                                                class="grandchild-nav__item main-nav__item{% if featured_links contains grandchild_link_title_downcase %} main-nav__link--featured{% endif %} {% if grandchild_link_title_downcase contains "custom" %} hidden-priority {% endif %}"
+                                                class="grandchild-nav__item main-nav__item{% if featured_links contains grandchild_link_title_downcase %} main-nav__link--featured{% endif %}"
                                                 href="{{ grandchild_link.url }}"
                                                 {% if grandchild_link.current %}
                                                   aria-current="page"
