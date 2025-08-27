@@ -16,7 +16,7 @@ This repository contains a customized Shopify theme based on the Enterprise them
 - `locales/`: Translations.
 
 ### Development
-1. Install Shopify CLI: see docs in `docs/development.md`.
+1. Install Shopify CLI: see docs in [docs/development.md](docs/development.md).
 2. Log in to your Shopify store and run theme server to preview.
 3. Make edits in `sections/`, `snippets/`, and `assets/`.
 
