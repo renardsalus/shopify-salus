@@ -21,10 +21,10 @@ This repository contains a customized Shopify theme based on the Enterprise them
 3. Make edits in `sections/`, `snippets/`, and `assets/`.
 
 ### Documentation
-- Architecture: `docs/architecture.md`
-- Development workflow: `docs/development.md`
-- Sections & snippets overview: `docs/sections.md`
-- Storefront management guide: `docs/storefront-management.md`
-- **Globo Product Options**: `docs/globo-product-options.md` - Complete guide for Globo product options integration, customization, and management
-- **Metafields Guru**: `docs/metafields-guru.md` - Comprehensive documentation for metafield rendering system, product specifications, and comparison features
+- Architecture: [docs/architecture.md](docs/architecture.md)
+- Development workflow: [docs/development.md](docs/development.md)
+- Sections & snippets overview: [docs/sections.md](docs/sections.md)
+- Storefront management guide: [docs/storefront-management.md](docs/storefront-management.md)
+- **Globo Product Options**: [docs/globo-product-options.md](docs/globo-product-options.md) - Complete guide for Globo product options integration, customization, and management
+- **Metafields Guru**: [docs/metafields-guru.md](docs/metafields-guru.md) - Comprehensive documentation for metafield rendering system, product specifications, and comparison features
 
