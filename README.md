@@ -25,4 +25,6 @@ This repository contains a customized Shopify theme based on the Enterprise them
 - Development workflow: `docs/development.md`
 - Sections & snippets overview: `docs/sections.md`
 - Storefront management guide: `docs/storefront-management.md`
+- **Globo Product Options**: `docs/globo-product-options.md` - Complete guide for Globo product options integration, customization, and management
+- **Metafields Guru**: `docs/metafields-guru.md` - Comprehensive documentation for metafield rendering system, product specifications, and comparison features
 
