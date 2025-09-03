@@ -861,7 +861,7 @@
                           {% if mega_nav.settings.menu_products != blank %}
                             <div class="mega__menu-products">
                               {% for product in mega_nav.settings.menu_products %}
-                                <div class="menu-product-box">
+                                <a href="{{ product.url }}" class="menu-product-box">
                                   <div class="mega-product-img">
                                     {% if forloop.index == 1 %}
                                       {% if mega_nav.settings.product_tag_1 %}
@@ -891,9 +891,9 @@
                                   <div class="mega-product-content">
                                     <h4>{{ product.title }}</h4>
                                     <p>{{ product.price | money }}</p>
-                                    <a href="{{ product.url }}">Buy Now</a>
+                                    <span>Buy Now</span>
                                   </div>
-                                </div>
+                                </a>
                               {% endfor %}
                             </div>
                           {% endif %}
