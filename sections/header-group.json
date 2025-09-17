@@ -803,6 +803,23 @@
         "popup_delay": 5,
         "phone_number": "(888)287-0111"
       }
+    },
+    "abx_responsive_gallery_XzRJbj": {
+      "type": "abx-responsive-gallery",
+      "name": "ABX - Image Slider",
+      "settings": {
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "color_scheme": "none",
+        "heading": "Rich text headline",
+        "heading_size": "h2",
+        "full_width": true,
+        "prevent_animation": false,
+        "image_width": 300,
+        "image_height": 300,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -818,6 +835,7 @@
     "product_page_popup_tR3RE4",
     "main_page_popup_qbKzjN",
     "main_page_popup_w9FiEA",
-    "product_page_popup_HDecQc"
+    "product_page_popup_HDecQc",
+    "abx_responsive_gallery_XzRJbj"
   ]
 }
