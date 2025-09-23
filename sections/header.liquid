@@ -297,8 +297,16 @@
                         {% if link.current %}
                           aria-current="page"
                         {% endif %}
+                        {% if link.title == 'Salus Specials' %}
+                          style="color: #f03636; font-weight: 600;"
+                        {% endif %}
                       >
-                        {{- link.title | escape -}}
+                        <div>
+                          <span>{{- link.title | escape -}}</span>
+                          {%- if link.title == 'Salus Specials' -%}
+                            {% render 'icon-percentage' %}
+                          {%- endif -%}
+                        </div>
                       </a>
                     {%- else -%}
                       {%- liquid
