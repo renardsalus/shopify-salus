@@ -355,7 +355,7 @@
             {%- endif -%}
           {% endcomment %}
           <!-- Start of Judge.me code -->
-          {%- if settings.card_show_rating -%}
+          {%- if settings.card_show_rating and template.name != 'index'-%}
             <div class="product_ratings">
               <div class="jdgm-widget jdgm-preview-badge">
                 <span class="rating-counter">{{ product.metafields.reviews.rating.value }}</span>
@@ -457,13 +457,14 @@
               {%- render 'price', product: product, class: 'price--bottom' -%}
             </div>
           {%- endif -%}
+
+          {% if enable_quick_add and btn_label != blank  %}
+            <div class="card_redirect">
+              <a href="{{ product.url }}">{{ btn_label }}</a>
+            </div>
+          {% endif %}
         </div>
       </div>
-      {% if enable_quick_add and btn_label != blank  %}
-        <div class="card_redirect">
-          <a href="{{ product.url }}">{{ btn_label }}</a>
-        </div>
-      {% endif %}
 
       {%- if settings.enable_quick_add and disable_quickbuy != true and enable_quick_add != true -%}
         <div
