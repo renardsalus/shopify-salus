@@ -54,10 +54,6 @@
             "show_tax_and_shipping": false
           }
         },
-        "pay_hsa_fsa_CtzPVC": {
-          "type": "pay_hsa_fsa",
-          "settings": {}
-        },
         "richtext_rmaxgM": {
           "type": "richtext",
           "settings": {
@@ -178,7 +174,6 @@
         "judge_me_reviews_preview_badge_X9NxFb",
         "delivery_dTUxNH",
         "price",
-        "pay_hsa_fsa_CtzPVC",
         "richtext_rmaxgM",
         "download_manual_MAdAyX",
         "spec_sheet_xfiPkx",
