@@ -54,6 +54,10 @@
             "show_tax_and_shipping": false
           }
         },
+        "pay_hsa_fsa_CtzPVC": {
+          "type": "pay_hsa_fsa",
+          "settings": {}
+        },
         "richtext_rmaxgM": {
           "type": "richtext",
           "settings": {
@@ -130,7 +134,7 @@
             "show_price": true
           }
         },
-        "pay_hsa_fsa_CtzPVC": {
+        "pay_hsa_fsa_zmnfTe": {
           "type": "pay_hsa_fsa",
           "settings": {}
         },
@@ -174,6 +178,7 @@
         "judge_me_reviews_preview_badge_X9NxFb",
         "delivery_dTUxNH",
         "price",
+        "pay_hsa_fsa_CtzPVC",
         "richtext_rmaxgM",
         "download_manual_MAdAyX",
         "spec_sheet_xfiPkx",
@@ -183,7 +188,7 @@
         "product_accordions_JPfDhi",
         "judge_me_reviews_featured_carousel_axna7X",
         "buy-buttons",
-        "pay_hsa_fsa_CtzPVC",
+        "pay_hsa_fsa_zmnfTe",
         "benefits_rG7wmT",
         "delivery_detail_mAnc4b",
         "copy_link_4kBkjc",
