@@ -444,6 +444,38 @@
                       hidden
                     ></div>
 
+                    {% assign product_accordions = product.metafields.product_accordions %}
+
+                    {% if product_accordions.size > 0 %}
+                      {% for accordion in product_accordions %}
+                        <details-disclosure {{ block.shopify_attributes }}>
+                          <details
+                            class="disclosure disclosure--row"
+                          >
+                            <summary>
+                              <div class="flex justify-between items-center">
+                                <h2 class="disclosure__title product-info__disclosure font-body font-bold text-body flex flex-auto items-center mb-0">
+                                  {{- accordion | first -}}
+                                </h2>
+                                <span class="disclosure__toggle">
+                                  {%- if settings.disclosure_toggle == 'plus' -%}
+                                    {% render 'icon-plus' %}
+                                  {%- else -%}
+                                    {% render 'icon-chevron-down' %}
+                                  {%- endif -%}
+                                </span>
+                              </div>
+                            </summary>
+                            <div class="disclosure__panel has-motion">
+                              <div class="disclosure__content rte">
+                                {{ accordion | last }}
+                              </div>
+                            </div>
+                          </details>
+                        </details-disclosure>
+                      {% endfor %}
+                    {% endif %}
+
                     {% if block.settings.show_msg_box and template.name == 'product' %}
                       {% render 'message-box', block: block %}
                     {% endif %}
