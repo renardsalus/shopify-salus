@@ -405,7 +405,7 @@
         "enable_fw": false,
         "title": "Join renowned figures in their sauna journey",
         "heading_align": "text-center",
-        "button_label": "Shop by Tastemakers",
+        "button_label": "Shop by tastemakers",
         "button_link": "shopify://pages/our-icons",
         "enable_load_more": false,
         "layout": "carousel",
