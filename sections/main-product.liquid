@@ -21,14 +21,18 @@
 
 {%- if product.metafields.reviews.rating.value != blank -%}
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (document.getElementById('shopify-product-reviews')) {
-        const link = document.createElement('link');
-        link.rel = "stylesheet";
-        link.href = "{{ 'reviews.css' | asset_url }}";
-        document.body.appendChild(link);
-      }
-    }, { once: true });
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        if (document.getElementById('shopify-product-reviews')) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = "{{ 'reviews.css' | asset_url }}";
+          document.body.appendChild(link);
+        }
+      },
+      { once: true }
+    );
   </script>
 {%- endif -%}
 
@@ -282,21 +286,21 @@
               </div>
 
             {% when 'delivery' %}
-              {% if block.settings.delivery != blank%}
+              {% if block.settings.delivery != blank %}
                 <div
                   class="product-info__block product-info__block--sm product-info__delivery flex"
                 >
                   <p>
                     {{ block.settings.delivery | append: ' Delivery' }}
                   </p>
-                  {% if block.settings.stock_left != blank%}
+                  {% if block.settings.stock_left != blank %}
                     <div
                       class="product-info__block product-info__block--sm product-info__stock-warning"
                     >
-                        <img src="{{ 'important.svg' | asset_url }}">
-                        <span>
-                          {{ block.settings.stock_left }}
-                        </span>
+                      <img src="{{ 'important.svg' | asset_url }}">
+                      <span>
+                        {{ block.settings.stock_left }}
+                      </span>
                     </div>
                   {% endif %}
                 </div>
@@ -444,6 +448,38 @@
                       hidden
                     ></div>
 
+                    {% assign product_accordions = product.metafields.product_accordions %}
+
+                    {% if product_accordions.size > 0 %}
+                      {% for accordion in product_accordions %}
+                        <details-disclosure {{ block.shopify_attributes }}>
+                          <details
+                            class="disclosure disclosure--row"
+                          >
+                            <summary>
+                              <div class="flex justify-between items-center">
+                                <h2 class="disclosure__title product-info__disclosure font-body font-bold text-body flex flex-auto items-center mb-0">
+                                  {{- accordion | first -}}
+                                </h2>
+                                <span class="disclosure__toggle">
+                                  {%- if settings.disclosure_toggle == 'plus' -%}
+                                    {% render 'icon-plus' %}
+                                  {%- else -%}
+                                    {% render 'icon-chevron-down' %}
+                                  {%- endif -%}
+                                </span>
+                              </div>
+                            </summary>
+                            <div class="disclosure__panel has-motion">
+                              <div class="disclosure__content rte">
+                                {{ accordion | last }}
+                              </div>
+                            </div>
+                          </details>
+                        </details-disclosure>
+                      {% endfor %}
+                    {% endif %}
+
                     {% if block.settings.show_msg_box and template.name == 'product' %}
                       {% render 'message-box', block: block %}
                     {% endif %}
@@ -474,7 +510,10 @@
                         {%- endif -%}
                       {%- endcapture -%}
                         <div class="trust-signal">
-                          <img src="{{ block.settings.trust_signal_icon | img_url:'master' }}" alt="{{ block.settings.trust_signal_icon.alt }}">
+                          <img
+                            src="{{ block.settings.trust_signal_icon | img_url:'master' }}"
+                            alt="{{ block.settings.trust_signal_icon.alt }}"
+                          >
                           <span>{{ block.settings.trust_signal_heading }}</span>
                         </div>
                         <button
@@ -697,15 +736,30 @@
             {% when 'benefits' %}
               <ul class="icon-with-text icon-with-text--horizontal list-unstyled content-container">
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon1 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon1.alt }}">
+                  <img
+                    src="{{ block.settings.icon1 | img_url:'master' }}"
+                    width="30"
+                    height="30"
+                    alt="{{ block.settings.icon1.alt }}"
+                  >
                   <span>{{ block.settings.first_text }}</span>
                 </li>
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon2 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon2.alt }}">
+                  <img
+                    src="{{ block.settings.icon2 | img_url:'master' }}"
+                    width="30"
+                    height="30"
+                    alt="{{ block.settings.icon2.alt }}"
+                  >
                   <span>{{ block.settings.second_text }}</span>
                 </li>
                 <li class="icon-with-text__item">
-                  <img src="{{ block.settings.icon3 | img_url:'master' }}" width="30" height="30" alt="{{ block.settings.icon3.alt }}">
+                  <img
+                    src="{{ block.settings.icon3 | img_url:'master' }}"
+                    width="30"
+                    height="30"
+                    alt="{{ block.settings.icon3.alt }}"
+                  >
                   <span>{{ block.settings.third_text }}</span>
                 </li>
               </ul>
@@ -835,10 +889,10 @@
                   </div>
                 </div>
               {% endif %}
-            
-             {% when 'spec_sheet' %}
+
+            {% when 'spec_sheet' %}
               {% if block.settings.link != blank %}
-                <div class="product-info__block product-info__block--sm download-link-wrapper spec-sheet">  
+                <div class="product-info__block product-info__block--sm download-link-wrapper spec-sheet">
                   <div class="product-detail-link">
                     <a href="{{ block.settings.link }}"
                       ><img src="{{ 'download-icon.svg' | asset_url }}" alt="download">{{ block.settings.link_label -}}
@@ -1063,139 +1117,139 @@
 {% render 'structured-data-product', product: product, current_variant: current_variant %}
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () { 
-    const titles = document.querySelectorAll(".product-detail-title");
+  document.addEventListener('DOMContentLoaded', function () {
+    const titles = document.querySelectorAll('.product-detail-title');
     if (titles.length > 1) {
       titles.forEach((title, index) => {
         if (index > 0) {
-          title.style.display = "none"; // Hide all but the first one
+          title.style.display = 'none'; // Hide all but the first one
         }
       });
     }
-  })
+  });
 </script>
 
 <!-- GLOBO - PRODUCT -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      let quickBannerButton = document.querySelectorAll('.quick-banner-atc');
-      let submitButton = document.querySelector('.product-info__add-button');
-      var _learnq = window._learnq || [];
+  document.addEventListener('DOMContentLoaded', function () {
+    let quickBannerButton = document.querySelectorAll('.quick-banner-atc');
+    let submitButton = document.querySelector('.product-info__add-button');
+    var _learnq = window._learnq || [];
 
-      submitButton?.addEventListener('click', function () {
-        _learnq.push(['track', 'Added to Cart', item]);
-      });
+    submitButton?.addEventListener('click', function () {
+      _learnq.push(['track', 'Added to Cart', item]);
+    });
 
-      if (quickBannerButton) {
-          quickBannerButton.forEach(button => {
-              button.addEventListener('click', function() {
-                  let cloneAtcButton = document.querySelector('.gpo-clone-atc-button');
-                  let orignalButton = document.querySelector('.product-info__add-button .product-atc-btn');
+    if (quickBannerButton) {
+      quickBannerButton.forEach((button) => {
+        button.addEventListener('click', function () {
+          let cloneAtcButton = document.querySelector('.gpo-clone-atc-button');
+          let orignalButton = document.querySelector('.product-info__add-button .product-atc-btn');
 
-                  if (cloneAtcButton) {
-                      cloneAtcButton.click();
-                      quickBannerButton.disabled = true;
-                      quickBannerButton.classList.add('is-loading');
+          if (cloneAtcButton) {
+            cloneAtcButton.click();
+            quickBannerButton.disabled = true;
+            quickBannerButton.classList.add('is-loading');
 
-                      setTimeout(() => {
-                        quickBannerButton.classList.remove('is-loading');
-                        quickBannerButton.disabled = false;
-                      },1200);
-
-                  }
-                  else if(orignalButton){
-                    orignalButton.click();
-                      quickBannerButton.disabled = true;
-                        quickBannerButton.classList.add('is-loading');
-                      setTimeout(() => {
-                        quickBannerButton.disabled = false;
-                        quickBannerButton.classList.remove('is-loading');
-
-                      },1200);
-
-                  } else {
-                      console.log('.gpo-clone-atc-button element not found');
-                  }
-              });
-          });
-      } else {
-          console.log('.quick-banner-atc button not found');
-      }
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      function processOvItems() {
-          // Get all .gpo-ov-item elements
-          const ovItems = document.querySelectorAll('.gpo-ov-item');
-          // Check if any ovItems are found
-          if (ovItems.length > 0) {
-              console.log('ovItems found:', ovItems.length);
-
-              // Loop through each .gpo-ov-item
-            var counter = 1;
-              ovItems.forEach(item => {
-                let checkboxMark = document.createElement('span');
-                checkboxMark.classList.add('checkmark');
-                item.prepend(checkboxMark);
-
-
-                  const addOnSpan = item.querySelector('.gpo-tooltip__title span.addOn');
-                  // Create a new span element
-                  const newSpan = document.createElement('span');
-
-                  // Find the .gpo-ov-title element within this item
-                  const ovTitle = item.querySelector('.gpo-ov-title');
-
-                  // if (addOnSpan) {
-                      // Get the value from the span.addOn element and remove + and brackets
-                      // let addOnValue = addOnSpan.textContent;
-                      // addOnValue = addOnValue.replace(/[+()]/g, '').trim();
-                      // if (ovTitle) {
-                      //     ovTitle.appendChild(newSpan);
-                      //     newSpan.textContent = addOnValue;
-                      // }
-                  // }else{
-                  //   let addOnText = "Free Included in Your Purchse";
-                  //   if (ovTitle) {
-                  //         ovTitle.appendChild(newSpan);
-                  //         newSpan.textContent = addOnText;
-                  //     }
-                  // }
-              });
-              return true; // Indicate that items were processed
+            setTimeout(() => {
+              quickBannerButton.classList.remove('is-loading');
+              quickBannerButton.disabled = false;
+            }, 1200);
+          } else if (orignalButton) {
+            orignalButton.click();
+            quickBannerButton.disabled = true;
+            quickBannerButton.classList.add('is-loading');
+            setTimeout(() => {
+              quickBannerButton.disabled = false;
+              quickBannerButton.classList.remove('is-loading');
+            }, 1200);
           } else {
-              console.log('ovItems not found');
-              return false; // Indicate that items were not found
+            console.log('.gpo-clone-atc-button element not found');
           }
+        });
+      });
+    } else {
+      console.log('.quick-banner-atc button not found');
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function processOvItems() {
+      // Get all .gpo-ov-item elements
+      const ovItems = document.querySelectorAll('.gpo-ov-item');
+      // Check if any ovItems are found
+      if (ovItems.length > 0) {
+        console.log('ovItems found:', ovItems.length);
+
+        // Loop through each .gpo-ov-item
+        var counter = 1;
+        ovItems.forEach((item) => {
+          let checkboxMark = document.createElement('span');
+          checkboxMark.classList.add('checkmark');
+          item.prepend(checkboxMark);
+
+          const addOnSpan = item.querySelector('.gpo-tooltip__title span.addOn');
+          // Create a new span element
+          const newSpan = document.createElement('span');
+
+          // Find the .gpo-ov-title element within this item
+          const ovTitle = item.querySelector('.gpo-ov-title');
+
+          // if (addOnSpan) {
+          // Get the value from the span.addOn element and remove + and brackets
+          // let addOnValue = addOnSpan.textContent;
+          // addOnValue = addOnValue.replace(/[+()]/g, '').trim();
+          // if (ovTitle) {
+          //     ovTitle.appendChild(newSpan);
+          //     newSpan.textContent = addOnValue;
+          // }
+          // }else{
+          //   let addOnText = "Free Included in Your Purchse";
+          //   if (ovTitle) {
+          //         ovTitle.appendChild(newSpan);
+          //         newSpan.textContent = addOnText;
+          //     }
+          // }
+        });
+        return true; // Indicate that items were processed
+      } else {
+        console.log('ovItems not found');
+        return false; // Indicate that items were not found
       }
+    }
 
-      let attempts = 0;
-      const maxAttempts = 6;
+    let attempts = 0;
+    const maxAttempts = 6;
 
-      const intervalId = setInterval(() => {
-          const itemsProcessed = processOvItems();
-          attempts++;
-          if (itemsProcessed || attempts >= maxAttempts) {
-              clearInterval(intervalId); // Stop the interval
-              if (attempts >= maxAttempts) {
-                  console.log('Stopped attempting to process ovItems');
-              }
-          }
-      }, 1000);
+    const intervalId = setInterval(() => {
+      const itemsProcessed = processOvItems();
+      attempts++;
+      if (itemsProcessed || attempts >= maxAttempts) {
+        clearInterval(intervalId); // Stop the interval
+        if (attempts >= maxAttempts) {
+          console.log('Stopped attempting to process ovItems');
+        }
+      }
+    }, 1000);
   });
 </script>
 
 <script>
-  document.getElementById('copy_link').addEventListener('click', function() {
-      const tooptip = document.querySelector('.copy-link-tooltip');
-      var dataHref = this.getAttribute('data-href');
-      navigator.clipboard.writeText(dataHref).then(function() {
-          console.log('Copied to clipboard:', dataHref);
-          tooptip.textContent = "Link Copied!";
-          setTimeout(()=>{ tooptip.textContent = "Copy Link"},1500);
-      }).catch(function(error) {
-          console.error('Error copying to clipboard:', error);
+  document.getElementById('copy_link').addEventListener('click', function () {
+    const tooptip = document.querySelector('.copy-link-tooltip');
+    var dataHref = this.getAttribute('data-href');
+    navigator.clipboard
+      .writeText(dataHref)
+      .then(function () {
+        console.log('Copied to clipboard:', dataHref);
+        tooptip.textContent = 'Link Copied!';
+        setTimeout(() => {
+          tooptip.textContent = 'Copy Link';
+        }, 1500);
+      })
+      .catch(function (error) {
+        console.error('Error copying to clipboard:', error);
       });
   });
 </script>
@@ -1556,17 +1610,17 @@
       "type": "@app"
     },
     {
-      "type":"product_tags",
-      "name":"Product Tags",
-      "settings":[
+      "type": "product_tags",
+      "name": "Product Tags",
+      "settings": [
         {
-          "type":"range",
-          "id":"no_tags",
-          "label":"Number of tags",
-          "min":2,
-          "max":5,
-          "default":4
-        },
+          "type": "range",
+          "id": "no_tags",
+          "label": "Number of tags",
+          "min": 2,
+          "max": 5,
+          "default": 4
+        }
       ]
     },
     {
@@ -1602,58 +1656,58 @@
           "info": "Allow customers to send gift cards to a recipient along with a personal message. When enabled, the dynamic checkout button will be disabled for gift cards. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
         },
         {
-          "type":"header",
-          "content":"Message Box"
+          "type": "header",
+          "content": "Message Box"
         },
         {
-          "type":"checkbox",
-          "id":"show_msg_box",
-          "label":"Show Mesage Box"
+          "type": "checkbox",
+          "id": "show_msg_box",
+          "label": "Show Mesage Box"
         },
         {
-          "type":"image_picker",
-          "id":"icon",
-          "label":"Icon"
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
         },
         {
-          "type":"image_picker",
-          "id":"icon1",
-          "label":"Second Icon"
+          "type": "image_picker",
+          "id": "icon1",
+          "label": "Second Icon"
         },
         {
-          "type":"image_picker",
-          "id":"trust_signal_icon",
-          "label":"Trust Signal Icon"
+          "type": "image_picker",
+          "id": "trust_signal_icon",
+          "label": "Trust Signal Icon"
         },
         {
-          "type":"text",
-          "id":"trust_signal_heading",
-          "label":"Trust Signal Heading"
+          "type": "text",
+          "id": "trust_signal_heading",
+          "label": "Trust Signal Heading"
         },
         {
-          "type":"text",
-          "id":"heading",
-          "label":"Heading"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
         },
         {
-          "type":"richtext",
-          "id":"content",
-          "label":"Content"
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         },
         {
-          "type":"richtext",
-          "id":"content1",
-          "label":"Second Content"
+          "type": "richtext",
+          "id": "content1",
+          "label": "Second Content"
         },
         {
-          "type":"header",
-          "content":"Product Price"
+          "type": "header",
+          "content": "Product Price"
         },
         {
-          "type":"checkbox",
-          "id":"show_price",
-          "label":"Enable Product Price",
-          "default":true
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Enable Product Price",
+          "default": true
         }
       ]
     },
@@ -1847,122 +1901,122 @@
       ]
     },
     {
-      "type":"product_accordions",
-      "name":"Product Accordions",
-      "limit":1,
+      "type": "product_accordions",
+      "name": "Product Accordions",
+      "limit": 1
     },
     {
-      "type":"download_manual",
-      "name":"Download Manual",
-      "limit":1,
-      "settings":[
+      "type": "download_manual",
+      "name": "Download Manual",
+      "limit": 1,
+      "settings": [
         {
-          "type":"text",
-          "id":"link_label",
-          "label":"Link Label"
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label"
         },
         {
-          "type":"url",
-          "id":"link",
-          "label":"Link"
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     },
     {
-      "type":"spec_sheet",
-      "name":"Spec Sheet",
-      "limit":1,
-      "settings":[
+      "type": "spec_sheet",
+      "name": "Spec Sheet",
+      "limit": 1,
+      "settings": [
         {
-          "type":"text",
-          "id":"link_label",
-          "label":"Link Label",
-          "default":"Download Spec Sheet"
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Download Spec Sheet"
         },
         {
-          "type":"url",
-          "id":"link",
-          "label":"Link"
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     },
     {
-      "type":"message_box",
-      "name":"Message Box",
-      "settings":[
+      "type": "message_box",
+      "name": "Message Box",
+      "settings": [
         {
-          "type":"image_picker",
-          "id":"icon",
-          "label":"Icon"
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
         },
         {
-          "type":"text",
-          "id":"heading",
-          "label":"Heading"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
         },
         {
-          "type":"richtext",
-          "id":"content",
-          "label":"Content"
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         }
       ]
     },
     {
-      "type":"benefits",
-      "name":"Benefits Detail",
-      "limit":1,
-      "settings":[
+      "type": "benefits",
+      "name": "Benefits Detail",
+      "limit": 1,
+      "settings": [
         {
-          "type":"image_picker",
-          "id":"icon1",
-          "label":"First Icon"
+          "type": "image_picker",
+          "id": "icon1",
+          "label": "First Icon"
         },
         {
-          "type":"image_picker",
-          "id":"icon2",
-          "label":"Second Icon"
+          "type": "image_picker",
+          "id": "icon2",
+          "label": "Second Icon"
         },
         {
-          "type":"image_picker",
-          "id":"icon3",
-          "label":"Third Icon"
+          "type": "image_picker",
+          "id": "icon3",
+          "label": "Third Icon"
         },
         {
-          "type":"text",
-          "id":"first_text",
-          "label":"First Description"
+          "type": "text",
+          "id": "first_text",
+          "label": "First Description"
         },
         {
-          "type":"text",
-          "id":"second_text",
-          "label":"Second Description"
+          "type": "text",
+          "id": "second_text",
+          "label": "Second Description"
         },
         {
-          "type":"text",
-          "id":"third_text",
-          "label":"Third Description"
+          "type": "text",
+          "id": "third_text",
+          "label": "Third Description"
         }
       ]
     },
     {
-      "type":"delivery_detail",
-      "name":"Delivery Detail",
-      "limit":1,
-      "settings":[
+      "type": "delivery_detail",
+      "name": "Delivery Detail",
+      "limit": 1,
+      "settings": [
         {
-          "type":"image_picker",
-          "id":"icon",
-          "label":"Icon"
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
         },
         {
-          "type":"text",
-          "id":"heading",
-          "label":"Heading"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
         },
         {
-          "type":"richtext",
-          "id":"content",
-          "label":"Content"
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         }
       ]
     },
@@ -1979,8 +2033,7 @@
           "id": "open",
           "label": "Open by default",
           "default": false
-        },
-
+        }
       ]
     },
     {
@@ -2239,26 +2292,26 @@
       "limit": 1,
       "settings": [
         {
-          "type":"text",
-          "id":"delivery",
-          "label":"Delivery"
+          "type": "text",
+          "id": "delivery",
+          "label": "Delivery"
         },
         {
-          "type":"text",
-          "id":"stock_left",
-          "label":"Stock Left Text"
+          "type": "text",
+          "id": "stock_left",
+          "label": "Stock Left Text"
         }
       ]
     },
     {
-      "type":"pay_hsa_fsa",
-      "name":"Pay With HSA/FSA",
-      "limit":2
+      "type": "pay_hsa_fsa",
+      "name": "Pay With HSA/FSA",
+      "limit": 2
     },
     {
-      "type":"copy_link",
-      "name":"copy Link",
-      "limit":1
+      "type": "copy_link",
+      "name": "copy Link",
+      "limit": 1
     },
     {
       "type": "barcode",
@@ -2337,15 +2390,15 @@
       "name": "Rich text",
       "settings": [
         {
-          "type":"text",
-          "id":"heading",
-          "label":"Heading"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
         },
         {
           "type": "richtext",
           "id": "text",
           "label": "Rich text"
-        },
+        }
       ]
     },
     {
