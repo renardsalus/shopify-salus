@@ -54,6 +54,10 @@
             "show_tax_and_shipping": false
           }
         },
+        "pay_hsa_fsa_zmnfTe": {
+          "type": "pay_hsa_fsa",
+          "settings": {}
+        },
         "richtext_rmaxgM": {
           "type": "richtext",
           "settings": {
@@ -104,6 +108,7 @@
         },
         "product_accordions_JPfDhi": {
           "type": "product_accordions",
+          "disabled": true,
           "settings": {}
         },
         "judge_me_reviews_featured_carousel_axna7X": {
@@ -131,7 +136,7 @@
             "show_price": true
           }
         },
-        "pay_hsa_fsa_zmnfTe": {
+        "pay_hsa_fsa_BNaqGp": {
           "type": "pay_hsa_fsa",
           "settings": {}
         },
@@ -175,6 +180,7 @@
         "judge_me_reviews_preview_badge_X9NxFb",
         "delivery_dTUxNH",
         "price",
+        "pay_hsa_fsa_zmnfTe",
         "richtext_rmaxgM",
         "description_U3T6cM",
         "download_manual_MAdAyX",
@@ -184,7 +190,7 @@
         "product_accordions_JPfDhi",
         "judge_me_reviews_featured_carousel_axna7X",
         "buy-buttons",
-        "pay_hsa_fsa_zmnfTe",
+        "pay_hsa_fsa_BNaqGp",
         "benefits_rG7wmT",
         "delivery_detail_mAnc4b",
         "copy_link_4kBkjc",
