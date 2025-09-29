@@ -2249,6 +2249,14 @@ body.overflow-hidden {
   /* margin-bottom: 25px; */
 }
 
+.gpo-app {
+  margin-bottom: 0px !important
+}
+
+div.gpo-group.gpo-form__group.gpo-col-12 {
+  margin-bottom: 0px !important
+}
+
 .template--product .product .gpo-element .gpo-selected-values {
   color: #595959 !important;
   font-size: 16px;
