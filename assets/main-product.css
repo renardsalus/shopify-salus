@@ -425,6 +425,10 @@ quick-add-drawer .product-message__box {
   justify-content: center;
 }
 
+.product-price+.product-info__pay .truemed-entry-box {
+  justify-content: start;
+}
+
 .product-info__pay .truemed-entry-text,
 .product-info__pay .truemed-entry-link {
   font-size: 16px;
