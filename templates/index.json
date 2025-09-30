@@ -517,6 +517,7 @@
     },
     "products_card_section_PzCHqp": {
       "type": "products-card-section",
+      "disabled": true,
       "settings": {
         "heading": "Rooted in tradition, built for pure heat",
         "products": [
@@ -551,6 +552,7 @@
     },
     "products_card_section_YF9fnK": {
       "type": "products-card-section",
+      "disabled": true,
       "settings": {
         "heading": "Explore our best-in-class infrared saunas",
         "products": [
@@ -1176,10 +1178,10 @@
     "slideshow",
     "icons_with_text_fkdCn4",
     "multi-column",
-    "logo_list_DaqLFK",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
     "product_carousel_dkNQRn",
+    "logo_list_DaqLFK",
     "product_carousel_MGky87",
     "testimonials_YnNhRy",
     "video",
