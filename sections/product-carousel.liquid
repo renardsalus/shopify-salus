@@ -1,0 +1,101 @@
+<div class="carousel-section">
+  <div class="carousel-header">
+    <h2>{{ section.settings.title }}</h2>
+    <a href="{{ routes.collections_url }}" class="explore-all-btn">Explore All Infrared Saunas</a>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      
+      {%# This dynamically pulls the collection you select in the theme editor #%}
+      {%- assign product_collection = section.settings.featured_collection -%}
+
+      {%# Loops through the products in your selected collection #%}
+      {%- for product in product_collection.products limit: 7 -%}
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <a href="{{ product.url }}">
+              <img 
+                src="{{ product.featured_image | image_url: width: 400 }}" 
+                alt="{{ product.featured_image.alt | escape }}"
+                width="400"
+                height="{{ 400 | divided_by: product.featured_image.aspect_ratio | round }}"
+                loading="lazy">
+            </a>
+            
+            {%- if product.tags contains 'New Release' -%}
+              <span class="badge release-badge">✦ New Release</span>
+            {%- endif -%}
+          </div>
+          <div class="product-info">
+            <div class="shipping-tag">
+              {%- if product.tags contains 'Free Shipping' -%}
+                Free Shipping
+              {%- else -%}
+                &nbsp;
+              {%- endif -%}
+            </div>
+            <a href="{{ product.url }}" class="product-title">{{ product.title }}</a>
+            {%- assign rating_metafield = product.metafields.reviews.rating.value -%}
+            {%- if rating_metafield and rating_metafield.rating > 0 -%}
+              <div class="star-rating">
+                <span class="stars" style="--rating: {{ rating_metafield.rating | default: 0 }};"></span>
+                <span>({{ product.metafields.reviews.rating_count }})</span>
+              </div>
+            {%- endif -%}
+            <div class="price">
+              <span class="current-price">{{ product.price | money }}</span>
+              {%- if product.compare_at_price > product.price -%}
+                <span class="compare-at-price">{{ product.compare_at_price | money }}</span>
+              {%- endif -%}
+            </div>
+            <a href="{{ product.url }}" class="learn-more-btn">Learn More</a>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="product-card--empty">
+          <p>
+            No products found. Please select a collection in the theme editor settings for this section.
+          </p>
+        </div>
+      {%- endfor -%}
+    </div>
+    <button class="carousel-arrow arrow-left">❮</button>
+    <button class="carousel-arrow arrow-right">❯</button>
+  </div>
+</div>
+
+{% comment %}
+  Shopify will automatically load these files on any page where this section is used.
+  This is more efficient than loading them on every page in theme.liquid.
+{% endcomment %}
+{{ 'product-carousel.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-carousel.js' | asset_url }}" defer="defer"></script>
+
+{% comment %}
+  This is the schema. It defines the settings that appear in the
+  Shopify Theme Customizer for this specific section.
+{% endcomment %}
+{% schema %}
+{
+  "name": "Product Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Explore our best-in-class infrared saunas"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel"
+    }
+  ]
+}
+{% endschema %}
