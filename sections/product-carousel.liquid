@@ -1,7 +1,7 @@
 <div class="carousel-section">
   <div class="carousel-header">
     <h2>{{ section.settings.title }}</h2>
-    <a href="{{ routes.collections_url }}" class="explore-all-btn">Explore All Infrared Saunas</a>
+    <a href="{{ routes.collections_url }}" class="explore-all-btn">{{ section.settings.button-label }}</a>
   </div>
 
   <div class="carousel-container">
@@ -37,7 +37,8 @@
             </div>
             <a href="{{ product.url }}" class="product-title">{{ product.title }}</a>
             {%- assign rating_metafield = product.metafields.reviews.rating.value -%}
-            {%- if rating_metafield and rating_metafield.rating > 0 -%}
+            {%- assign rating_value_as_number = rating_metafield.rating | plus: 0 -%}
+            {%- if rating_metafield and rating_value_as_number > 0 -%}
               <div class="star-rating">
                 <span class="stars" style="--rating: {{ rating_metafield.rating | default: 0 }};"></span>
                 <span>({{ product.metafields.reviews.rating_count }})</span>
@@ -85,6 +86,12 @@
       "id": "title",
       "label": "Heading",
       "default": "Explore our best-in-class infrared saunas"
+    },
+    {
+      "type": "text",
+      "id": "button-label",
+      "label": "Button Label",
+      "default": "Explore All Infrared Saunas"
     },
     {
       "type": "collection",
