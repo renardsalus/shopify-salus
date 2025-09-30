@@ -583,11 +583,21 @@
         "open_email": true
       }
     },
+    "product_carousel_dkNQRn": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Explore All Traditional Saunas",
+        "featured_collection": "traditional-sauna-v2"
+      }
+    },
     "product_carousel_MGky87": {
       "type": "product-carousel",
       "name": "Product Carousel",
       "settings": {
         "title": "Explore our best-in-class infrared saunas",
+        "button-label": "Explore All Infrared Saunas",
         "featured_collection": "all-infrared-saunas"
       }
     },
@@ -1169,6 +1179,7 @@
     "logo_list_DaqLFK",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
+    "product_carousel_dkNQRn",
     "product_carousel_MGky87",
     "testimonials_YnNhRy",
     "video",
