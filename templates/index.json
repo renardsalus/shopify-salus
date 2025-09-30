@@ -583,6 +583,14 @@
         "open_email": true
       }
     },
+    "product_carousel_MGky87": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Explore our best-in-class infrared saunas",
+        "featured_collection": "all-infrared-saunas"
+      }
+    },
     "testimonials_YnNhRy": {
       "type": "testimonials",
       "blocks": {
@@ -1161,6 +1169,7 @@
     "logo_list_DaqLFK",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
+    "product_carousel_MGky87",
     "testimonials_YnNhRy",
     "video",
     "video_carousel_PNpByy",
