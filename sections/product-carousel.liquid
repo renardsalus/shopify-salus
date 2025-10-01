@@ -3,15 +3,15 @@
     <div class="carousel-header">
       <h2>{{ section.settings.title }}</h2>
       {%# This variable holds the collection object selected in the theme editor. #%}
-      {%- assign featured_collection = section.settings.featured_collection -%}
+      {%# This variable holds the collection for the BUTTON LINK. #%}
+      {%- assign button_collection = section.settings.button_collection -%}
     
-      {%# Check if a collection has been selected before creating the link. #%}
-      {%- if featured_collection != blank -%}
-        <a href="{{ featured_collection.url }}" class="explore-all-btn">
-          Explore {{ featured_collection.title }}
+      {%# Check if a collection for the button has been selected. #%}
+      {%- if button_collection != blank and section.settings.button-label != blank -%}
+        <a href="{{ button_collection.url }}" class="explore-all-btn">
+          {{ section.settings.button-label }}
         </a>
       {%- else -%}
-        {%# Fallback link if no collection is selected yet. #%}
         <a href="{{ routes.collections_url }}" class="explore-all-btn">
           Explore All Saunas
         </a>
@@ -20,11 +20,11 @@
     <div class="carousel-container">
       <div class="carousel-track">
         
-        {%# This dynamically pulls the collection you select in the theme editor #%}
-        {%- assign product_collection = section.settings.featured_collection -%}
+        {%# This variable holds the collection for the PRODUCTS to display. #%}
+        {%- assign products_to_display_collection = section.settings.products_to_display_collection -%}
 
-        {%# Loops through the products in your selected collection #%}
-        {%- for product in product_collection.products limit: 7 -%}
+        {%# Loop through the products from the DISPLAY collection. #%}
+        {%- for product in products_to_display_collection.products -%}
           <div class="product-card">
             <div class="product-image-wrapper">
               <a href="{{ product.url }}">
@@ -52,8 +52,8 @@
               {% endif %}
               </div>
               <a href="{{ product.url }}" class="product-title">{{ product.title }}</a>
-              {%- assign rating_metafield = product.metafields.reviews.rating.value -%}
-              {%- assign rating_value_as_number = rating_metafield.rating | plus: 0 -%}
+              {% comment %} {%- assign rating_metafield = product.metafields.reviews.rating.value -%} {% endcomment %}
+              {% comment %} {%- assign rating_value_as_number = rating_metafield.rating | plus: 0 -%} {% endcomment %}
               {% comment %} {%- if rating_metafield and rating_value_as_number > 0 -%}
                 <div class="star-rating">
                   <span class="stars" style="--rating: {{ rating_metafield.rating | default: 0 }};"></span>
@@ -113,15 +113,30 @@
       "default": "Explore our best-in-class infrared saunas"
     },
     {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
       "type": "text",
       "id": "button-label",
       "label": "Button Label",
-      "default": "Explore All Infrared Saunas"
+      "default": "Explore All Saunas"
     },
     {
       "type": "collection",
-      "id": "featured_collection",
-      "label": "Collection"
+      "id": "button_collection",
+      "label": "Collection for Button Link",
+      "info": "The 'Explore All' button will link to this main collection."
+    },
+    {
+      "type": "header",
+      "content": "Products to Display"
+    },
+    {
+      "type": "collection",
+      "id": "products_to_display_collection",
+      "label": "Collection to Display Products From",
+      "info": "Create a manual collection with 7 products to show in the carousel."
     }
   ],
   "presets": [
