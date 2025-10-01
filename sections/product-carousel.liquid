@@ -1,6 +1,19 @@
 <div class="carousel-header">
   <h2>{{ section.settings.title }}</h2>
-  <a href="{{ routes.collections_url }}" class="explore-all-btn">{{ section.settings.button-label }}</a>
+  {%# This variable holds the collection object selected in the theme editor. #%}
+  {%- assign featured_collection = section.settings.featured_collection -%}
+
+  {%# Check if a collection has been selected before creating the link. #%}
+  {%- if featured_collection != blank -%}
+    <a href="{{ featured_collection.url }}" class="explore-all-btn">
+      Explore All {{ featured_collection.title }}
+    </a>
+  {%- else -%}
+    {%# Fallback link if no collection is selected yet. #%}
+    <a href="{{ routes.collections_url }}" class="explore-all-btn">
+      Explore All Saunas
+    </a>
+  {%- endif -%}
 </div>
 <div class="carousel-section mx-auto">
   <div class="carousel-container">
