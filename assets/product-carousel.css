@@ -2,7 +2,7 @@
   max-width: 1200px;
   /* margin: 40px auto; */
   /* padding: 0 20px; */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
 .carousel-header {
   text-align: center;
@@ -182,7 +182,7 @@
 }
 
 @media (max-width: 768px) {
-  .product-card { flex-basis: 75%; }
+  .product-card { flex-basis: 65%; }
   .carousel-arrow { display: none; }
 
   /* Reduce the font size of the main section heading on mobile */
