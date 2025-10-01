@@ -4967,7 +4967,10 @@
   }
 
   body .cc-logo-list .section.logo-list-sec {
-    padding: 30px 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   body .cc-logo-list .logo-list-sec .section__header .h2 {

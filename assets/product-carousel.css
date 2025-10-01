@@ -134,8 +134,8 @@
 /* --- END OF CORRECTION --- */
 
 .price {
-  font-size: 18px !important;
-  font-weight: 600 !important;
+  font-size: 18px;
+  font-weight: 600;
   color: #000;
   margin-top: auto;
   text-align: start;
@@ -196,8 +196,8 @@
 }
 
 .product-title {
-    font-size: 19px !important;
-    font-weight: 700 !important;
+    font-size: 19px;
+    font-weight: 700;
     text-align: start !important;
     overflow: hidden;
     display: -webkit-box;
@@ -215,6 +215,16 @@
     padding-top: 30px;
   }
 
+  .product-title {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
   /* Reduce the font size of the main section heading on mobile */
   .carousel-header h2 {
     font-size: 24px;
@@ -226,21 +236,39 @@
   }
 
   .card-shipping-tag img {
-    width: 35px;
+    width: 12px;
     margin-right: 5px;
   }
 
   .card-shipping-tag span {
-    gap: 5px;
-    font-size: 17px;
-    line-height: 20px;
+    font-size: 10px;
+    line-height: 10px;
   }
 }
 
 @media (max-width: 575px) {
+  .carousel-background-wrapper {
+    padding-top: 30px;
+  }
+
   .card-shipping-tag img {
-    width: 25px !important;
+    width: 12px !important;
     margin-right: 5px;
+  }
+
+  .card-shipping-tag span {
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .product-title {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: 600;
   }
 
 }
