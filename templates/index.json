@@ -271,6 +271,157 @@
         "open_email": true
       }
     },
+    "products_card_section_YF9fnK": {
+      "type": "products-card-section",
+      "disabled": true,
+      "settings": {
+        "heading": "Explore our best-in-class infrared saunas",
+        "products": [
+          "glory-2-person-infrared-sauna",
+          "majestic-8-person-hot-yoga-infrared-sauna",
+          "superb-2-person-infrared-sauna"
+        ],
+        "product1": "superb-2-person-infrared-sauna",
+        "product_tag1": "People’s Choice",
+        "product2": "majestic-8-person-hot-yoga-infrared-sauna",
+        "product_tag2": "Spacious",
+        "product3": "glory-2-person-infrared-sauna",
+        "product_tag3": "Best Value",
+        "image_ratio": "natural",
+        "color_scheme": "1",
+        "image_as_link": false,
+        "title_as_link": false,
+        "enable_vendor": false,
+        "enable_tag": true,
+        "enable_show_modal_btn": true,
+        "btn_label": "Show me this model",
+        "show_card": true,
+        "sugg_image": "shopify://shop_images/quiz-bg.png",
+        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
+        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
+        "sugg_btn_label": "Find my perfect sauna",
+        "sugg_btn_label1": "Give us a call",
+        "sugg_btn_link": "mailto:sales@salussaunas.com",
+        "phone_number": "0812345679",
+        "open_email": true
+      }
+    },
+    "product_carousel_dkNQRn": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Explore",
+        "featured_collection": "traditional-sauna-v2"
+      }
+    },
+    "logo_list_DaqLFK": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_qRt8Qx": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_2_44056b19-c9ce-407f-a806-af3ff20c9e0c.png",
+            "url": "",
+            "logo_width": 120,
+            "text": ""
+          }
+        },
+        "logo_GVEFLn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_3_427d7389-fac5-4fa6-91a5-3142b9a846e1.png",
+            "url": "",
+            "logo_width": 100,
+            "text": ""
+          }
+        },
+        "logo_axmc8a": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_4_740545ca-bff6-4fe0-bd6d-a3688c5f94a4.png",
+            "url": "",
+            "logo_width": 110,
+            "text": ""
+          }
+        },
+        "logo_hCAGdf": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_7_8a02dcf9-e188-44fd-adbc-9201d3b172df-rs.png",
+            "url": "",
+            "logo_width": 90,
+            "text": ""
+          }
+        },
+        "logo_q7Y7Ph": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_6_298de8eb-20dc-4759-8b8f-8d51d9728fdd-cr.png",
+            "url": "",
+            "logo_width": 140,
+            "text": ""
+          }
+        },
+        "logo_WPWBKR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_8_2059dec1-e31e-4d85-b1b3-9c326ca34cbf-cr_1.png",
+            "url": "",
+            "logo_width": 140,
+            "text": ""
+          }
+        },
+        "logo_iYyVXy": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_PNGs_9_1d7753d1-5b89-4d4a-aee9-7279ec3d6c53-cr_1.png",
+            "url": "",
+            "logo_width": 130,
+            "text": ""
+          }
+        },
+        "logo_UGHdJ9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_586-cr-1.png",
+            "url": "",
+            "logo_width": 190,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_qRt8Qx",
+        "logo_GVEFLn",
+        "logo_axmc8a",
+        "logo_hCAGdf",
+        "logo_q7Y7Ph",
+        "logo_WPWBKR",
+        "logo_iYyVXy",
+        "logo_UGHdJ9"
+      ],
+      "settings": {
+        "title": "As featured in",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "carousel",
+        "spacing": 52,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "product_carousel_MGky87": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Explore our best-in-class infrared saunas",
+        "button-label": "Explore All Infrared Saunas",
+        "featured_collection": "all-infrared-saunas"
+      }
+    },
     "multi-column": {
       "type": "multi-column",
       "blocks": {
@@ -450,157 +601,6 @@
         "image_ratio": "1",
         "color_scheme": "2",
         "button_style": "btn btn--secondary"
-      }
-    },
-    "products_card_section_YF9fnK": {
-      "type": "products-card-section",
-      "disabled": true,
-      "settings": {
-        "heading": "Explore our best-in-class infrared saunas",
-        "products": [
-          "glory-2-person-infrared-sauna",
-          "majestic-8-person-hot-yoga-infrared-sauna",
-          "superb-2-person-infrared-sauna"
-        ],
-        "product1": "superb-2-person-infrared-sauna",
-        "product_tag1": "People’s Choice",
-        "product2": "majestic-8-person-hot-yoga-infrared-sauna",
-        "product_tag2": "Spacious",
-        "product3": "glory-2-person-infrared-sauna",
-        "product_tag3": "Best Value",
-        "image_ratio": "natural",
-        "color_scheme": "1",
-        "image_as_link": false,
-        "title_as_link": false,
-        "enable_vendor": false,
-        "enable_tag": true,
-        "enable_show_modal_btn": true,
-        "btn_label": "Show me this model",
-        "show_card": true,
-        "sugg_image": "shopify://shop_images/quiz-bg.png",
-        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
-        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
-        "sugg_btn_label": "Find my perfect sauna",
-        "sugg_btn_label1": "Give us a call",
-        "sugg_btn_link": "mailto:sales@salussaunas.com",
-        "phone_number": "0812345679",
-        "open_email": true
-      }
-    },
-    "product_carousel_dkNQRn": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
-        "featured_collection": "traditional-sauna-v2"
-      }
-    },
-    "logo_list_DaqLFK": {
-      "type": "logo-list",
-      "blocks": {
-        "logo_qRt8Qx": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_2_44056b19-c9ce-407f-a806-af3ff20c9e0c.png",
-            "url": "",
-            "logo_width": 120,
-            "text": ""
-          }
-        },
-        "logo_GVEFLn": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_3_427d7389-fac5-4fa6-91a5-3142b9a846e1.png",
-            "url": "",
-            "logo_width": 100,
-            "text": ""
-          }
-        },
-        "logo_axmc8a": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_4_740545ca-bff6-4fe0-bd6d-a3688c5f94a4.png",
-            "url": "",
-            "logo_width": 110,
-            "text": ""
-          }
-        },
-        "logo_hCAGdf": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_7_8a02dcf9-e188-44fd-adbc-9201d3b172df-rs.png",
-            "url": "",
-            "logo_width": 90,
-            "text": ""
-          }
-        },
-        "logo_q7Y7Ph": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_6_298de8eb-20dc-4759-8b8f-8d51d9728fdd-cr.png",
-            "url": "",
-            "logo_width": 140,
-            "text": ""
-          }
-        },
-        "logo_WPWBKR": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_8_2059dec1-e31e-4d85-b1b3-9c326ca34cbf-cr_1.png",
-            "url": "",
-            "logo_width": 140,
-            "text": ""
-          }
-        },
-        "logo_iYyVXy": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_9_1d7753d1-5b89-4d4a-aee9-7279ec3d6c53-cr_1.png",
-            "url": "",
-            "logo_width": 130,
-            "text": ""
-          }
-        },
-        "logo_UGHdJ9": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/image_586-cr-1.png",
-            "url": "",
-            "logo_width": 190,
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_qRt8Qx",
-        "logo_GVEFLn",
-        "logo_axmc8a",
-        "logo_hCAGdf",
-        "logo_q7Y7Ph",
-        "logo_WPWBKR",
-        "logo_iYyVXy",
-        "logo_UGHdJ9"
-      ],
-      "settings": {
-        "title": "As featured in",
-        "heading_align": "text-center",
-        "button_label": "",
-        "button_link": "",
-        "layout": "carousel",
-        "spacing": 52,
-        "logo_grid_align": "justify-center",
-        "color_scheme": "none",
-        "full_width": true
-      }
-    },
-    "product_carousel_MGky87": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Explore our best-in-class infrared saunas",
-        "button-label": "Explore All Infrared Saunas",
-        "featured_collection": "all-infrared-saunas"
       }
     },
     "testimonials_YnNhRy": {
