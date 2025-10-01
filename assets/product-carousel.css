@@ -182,6 +182,18 @@
 }
 
 @media (max-width: 768px) {
-  .product-card { flex-basis: 48%; }
+  .product-card { flex-basis: 75%; }
   .carousel-arrow { display: none; }
+
+  /* Reduce the font size of the main section heading on mobile */
+  .carousel-header h2 {
+    font-size: 2em;
+    padding-left:2em;
+    padding-right:2em;
+  }
+
+  /* Reduce the font size of the individual product titles on mobile */
+  .product-title {
+    font-size: 1em;
+  }
 }
