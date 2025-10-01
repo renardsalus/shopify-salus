@@ -236,6 +236,41 @@
         "prevent_animation": false
       }
     },
+    "products_card_section_PzCHqp": {
+      "type": "products-card-section",
+      "disabled": true,
+      "settings": {
+        "heading": "Rooted in tradition, built for pure heat",
+        "products": [
+          "ally-2-person-traditional-indoor-sauna",
+          "horizon-6-person-barrel-sauna",
+          "marion-2-person-barrel-sauna"
+        ],
+        "product1": "monarch",
+        "product_tag1": "People’s Choice",
+        "product2": "horizon-6-person-barrel-sauna",
+        "product_tag2": "Spacious",
+        "product3": "odin-compact",
+        "product_tag3": "Best Value",
+        "image_ratio": "0.75",
+        "color_scheme": "3",
+        "image_as_link": false,
+        "title_as_link": false,
+        "enable_vendor": false,
+        "enable_tag": true,
+        "enable_show_modal_btn": true,
+        "btn_label": "Show me this model",
+        "show_card": true,
+        "sugg_image": "shopify://shop_images/quiz-bg.png",
+        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
+        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
+        "sugg_btn_label": "Find my perfect sauna",
+        "sugg_btn_label1": "Give us a call",
+        "sugg_btn_link": "mailto:sales@salussaunas.com",
+        "phone_number": "(888)287-0111",
+        "open_email": true
+      }
+    },
     "multi-column": {
       "type": "multi-column",
       "blocks": {
@@ -417,6 +452,50 @@
         "button_style": "btn btn--secondary"
       }
     },
+    "products_card_section_YF9fnK": {
+      "type": "products-card-section",
+      "disabled": true,
+      "settings": {
+        "heading": "Explore our best-in-class infrared saunas",
+        "products": [
+          "glory-2-person-infrared-sauna",
+          "majestic-8-person-hot-yoga-infrared-sauna",
+          "superb-2-person-infrared-sauna"
+        ],
+        "product1": "superb-2-person-infrared-sauna",
+        "product_tag1": "People’s Choice",
+        "product2": "majestic-8-person-hot-yoga-infrared-sauna",
+        "product_tag2": "Spacious",
+        "product3": "glory-2-person-infrared-sauna",
+        "product_tag3": "Best Value",
+        "image_ratio": "natural",
+        "color_scheme": "1",
+        "image_as_link": false,
+        "title_as_link": false,
+        "enable_vendor": false,
+        "enable_tag": true,
+        "enable_show_modal_btn": true,
+        "btn_label": "Show me this model",
+        "show_card": true,
+        "sugg_image": "shopify://shop_images/quiz-bg.png",
+        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
+        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
+        "sugg_btn_label": "Find my perfect sauna",
+        "sugg_btn_label1": "Give us a call",
+        "sugg_btn_link": "mailto:sales@salussaunas.com",
+        "phone_number": "0812345679",
+        "open_email": true
+      }
+    },
+    "product_carousel_dkNQRn": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Explore All Traditional Saunas",
+        "featured_collection": "traditional-sauna-v2"
+      }
+    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -513,85 +592,6 @@
         "logo_grid_align": "justify-center",
         "color_scheme": "none",
         "full_width": true
-      }
-    },
-    "products_card_section_PzCHqp": {
-      "type": "products-card-section",
-      "disabled": true,
-      "settings": {
-        "heading": "Rooted in tradition, built for pure heat",
-        "products": [
-          "ally-2-person-traditional-indoor-sauna",
-          "horizon-6-person-barrel-sauna",
-          "marion-2-person-barrel-sauna"
-        ],
-        "product1": "monarch",
-        "product_tag1": "People’s Choice",
-        "product2": "horizon-6-person-barrel-sauna",
-        "product_tag2": "Spacious",
-        "product3": "odin-compact",
-        "product_tag3": "Best Value",
-        "image_ratio": "0.75",
-        "color_scheme": "3",
-        "image_as_link": false,
-        "title_as_link": false,
-        "enable_vendor": false,
-        "enable_tag": true,
-        "enable_show_modal_btn": true,
-        "btn_label": "Show me this model",
-        "show_card": true,
-        "sugg_image": "shopify://shop_images/quiz-bg.png",
-        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
-        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
-        "sugg_btn_label": "Find my perfect sauna",
-        "sugg_btn_label1": "Give us a call",
-        "sugg_btn_link": "mailto:sales@salussaunas.com",
-        "phone_number": "(888)287-0111",
-        "open_email": true
-      }
-    },
-    "products_card_section_YF9fnK": {
-      "type": "products-card-section",
-      "disabled": true,
-      "settings": {
-        "heading": "Explore our best-in-class infrared saunas",
-        "products": [
-          "glory-2-person-infrared-sauna",
-          "majestic-8-person-hot-yoga-infrared-sauna",
-          "superb-2-person-infrared-sauna"
-        ],
-        "product1": "superb-2-person-infrared-sauna",
-        "product_tag1": "People’s Choice",
-        "product2": "majestic-8-person-hot-yoga-infrared-sauna",
-        "product_tag2": "Spacious",
-        "product3": "glory-2-person-infrared-sauna",
-        "product_tag3": "Best Value",
-        "image_ratio": "natural",
-        "color_scheme": "1",
-        "image_as_link": false,
-        "title_as_link": false,
-        "enable_vendor": false,
-        "enable_tag": true,
-        "enable_show_modal_btn": true,
-        "btn_label": "Show me this model",
-        "show_card": true,
-        "sugg_image": "shopify://shop_images/quiz-bg.png",
-        "sugg_heading": "Not sure which sauna model’s the best fit for you?",
-        "sugg_content": "<p>We know choosing the right sauna might seem daunting, not to worry! Talk to our sauna experts and we guarantee you’ll find your perfect sauna</p>",
-        "sugg_btn_label": "Find my perfect sauna",
-        "sugg_btn_label1": "Give us a call",
-        "sugg_btn_link": "mailto:sales@salussaunas.com",
-        "phone_number": "0812345679",
-        "open_email": true
-      }
-    },
-    "product_carousel_dkNQRn": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
-        "featured_collection": "traditional-sauna-v2"
       }
     },
     "product_carousel_MGky87": {
@@ -1177,12 +1177,12 @@
     "image_slideshow_grM3zD",
     "slideshow",
     "icons_with_text_fkdCn4",
-    "multi-column",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
     "product_carousel_dkNQRn",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
+    "multi-column",
     "testimonials_YnNhRy",
     "video",
     "video_carousel_PNpByy",
