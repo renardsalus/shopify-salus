@@ -25,6 +25,10 @@
   margin-inline-start: 20px;
 }
 
+.shopify-section .cc-icons-with-text {
+  background-color: #ffffff !important;
+}
+
 .icons-with-text--narrow {
   max-width: 600px;
   margin: 0 auto;
