@@ -311,8 +311,9 @@
       "name": "Product Carousel",
       "settings": {
         "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore",
-        "featured_collection": "traditional-sauna-v2"
+        "button-label": "Explore All Traditional Saunas",
+        "button_collection": "traditional-sauna-v2",
+        "products_to_display_collection": "traditional-saunas-highlight"
       }
     },
     "logo_list_DaqLFK": {
@@ -419,7 +420,8 @@
       "settings": {
         "title": "Explore our best-in-class infrared saunas",
         "button-label": "Explore All Infrared Saunas",
-        "featured_collection": "all-infrared-saunas"
+        "button_collection": "all-infrared-saunas",
+        "products_to_display_collection": "infrared-saunas-highlight"
       }
     },
     "multi-column": {
