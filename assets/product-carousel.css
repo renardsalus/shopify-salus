@@ -193,6 +193,7 @@
 .product_ratings {
   margin-bottom: 5px;
   text-align: start;
+  width: auto;
 }
 
 .product-title {
@@ -236,13 +237,32 @@
   }
 
   .card-shipping-tag img {
-    width: 12px;
+    width: 15px;
     margin-right: 5px;
   }
 
   .card-shipping-tag span {
-    font-size: 10px;
+    font-size: 15px;
     line-height: 10px;
+    margin-bottom: 0px;
+  }
+
+  .shipping-tag {
+    margin-bottom: 0px;
+  }
+
+  .star-rating {
+    margin-bottom: 10px;
+    --star-size: 0.7rem;
+    --star-color: #d1d1d1;
+    --star-background: #ffc700;
+  }
+  .star-rating .stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
   }
 }
 
@@ -252,13 +272,14 @@
   }
 
   .card-shipping-tag img {
-    width: 12px !important;
+    width: 15px !important;
     margin-right: 5px;
   }
 
   .card-shipping-tag span {
-    font-size: 10px;
+    font-size: 15px;
     line-height: 10px;
+    margin-bottom: 0px;
   }
 
   .product-title {
@@ -269,6 +290,24 @@
   .price {
     font-size: 16px;
     font-weight: 600;
+  }
+
+  .shipping-tag {
+    margin-bottom: 0px;
+  }
+
+  .star-rating {
+    margin-bottom: 10px;
+    --star-size: 0.7rem;
+    --star-color: #d1d1d1;
+    --star-background: #ffc700;
+  }
+  .star-rating .stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
   }
 
 }
