@@ -26,12 +26,9 @@ Usage: {% render 'affirm-messaging' %}
   document.addEventListener("DOMContentLoaded", function() {
     // wait for Affirm to render
     setTimeout(function() {
-      var el = document.querySelector('.custom-affirm a');
-      if (el) {
-        el.textContent = "See if you qualify"; // change text
-        // el.style.color = "#0000ee";            // make blue
-        // el.style.textDecoration = "underline"; // underline
-      }
+      document.querySelectorAll(".affirm-modal-trigger").forEach(function(el) {
+        el.textContent = "See if you qualify";
+      });
     }, 1000);
   });
 </script>
