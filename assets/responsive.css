@@ -3371,6 +3371,18 @@
     line-height: 22.5px;
   }
 
+  .product-detail-title .product-accordion-scroll-link {
+    color: #0000ee;              /* blue */
+    text-decoration: underline;  /* underline */
+    font-weight: normal;         /* optional: remove bold if theme applies it */
+    background: none;            /* removes any button background */
+    border: none;                /* removes button borders if theme applies */
+    padding: 0;                  /* remove button padding */
+    font-weight: 500;
+    font-size: 16px !important;
+    margin-left: 5px;
+  }
+
   .template--product .product-info .metafield-rich_text_field p {
     font-size: 12px;
     line-height: 18px;
