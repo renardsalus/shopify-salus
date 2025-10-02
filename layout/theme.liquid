@@ -371,8 +371,22 @@
       {{- settings.custom_html_head -}}
       <!-- CC Custom Head End -->
     {%- endif -%}
+    <script>
+      _affirm_config = {
+        public_api_key: "RJH7204OM2NLPPT9",
+        script: "https://cdn1.affirm.com/js/v2/affirm.js"
+      };
+    </script>
+    <script async src="https://cdn1.affirm.com/js/v2/affirm.js"></script>
+    {% comment %} <script>
+      _affirm_config = {
+        public_api_key: "RKAWDY403Q0QTATW",
+        script: "https://cdn1-sandbox.affirm.com/js/v2/affirm.js"
+      };
+    </script>
+    <script async src="https://cdn1-sandbox.affirm.com/js/v2/affirm.js"></script>
 
-  <meta name="google-site-verification" content="0uWHCHbz77UF9uCiwAgbwXEoeyRwjzbTRCPjfcCmWRI" />
+  <meta name="google-site-verification" content="0uWHCHbz77UF9uCiwAgbwXEoeyRwjzbTRCPjfcCmWRI" /> {% endcomment %}
     
   </head>
 

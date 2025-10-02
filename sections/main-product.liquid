@@ -305,11 +305,13 @@
                   {% endif %}
                 </div>
               {% endif %}
-
+            
+              
             {% when 'pay_hsa_fsa' %}
               <div
                 class="product-info__block product-info__block--sm product-info__pay"
               >
+                {% render 'affirm-messaging' %}
                 <div
                   id="truemed-prequalify"
                   style="font-size: 14px; text-align:center;"
@@ -455,6 +457,7 @@
                         <details-disclosure {{ block.shopify_attributes }}>
                           <details
                             class="disclosure disclosure--row"
+                            id="product-accordion"
                           >
                             <summary>
                               <div class="flex justify-between items-center">
@@ -872,7 +875,11 @@
                   {{ block.shopify_attributes }}
                 >
                   <div class="product-detail-title">
-                    <h3>{{ block.settings.heading }}</h3>
+                    <h3>{{ block.settings.heading }}
+                      <a href="#product-accordion" class="product-accordion-scroll-link">
+                        See more details
+                      </a>
+                    </h3>
                   </div>
                   <div class="product-detail-cntnt">
                     {{ block.settings.text }}

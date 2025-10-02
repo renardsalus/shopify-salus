@@ -307,6 +307,18 @@
   margin-top: 20px !important;
 }
 
+.product-accordion-scroll-link {
+  color: #0000ee;              /* blue */
+  text-decoration: underline;  /* underline */
+  font-weight: normal;         /* optional: remove bold if theme applies it */
+  background: none;            /* removes any button background */
+  border: none;                /* removes button borders if theme applies */
+  padding: 0;                  /* remove button padding */
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
 .product-detail-content :is(p, li, a) {
   font-size: 18px;
   font-weight: 700;
@@ -432,6 +444,15 @@ quick-add-drawer .product-message__box {
 .product-info__pay .truemed-entry-text,
 .product-info__pay .truemed-entry-link {
   font-size: 16px;
+}
+
+.truemed-entry-logo {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.truemed-entry-box {
+  --truemed-icon-height: 20px !important;
 }
 
 .delivery-wrapper {
