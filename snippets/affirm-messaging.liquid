@@ -1,0 +1,31 @@
+{% comment %}
+Affirm Promotional Messaging Snippet
+Usage: {% render 'affirm-messaging' %}
+{% endcomment %}
+
+<style>
+  .custom-affirm a {
+    color: #0000ee !important;
+    text-decoration: underline !important;
+  }
+</style>
+
+<p class="affirm-as-low-as custom-affirm"
+   data-amount="{{ product.selected_or_first_available_variant.price }}"
+   data-page-type="product"
+   data-learnmore-show="true">
+</p>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // wait for Affirm to render
+    setTimeout(function() {
+      var el = document.querySelector('.custom-affirm a');
+      if (el) {
+        el.textContent = "See if you qualify"; // change text
+        // el.style.color = "#0000ee";            // make blue
+        // el.style.textDecoration = "underline"; // underline
+      }
+    }, 1000);
+  });
+</script>
