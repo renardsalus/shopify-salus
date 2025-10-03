@@ -24,11 +24,20 @@ Usage: {% render 'affirm-messaging' %}
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // wait for Affirm to render
-    setTimeout(function() {
-      document.querySelectorAll(".affirm-modal-trigger").forEach(function(el) {
-        el.textContent = "See if you qualify";
-      });
-    }, 1000);
+  const target = document.body; // or a more specific container if you know where Affirm inserts
+  const observer = new MutationObserver(function(mutations, obs) {
+      const affirmTriggers = document.querySelectorAll(".affirm-modal-trigger");
+      if (affirmTriggers.length > 0) {
+        affirmTriggers.forEach(function(el) {
+          el.textContent = "See if you qualify";
+        });
+        obs.disconnect(); // Stop observing once we've done our thing
+      }
+    });
+
+    observer.observe(target, {
+      childList: true,
+      subtree: true
+    });
   });
 </script>
