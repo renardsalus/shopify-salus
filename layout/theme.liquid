@@ -21,8 +21,6 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% if rtl %}rtl{% else %}ltr{% endif %}">
   <head>
-    {%- render 'doc-head-core' -%}
-    {%- render 'doc-head-social' -%}
     <script>
       window.Shopify = window.Shopify || {theme: {id: {{ theme.id }}, role: '{{ theme.role }}' } };
       window._template = {
@@ -32,6 +30,8 @@
       };
     </script>
     <script type="module" blocking="render" fetchpriority="high" src="https://cdn.intelligems.io/esm/ac9d57a1a1f5/bundle.js" async></script>
+    {%- render 'doc-head-core' -%}
+    {%- render 'doc-head-social' -%}
     <script>
         {% assign redirect_products = '/products/lumber,/products/bench-design,/products/door-style,/products/wall-style,/products/glass-option,/products/huum-steel-and-cliff-sauna-heaters,/products/huum-burning-stove-sauna-heaters,/products/harvia-virta-sauna-heaters,/products/harvia-wood-burning-sauna-heaters,/products/huum-drop-hive-hive-mini-sauna-heaters,/products/harvia-kip-and-kip-wifi-sauna-heaters,/products/harvia-spirit-wifi-and-vega-compact-sauna-heaters' | split:',' %}
         {% for path in redirect_products %}
