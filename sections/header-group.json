@@ -23,13 +23,15 @@
         },
         "announcement_q8b3be": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
-            "text": "<p><strong>Build & unwind with our ready-to-assemble saunas</strong></p>",
+            "text": "<p>Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
             "icon_select": "none"
           }
         },
         "announcement-1": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>Sweat now, pay later with our 0% APR financing options</strong></p>",
             "icon_select": "pym"
@@ -37,6 +39,7 @@
         },
         "announcement_zg7xbp": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>Over 282+</strong> Google Reviews <a href=\"https://www.salussaunas.com/pages/reviews\" title=\"https://www.salussaunas.com/pages/reviews\">Learn more</a></p>",
             "icon_select": "rating"
@@ -44,6 +47,7 @@
         },
         "announcement_BCDBbF": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>Free shipping across USA</strong></p>",
             "icon_select": "shipping"
@@ -51,6 +55,7 @@
         },
         "announcement_b846WE": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>BBB Rating & Accreditation</strong></p>",
             "icon_select": "rta"
@@ -58,6 +63,7 @@
         },
         "announcement_qykRi7": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>as low as $270/mo</strong></p>",
             "icon_select": "pig"
