@@ -53,8 +53,13 @@
   margin-bottom: 0;
 }
 
-.product-info .product-info__block--sm {
-  margin: 0px 0px 10px;
+.product-info.product-info__block--sm {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.product-info__block.product-details__block.product-details__text.rte .product-detail-cntnt p{
+  margin-bottom: 0px;
 }
 
 .product-info__tags ul {
