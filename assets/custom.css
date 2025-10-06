@@ -3441,9 +3441,9 @@ body .products-card-sec .product_ratings .jdgm-preview-badge .jdgm-star {
   justify-content: space-between;
 }
 
-body .product-details__block.product-details__text {
-  margin-bottom: 15px;
-}
+/* body .product-details__block.product-details__text {
+  margin-bottom: 10px;
+} */
 
 /* Product Collections */
 .template--collection .filter li:not(:last-child) {

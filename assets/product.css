@@ -233,6 +233,8 @@
 
 .product-description {
   overflow: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .product-info__price {
