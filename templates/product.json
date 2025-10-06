@@ -61,6 +61,13 @@
             "text": "<p>{{ product.metafields.custom.brief | metafield_tag }}</p>"
           }
         },
+        "richtext_xT69WE": {
+          "type": "richtext",
+          "settings": {
+            "heading": "Product Overview",
+            "text": "{{ product.description }}"
+          }
+        },
         "download_manual_MAdAyX": {
           "type": "download_manual",
           "settings": {
@@ -73,13 +80,6 @@
           "settings": {
             "link_label": "Download Spec Sheet",
             "link": "{{ product.metafields.custom.spec_sheet.value }}"
-          }
-        },
-        "richtext_xT69WE": {
-          "type": "richtext",
-          "settings": {
-            "heading": "Product Overview",
-            "text": "{{ product.description }}"
           }
         },
         "variant_picker_CHdtt9": {
@@ -175,9 +175,9 @@
         "delivery_dTUxNH",
         "price",
         "richtext_rmaxgM",
+        "richtext_xT69WE",
         "download_manual_MAdAyX",
         "spec_sheet_xfiPkx",
-        "richtext_xT69WE",
         "variant_picker_CHdtt9",
         "features_nwQakY",
         "product_accordions_JPfDhi",
