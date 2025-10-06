@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_YVH6F8": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p><strong>Contact our experts at </strong><a href=\"mailto:sales@salussaunas.com\" title=\"mailto:sales@salussaunas.com\"><span style=\"text-decoration:underline\">customerservice@salussaunas.com</span></a></p>",
             "icon_select": "none"
@@ -23,9 +24,8 @@
         },
         "announcement_q8b3be": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
+            "text": "<p>Have questions? Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
             "icon_select": "none"
           }
         },
