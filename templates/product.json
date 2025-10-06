@@ -61,12 +61,11 @@
             "text": "<p>{{ product.metafields.custom.brief | metafield_tag }}</p>"
           }
         },
-        "description_U3T6cM": {
-          "type": "description",
+        "richtext_xT69WE": {
+          "type": "richtext",
           "settings": {
-            "show_as_collapsible_content": false,
-            "icon": "none",
-            "open": false
+            "heading": "Product Overview",
+            "text": "{{ product.description }}"
           }
         },
         "download_manual_MAdAyX": {
@@ -176,7 +175,7 @@
         "delivery_dTUxNH",
         "price",
         "richtext_rmaxgM",
-        "description_U3T6cM",
+        "richtext_xT69WE",
         "download_manual_MAdAyX",
         "spec_sheet_xfiPkx",
         "variant_picker_CHdtt9",
