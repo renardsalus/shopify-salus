@@ -165,11 +165,11 @@ main-menu.main-menu nav.secondary-nav-container {
   box-shadow: none !important;
 }
 
-.main-nav .main-nav__item:hover {
+/* .main-nav .main-nav__item:hover {
   box-shadow: none;
   text-decoration: underline;
   color: #000;
-}
+} */
 
 .main-nav .main-nav__item--toggle .icon {
   width: 10px;
