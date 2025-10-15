@@ -1,0 +1,510 @@
+{% comment %}
+  ============================================================
+  Section: Homepage Hero Carousel
+  ============================================================
+  This section creates a dynamic, multi-slide hero carousel
+  for the homepage, featuring configurable content and imagery.
+  It supports both desktop and mobile specific images and
+  content styling.
+{% endcomment %}
+
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'homepage-hero-carousel.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="homepage-hero-carousel"
+  data-section-id="{{ section.id }}"
+  data-section-type="homepage-hero-carousel"
+  style="
+    --homepage-hero-carousel-padding-top-desktop: {{ section.settings.section_padding_top_desktop }}px;
+    --homepage-hero-carousel-padding-bottom-desktop: {{ section.settings.section_padding_bottom_desktop }}px;
+    --homepage-hero-carousel-padding-top-mobile: {{ section.settings.section_padding_top_mobile }}px;
+    --homepage-hero-carousel-padding-bottom-mobile: {{ section.settings.section_padding_bottom_mobile }}px;
+  "
+>
+  <div class="homepage-hero-carousel__wrapper">
+    {% if section.blocks.size > 0 %}
+      <div class="swiper-container homepage-hero-carousel__swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide homepage-hero-carousel__slide" {{ block.shopify_attributes }}>
+              <div class="homepage-hero-carousel__slide-inner">
+                {# Content Column (Left on Desktop, Overlay on Mobile) #}
+                <div
+                  class="homepage-hero-carousel__content-column"
+                  style="background-color: {{ section.settings.content_background_color }};"
+                >
+                  <div class="homepage-hero-carousel__content-wrapper">
+                    {# Reviews #}
+                    {% if block.settings.reviews_text != blank %}
+                      <div class="homepage-hero-carousel__reviews">
+                        {% if block.settings.show_stars %}
+                          <span class="homepage-hero-carousel__star-rating">
+                            {% render 'icon-star' %}
+                            {% render 'icon-star' %}
+                            {% render 'icon-star' %}
+                            {% render 'icon-star' %}
+                            {% render 'icon-star' %}
+                          </span>
+                        {% endif %}
+                        <p class="homepage-hero-carousel__reviews-text">{{ block.settings.reviews_text }}</p>
+                      </div>
+                    {% endif %}
+
+                    {# Headline #}
+                    {% if block.settings.headline != blank %}
+                      <h2 class="homepage-hero-carousel__headline">{{ block.settings.headline }}</h2>
+                    {% endif %}
+
+                    {# Description #}
+                    {% if block.settings.description != blank %}
+                      <div class="homepage-hero-carousel__description">{{ block.settings.description }}</div>
+                    {% endif %}
+
+                    {# CTA Buttons #}
+                    <div class="homepage-hero-carousel__cta-buttons">
+                      {% if block.settings.button1_link != blank and block.settings.button1_text != blank %}
+                        <a
+                          href="{{ block.settings.button1_link }}"
+                          class="homepage-hero-carousel__button homepage-hero-carousel__button--primary"
+                        >
+                          {{ block.settings.button1_text }}
+                          {% if block.settings.show_button1_arrow %}{% render 'icon-arrow-right' %}{% endif %}
+                        </a>
+                      {% endif %}
+                      {% if block.settings.button2_link != blank and block.settings.button2_text != blank %}
+                        <a
+                          href="{{ block.settings.button2_link }}"
+                          class="homepage-hero-carousel__button homepage-hero-carousel__button--secondary"
+                        >
+                          {% if block.settings.button2_icon != blank %}
+                            {% assign button2_icon_img = block.settings.button2_icon %}
+                            <img
+                              src="{{ button2_icon_img | image_url: '20x20' }}"
+                              alt="{{ button2_icon_img.alt | default: 'Button icon' }}"
+                              class="homepage-hero-carousel__button-icon"
+                              width="20"
+                              height="20"
+                              loading="lazy"
+                            >
+                          {% endif %}
+                          {{ block.settings.button2_text }} </a
+                        >s
+                      {% endif %}
+                    </div>
+
+                    {# Feature List #}
+                    <ul class="homepage-hero-carousel__feature-list">
+                      {% if block.settings.feature_item_1 != blank %}
+                        <li class="homepage-hero-carousel__feature-item">
+                          {% render 'icon-checkmark' %}
+                          {{ block.settings.feature_item_1 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature_item_2 != blank %}
+                        <li class="homepage-hero-carousel__feature-item">
+                          {% render 'icon-checkmark' %}
+                          {{ block.settings.feature_item_2 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature_item_3 != blank %}
+                        <li class="homepage-hero-carousel__feature-item">
+                          {% render 'icon-checkmark' %}
+                          {{ block.settings.feature_item_3 }}
+                        </li>
+                      {% endif %}
+                    </ul>
+
+                    {# Trust/Financing Badge #}
+                    <div class="homepage-hero-carousel__trust-badges">
+                      {% if block.settings.truemed_logo != blank %}
+                        {% assign truemed_img = block.settings.truemed_logo %}
+                        <img
+                          src="{{ truemed_img | image_url: '150x' }}"
+                          alt="{{ truemed_img.alt | default: 'Truemed Logo' }}"
+                          class="homepage-hero-carousel__truemed-logo"
+                          loading="lazy"
+                          width="{{ truemed_img.width }}"
+                          height="{{ truemed_img.height }}"
+                        >
+                      {% endif %}
+                      {% if block.settings.truemed_text != blank %}
+                        <p class="homepage-hero-carousel__truemed-text">{{ block.settings.truemed_text }}</p>
+                      {% endif %}
+                      {% if block.settings.bottom_trust_icon != blank %}
+                        {% assign bottom_icon_img = block.settings.bottom_trust_icon %}
+                        <img
+                          src="{{ bottom_icon_img | image_url: '50x50' }}"
+                          alt="{{ bottom_icon_img.alt | default: 'Trust Icon' }}"
+                          class="homepage-hero-carousel__bottom-trust-icon"
+                          loading="lazy"
+                          width="50"
+                          height="50"
+                        >
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                {# Image Column (Right on Desktop, Background on Mobile) #}
+                <div class="homepage-hero-carousel__image-column">
+                  {% assign desktop_image = block.settings.slide_image_desktop %}
+                  {% assign mobile_image = block.settings.slide_image_mobile %}
+
+                  {% if desktop_image != blank or mobile_image != blank %}
+                    <picture>
+                      {% if mobile_image != blank %}
+                        {# Mobile image source for smaller screens #}
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="{{ mobile_image | image_url: width: 767 }}"
+                          alt="{{ mobile_image.alt | escape | default: block.settings.mobile_image_alt }}"
+                        >
+                      {% endif %}
+                      {# Desktop image source (and fallback for mobile if no mobile image provided) #}
+                      <img
+                        class="homepage-hero-carousel__image"
+                        src="{{ desktop_image | image_url: 'master' }}"
+                        alt="{{ desktop_image.alt | escape | default: block.settings.desktop_image_alt }}"
+                        width="{{ desktop_image.width }}"
+                        height="{{ desktop_image.height }}"
+                        loading="lazy"
+                      >
+                    </picture>
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {# end swiper-wrapper #}
+
+        {# Carousel Navigation (Arrows & Dots) #}
+        {% if section.settings.show_navigation_arrows %}
+          <div class="swiper-button-prev homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--prev">
+            {% render 'icon-arrow-left' %}
+          </div>
+          <div class="swiper-button-next homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--next">
+            {% render 'icon-arrow-right' %}
+          </div>
+        {% endif %}
+        {% if section.settings.show_pagination_dots %}
+          <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
+        {% endif %}
+      </div>
+      {# end swiper-container #}
+    {% else %}
+      <div class="placeholder-content">
+        {{ 'no_content' | t }}
+      </div>
+    {% endif %}
+  </div>
+  {# end homepage-hero-carousel__wrapper #}
+</section>
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize if the element exists to prevent errors on pages without the section
+    const carouselElement = document.querySelector('.homepage-hero-carousel__swiper');
+    if (carouselElement) {
+      const swiper = new Swiper(carouselElement, {
+        loop: {{ section.settings.enable_loop }},
+        autoplay: {{ section.settings.enable_autoplay }} ? {
+          delay: {{ section.settings.autoplay_speed }},
+          disableOnInteraction: false, // Continue autoplay even after user interaction
+        } : false,
+        speed: 800, // Animation speed
+        grabCursor: true, // Show grab cursor when hovering over slides
+
+        pagination: {
+          el: '.homepage-hero-carousel__pagination',
+          clickable: true,
+        },
+
+        navigation: {
+          nextEl: '.homepage-hero-carousel__nav-button--next',
+          prevEl: '.homepage-hero-carousel__nav-button--prev',
+        },
+
+        // Accessibility (Swiper has good defaults, but we explicitly enable some)
+        a11y: {
+          enabled: true,
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+          firstSlideMessage: 'This is the first slide',
+          lastSlideMessage: 'This is the last slide',
+          paginationBulletMessage: '{% raw %}Go to slide {{index}}{% endraw %}',
+        },
+
+        // Responsive breakpoints can be added here if needed, but for now we'll handle layout with CSS
+        // breakpoints: {
+        //   768: {
+        //     slidesPerView: 1, // Example: one slide per view on larger screens
+        //   }
+        // }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Homepage Hero Carousel",
+  "tag": "section",
+  "class": "homepage-hero-carousel-section",
+  "max_blocks": 7,
+  "settings": [
+    {
+      "type": "color",
+      "id": "content_background_color",
+      "label": "Content Background Color (Desktop)",
+      "default": "#FDF7F1",
+      "info": "Applies to the left content column on desktop."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "min": 3000,
+      "max": 10000,
+      "step": 1000,
+      "default": 5000,
+      "unit": "ms"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable Infinite Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation_arrows",
+      "label": "Show Navigation Arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_dots",
+      "label": "Show Pagination Dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero-slide",
+      "name": "Hero Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Slide Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_desktop",
+          "label": "Desktop Slide Image",
+          "info": "Displays on wider screens (e.g., desktops)."
+        },
+        {
+          "type": "text",
+          "id": "desktop_image_alt",
+          "label": "Desktop Image Alt Text",
+          "info": "Important for SEO and accessibility."
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_mobile",
+          "label": "Mobile Slide Image",
+          "info": "Displays on smaller screens (e.g., phones). Will fallback to desktop image if not provided."
+        },
+        {
+          "type": "text",
+          "id": "mobile_image_alt",
+          "label": "Mobile Image Alt Text",
+          "info": "Important for SEO and accessibility."
+        },
+        {
+          "type": "header",
+          "content": "Reviews & Headline"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stars",
+          "label": "Show 5-star rating icon",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "reviews_text",
+          "label": "Reviews Text",
+          "default": "100s of verified 5-star reviews"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Unlock evidence-based wellness, powered by heat"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>From longevity, sleep and recovery, to mental health, saunas brings it all together — make smarter choices today that your future self will thank you for.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Call to Action Buttons"
+        },
+        {
+          "type": "text",
+          "id": "button1_text",
+          "label": "Button 1 Text",
+          "default": "Shop All Saunas"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "Button 1 Link",
+          "info": "Leave blank to hide button."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button1_arrow",
+          "label": "Show Arrow Icon for Button 1",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button2_text",
+          "label": "Button 2 Text",
+          "default": "Consult Our Experts"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Button 2 Link",
+          "info": "Leave blank to hide button."
+        },
+        {
+          "type": "image_picker",
+          "id": "button2_icon",
+          "label": "Button 2 Icon (optional)",
+          "info": "Small image (e.g., avatar or specific icon) next to button text."
+        },
+        {
+          "type": "header",
+          "content": "Feature List (Green Checkmarks)"
+        },
+        {
+          "type": "text",
+          "id": "feature_item_1",
+          "label": "Feature Item 1",
+          "default": "Free Shipping on all US orders",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "text",
+          "id": "feature_item_2",
+          "label": "Feature Item 2",
+          "default": "5-7 Year Limited Lifetime Sauna Warranty",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "text",
+          "id": "feature_item_3",
+          "label": "Feature Item 3",
+          "default": "Trusted by health professionals and athletes",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "header",
+          "content": "Trust/Financing Badges"
+        },
+        {
+          "type": "image_picker",
+          "id": "truemed_logo",
+          "label": "Truemed Logo",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "text",
+          "id": "truemed_text",
+          "label": "Truemed Text",
+          "default": "FSA/HSA Eligible & Flexible Financing",
+          "info": "Leave blank to hide."
+        },
+        {
+          "type": "image_picker",
+          "id": "bottom_trust_icon",
+          "label": "Bottom Trust Icon (e.g., 'H' logo)",
+          "info": "Leave blank to hide."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Hero Carousel",
+      "blocks": [
+        {
+          "type": "hero-slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
