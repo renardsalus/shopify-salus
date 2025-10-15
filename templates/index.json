@@ -242,7 +242,7 @@
         "hero_slide_gQxa68": {
           "type": "hero-slide",
           "settings": {
-            "slide_image_desktop": "shopify://shop_images/AdobeStock_733415101-2-scaled.jpg",
+            "slide_image_desktop": "shopify://shop_images/Sauna-Induced_Hormesis.png",
             "desktop_image_alt": "Hello",
             "slide_image_mobile": "shopify://shop_images/lady-in-a-sauna.jpg",
             "mobile_image_alt": "Hello",
@@ -273,10 +273,10 @@
         "enable_loop": true,
         "show_navigation_arrows": true,
         "show_pagination_dots": true,
-        "section_padding_top_desktop": 80,
-        "section_padding_bottom_desktop": 80,
-        "section_padding_top_mobile": 40,
-        "section_padding_bottom_mobile": 40
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
       }
     },
     "products_card_section_PzCHqp": {
