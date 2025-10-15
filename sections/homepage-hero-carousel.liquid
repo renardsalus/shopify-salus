@@ -29,13 +29,11 @@
           {% for block in section.blocks %}
             <div class="swiper-slide homepage-hero-carousel__slide" {{ block.shopify_attributes }}>
               <div class="homepage-hero-carousel__slide-inner">
-                {# Content Column (Left on Desktop, Overlay on Mobile) #}
                 <div
                   class="homepage-hero-carousel__content-column"
                   style="background-color: {{ section.settings.content_background_color }};"
                 >
                   <div class="homepage-hero-carousel__content-wrapper">
-                    {# Reviews #}
                     {% if block.settings.reviews_text != blank %}
                       <div class="homepage-hero-carousel__reviews">
                         {% if block.settings.show_stars %}
@@ -51,17 +49,14 @@
                       </div>
                     {% endif %}
 
-                    {# Headline #}
                     {% if block.settings.headline != blank %}
                       <h2 class="homepage-hero-carousel__headline">{{ block.settings.headline }}</h2>
                     {% endif %}
 
-                    {# Description #}
                     {% if block.settings.description != blank %}
                       <div class="homepage-hero-carousel__description">{{ block.settings.description }}</div>
                     {% endif %}
 
-                    {# CTA Buttons #}
                     <div class="homepage-hero-carousel__cta-buttons">
                       {% if block.settings.button1_link != blank and block.settings.button1_text != blank %}
                         <a
@@ -93,7 +88,6 @@
                       {% endif %}
                     </div>
 
-                    {# Feature List #}
                     <ul class="homepage-hero-carousel__feature-list">
                       {% if block.settings.feature_item_1 != blank %}
                         <li class="homepage-hero-carousel__feature-item">
@@ -115,7 +109,6 @@
                       {% endif %}
                     </ul>
 
-                    {# Trust/Financing Badge #}
                     <div class="homepage-hero-carousel__trust-badges">
                       {% if block.settings.truemed_logo != blank %}
                         {% assign truemed_img = block.settings.truemed_logo %}
@@ -146,7 +139,6 @@
                   </div>
                 </div>
 
-                {# Image Column (Right on Desktop, Background on Mobile) #}
                 <div class="homepage-hero-carousel__image-column">
                   {% assign desktop_image = block.settings.slide_image_desktop %}
                   {% assign mobile_image = block.settings.slide_image_mobile %}
@@ -154,14 +146,12 @@
                   {% if desktop_image != blank or mobile_image != blank %}
                     <picture>
                       {% if mobile_image != blank %}
-                        {# Mobile image source for smaller screens #}
                         <source
                           media="(max-width: 767px)"
                           srcset="{{ mobile_image | image_url: width: 767 }}"
                           alt="{{ mobile_image.alt | escape | default: block.settings.mobile_image_alt }}"
                         >
                       {% endif %}
-                      {# Desktop image source (and fallback for mobile if no mobile image provided) #}
                       <img
                         class="homepage-hero-carousel__image"
                         src="{{ desktop_image | image_url: 'master' }}"
@@ -179,9 +169,7 @@
             </div>
           {% endfor %}
         </div>
-        {# end swiper-wrapper #}
 
-        {# Carousel Navigation (Arrows & Dots) #}
         {% if section.settings.show_navigation_arrows %}
           <div class="swiper-button-prev homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--prev">
             {% render 'icon-arrow-left' %}
@@ -194,14 +182,12 @@
           <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
         {% endif %}
       </div>
-      {# end swiper-container #}
     {% else %}
       <div class="placeholder-content">
         {{ 'no_content' | t }}
       </div>
     {% endif %}
   </div>
-  {# end homepage-hero-carousel__wrapper #}
 </section>
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
