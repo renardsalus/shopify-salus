@@ -477,6 +477,63 @@
         "section_padding_bottom_mobile": 0
       }
     },
+    "homepage_reviews_slider_2_gCdyWL": {
+      "type": "homepage-reviews-slider-2",
+      "blocks": {
+        "review_card_394HCY": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_RHFRQ7": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_nib3RW": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_UPapPr": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_card_394HCY",
+        "review_card_RHFRQ7",
+        "review_card_nib3RW",
+        "review_card_UPapPr"
+      ],
+      "name": "Homepage Reviews Slider",
+      "settings": {
+        "show_navigation_arrows": true,
+        "button_label": "Show me more reviews",
+        "button_link": "",
+        "section_padding_top_desktop": 80,
+        "section_padding_bottom_desktop": 80,
+        "section_padding_top_mobile": 40,
+        "section_padding_bottom_mobile": 40
+      }
+    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -1344,6 +1401,7 @@
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
     "homepage_reviews_slider_kHWDwK",
+    "homepage_reviews_slider_2_gCdyWL",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
     "multi-column",
