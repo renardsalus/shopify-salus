@@ -1,0 +1,195 @@
+.homepage-reviews-slider {
+    padding-top: var(--homepage-reviews-slider-padding-top-desktop);
+    padding-bottom: var(--homepage-reviews-slider-padding-bottom-desktop);
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage-reviews-slider-section {
+    padding-top: var(--homepage-reviews-slider-padding-top-desktop);
+    padding-bottom: var(--homepage-reviews-slider-padding-bottom-desktop);
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: visible;
+}
+
+.homepage-reviews-slider__wrapper {
+    max-width: 1440px;
+    margin-left: 150px;
+    margin-right: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage-reviews-slider__slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.homepage-reviews-slider__card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    max-width: 320px;
+}
+
+.homepage-reviews-slider__quote-icon {
+    margin-bottom: 20px;
+    color: #DDD;
+}
+
+.homepage-reviews-slider__quote-icon svg {
+    width: 48px;
+    height: 48px;
+    fill: currentColor;
+}
+
+.homepage-reviews-slider__text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.homepage-reviews-slider__text p {
+    margin: 0;
+}
+
+.homepage-reviews-slider__star-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.homepage-reviews-slider__star-rating svg {
+    width: 20px;
+    height: 20px;
+    fill: #38A169;
+}
+
+.homepage-reviews-slider__title {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.homepage-reviews-slider__author-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.homepage-reviews-slider__author-image {
+    object-fit: cover;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.homepage-reviews-slider__author-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.homepage-reviews-slider__author-name .icon-checkmark-blue {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: #007AFF;
+}
+
+.homepage-reviews-slider__action-area {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.homepage-reviews-slider__button {
+    background-color: #2B5740;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+    border: none;
+}
+
+.homepage-reviews-slider__button:hover {
+    background-color: #386D4C;
+}
+
+@media screen and (max-width: 767px) {
+    .homepage-reviews-slider {
+        padding-top: var(--homepage-reviews-slider-padding-top-mobile);
+        padding-bottom: var(--homepage-reviews-slider-padding-bottom-mobile);
+    }
+
+    .homepage-reviews-slider__wrapper {
+        padding-left: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-right: 15px;
+    }
+
+    .homepage-reviews-slider__card {
+        padding: 30px;
+        max-width: none;
+    }
+
+    .homepage-reviews-slider__text {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .homepage-reviews-slider__title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .homepage-reviews-slider__author-details {
+        gap: 10px;
+    }
+
+    .homepage-reviews-slider__author-name {
+        font-size: 14px;
+    }
+}
+
+.placeholder-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-family: sans-serif;
+    color: #777;
+    font-size: 16px;
+    padding: 20px;
+    margin: 20px;
+}
