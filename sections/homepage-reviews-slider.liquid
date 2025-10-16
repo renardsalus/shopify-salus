@@ -74,9 +74,6 @@
             </div>
           {% endfor %}
         </div>
-        {# end swiper-wrapper #}
-
-        {# Carousel Navigation (Arrows & Dots) #}
         {% if section.settings.show_navigation_arrows %}
           <button class="carousel-arrow arrow-left homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--prev">
             {% render 'icon-arrow-left' %}
@@ -89,9 +86,6 @@
           <div class="swiper-pagination homepage-reviews-slider__pagination"></div>
         {% endif %}
       </div>
-      {# end swiper-container #}
-
-      {# "Show More Reviews" Button #}
       {% if section.settings.button_link != blank and section.settings.button_label != blank %}
         <div class="homepage-reviews-slider__action-area">
           <a href="{{ section.settings.button_link }}" class="homepage-reviews-slider__button button button--secondary">
