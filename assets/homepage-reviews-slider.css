@@ -18,15 +18,31 @@
     /* Ensures nothing spills out of the section */
 }
 
+.homepage-reviews-slider-section {
+    /* Targets the <section> tag itself */
+    /* Dynamic padding set via Liquid variables */
+    padding-top: var(--homepage-reviews-slider-padding-top-desktop);
+    padding-bottom: var(--homepage-reviews-slider-padding-bottom-desktop);
+    background-color: #FFFFFF;
+    position: relative;
+    /* Make this section a positioning context */
+    overflow: visible;
+    /* Allow arrows to visually break out of this section's direct bounds */
+}
+
 .homepage-reviews-slider__wrapper {
     max-width: 1440px;
-    /* Example max width for content, adjust as needed */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    /* Some base horizontal padding */
-    padding-right: 20px;
-    /* Some base horizontal padding */
+    /* This defines your contained content width */
+    margin-left: 150px;
+    margin-right: 150px;
+    /* padding-left: 80px;
+    /* Provides space for arrows to sit *outside* content */
+    /* padding-right: 80px; */
+    /* Provides space for arrows to sit *outside* content */
+    position: relative;
+    /* This is the positioning context for the arrows now */
+    overflow: hidden;
+    /* Keep track content from overflowing its own wrapper */
 }
 
 /* --- Swiper Container --- */
@@ -142,8 +158,6 @@
 }
 
 .homepage-reviews-slider__author-image {
-    border-radius: 50%;
-    /* Circular image */
     object-fit: cover;
     flex-shrink: 0;
     width: 40px;
@@ -205,13 +219,19 @@
 }
 
 .homepage-reviews-slider__nav-button--prev {
-    left: -60px;
-    /* Position relative to wrapper */
+    left: 0;
+    margin-left: 100px;
+    /* Position at the left edge of the .homepage-reviews-slider__wrapper */
+    transform: translateY(-50%) translateX(-100%);
+    /* Push left by its own width */
 }
 
 .homepage-reviews-slider__nav-button--next {
-    right: -60px;
-    /* Position relative to wrapper */
+    right: 0;
+    margin-right: 100px;
+    /* Position at the right edge of the .homepage-reviews-slider__wrapper */
+    transform: translateY(-50%) translateX(100%);
+    /* Push right by its own width */
 }
 
 .homepage-reviews-slider__nav-button svg {
@@ -285,12 +305,6 @@
     .homepage-reviews-slider__nav-button {
         display: flex;
         /* Show arrows on desktop */
-    }
-
-    .homepage-reviews-slider__wrapper {
-        /* Adjust wrapper padding for arrows to be outside */
-        padding-left: 80px;
-        padding-right: 80px;
     }
 }
 

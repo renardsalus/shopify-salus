@@ -40,7 +40,7 @@
                   {% if block.settings.author_image != blank %}
                     {% assign author_img = block.settings.author_image %}
                     <img
-                      src="{{ author_img | image_url: width: 100 }}"
+                      src="{{ author_img | image_url: width: 500 }}"
                       alt="{{ author_img.alt | default: block.settings.author_name | escape }}"
                       class="homepage-reviews-slider__author-image"
                       width="40"
@@ -61,14 +61,6 @@
             </div>
           {% endfor %}
         </div>
-        {% if section.settings.show_navigation_arrows %}
-          <button class="carousel-arrow arrow-left homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--prev">
-            {% render 'icon-arrow-left' %}
-          </button>
-          <button class="carousel-arrow arrow-right homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--next">
-            {% render 'icon-arrow-right' %}
-          </button>
-        {% endif %}
         {% if section.settings.show_pagination_dots %}
           <div class="swiper-pagination homepage-reviews-slider__pagination"></div>
         {% endif %}
@@ -90,6 +82,14 @@
       </div>
     {% endif %}
   </div>
+  {% if section.settings.show_navigation_arrows %}
+    <button class="carousel-arrow arrow-left homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--prev">
+      {% render 'icon-arrow-left' %}
+    </button>
+    <button class="carousel-arrow arrow-right homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--next">
+      {% render 'icon-arrow-right' %}
+    </button>
+  {% endif %}
 </section>
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
