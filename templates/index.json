@@ -403,6 +403,7 @@
           "settings": {
             "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
             "review_title": "Love my Salus Sauna!!!!",
+            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-16T095544.551.png",
             "author_name": "Reviewer Name 1",
             "is_verified": true
           }
@@ -412,6 +413,7 @@
           "settings": {
             "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
             "review_title": "Love my Salus Sauna!!!!",
+            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-16T094214.381.png",
             "author_name": "Reviewer Name 2",
             "is_verified": true
           }
@@ -421,6 +423,7 @@
           "settings": {
             "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
             "review_title": "Love my Salus Sauna!!!!",
+            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-15T092656.930.png",
             "author_name": "Reviewer Name 3",
             "is_verified": true
           }
@@ -430,6 +433,7 @@
           "settings": {
             "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
             "review_title": "Love my Salus Sauna!!!!",
+            "author_image": "shopify://shop_images/649a37339aa29e92e015402f_Should_20you_20wipe_20sweat_20in_20sauna_7b80112d-809b-406a-abb5-7c68576a42c9.jpg",
             "author_name": "Reviewer Name 4",
             "is_verified": false
           }
@@ -439,6 +443,7 @@
           "settings": {
             "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
             "review_title": "Love my Salus Sauna!!!!",
+            "author_image": "shopify://shop_images/shutterstock_2374025413-1600x964.webp",
             "author_name": "Reviewer Name 5",
             "is_verified": true
           }
@@ -465,7 +470,7 @@
         "slides_per_group_mobile": 1,
         "space_between_slides_mobile": 15,
         "button_label": "Show me more reviews",
-        "button_link": "",
+        "button_link": "shopify://pages/reviews",
         "section_padding_top_desktop": 0,
         "section_padding_bottom_desktop": 0,
         "section_padding_top_mobile": 0,
