@@ -83,8 +83,8 @@
                               loading="lazy"
                             >
                           {% endif %}
-                          {{ block.settings.button2_text }} </a
-                        >s
+                          {{ block.settings.button2_text }}
+                        </a>
                       {% endif %}
                     </div>
 
@@ -154,7 +154,7 @@
                       {% endif %}
                       <img
                         class="homepage-hero-carousel__image"
-                        src="{{ desktop_image | image_url: 'master' }}"
+                        src="{{ desktop_image | image_url: width: 1400 }}"
                         alt="{{ desktop_image.alt | escape | default: block.settings.desktop_image_alt }}"
                         width="{{ desktop_image.width }}"
                         height="{{ desktop_image.height }}"
@@ -170,13 +170,19 @@
           {% endfor %}
         </div>
 
+        {% comment %}
+          {% if section.settings.show_navigation_arrows %}
+            <div class="swiper-button-prev homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--prev">
+              {% render 'icon-arrow-left' %}
+            </div>
+            <div class="swiper-button-next homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--next">
+              {% render 'icon-arrow-right' %}
+            </div>
+          {% endif %}
+        {% endcomment %}
         {% if section.settings.show_navigation_arrows %}
-          <div class="swiper-button-prev homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--prev">
-            {% render 'icon-arrow-left' %}
-          </div>
-          <div class="swiper-button-next homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--next">
-            {% render 'icon-arrow-right' %}
-          </div>
+          <button class="carousel-arrow arrow-left margin-left-50">❮</button>
+          <button class="carousel-arrow arrow-right margin-right-50">❯</button>
         {% endif %}
         {% if section.settings.show_pagination_dots %}
           <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
