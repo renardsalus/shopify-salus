@@ -28,21 +28,6 @@
                   {%- render 'icon-star' %}
                 </div>
 
-                {% comment %}
-                  <div class="homepage-reviews-slider__quote-icon">
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      role="presentation"
-                      class="icon icon-quote"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M7 11.75C7 10.784 7.78401 10 8.75 10H9.25C10.216 10 11 10.784 11 11.75V15.25C11 16.216 10.216 17 9.25 17H8.75C7.78401 17 7 16.216 7 15.25V11.75ZM13 11.75C13 10.784 13.784 10 14.75 10H15.25C16.216 10 17 10.784 17 11.75V15.25C17 16.216 16.216 17 15.25 17H14.75C13.784 17 13 16.216 13 15.25V11.75Z"/>
-                    </svg>
-                  </div>
-                {% endcomment %}
-
                 {% if block.settings.review_title != blank %}
                   <h3 class="homepage-reviews-slider__title">{{ block.settings.review_title }}</h3>
                 {% endif %}
@@ -87,17 +72,17 @@
         {% if section.settings.show_pagination_dots %}
           <div class="swiper-pagination homepage-reviews-slider__pagination"></div>
         {% endif %}
-        {% if section.settings.button_link != blank and section.settings.button_label != blank %}
-          <div class="homepage-reviews-slider__action-area">
-            <a
-              href="{{ section.settings.button_link }}"
-              class="homepage-reviews-slider__button button button--secondary"
-            >
-              {{ section.settings.button_label }}
-            </a>
-          </div>
-        {% endif %}
       </div>
+      {% if section.settings.button_link != blank and section.settings.button_label != blank %}
+        <div class="homepage-reviews-slider__action-area">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="homepage-reviews-slider__button button button--secondary"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {% endif %}
 
     {% else %}
       <div class="placeholder-content">

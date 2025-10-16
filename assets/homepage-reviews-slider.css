@@ -32,10 +32,12 @@
 /* --- Swiper Container --- */
 .homepage-reviews-slider__swiper {
     width: 100%;
+    min-height: 250px;
+    /* Ensure it has enough height for content + dots */
+    position: relative;
+    /* Make sure this is the positioned ancestor for absolute dots */
     padding-bottom: 50px;
-    /* Space for pagination dots */
-    margin-bottom: 40px;
-    /* Space below slider to the button */
+    /* RE-ADD: Space *within* the container for the dots */
 }
 
 /* --- Individual Slide (Review Card) Styles --- */
@@ -226,7 +228,8 @@
 .homepage-reviews-slider__pagination {
     position: absolute;
     bottom: 0;
-    /* Position below the slides */
+    /* Position at the bottom of homepage-reviews-slider__swiper (which now has padding) */
+    left: 0;
     width: 100%;
     text-align: center;
 }
