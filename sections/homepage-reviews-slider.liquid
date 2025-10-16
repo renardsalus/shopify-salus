@@ -1,0 +1,253 @@
+<div class="section-custom-reviews">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="custom-reviews-grid">
+      {% for block in section.blocks %}
+        <div class="review-card">
+          <div class="review-stars">
+            {%- assign rating = block.settings.rating | round -%}
+            {% for i in (1..5) %}
+              {% if i <= rating %}
+                <span class="icon-star filled">{% render 'icon-star' %}</span>
+              {% else %}
+                <span class="icon-star">{% render 'icon-star' %}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <h3 class="review-title">{{ block.settings.title }}</h3>
+          <div class="review-text">
+            {{ block.settings.review_text }}
+          </div>
+          <div class="reviewer-info">
+            {% if block.settings.reviewer_image != blank %}
+              <img
+                src="{{ block.settings.reviewer_image | image_url: width: 60, height: 60, crop: 'center' }}"
+                alt="{{ block.settings.reviewer_name }}"
+                class="reviewer-avatar"
+                width="60"
+                height="60"
+              >
+            {% endif %}
+            <span class="reviewer-name">{{ block.settings.reviewer_name }}</span>
+            {% comment %} Optionally add a verified checkmark if desired {% endcomment %}
+            <svg
+              class="icon-checkmark"
+              aria-hidden="true"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_more_button %}
+      <div class="show-more-reviews">
+        <a href="{{ section.settings.show_more_link }}" class="button">{{ section.settings.show_more_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .section-custom-reviews {
+    padding: 60px 0;
+    background-color: #f8f8f8; /* Light background similar to image */
+  }
+  .page-width {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+  }
+  .custom-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .review-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes reviewer info to bottom */
+  }
+  .review-stars {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 5px;
+  }
+  .icon-star {
+    width: 20px; /* Adjust star size */
+    height: 20px;
+    fill: #ccc; /* Default star color */
+  }
+  .icon-star.filled {
+    fill: #2e8b57; /* Green for filled stars */
+  }
+  .review-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .review-text {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows text to take up available space */
+  }
+  .reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pushes info to the bottom of the card */
+  }
+  .reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .reviewer-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+  }
+  .icon-checkmark {
+    width: 16px;
+    height: 16px;
+    color: #2e8b57; /* Green checkmark */
+    margin-left: 5px;
+  }
+  .show-more-reviews {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .show-more-reviews .button {
+    background-color: #2e8b57; /* Green button */
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .show-more-reviews .button:hover {
+    background-color: #256f46;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .custom-reviews-grid {
+      grid-template-columns: 1fr;
+    }
+    .review-card {
+      padding: 25px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_more_button",
+      "label": "Show 'Show More' button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "show_more_text",
+      "label": "Button text",
+      "default": "Show me more reviews"
+    },
+    {
+      "type": "url",
+      "id": "show_more_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review Title",
+          "default": "Fantastic Product!"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "<p>This is an amazing product, I highly recommend it!</p>"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "image_picker",
+          "id": "reviewer_image",
+          "label": "Reviewer Image"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "Jane Doe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Reviews Section",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
