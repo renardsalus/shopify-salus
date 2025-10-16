@@ -113,7 +113,7 @@
                       {% if block.settings.truemed_logo != blank %}
                         {% assign truemed_img = block.settings.truemed_logo %}
                         <img
-                          src="{{ truemed_img | image_url: '150x' }}"
+                          src="{{ truemed_img | image_url: width: 30 }}"
                           alt="{{ truemed_img.alt | default: 'Truemed Logo' }}"
                           class="homepage-hero-carousel__truemed-logo"
                           loading="lazy"
