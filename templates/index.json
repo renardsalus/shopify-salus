@@ -395,98 +395,6 @@
         "open_email": true
       }
     },
-    "homepage_reviews_slider_WD3cEb": {
-      "type": "homepage-reviews-slider",
-      "blocks": {
-        "review_card_HCdjPn": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-16T095544.551.png",
-            "author_name": "Reviewer Name 1",
-            "is_verified": true
-          }
-        },
-        "review_card_r8y6th": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-16T094214.381.png",
-            "author_name": "Reviewer Name 2",
-            "is_verified": true
-          }
-        },
-        "review_card_Fmwn9n": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-15T092656.930.png",
-            "author_name": "Reviewer Name 3",
-            "is_verified": true
-          }
-        },
-        "review_card_4UbFQ8": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/649a37339aa29e92e015402f_Should_20you_20wipe_20sweat_20in_20sauna_7b80112d-809b-406a-abb5-7c68576a42c9.jpg",
-            "author_name": "Reviewer Name 4",
-            "is_verified": false
-          }
-        },
-        "review_card_ymUDpG": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/shutterstock_2374025413-1600x964.webp",
-            "author_name": "Reviewer Name 5",
-            "is_verified": true
-          }
-        }
-      },
-      "block_order": [
-        "review_card_HCdjPn",
-        "review_card_r8y6th",
-        "review_card_Fmwn9n",
-        "review_card_4UbFQ8",
-        "review_card_ymUDpG"
-      ],
-      "name": "Homepage Reviews Slider",
-      "settings": {
-        "enable_autoplay": true,
-        "autoplay_speed": 5000,
-        "enable_loop": true,
-        "show_navigation_arrows": true,
-        "show_pagination_dots": true,
-        "slides_per_view_desktop": 3.5,
-        "slides_per_group_desktop": 1,
-        "space_between_slides_desktop": 20,
-        "slides_per_view_mobile": 1.5,
-        "slides_per_group_mobile": 1,
-        "space_between_slides_mobile": 15,
-        "button_label": "Show me more reviews",
-        "button_link": "shopify://pages/reviews",
-        "section_padding_top_desktop": 0,
-        "section_padding_bottom_desktop": 0,
-        "section_padding_top_mobile": 0,
-        "section_padding_bottom_mobile": 0
-      }
-    },
-    "product_carousel_dkNQRn": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
-        "button_collection": "traditional-sauna-v2",
-        "products_to_display_collection": "traditional-saunas-highlight"
-      }
-    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -1353,8 +1261,6 @@
     "homepage_hero_carousel_iKVfwn",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
-    "homepage_reviews_slider_WD3cEb",
-    "product_carousel_dkNQRn",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
     "multi-column",
