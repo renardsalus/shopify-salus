@@ -468,10 +468,10 @@ p.card__tag {
 }
 
 .section.logo-list-sec {
-  padding-left:75px;
-  padding-right:75px;
-  padding-top:60px;
-  padding-bottom:10px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-top: 60px;
+  padding-bottom: 10px;
 }
 
 .logo-list-sec .section__header .h2 {
@@ -3722,4 +3722,12 @@ a.secondary-nav__item.secondary-nav__cta {
 .rte ul li p:first-child,
 .rte ol li p:first-child {
   display: initial;
+}
+
+.margin-left-50 {
+  margin-left: 50px
+}
+
+.margin-right-50 {
+  margin-right: 50px
 }
