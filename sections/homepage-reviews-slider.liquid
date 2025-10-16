@@ -1,82 +1,164 @@
-<div class="section-custom-reviews">
-  <div class="page-width">
-    {% if section.settings.heading != blank %}
-      <h2 class="section-heading">{{ section.settings.heading }}</h2>
-    {% endif %}
+{%- comment -%}
+  This section displays testimonials in a responsive grid layout.
+  It's adapted from a slideshow testimonial section to be static.
+{%- endcomment -%}
 
-    <div class="custom-reviews-grid">
-      {% for block in section.blocks %}
-        <div class="review-card">
-          <div class="review-stars">
-            {%- assign rating = block.settings.rating | round -%}
-            {% for i in (1..5) %}
-              {% if i <= rating %}
-                <span class="icon-star filled">{% render 'icon-star' %}</span>
-              {% else %}
-                <span class="icon-star">{% render 'icon-star' %}</span>
-              {% endif %}
-            {% endfor %}
-          </div>
-          <h3 class="review-title">{{ block.settings.title }}</h3>
-          <div class="review-text">
-            {{ block.settings.review_text }}
-          </div>
-          <div class="reviewer-info">
-            {% if block.settings.reviewer_image != blank %}
-              <img
-                src="{{ block.settings.reviewer_image | image_url: width: 60, height: 60, crop: 'center' }}"
-                alt="{{ block.settings.reviewer_name }}"
-                class="reviewer-avatar"
-                width="60"
-                height="60"
-              >
-            {% endif %}
-            <span class="reviewer-name">{{ block.settings.reviewer_name }}</span>
-            {% comment %} Optionally add a verified checkmark if desired {% endcomment %}
-            <svg
-              class="icon-checkmark"
-              aria-hidden="true"
-              focusable="false"
-              role="presentation"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-          </div>
+{%- comment -%}
+  Removed slideshow.css and slideshow.js as this is a static grid.
+  If 'testimonials.css' contains general styling for cards/text that you want to keep,
+  you can uncomment and ensure that file exists in your assets.
+  Otherwise, inline CSS will handle most styling.
+{%- endcomment -%}
+{%- comment -%}
+  {%- if section.index > 2 -%}
+    <link rel="stylesheet" href="{{ 'testimonials.css' | asset_url }}" media="print" onload="this.media='all'">
+  {%- else -%}
+    {{ 'testimonials.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+  assign bg_color = false
+
+  if color_scheme == '1'
+    assign bg_color = settings.color_scheme_1_bg
+  elsif color_scheme == '2'
+    assign bg_color = settings.color_scheme_2_bg
+  elsif color_scheme == '3'
+    assign bg_color = settings.color_scheme_3_bg
+  endif
+
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
+  endif
+-%}
+
+{%- unless section.settings.full_width -%}
+  <div class="container">
+{%- endunless -%}
+
+<div
+  class="static-reviews-section section{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'default' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}  relative"
+  id="{{ section.id }}"
+  {% if settings.animations_enabled != 'disabled' %}
+    data-cc-animate
+  {% endif %}
+>
+  <div class="container md:flex {{ section.settings.text_position }}">
+    <div class="max-w-text-overlay">
+      {%- if section.settings.heading != blank -%}
+        <div class="section__header">
+          <h2 class="h4 {{ section.settings.text_align }}">{{ section.settings.heading | escape }}</h2>
         </div>
-      {% endfor %}
-    </div>
+      {%- endif -%}
 
-    {% if section.settings.show_more_button %}
-      <div class="show-more-reviews">
-        <a href="{{ section.settings.show_more_link }}" class="button">{{ section.settings.show_more_text }}</a>
+      <div
+        class="static-reviews-grid"
+        role="region"
+        aria-label="{{ 'sections.testimonials.title' | t }}"
+      >
+        {%- for block in section.blocks -%}
+          <div
+            class="review-card"
+            {{ block.shopify_attributes }}
+          >
+            <figure class="testimonial m-0 has-motion">
+              {%- if block.settings.show_star_rating -%}
+                <div class="review-stars testimonial-stars text-{{ section.settings.testimonial_size }} {{ section.settings.text_align }}">
+                  {%- assign rating = block.settings.star_rating | round -%}
+                  {% for i in (1..5) %}
+                    {% if i <= rating %}
+                      <span class="icon-star filled">{% render 'icon-star' %}</span>
+                    {% else %}
+                      <span class="icon-star">{% render 'icon-star' %}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.testimonial != blank -%}
+                <blockquote class="testimonial__quote text-{{ section.settings.testimonial_size }} rte{% if section.settings.show_quotes %} testimonial__quote--with-mark{% endif %} {{ section.settings.text_align }} m-0">
+                  {{ block.settings.testimonial }}
+                </blockquote>
+              {%- endif -%}
+
+              {%- if block.settings.author != blank or block.settings.author_image != blank -%}
+                <div class="testimonial__author flex items-center {{ section.settings.text_align }} mt-8">
+                  {%- if block.settings.author_image != blank -%}
+                    <div class="testimonial__author-image overflow-hidden shrink-0">
+                      <img
+                        src="{{ block.settings.author_image | image_url: width: 60, height: 60, crop: 'center' }}"
+                        alt="{{ block.settings.author | escape }}"
+                        class="reviewer-avatar img-fit"
+                        width="60"
+                        height="60"
+                      >
+                    </div>
+                  {%- endif -%}
+
+                  <div class="testimonial__author-text {{ section.settings.text_align }}{% if block.settings.author_image != blank %} text-start{% endif %}">
+                    <h5 class="font-bold mb-0">{{ block.settings.author | escape }}</h5>
+                    <p class="mb-0">{{ block.settings.author_info | escape }}</p>
+                    {% comment %} Adding a checkmark icon next to the name, similar to your original image {% endcomment %}
+                    <svg
+                      class="icon-checkmark"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              {%- endif -%}
+            </figure>
+          </div>
+        {%- endfor -%}
       </div>
-    {% endif %}
+    </div>
   </div>
 </div>
+{% if section.settings['view-more-text'] != blank %}
+  <div class="testimonails-cta">
+    <a href="{{ section.settings.view-more }}" class="button">{{ section.settings['view-more-text'] }}</a>
+  </div>
+{% endif %}
+
+{%- unless section.settings.full_width -%}
+  </div>
+{%- endunless -%}
 
 <style>
-  .section-custom-reviews {
+  /* General section padding and background */
+  .static-reviews-section {
     padding: 60px 0;
     background-color: #f8f8f8; /* Light background similar to image */
   }
-  .page-width {
+  .static-reviews-section .container {
     max-width: 1200px; /* Adjust as needed */
     margin: 0 auto;
     padding: 0 20px;
   }
-  .section-heading {
+  .section__header {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5em;
+  }
+  .section__header h2 {
+    font-size: 2.5em; /* Adjust heading size */
     color: #333;
   }
-  .custom-reviews-grid {
+
+  /* Grid layout for review cards */
+  .static-reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
   }
+
+  /* Individual review card styling */
   .review-card {
     background-color: #fff;
     border-radius: 8px;
@@ -84,62 +166,107 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes reviewer info to bottom */
+    justify-content: space-between; /* Pushes author info to bottom */
   }
+
+  /* Star rating styling */
   .review-stars {
     margin-bottom: 15px;
     display: flex;
     gap: 5px;
+    justify-content: var(--text-align-justify-content, center); /* Align stars based on text_align setting */
   }
+
+  /* Dynamic alignment for stars based on section setting */
+  .text-start.justify-start .review-stars {
+    --text-align-justify-content: flex-start;
+  }
+  .text-center.justify-center .review-stars {
+    --text-align-justify-content: center;
+  }
+  .text-end.justify-end .review-stars {
+    --text-align-justify-content: flex-end;
+  }
+
   .icon-star {
     width: 20px; /* Adjust star size */
     height: 20px;
     fill: #ccc; /* Default star color */
+    display: block; /* Ensure SVG takes up space correctly */
   }
   .icon-star.filled {
     fill: #2e8b57; /* Green for filled stars */
   }
-  .review-title {
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  .review-text {
-    font-size: 0.95em;
+
+  /* Testimonial quote styling */
+  .testimonial__quote {
+    font-size: 0.95em; /* Adjust to match original image's review text size */
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
     flex-grow: 1; /* Allows text to take up available space */
   }
-  .reviewer-info {
-    display: flex;
-    align-items: center;
+  .testimonial__quote--with-mark::before {
+    content: open-quote;
+    font-size: 3em;
+    line-height: 0.5;
+    vertical-align: -0.2em;
+    color: #e0e0e0; /* Light grey for quote marks */
+    margin-right: 0.1em;
+    display: block; /* Ensure quote mark is above the text */
+    text-align: inherit; /* Inherit alignment from parent */
+    margin-bottom: 0.2em;
+  }
+
+  /* Author info styling */
+  .testimonial__author {
     margin-top: auto; /* Pushes info to the bottom of the card */
+    align-items: center;
+    /* Adjust alignment based on section.settings.text_align */
+    justify-content: var(--text-align-justify-content, center);
+  }
+
+  .testimonial__author-image {
+    border-radius: 50%; /* Make author image circular */
+    margin-right: 10px;
   }
   .reviewer-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 10px;
   }
-  .reviewer-name {
+  .testimonial__author-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial__author-text h5 {
     font-weight: bold;
     color: #333;
     font-size: 0.9em;
+    margin-bottom: 2px;
   }
+  .testimonial__author-text p {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 0;
+  }
+
   .icon-checkmark {
     width: 16px;
     height: 16px;
     color: #2e8b57; /* Green checkmark */
     margin-left: 5px;
+    display: inline-block; /* Keep it with the name */
+    vertical-align: middle;
   }
-  .show-more-reviews {
+
+  /* View More Button */
+  .testimonails-cta {
     text-align: center;
     margin-top: 40px;
   }
-  .show-more-reviews .button {
+  .testimonails-cta .button {
     background-color: #2e8b57; /* Green button */
     color: #fff;
     padding: 12px 30px;
@@ -149,14 +276,15 @@
     transition: background-color 0.3s ease;
     border: none;
     cursor: pointer;
+    display: inline-block; /* Ensure button dimensions are respected */
   }
-  .show-more-reviews .button:hover {
+  .testimonails-cta .button:hover {
     background-color: #256f46;
   }
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .custom-reviews-grid {
+    .static-reviews-grid {
       grid-template-columns: 1fr;
     }
     .review-card {
@@ -167,87 +295,199 @@
 
 {% schema %}
 {
-  "name": "Custom Reviews",
+  "name": "Static Reviews Grid",
+  "tag": "section",
+  "class": "cc-static-reviews-grid",
   "settings": [
     {
       "type": "text",
       "id": "heading",
-      "label": "Section Heading",
+      "label": "Heading",
       "default": "What Our Customers Say"
     },
     {
       "type": "checkbox",
-      "id": "show_more_button",
-      "label": "Show 'Show More' button",
+      "id": "show_quotes",
+      "label": "Show quote marks above each testimonial",
       "default": true
     },
     {
+      "type": "select",
+      "id": "testimonial_size",
+      "label": "Testimonial text size",
+      "options": [
+        { "value": "h6", "label": "Extra extra small" },
+        { "value": "h5", "label": "Extra small" },
+        { "value": "h4", "label": "Small" },
+        { "value": "h3", "label": "Medium" },
+        { "value": "h2", "label": "Large" },
+        { "value": "h1", "label": "Extra large" },
+        { "value": "h0", "label": "Extra extra large" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Overall Text position (influences text container)",
+      "options": [
+        { "value": "justify-start", "label": "Left" },
+        { "value": "justify-center", "label": "Center" },
+        { "value": "justify-end", "label": "Right" }
+      ],
+      "default": "justify-center"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Internal Card Text alignment",
+      "options": [
+        { "value": "text-start justify-start", "label": "Left" },
+        { "value": "text-center justify-center", "label": "Center" },
+        { "value": "text-end justify-end", "label": "Right" }
+      ],
+      "default": "text-center justify-center"
+    },
+    {
+      "type": "header",
+      "content": "View More Reviews Button"
+    },
+    {
       "type": "text",
-      "id": "show_more_text",
-      "label": "Button text",
+      "id": "view-more-text",
+      "label": "Button Text",
       "default": "Show me more reviews"
     },
     {
       "type": "url",
-      "id": "show_more_link",
-      "label": "Button link"
+      "id": "view-more",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "1", "label": "Scheme 1" },
+        { "value": "2", "label": "Scheme 2" },
+        { "value": "3", "label": "Scheme 3" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section background full width",
+      "default": true
     }
   ],
   "blocks": [
     {
       "type": "review",
-      "name": "Review",
+      "name": "Review Item",
+      "limit": 10,
       "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Review Title",
-          "default": "Fantastic Product!"
-        },
-        {
           "type": "richtext",
-          "id": "review_text",
+          "id": "testimonial",
           "label": "Review Text",
-          "default": "<p>This is an amazing product, I highly recommend it!</p>"
+          "default": "<p>I use it nearly every day and it's completely revolutionized our backyard into a home spa. It's a wonderful addition and I truly feel the health benefits. The customer service, product quality, and overall experience has been top notch at every stage.</p>",
+          "info": "For best results, keep the word count similar in each quote."
         },
         {
-          "type": "range",
-          "id": "rating",
-          "min": 1,
-          "max": 5,
-          "step": 1,
-          "label": "Star Rating",
-          "default": 5
+          "type": "header",
+          "content": "Author"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Name",
+          "default": "Ben Feldman"
+        },
+        {
+          "type": "text",
+          "id": "author_info",
+          "label": "Location or other information",
+          "default": ""
         },
         {
           "type": "image_picker",
-          "id": "reviewer_image",
-          "label": "Reviewer Image"
+          "id": "author_image",
+          "label": "Image",
+          "info": "Logo or profile photo."
         },
         {
-          "type": "text",
-          "id": "reviewer_name",
-          "label": "Reviewer Name",
-          "default": "Jane Doe"
+          "type": "checkbox",
+          "id": "show_star_rating",
+          "label": "Show star rating",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "star_rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star rating",
+          "default": 5
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Reviews Section",
+      "name": "Static Reviews Grid",
       "blocks": [
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "author": "Ben Feldman",
+            "star_rating": 5,
+            "testimonial": "<p>I use it nearly every day and it's completely revolutionized our backyard into a home spa. It's a wonderful addition and I truly feel the health benefits. The customer service, product quality, and overall experience has been top notch at every stage.</p>"
+          }
         },
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "author": "Dr. Joaquin Rosado",
+            "star_rating": 5,
+            "testimonial": "<p>I have had an amazing experience with Salus Saunas. The build quality is fantastic, it works very well, and the customer service is by far one of the best I've worked with. I highly recommend this product to anyone looking for a high quality infrared sauna.</p>"
+          }
         },
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "author": "Joe Rogan",
+            "star_rating": 5,
+            "testimonial": "<p>You gotta' get a Salus Saunas, they're the guys that did ours and they have serious heaters. Mine gets to 200°F!</p>"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Bryan Nagle",
+            "star_rating": 5,
+            "testimonial": "<p>This company deserves 10 stars! From the moment I spoke with them through its delivery, everything, installation, and how it works like a company is top notch.</p>"
+          }
         }
       ]
     }
-  ]
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  }
 }
 {% endschema %}
+
+{%- comment -%}
+  Required snippet: `icon-star.liquid`
+  Create a file `snippets/icon-star.liquid` and paste the following SVG:
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path fill-rule="evenodd" d="M10.788 3.212a.75.75 0 011.424 0l4.5 9A.75.75 0 0116.5 13.5h-9a.75.75 0 01-.662-1.288l4.5-9zM12 16.5a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3a.75.75 0 01.75-.75z" clip-rule="evenodd" />
+  </svg>
+{%- endcomment -%}
