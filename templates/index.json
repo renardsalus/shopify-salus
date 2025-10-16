@@ -433,13 +433,23 @@
             "author_name": "Reviewer Name",
             "is_verified": true
           }
+        },
+        "review_card_ymUDpG": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
         }
       },
       "block_order": [
         "review_card_HCdjPn",
         "review_card_r8y6th",
         "review_card_Fmwn9n",
-        "review_card_4UbFQ8"
+        "review_card_4UbFQ8",
+        "review_card_ymUDpG"
       ],
       "name": "Homepage Reviews Slider",
       "settings": {
