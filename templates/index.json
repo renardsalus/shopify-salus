@@ -395,6 +395,83 @@
         "open_email": true
       }
     },
+    "homepage_reviews_slider_kHWDwK": {
+      "type": "homepage-reviews-slider",
+      "blocks": {
+        "review_card_Vgn8n6": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_dijAMx": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_yjHVHT": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_xWcJbA": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        },
+        "review_card_z9GJN3": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
+            "review_title": "Love my Salus Sauna!!!!",
+            "author_name": "Reviewer Name",
+            "is_verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_card_Vgn8n6",
+        "review_card_dijAMx",
+        "review_card_yjHVHT",
+        "review_card_xWcJbA",
+        "review_card_z9GJN3"
+      ],
+      "name": "Homepage Reviews Slider",
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_speed": 5000,
+        "enable_loop": true,
+        "show_navigation_arrows": true,
+        "show_pagination_dots": true,
+        "slides_per_view_desktop": 3.5,
+        "slides_per_group_desktop": 1,
+        "space_between_slides_desktop": 20,
+        "slides_per_view_mobile": 1.5,
+        "slides_per_group_mobile": 1,
+        "space_between_slides_mobile": 15,
+        "button_label": "Show me more reviews",
+        "button_link": "",
+        "section_padding_top_desktop": 80,
+        "section_padding_bottom_desktop": 80,
+        "section_padding_top_mobile": 40,
+        "section_padding_bottom_mobile": 40
+      }
+    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -1261,6 +1338,7 @@
     "homepage_hero_carousel_iKVfwn",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
+    "homepage_reviews_slider_kHWDwK",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
     "multi-column",
