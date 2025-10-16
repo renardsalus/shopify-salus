@@ -272,54 +272,6 @@
     /* Ensures image covers the area, cropping if necessary */
 }
 
-/* --- Swiper Navigation & Pagination Overrides --- */
-/* Positioning and styling for arrows */
-.homepage-hero-carousel__nav-button {
-    color: #222;
-    /* Example color, can be customized */
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-}
-
-.homepage-hero-carousel__nav-button:hover {
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Swiper's default icons use font, so adjust font-size */
-/* .homepage-hero-carousel__nav-button::after {
-    font-size: 20px;
-} */
-
-.homepage-hero-carousel__nav-button--prev {
-    left: 30px;
-    /* Adjust positioning */
-}
-
-.homepage-hero-carousel__nav-button--next {
-    right: 30px;
-    /* Adjust positioning */
-}
-
-.homepage-hero-carousel__nav-button svg {
-    width: 24px;
-    /* Match your SVG's intrinsic width */
-    height: 24px;
-    /* Match your SVG's intrinsic height */
-    stroke: currentColor;
-    /* Inherit color from the button's color property */
-    stroke-width: 1.5;
-    /* Match your SVG's intrinsic stroke-width */
-    /* If your SVG has a fill, you might add: fill: none; */
-}
-
 /* Styling for pagination dots */
 .homepage-hero-carousel__pagination.swiper-pagination-bullets {
     bottom: 30px;
@@ -439,27 +391,6 @@
 
     .homepage-hero-carousel__feature-item {
         font-size: 15px;
-    }
-
-    /* Swiper navigation on mobile - optionally hide or reposition */
-    .homepage-hero-carousel__nav-button--prev,
-    .homepage-hero-carousel__nav-button--next {
-        top: 50%;
-        transform: translateY(-50%);
-        width: 36px;
-        height: 36px;
-    }
-
-    .homepage-hero-carousel__nav-button--prev {
-        left: 15px;
-    }
-
-    .homepage-hero-carousel__nav-button--next {
-        right: 15px;
-    }
-
-    .homepage-hero-carousel__nav-button::after {
-        font-size: 16px;
     }
 
     .homepage-hero-carousel__pagination.swiper-pagination-bullets {
