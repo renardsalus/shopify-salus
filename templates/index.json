@@ -476,11 +476,11 @@
         "slides_per_group_mobile": 1,
         "space_between_slides_mobile": 15,
         "button_label": "Show me more reviews",
-        "button_link": "",
-        "section_padding_top_desktop": 80,
-        "section_padding_bottom_desktop": 80,
-        "section_padding_top_mobile": 40,
-        "section_padding_bottom_mobile": 40
+        "button_link": "shopify://pages/reviews",
+        "section_padding_top_desktop": 50,
+        "section_padding_bottom_desktop": 50,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
       }
     },
     "logo_list_DaqLFK": {
