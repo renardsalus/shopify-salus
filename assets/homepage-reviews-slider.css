@@ -1,0 +1,346 @@
+/*
+  ============================================================
+  Asset: Homepage Reviews Slider CSS
+  ============================================================
+  Custom styles for the Homepage Reviews Slider section.
+  Uses BEM-like naming convention and a desktop-first approach.
+*/
+
+/* --- Base Section Styles --- */
+.homepage-reviews-slider {
+    /* Dynamic padding set via Liquid variables */
+    padding-top: var(--homepage-reviews-slider-padding-top-desktop);
+    padding-bottom: var(--homepage-reviews-slider-padding-bottom-desktop);
+    background-color: #FFFFFF;
+    /* Fixed white background as per plan */
+    position: relative;
+    overflow: hidden;
+    /* Ensures nothing spills out of the section */
+}
+
+.homepage-reviews-slider__wrapper {
+    max-width: 1440px;
+    /* Example max width for content, adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    /* Some base horizontal padding */
+    padding-right: 20px;
+    /* Some base horizontal padding */
+}
+
+/* --- Swiper Container --- */
+.homepage-reviews-slider__swiper {
+    width: 100%;
+    padding-bottom: 50px;
+    /* Space for pagination dots */
+    margin-bottom: 40px;
+    /* Space below slider to the button */
+}
+
+/* --- Individual Slide (Review Card) Styles --- */
+.homepage-reviews-slider__slide {
+    height: auto;
+    /* Allow height to adjust based on content */
+    display: flex;
+    justify-content: center;
+    /* Center the card horizontally in its slide slot */
+    align-items: stretch;
+    /* Make sure cards stretch to equal height */
+}
+
+.homepage-reviews-slider__card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    padding: 40px;
+    /* Padding inside each review card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute space vertically */
+    align-items: center;
+    /* Center text and elements horizontally */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for card separation */
+    height: 100%;
+    /* Ensure card takes full height of slide */
+    max-width: 320px;
+    /* Max width for individual cards */
+}
+
+/* --- Quote Icon --- */
+.homepage-reviews-slider__quote-icon {
+    margin-bottom: 20px;
+    color: #DDD;
+    /* Light grey color for the icon */
+}
+
+.homepage-reviews-slider__quote-icon svg {
+    width: 48px;
+    /* Size of the quote icon */
+    height: 48px;
+    fill: currentColor;
+}
+
+
+/* --- Review Text --- */
+.homepage-reviews-slider__text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    font-style: italic;
+    /* Matches the screenshot */
+}
+
+.homepage-reviews-slider__text p {
+    margin: 0;
+    /* Remove default paragraph margins within richtext */
+}
+
+/* --- Star Rating --- */
+.homepage-reviews-slider__star-rating {
+    display: flex;
+    gap: 4px;
+    /* Space between stars */
+    margin-bottom: 15px;
+}
+
+.homepage-reviews-slider__star-rating svg {
+    width: 20px;
+    /* Size of star icon */
+    height: 20px;
+    fill: #38A169;
+    /* Green color for stars */
+}
+
+/* --- Review Title --- */
+.homepage-reviews-slider__title {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+    /* Bold */
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* --- Author Details --- */
+.homepage-reviews-slider__author-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center horizontally */
+    gap: 15px;
+    margin-top: auto;
+    /* Pushes author details to the bottom of the card */
+}
+
+.homepage-reviews-slider__author-image {
+    border-radius: 50%;
+    /* Circular image */
+    object-fit: cover;
+    flex-shrink: 0;
+    width: 40px;
+    /* Fixed size */
+    height: 40px;
+    /* Fixed size */
+}
+
+.homepage-reviews-slider__author-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Space between name and checkmark */
+}
+
+/* --- Blue Checkmark Snippet --- */
+.homepage-reviews-slider__author-name .icon-checkmark-blue {
+    width: 16px;
+    /* Size of the blue checkmark */
+    height: 16px;
+    flex-shrink: 0;
+    fill: #007AFF;
+    /* Ensure the fill is applied from the SVG directly */
+}
+
+
+/* --- Swiper Navigation Arrows (Desktop Only) --- */
+.homepage-reviews-slider__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    /* Ensure flexbox for SVG centering */
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    /* Arrow color */
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    /* Hide on mobile */
+    display: none;
+}
+
+.homepage-reviews-slider__nav-button:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-reviews-slider__nav-button--prev {
+    left: -60px;
+    /* Position relative to wrapper */
+}
+
+.homepage-reviews-slider__nav-button--next {
+    right: -60px;
+    /* Position relative to wrapper */
+}
+
+.homepage-reviews-slider__nav-button svg {
+    width: 24px;
+    /* Size of your custom arrow SVGs */
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+
+/* --- Swiper Pagination Dots --- */
+.homepage-reviews-slider__pagination {
+    position: absolute;
+    bottom: 0;
+    /* Position below the slides */
+    width: 100%;
+    text-align: center;
+}
+
+.homepage-reviews-slider__pagination .swiper-pagination-bullet {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Inactive dot color */
+    opacity: 1;
+    /* Override swiper default opacity */
+    width: 10px;
+    /* Size of dots */
+    height: 10px;
+    margin: 0 5px;
+    /* Spacing between dots */
+}
+
+.homepage-reviews-slider__pagination .swiper-pagination-bullet-active {
+    background-color: #38A169;
+    /* Active dot color (green) */
+}
+
+/* --- "Show More Reviews" Button --- */
+.homepage-reviews-slider__action-area {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    /* Space above button */
+}
+
+.homepage-reviews-slider__button {
+    background-color: #2B5740;
+    /* Dark green background from screenshot */
+    color: #FFFFFF;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+    border: none;
+    /* No border for this style */
+}
+
+.homepage-reviews-slider__button:hover {
+    background-color: #386D4C;
+    /* Slightly lighter green on hover */
+}
+
+
+/* --- Desktop-Specific Overrides (Visibility of Navigation Arrows) --- */
+@media screen and (min-width: 768px) {
+    .homepage-reviews-slider__nav-button {
+        display: flex;
+        /* Show arrows on desktop */
+    }
+
+    .homepage-reviews-slider__wrapper {
+        /* Adjust wrapper padding for arrows to be outside */
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+/* --- Mobile Styles (max-width: 767px) --- */
+@media screen and (max-width: 767px) {
+    .homepage-reviews-slider {
+        padding-top: var(--homepage-reviews-slider-padding-top-mobile);
+        padding-bottom: var(--homepage-reviews-slider-padding-bottom-mobile);
+    }
+
+    .homepage-reviews-slider__wrapper {
+        padding-left: 15px;
+        /* Tighter padding for mobile */
+        padding-right: 15px;
+    }
+
+    .homepage-reviews-slider__card {
+        padding: 30px;
+        max-width: none;
+        /* Allow cards to take full available width in their slide */
+    }
+
+    .homepage-reviews-slider__text {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .homepage-reviews-slider__title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .homepage-reviews-slider__author-details {
+        gap: 10px;
+    }
+
+    .homepage-reviews-slider__author-name {
+        font-size: 14px;
+    }
+
+    /* Arrows are already hidden by default, no need for explicit hide here */
+}
+
+/* Placeholder content for theme editor when no blocks are added */
+.placeholder-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-family: sans-serif;
+    color: #777;
+    font-size: 16px;
+    padding: 20px;
+    margin: 20px;
+}
