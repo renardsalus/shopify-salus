@@ -33,88 +33,88 @@
                   class="homepage-hero-carousel__content-column"
                   style="background-color: {{ section.settings.content_background_color }};"
                 >
-                  <div class="homepage-hero-carousel__content-wrapper">
-                    {% if block.settings.reviews_text != blank %}
-                      <div class="homepage-hero-carousel__reviews">
-                        {% if block.settings.show_stars %}
-                          <span class="homepage-hero-carousel__star-rating">
-                            {% render 'icon-star' %}
-                            {% render 'icon-star' %}
-                            {% render 'icon-star' %}
-                            {% render 'icon-star' %}
-                            {% render 'icon-star' %}
-                          </span>
-                        {% endif %}
-                        <p class="homepage-hero-carousel__reviews-text">{{ block.settings.reviews_text }}</p>
-                      </div>
-                    {% endif %}
-
-                    {% if block.settings.headline != blank %}
-                      <h2 class="homepage-hero-carousel__headline">{{ block.settings.headline }}</h2>
-                    {% endif %}
-
-                    {% if block.settings.description != blank %}
-                      <div class="homepage-hero-carousel__description">{{ block.settings.description }}</div>
-                    {% endif %}
-
-                    <div class="homepage-hero-carousel__cta-buttons">
-                      {% if block.settings.button1_link != blank and block.settings.button1_text != blank %}
-                        <a
-                          href="{{ block.settings.button1_link }}"
-                          class="homepage-hero-carousel__button homepage-hero-carousel__button--primary"
-                        >
-                          {{ block.settings.button1_text }}
-                          {% if block.settings.show_button1_arrow %}{% render 'icon-arrow-right-cta' %}{% endif %}
-                        </a>
+                  {% if block.settings.reviews_text != blank %}
+                    <div class="homepage-hero-carousel__reviews">
+                      {% if block.settings.show_stars %}
+                        <span class="homepage-hero-carousel__star-rating">
+                          {% render 'icon-star' %}
+                          {% render 'icon-star' %}
+                          {% render 'icon-star' %}
+                          {% render 'icon-star' %}
+                          {% render 'icon-star' %}
+                        </span>
                       {% endif %}
-                      {% if block.settings.button2_link != blank and block.settings.button2_text != blank %}
-                        <a
-                          href="{{ block.settings.button2_link }}"
-                          class="homepage-hero-carousel__button homepage-hero-carousel__button--secondary"
-                        >
-                          {% if block.settings.button2_icon != blank %}
-                            {% assign button2_icon_img = block.settings.button2_icon %}
-                            <img
-                              src="{{ button2_icon_img | image_url: '20x20' }}"
-                              alt="{{ button2_icon_img.alt | default: 'Button icon' }}"
-                              class="homepage-hero-carousel__button-icon"
-                              width="20"
-                              height="20"
-                              loading="lazy"
-                            >
-                          {% endif %}
-                          {{ block.settings.button2_text }}
-                        </a>
-                      {% endif %}
+                      <p class="homepage-hero-carousel__reviews-text">{{ block.settings.reviews_text }}</p>
                     </div>
+                  {% endif %}
 
-                    <ul class="homepage-hero-carousel__feature-list">
-                      {% if block.settings.feature_item_1 != blank %}
-                        <li class="homepage-hero-carousel__feature-item">
-                          {% render 'icon-checkmark' %}
-                          {{ block.settings.feature_item_1 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.feature_item_2 != blank %}
-                        <li class="homepage-hero-carousel__feature-item">
-                          {% render 'icon-checkmark' %}
-                          {{ block.settings.feature_item_2 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.feature_item_3 != blank %}
-                        <li class="homepage-hero-carousel__feature-item">
-                          {% render 'icon-checkmark' %}
-                          {{ block.settings.feature_item_3 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.feature_item_4 != blank %}
-                        <li class="homepage-hero-carousel__feature-item">
-                          {% render 'icon-checkmark' %}
-                          {{ block.settings.feature_item_4 }}
-                        </li>
-                      {% endif %}
-                    </ul>
+                  {% if block.settings.headline != blank %}
+                    <h2 class="homepage-hero-carousel__headline">{{ block.settings.headline }}</h2>
+                  {% endif %}
+
+                  {% if block.settings.description != blank %}
+                    <div class="homepage-hero-carousel__description">{{ block.settings.description }}</div>
+                  {% endif %}
+
+                  <div class="homepage-hero-carousel__cta-buttons">
+                    {% if block.settings.button1_link != blank and block.settings.button1_text != blank %}
+                      <a
+                        href="{{ block.settings.button1_link }}"
+                        class="homepage-hero-carousel__button homepage-hero-carousel__button--primary"
+                      >
+                        {{ block.settings.button1_text }}
+                        {% if block.settings.show_button1_arrow %}{% render 'icon-arrow-right-cta' %}{% endif %}
+                      </a>
+                    {% endif %}
+                    {% if block.settings.button2_link != blank and block.settings.button2_text != blank %}
+                      <a
+                        href="{{ block.settings.button2_link }}"
+                        class="homepage-hero-carousel__button homepage-hero-carousel__button--secondary"
+                      >
+                        {% if block.settings.button2_icon != blank %}
+                          {% assign button2_icon_img = block.settings.button2_icon %}
+                          <img
+                            src="{{ button2_icon_img | image_url: '20x20' }}"
+                            alt="{{ button2_icon_img.alt | default: 'Button icon' }}"
+                            class="homepage-hero-carousel__button-icon"
+                            width="20"
+                            height="20"
+                            loading="lazy"
+                          >
+                        {% endif %}
+                        {{ block.settings.button2_text }}
+                      </a>
+                    {% endif %}
                   </div>
+
+                  <ul class="homepage-hero-carousel__feature-list">
+                    {% if block.settings.feature_item_1 != blank %}
+                      <li class="homepage-hero-carousel__feature-item">
+                        {% render 'icon-checkmark' %}
+                        {{ block.settings.feature_item_1 }}
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature_item_2 != blank %}
+                      <li class="homepage-hero-carousel__feature-item">
+                        {% render 'icon-checkmark' %}
+                        {{ block.settings.feature_item_2 }}
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature_item_3 != blank %}
+                      <li class="homepage-hero-carousel__feature-item">
+                        {% render 'icon-checkmark' %}
+                        {{ block.settings.feature_item_3 }}
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature_item_4 != blank %}
+                      <li class="homepage-hero-carousel__feature-item">
+                        {% render 'icon-checkmark' %}
+                        {{ block.settings.feature_item_4 }}
+                      </li>
+                    {% endif %}
+                  </ul>
+                  {% comment %} <div class="homepage-hero-carousel__content-wrapper">
+                  </div> {% endcomment %}
                 </div>
 
                 <div class="homepage-hero-carousel__image-column">
@@ -238,9 +238,9 @@
       "id": "autoplay_speed",
       "label": "Autoplay Speed (ms)",
       "min": 3000,
-      "max": 9000,
-      "step": 1000,
-      "default": 5000,
+      "max": 9900,
+      "step": 100,
+      "default": 9900,
       "unit": "ms"
     },
     {

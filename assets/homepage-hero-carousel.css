@@ -40,8 +40,8 @@
 
 .homepage-hero-carousel__slide-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    /* Desktop: 50/50 split between content and image */
+    grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+    /* Desktop: 55/45 split between content and image */
     gap: 0;
     /* No gap between columns */
     width: 100%;
@@ -51,12 +51,16 @@
 /* --- Content Column (Left on Desktop, Overlay on Mobile) --- */
 .homepage-hero-carousel__content-column {
     /* Background color set via Liquid variable */
-    display: flex;
+    display: block;
     align-items: center;
     /* Vertically center content */
     justify-content: center;
     /* Horizontally center content */
-    padding: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+    padding-right: 30px;
+    scroll-padding-block: 80px;
     /* Generous padding around the content on desktop */
     flex: 1;
     flex-direction: column;
