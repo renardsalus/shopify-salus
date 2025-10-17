@@ -91,8 +91,9 @@
 }
 
 .homepage-hero-carousel__reviews-text {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.5;
+    font-weight: 500;
     color: #333;
     /* Dark gray for text */
     margin: 0;
@@ -101,10 +102,10 @@
 
 /* --- Headline --- */
 .homepage-hero-carousel__headline {
-    font-size: 48px;
+    font-size: 44px;
     /* Large headline for impact */
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: 400;
     /* Bold */
     color: #222;
     /* Very dark color for headline */
@@ -115,6 +116,7 @@
 /* --- Description --- */
 .homepage-hero-carousel__description {
     font-size: 18px;
+    font-weight: 400;
     line-height: 1.6;
     color: #555;
     /* Slightly lighter than headline */
@@ -141,10 +143,10 @@
     align-items: center;
     justify-content: center;
     padding: 18px 30px;
-    border-radius: 8px;
+    border-radius: 50px;
     /* Slightly rounded corners */
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     white-space: nowrap;
@@ -152,29 +154,30 @@
 }
 
 .homepage-hero-carousel__button--primary {
-    background-color: #222;
+    background-color: #222120;
     /* Dark background */
-    color: #fff;
+    color: #FBFBFB;
     /* White text */
-    border: 1px solid #222;
+    border: 1px solid #222120;
 }
 
 .homepage-hero-carousel__button--primary:hover {
-    background-color: #000;
-    border-color: #000;
+    background-color: #1F8A81;
+    border-color: #1F8A81;
 }
 
 .homepage-hero-carousel__button--secondary {
     background-color: transparent;
-    color: #222;
+    color: #222120;
     /* Dark text */
-    border: 1px solid #222;
+    border: 2px solid #222120;
     /* Dark border */
 }
 
 .homepage-hero-carousel__button--secondary:hover {
-    background-color: #222;
-    color: #fff;
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border: 2px solid #1F8A81;
 }
 
 .homepage-hero-carousel__button--primary svg,
@@ -182,7 +185,7 @@
     margin-left: 10px;
     /* Space for arrow icon */
     width: 16px;
-    height: 16px;
+    height: 19px;
     fill: currentColor;
     /* Inherit color from button text */
 }
