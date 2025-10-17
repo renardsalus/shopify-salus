@@ -40,11 +40,12 @@
 
 .homepage-hero-carousel__slide-inner {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    /* Desktop: Content column (left) is wider than image (right) */
+    grid-template-columns: 1fr 1fr;
+    /* Desktop: 50/50 split between content and image */
     gap: 0;
     /* No gap between columns */
     width: 100%;
+    height: 100%;
 }
 
 /* --- Content Column (Left on Desktop, Overlay on Mobile) --- */
@@ -198,7 +199,7 @@
     list-style: none;
     /* Remove default bullet points */
     padding: 0;
-    margin: 0 0 40px 0;
+    margin: 0;
 }
 
 .homepage-hero-carousel__feature-item {
@@ -221,19 +222,17 @@
     /* Prevent icon from shrinking */
 }
 
-/* --- Trust Badges --- */
+/* --- Trust Badges (REMOVED - STYLES NO LONGER NEEDED) --- */
+/*
 .homepage-hero-carousel__trust-badges {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    /* Allow badges to wrap */
     gap: 15px;
-    /* Space between badge elements */
 }
 
 .homepage-hero-carousel__truemed-logo {
     max-width: 150px;
-    /* Ensure logo doesn't get too large */
     height: auto;
     object-fit: contain;
 }
@@ -248,27 +247,31 @@
     width: 50px;
     height: 50px;
     object-fit: contain;
-    /* Ensure the image fits without cropping */
 }
-
+*/
 
 /* --- Image Column (Right on Desktop) --- */
 .homepage-hero-carousel__image-column {
     overflow: hidden;
+    position: relative;
     /* Hide anything that spills out, especially rounded corners if applied to img */
     display: flex;
+    flex: 1;
     /* Helps center image if it's smaller than column */
     justify-content: center;
     align-items: center;
     background-color: #f8f8f8;
     /* A subtle background in case image doesn't fill */
+    height: 100%;
 }
 
 .homepage-hero-carousel__image-column img {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
     /* Ensures image covers the area, cropping if necessary */
 }
 

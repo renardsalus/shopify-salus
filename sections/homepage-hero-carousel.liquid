@@ -22,7 +22,7 @@
     --homepage-hero-carousel-padding-bottom-mobile: {{ section.settings.section_padding_bottom_mobile }}px;
   "
 >
-  <div class="homepage-hero-carousel__wrapper">
+  <div class="homepage-hero-carousel__wrapper page-width">
     {% if section.blocks.size > 0 %}
       <div class="swiper-container homepage-hero-carousel__swiper">
         <div class="swiper-wrapper">
@@ -107,35 +107,13 @@
                           {{ block.settings.feature_item_3 }}
                         </li>
                       {% endif %}
+                      {% if block.settings.feature_item_4 != blank %}
+                        <li class="homepage-hero-carousel__feature-item">
+                          {% render 'icon-checkmark' %}
+                          {{ block.settings.feature_item_4 }}
+                        </li>
+                      {% endif %}
                     </ul>
-
-                    <div class="homepage-hero-carousel__trust-badges">
-                      {% if block.settings.truemed_logo != blank %}
-                        {% assign truemed_img = block.settings.truemed_logo %}
-                        <img
-                          src="{{ truemed_img | image_url: width: 30 }}"
-                          alt="{{ truemed_img.alt | default: 'Truemed Logo' }}"
-                          class="homepage-hero-carousel__truemed-logo"
-                          loading="lazy"
-                          width="{{ truemed_img.width }}"
-                          height="{{ truemed_img.height }}"
-                        >
-                      {% endif %}
-                      {% if block.settings.truemed_text != blank %}
-                        <p class="homepage-hero-carousel__truemed-text">{{ block.settings.truemed_text }}</p>
-                      {% endif %}
-                      {% if block.settings.bottom_trust_icon != blank %}
-                        {% assign bottom_icon_img = block.settings.bottom_trust_icon %}
-                        <img
-                          src="{{ bottom_icon_img | image_url: '50x50' }}"
-                          alt="{{ bottom_icon_img.alt | default: 'Trust Icon' }}"
-                          class="homepage-hero-carousel__bottom-trust-icon"
-                          loading="lazy"
-                          width="50"
-                          height="50"
-                        >
-                      {% endif %}
-                    </div>
                   </div>
                 </div>
 
@@ -144,7 +122,18 @@
                   {% assign mobile_image = block.settings.slide_image_mobile %}
 
                   {% if desktop_image != blank or mobile_image != blank %}
-                    <picture>
+                    {% if mobile_image != blank %}
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="{{ mobile_image | image_url: width: 767 }}"
+                        alt="{{ mobile_image.alt | escape | default: block.settings.mobile_image_alt }}"
+                      >
+                    {% endif %}
+                    <div 
+                      class="homepage-hero-carousel__image-column" 
+                      style="background-image: url({{ desktop_image | image_url: width: 1400 }});">
+                    </div>
+                    {% comment %} <picture>
                       {% if mobile_image != blank %}
                         <source
                           media="(max-width: 767px)"
@@ -160,7 +149,7 @@
                         height="{{ desktop_image.height }}"
                         loading="lazy"
                       >
-                    </picture>
+                    </picture> {% endcomment %}
                   {% else %}
                     {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
@@ -170,23 +159,13 @@
           {% endfor %}
         </div>
 
-        {% comment %}
-          {% if section.settings.show_navigation_arrows %}
-            <div class="swiper-button-prev homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--prev">
-              {% render 'icon-arrow-left' %}
-            </div>
-            <div class="swiper-button-next homepage-hero-carousel__nav-button homepage-hero-carousel__nav-button--next">
-              {% render 'icon-arrow-right' %}
-            </div>
-          {% endif %}
-        {% endcomment %}
         {% if section.settings.show_navigation_arrows %}
           <button class="carousel-arrow arrow-left margin-left-50">❮</button>
           <button class="carousel-arrow arrow-right margin-right-50">❯</button>
         {% endif %}
-        {% if section.settings.show_pagination_dots %}
+        {% comment %} {% if section.settings.show_pagination_dots %}
           <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
-        {% endif %}
+        {% endif %} {% endcomment %}
       </div>
     {% else %}
       <div class="placeholder-content">
@@ -200,17 +179,16 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Only initialize if the element exists to prevent errors on pages without the section
     const carouselElement = document.querySelector('.homepage-hero-carousel__swiper');
     if (carouselElement) {
       const swiper = new Swiper(carouselElement, {
         loop: {{ section.settings.enable_loop }},
         autoplay: {{ section.settings.enable_autoplay }} ? {
           delay: {{ section.settings.autoplay_speed }},
-          disableOnInteraction: false, // Continue autoplay even after user interaction
+          disableOnInteraction: false,
         } : false,
-        speed: 800, // Animation speed
-        grabCursor: true, // Show grab cursor when hovering over slides
+        speed: 800,
+        grabCursor: true,
 
         pagination: {
           el: '.homepage-hero-carousel__pagination',
@@ -218,11 +196,10 @@
         },
 
         navigation: {
-          nextEl: '.carousel-arrow.arrow-right', // Targets your new right arrow button
-          prevEl: '.carousel-arrow.arrow-left',  // Targets your new left arrow button
+          nextEl: '.carousel-arrow.arrow-right',
+          prevEl: '.carousel-arrow.arrow-left',
         },
 
-        // Accessibility (Swiper has good defaults, but we explicitly enable some)
         a11y: {
           enabled: true,
           prevSlideMessage: 'Previous slide',
@@ -231,13 +208,6 @@
           lastSlideMessage: 'This is the last slide',
           paginationBulletMessage: '{% raw %}Go to slide {{index}}{% endraw %}',
         },
-
-        // Responsive breakpoints can be added here if needed, but for now we'll handle layout with CSS
-        // breakpoints: {
-        //   768: {
-        //     slidesPerView: 1, // Example: one slide per view on larger screens
-        //   }
-        // }
       });
     }
   });
@@ -463,26 +433,10 @@
           "info": "Leave blank to hide."
         },
         {
-          "type": "header",
-          "content": "Trust/Financing Badges"
-        },
-        {
-          "type": "image_picker",
-          "id": "truemed_logo",
-          "label": "Truemed Logo",
-          "info": "Leave blank to hide."
-        },
-        {
           "type": "text",
-          "id": "truemed_text",
-          "label": "Truemed Text",
+          "id": "feature_item_4",
+          "label": "Feature Item 4",
           "default": "FSA/HSA Eligible & Flexible Financing",
-          "info": "Leave blank to hide."
-        },
-        {
-          "type": "image_picker",
-          "id": "bottom_trust_icon",
-          "label": "Bottom Trust Icon (e.g., 'H' logo)",
           "info": "Leave blank to hide."
         }
       ]
