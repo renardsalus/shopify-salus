@@ -32,7 +32,7 @@
 .homepage-reviews-slider__card {
     background-color: #FFFFFF;
     border-radius: 8px;
-    padding: 40px;
+    /* padding: 40px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,7 +40,7 @@
     text-align: center; /* Keep this for overall card centering, adjust internal elements */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     height: 100%;
-    max-width: 320px;
+    max-width: 400px;
 }
 
 .homepage-reviews-slider__quote-icon {
