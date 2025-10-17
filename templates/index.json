@@ -302,6 +302,16 @@
         "section_padding_bottom_mobile": 0
       }
     },
+    "product_carousel_p9jgXD": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Explore All Traditional Saunas",
+        "button_collection": "traditional-sauna-v2",
+        "products_to_display_collection": "traditional-saunas-highlight"
+      }
+    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -398,16 +408,6 @@
         "logo_grid_align": "justify-center",
         "color_scheme": "none",
         "full_width": true
-      }
-    },
-    "product_carousel_p9jgXD": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
-        "button_collection": "traditional-sauna-v2",
-        "products_to_display_collection": "traditional-saunas-highlight"
       }
     },
     "product_carousel_MGky87": {
@@ -1177,8 +1177,8 @@
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
     "homepage_reviews_slider_2_gCdyWL",
-    "logo_list_DaqLFK",
     "product_carousel_p9jgXD",
+    "logo_list_DaqLFK",
     "product_carousel_MGky87",
     "multi-column",
     "testimonials_YnNhRy",
