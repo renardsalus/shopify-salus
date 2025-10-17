@@ -93,7 +93,7 @@
             "feature_item_1": "Free Shipping on all US orders",
             "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
             "feature_item_3": "Trusted by health professionals and athletes",
-            "truemed_text": "FSA/HSA Eligible & Flexible Financing"
+            "feature_item_4": "FSA/HSA Eligible & Flexible Financing"
           }
         },
         "hero_slide_fXR8VU": {
@@ -115,7 +115,7 @@
             "feature_item_1": "Free Shipping on all US orders",
             "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
             "feature_item_3": "Trusted by health professionals and athletes",
-            "truemed_text": "FSA/HSA Eligible & Flexible Financing"
+            "feature_item_4": "FSA/HSA Eligible & Flexible Financing"
           }
         },
         "hero_slide_pqxaYP": {
@@ -137,7 +137,7 @@
             "feature_item_1": "Free Shipping on all US orders",
             "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
             "feature_item_3": "Trusted by health professionals and athletes",
-            "truemed_text": "FSA/HSA Eligible & Flexible Financing"
+            "feature_item_4": "FSA/HSA Eligible & Flexible Financing"
           }
         }
       },
@@ -296,8 +296,8 @@
         "show_navigation_arrows": true,
         "button_label": "Show me more reviews",
         "button_link": "shopify://pages/reviews",
-        "section_padding_top_desktop": 0,
-        "section_padding_bottom_desktop": 0,
+        "section_padding_top_desktop": 50,
+        "section_padding_bottom_desktop": 50,
         "section_padding_top_mobile": 0,
         "section_padding_bottom_mobile": 0
       }
