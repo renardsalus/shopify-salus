@@ -295,7 +295,7 @@
       "settings": {
         "show_navigation_arrows": true,
         "button_label": "Show me more reviews",
-        "button_link": "",
+        "button_link": "shopify://pages/reviews",
         "section_padding_top_desktop": 0,
         "section_padding_bottom_desktop": 0,
         "section_padding_top_mobile": 0,
