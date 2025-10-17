@@ -40,7 +40,7 @@
 
 .homepage-hero-carousel__slide-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     /* Desktop: 50/50 split between content and image */
     gap: 0;
     /* No gap between columns */
@@ -58,6 +58,8 @@
     /* Horizontally center content */
     padding: 80px;
     /* Generous padding around the content on desktop */
+    flex: 1;
+    flex-direction: column;
 }
 
 .homepage-hero-carousel__content-wrapper {
@@ -257,12 +259,16 @@
     /* Hide anything that spills out, especially rounded corners if applied to img */
     display: flex;
     flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     /* Helps center image if it's smaller than column */
     justify-content: center;
     align-items: center;
     background-color: #f8f8f8;
     /* A subtle background in case image doesn't fill */
     height: 100%;
+    min-height: 550px;
 }
 
 .homepage-hero-carousel__image-column img {
