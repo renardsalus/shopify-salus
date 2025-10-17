@@ -9,94 +9,6 @@
  */
 {
   "sections": {
-    "image_slideshow_grM3zD": {
-      "type": "image-slideshow",
-      "blocks": {
-        "slide_TkJRQw": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-1-new.png"
-          }
-        },
-        "slide_Xe4ieb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-4-new.png"
-          }
-        },
-        "slide_9tkLYm": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-3.png"
-          }
-        },
-        "slide_QVBxtb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/200821_King_Nordic_Front_View_c936965f-3a28-43e1-9b53-5911fb8ed978.webp"
-          }
-        },
-        "slide_UxebLE": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/SaunaPNGs_84.webp"
-          }
-        },
-        "slide_hhVfEq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-1-new.png"
-          }
-        },
-        "slide_MNTkGg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-2-new.webp"
-          }
-        },
-        "slide_mXqpgc": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-3.png"
-          }
-        },
-        "slide_VEaFT9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/240820_Gran_Nordic_Front_Glass_Front_View_1f34ceec-4462-47ff-8436-4d004351376c.webp"
-          }
-        },
-        "slide_Rdqnc3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_38.webp"
-          }
-        }
-      },
-      "block_order": [
-        "slide_TkJRQw",
-        "slide_Xe4ieb",
-        "slide_9tkLYm",
-        "slide_QVBxtb",
-        "slide_UxebLE",
-        "slide_hhVfEq",
-        "slide_MNTkGg",
-        "slide_mXqpgc",
-        "slide_VEaFT9",
-        "slide_Rdqnc3"
-      ],
-      "settings": {
-        "backgpround_image": "shopify://shop_images/image-slideshow-bg.png",
-        "subheading": "USA’S ONE STOP SAUNA SHOP",
-        "heading": "The best in home saunas you’ll ever find",
-        "content": "<p>Whether you need a traditional sauna, infrared sauna, hybrid sauna, or a cold plunge, you’re in the right place.</p>",
-        "btn_label1": "Browse all saunas",
-        "btn_link1": "shopify://collections/all-saunas",
-        "btn_label2": "Browse cold plunges",
-        "btn_link2": "shopify://collections/cold-plunges",
-        "note": "Join the happy customers we’ve served for 14 years"
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -157,83 +69,6 @@
         "tint_opacity": 0,
         "accessibility_info": "",
         "prevent_animation": true
-      }
-    },
-    "icons_with_text_fkdCn4": {
-      "type": "icons-with-text",
-      "blocks": {
-        "item_nWjEMq": {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "custom_icon": "shopify://shop_images/rating-new.svg",
-            "icon_size": 62,
-            "heading": "",
-            "text": "<p>282+ Google reviews</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_L8XHzP": {
-          "type": "item",
-          "settings": {
-            "icon": "price_tag",
-            "custom_icon": "shopify://shop_images/free-shipping.svg",
-            "icon_size": 34,
-            "heading": "",
-            "text": "<p>Free shipping across USA</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_Eg8jRm": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "custom_icon": "shopify://shop_images/rating-a.svg",
-            "icon_size": 40,
-            "heading": "",
-            "text": "<p>BBB Rating & Accreditation</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_czCKfC": {
-          "type": "item",
-          "settings": {
-            "icon": "chat_bubble",
-            "custom_icon": "shopify://shop_images/min-price.svg",
-            "icon_size": 34,
-            "heading": "",
-            "text": "<p>as low as $270/mo</p>",
-            "link-text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_nWjEMq",
-        "item_L8XHzP",
-        "item_Eg8jRm",
-        "item_czCKfC"
-      ],
-      "settings": {
-        "sec_layout": "slider",
-        "vertical_spacing": false,
-        "number_of_slides": "2",
-        "heading": "",
-        "heading_align": "text-start",
-        "text_layout": "1",
-        "icon_size": 40,
-        "title_type_scale": "medium",
-        "text_type_scale": "medium",
-        "icon_position": "beside",
-        "mobile_stack": false,
-        "section_height": "medium",
-        "color_scheme": "none",
-        "full_width": true,
-        "dividers": "none",
-        "prevent_animation": false
       }
     },
     "homepage_hero_carousel_iKVfwn": {
@@ -395,88 +230,6 @@
         "open_email": true
       }
     },
-    "homepage_reviews_slider_kHWDwK": {
-      "type": "homepage-reviews-slider",
-      "blocks": {
-        "review_card_Vgn8n6": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 1",
-            "is_verified": true
-          }
-        },
-        "review_card_UqFpze": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 2",
-            "is_verified": true
-          }
-        },
-        "review_card_fwyVYz": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 3",
-            "is_verified": true
-          }
-        },
-        "review_card_yxYqwe": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 4",
-            "is_verified": true
-          }
-        },
-        "review_card_7KUjRY": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 5",
-            "is_verified": true
-          }
-        }
-      },
-      "block_order": [
-        "review_card_Vgn8n6",
-        "review_card_UqFpze",
-        "review_card_fwyVYz",
-        "review_card_yxYqwe",
-        "review_card_7KUjRY"
-      ],
-      "name": "Homepage Reviews Slider",
-      "settings": {
-        "enable_autoplay": true,
-        "autoplay_speed": 5000,
-        "enable_loop": true,
-        "show_navigation_arrows": true,
-        "show_pagination_dots": true,
-        "slides_per_view_desktop": 3.5,
-        "slides_per_group_desktop": 1,
-        "space_between_slides_desktop": 20,
-        "slides_per_view_mobile": 1.5,
-        "slides_per_group_mobile": 1,
-        "space_between_slides_mobile": 15,
-        "button_label": "Show me more reviews",
-        "button_link": "shopify://pages/reviews",
-        "section_padding_top_desktop": 0,
-        "section_padding_bottom_desktop": 0,
-        "section_padding_top_mobile": 0,
-        "section_padding_bottom_mobile": 0
-      }
-    },
     "homepage_reviews_slider_2_gCdyWL": {
       "type": "homepage-reviews-slider-2",
       "blocks": {
@@ -543,10 +296,10 @@
         "show_navigation_arrows": true,
         "button_label": "Show me more reviews",
         "button_link": "",
-        "section_padding_top_desktop": 80,
-        "section_padding_bottom_desktop": 80,
-        "section_padding_top_mobile": 40,
-        "section_padding_bottom_mobile": 40
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
       }
     },
     "logo_list_DaqLFK": {
@@ -1409,13 +1162,10 @@
     }
   },
   "order": [
-    "image_slideshow_grM3zD",
     "slideshow",
-    "icons_with_text_fkdCn4",
     "homepage_hero_carousel_iKVfwn",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
-    "homepage_reviews_slider_kHWDwK",
     "homepage_reviews_slider_2_gCdyWL",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
