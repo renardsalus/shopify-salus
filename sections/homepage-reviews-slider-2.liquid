@@ -78,15 +78,15 @@
         {{ 'no_content' | t }}
       </div>
     {% endif %}
+    {% if section.settings.show_navigation_arrows %}
+      <button class="carousel-arrow arrow-left homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--prev">
+        {% render 'icon-arrow-left' %}
+      </button>
+      <button class="carousel-arrow arrow-right homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--next">
+        {% render 'icon-arrow-right' %}
+      </button>
+    {% endif %}
   </div>
-  {% if section.settings.show_navigation_arrows %}
-    <button class="carousel-arrow arrow-left homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--prev">
-      {% render 'icon-arrow-left' %}
-    </button>
-    <button class="carousel-arrow arrow-right homepage-reviews-slider__nav-button homepage-reviews-slider__nav-button--next">
-      {% render 'icon-arrow-right' %}
-    </button>
-  {% endif %}
 </section>
 
 <script src="{{ 'homepage-reviews-carousel.js' | asset_url }}" defer="defer"></script>
