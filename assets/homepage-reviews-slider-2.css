@@ -38,7 +38,6 @@
     justify-content: space-between;
     align-items: center; /* Keep this for overall card centering, adjust internal elements */
     text-align: center; /* Keep this for overall card centering, adjust internal elements */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     height: 100%;
     max-width: 400px;
 }
@@ -179,6 +178,7 @@
     .homepage-reviews-slider__title {
         font-size: 18px;
         margin-bottom: 20px;
+        line-height: normal;
     }
 
     .homepage-reviews-slider__author-details {

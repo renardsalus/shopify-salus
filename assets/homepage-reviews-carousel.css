@@ -78,25 +78,30 @@
     fill: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .review-slide {
         flex: 0 0 calc((100% / 1.5) - (15px * (1.5 - 1) / 1.5));
         margin-right: 15px;
     }
 
+    .carousel-track {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .homepage-reviews-slider__carousel {
+        margin-top: 0px;
+    }
+
     .homepage-reviews-slider__nav-button {
         display: none;
     }
-}
 
-@media screen and (max-width: 767px) {
     .homepage-reviews-slider__wrapper {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
-}
 
-@media screen and (min-width: 768px) {
     .homepage-reviews-slider__nav-button {
         display: flex;
     }
