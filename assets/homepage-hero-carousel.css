@@ -351,16 +351,16 @@
       Using aspect-ratio is a modern way to maintain image shape.
     */
     .homepage-hero-carousel__image-column {
-        height: auto;
+        height: 200px;
         min-height: 0; /* Reset min-height */
-        aspect-ratio: 4 / 3; /* Give the image a default shape, adjust if needed */
+        /* aspect-ratio: 4 / 3; Give the image a default shape, adjust if needed */
     }
     
     /* The image itself should cover its container. */
     .homepage-hero-carousel__image-column img,
     .homepage-hero-carousel__image {
         position: static; /* Let the image sit naturally in the document flow */
-        height: 100%;
+        height: 200px;
         width: 100%;
         object-fit: cover;
     }
