@@ -87,9 +87,9 @@
 }
 
 .homepage-hero-carousel__star-rating svg {
-    width: 20px;
+    width: 16px;
     /* Size of star icon */
-    height: 20px;
+    height: 16px;
     fill: #38A169;
     /* Green color for stars, matching example */
 }
@@ -306,12 +306,28 @@
     /* Active dot color (green from stars/checkmarks) */
 }
 
+.homepage-hero-carousel-desktop {
+    display: block;
+}
+
+.homepage-hero-carousel-mobile {
+    display: none;
+}
+
 
 /* --- Mobile Styles (max-width: 767px) --- */
 @media screen and (max-width: 767px) {
     .homepage-hero-carousel {
         padding-top: var(--homepage-hero-carousel-padding-top-mobile);
         padding-bottom: var(--homepage-hero-carousel-padding-bottom-mobile);
+    }
+
+    .homepage-hero-carousel-desktop {
+        display: none;
+    }
+
+    .homepage-hero-carousel-mobile {
+        display: block;
     }
 
     /*
@@ -365,12 +381,12 @@
     }
 
     .homepage-hero-carousel__description {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 25px;
     }
 
     .homepage-hero-carousel__reviews-text {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .homepage-hero-carousel__reviews {

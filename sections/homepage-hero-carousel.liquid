@@ -122,15 +122,19 @@
                   {% assign mobile_image = block.settings.slide_image_mobile %}
 
                   {% if desktop_image != blank or mobile_image != blank %}
-                    {% if mobile_image != blank %}
+                    {% comment %} {% if mobile_image != blank %}
                       <source
                         media="(max-width: 767px)"
                         srcset="{{ mobile_image | image_url: width: 767 }}"
                         alt="{{ mobile_image.alt | escape | default: block.settings.mobile_image_alt }}"
                       >
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                     <div 
-                      class="homepage-hero-carousel__image-column" 
+                      class="homepage-hero-carousel__image-column homepage-hero-carousel-mobile" 
+                      style="background-image: url({{ mobile_image | image_url: width: 768 }});">
+                    </div>
+                    <div 
+                      class="homepage-hero-carousel__image-column homepage-hero-carousel-desktop" 
                       style="background-image: url({{ desktop_image | image_url: width: 1400 }});">
                     </div>
                     {% comment %} <picture>
