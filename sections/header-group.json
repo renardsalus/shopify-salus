@@ -291,7 +291,7 @@
       ],
       "settings": {
         "enable_sticky": true,
-        "mobile_menu_position": "burger-right",
+        "mobile_menu_position": "burger-left",
         "logo_text": "",
         "logo_type_scale": "2",
         "logo": "{{ shop.brand.logo }}",
@@ -299,7 +299,7 @@
         "logo_h1": true,
         "logo_center": false,
         "enable_search": true,
-        "minimise_search_mobile": false,
+        "minimise_search_mobile": true,
         "minimise_search_desktop": false,
         "menu": "main-menu-2-0",
         "menu_center": true,
