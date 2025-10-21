@@ -25,7 +25,7 @@
         "announcement_q8b3be": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Have questions? Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
+            "text": "<p>Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
             "icon_select": "none"
           }
         },
