@@ -1,6 +1,6 @@
 {% comment %}
   Section: Celebrity Testimonials
-  Description: Displays testimonials from athletes and figures with optional videos.
+  Description: Displays testimonials from athletes and figures, supporting either static images with quotes/stars or video files from Shopify Files.
 {% endcomment %}
 
 <style>
@@ -75,6 +75,11 @@
     cursor: pointer;
     z-index: 10;
     border: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .testimonial-card__play-button:hover {
+    background-color: rgba(255, 255, 255, 1);
   }
 
   .testimonial-card__play-button svg {
@@ -92,9 +97,15 @@
   }
 
   .testimonial-card__stars {
+    display: flex; /* Arrange stars horizontally */
+    gap: 2px; /* Space between stars */
     margin-bottom: 10px;
-    height: 16px; /* Adjust height based on SVG size */
-    width: 80px; /* Adjust width based on SVG size */
+    height: 20px; /* Adjust height based on icon-star SVG size */
+  }
+
+  .testimonial-card__stars svg {
+    width: 16px; /* Adjust individual star size */
+    height: 16px;
   }
 
   .testimonial-card__quote {
@@ -165,67 +176,12 @@
     position: relative;
     width: 90%;
     max-width: 900px; /* Max width for video */
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     background-color: #000;
     border-radius: 8px;
     overflow: hidden;
   }
 
-  .video-modal__content iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  .video-modal__close {
-    position: absolute;
-    top: -30px; /* Position outside the video content */
-    right: -30px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 10000;
-  }
-
-  /* Video Modal Styling */
-  .video-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-  }
-
-  .video-modal.is-active {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-
-  .video-modal__content {
-    position: relative;
-    width: 90%;
-    /* Removed fixed padding-bottom as video element will handle aspect ratio */
-    max-width: 900px; /* Max width for video */
-    background-color: #000;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .video-modal__player-container { /* Renamed from iframe-container */
+  .video-modal__player-container {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio for video */
@@ -253,76 +209,33 @@
     cursor: pointer;
     z-index: 10000;
   }
-
-  .five-stars {
-    display: flex;
-  }
   @media (max-width: 767px) {
     .video-modal__close {
       top: 10px;
       right: 10px;
       font-size: 24px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
   }
 
-  /* Responsive Grid Settings */
-  /* Mobile */
-  @media screen and (max-width: 767px) {
-    .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.mobile_cards_per_row }}, 1fr);
-    }
-  }
-
-  /* Tablet */
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
-    }
-  }
-
-  /* Desktop */
-  @media screen and (min-width: 1024px) {
-    .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
-    }
-  }
-
-  @media (max-width: 767px) {
-    .video-modal__close {
-      top: 10px;
-      right: 10px;
-      font-size: 24px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-  }
-
-  /* Responsive Grid Settings */
-  /* Mobile: 1 card per row (default) */
+  /* Responsive Grid Settings - Mobile First */
   .celebrity-testimonials__grid {
-    grid-template-columns: repeat({{ section.settings.mobile_cards_per_row }}, 1fr);
+    /* Base style for smallest screens (mobile) */
+    grid-template-columns: repeat({{section.settings.mobile_cards_per_row}}, 1fr);
   }
 
   /* Tablet */
   @media screen and (min-width: 768px) {
     .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
+      grid-template-columns: repeat({{section.settings.tablet_cards_per_row}}, 1fr);
     }
   }
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
     .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
+      grid-template-columns: repeat({{section.settings.desktop_cards_per_row}}, 1fr);
     }
-
-    {% comment %} /* Hide cards beyond the 10th on desktop only */
-    {%- assign desktop_limit = 10 -%}
-    {% if section.blocks.size > desktop_limit %}
-      .celebrity-testimonials__grid .testimonial-card:nth-child(n + {{ desktop_limit | plus: 1 }}) {
-        display: none;
-      }
-    {% endif %} {% endcomment %}
   }
 </style>
 
@@ -365,16 +278,11 @@
               {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
             {% endif %}
 
-            {% if block.settings.media_reference != blank %}
+            {% comment %} Play button only for video cards {% endcomment %}
+            {% if block.type == 'video-testimonial-card' and block.settings.video_file != blank %}
               <button
                 class="testimonial-card__play-button"
-                data-video-sources="{{ block.settings.media_reference | json | escape }}"
-                {#
-                Pass
-                sources
-                as
-                JSON
-                #}
+                data-video-sources="{{ block.settings.video_file.sources | json | escape }}"
                 aria-label="Play video by {{ block.settings.name | escape }}"
               >
                 <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="currentColor">
@@ -385,13 +293,11 @@
           </div>
 
           <div class="testimonial-card__content">
-            {% if block.settings.media_reference == blank %}
-              <div class="five-stars">
-                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
-                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
-                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
-                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
-                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+            {% if block.type == 'static-testimonial-card' %}
+              <div class="testimonial-card__stars">
+                {% for i in (1..5) %}
+                  {% render 'icon-star' %}
+                {% endfor %}
               </div>
               {% if block.settings.quote != blank %}
                 <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
@@ -416,6 +322,7 @@
   {% endif %}
 </div>
 
+{# Video Modal HTML - Hidden by default #}
 <div class="video-modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="video-modal__content">
     <button class="video-modal__close" aria-label="Close video player">&times;</button>
@@ -437,6 +344,7 @@
       videoElement.setAttribute('controls', '');
       videoElement.setAttribute('playsinline', ''); // Important for mobile
       videoElement.setAttribute('loop', ''); // Optional: loop video
+      videoElement.setAttribute('preload', 'auto'); // Preload for better UX
 
       videoSources.forEach((source) => {
         const sourceElement = document.createElement('source');
@@ -569,26 +477,50 @@
   ],
   "blocks": [
     {
-      "type": "testimonial-card",
-      "name": "Testimonial Card",
+      "type": "static-testimonial-card",
+      "name": "Image Testimonial",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
           "label": "Testimonial Image",
-          "info": "Used as thumbnail for video or static image. (Required)"
-        },
-        {
-          "type": "video",
-          "id": "media_reference",
-          "label": "Video File (from Shopify Files)",
-          "info": "Select a video file from your Shopify Files. If selected, quote and stars will be hidden."
+          "info": "Required. The main image for this static testimonial."
         },
         {
           "type": "text",
           "id": "quote",
           "label": "Quote",
-          "info": "e.g. 'A game changer!' Only shown for image cards."
+          "info": "e.g. 'A game changer!'"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Name Surname"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Title/Affiliation"
+        }
+      ]
+    },
+    {
+      "type": "video-testimonial-card",
+      "name": "Video Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Video Thumbnail Image",
+          "info": "Required. An image to display as the video thumbnail."
+        },
+        {
+          "type": "video",
+          "id": "video_file",
+          "label": "Video File (from Shopify Files)",
+          "info": "Select a video file from your Shopify 'Content > Files'."
         },
         {
           "type": "text",
@@ -610,7 +542,7 @@
       "name": "Celebrity Testimonials",
       "blocks": [
         {
-          "type": "testimonial-card",
+          "type": "static-testimonial-card",
           "settings": {
             "name": "Wes Kitts",
             "description": "US Olympian, Weightlifting Champion",
@@ -618,7 +550,7 @@
           }
         },
         {
-          "type": "testimonial-card",
+          "type": "static-testimonial-card",
           "settings": {
             "name": "Teixeira Family",
             "description": "Former UFC Lightweight Champion",
@@ -626,15 +558,15 @@
           }
         },
         {
-          "type": "testimonial-card",
+          "type": "video-testimonial-card",
           "settings": {
             "name": "Joe Rogan",
             "description": "Host of the JRE Podcast, Comedian"
-            // No video_url here, this would be a file reference in actual use
+            // video_file needs to be manually selected in theme editor after adding this preset
           }
         },
         {
-          "type": "testimonial-card",
+          "type": "static-testimonial-card",
           "settings": {
             "name": "Frankie Edgar",
             "description": "Former UFC Lightweight Champion",
@@ -642,10 +574,11 @@
           }
         },
         {
-          "type": "testimonial-card",
+          "type": "video-testimonial-card",
           "settings": {
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
+            // video_file needs to be manually selected in theme editor after adding this preset
           }
         }
       ]
