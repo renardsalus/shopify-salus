@@ -466,10 +466,58 @@
           "type": "testimonial-card",
           "settings": {
             "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
-            "video_url": "https://www.youtube.com/watch?v=Qh_i4k_eS_U",
+            "video_url": "",
             "quote": "",
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "testimonial_card_AwmPtn": {
+          "type": "testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
+            "video_url": "",
+            "quote": "",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "testimonial_card_NeXRnE": {
+          "type": "testimonial-card",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "quote": "",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
+        "testimonial_card_HkAy7p": {
+          "type": "testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
+            "video_url": "",
+            "quote": "",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "testimonial_card_kNwWiy": {
+          "type": "testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
+            "video_url": "",
+            "quote": "",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "testimonial_card_rHGKWw": {
+          "type": "testimonial-card",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "quote": "",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
           }
         }
       },
@@ -478,7 +526,12 @@
         "testimonial_card_LA9yRt",
         "testimonial_card_L3JcAk",
         "testimonial_card_FDp3X6",
-        "testimonial_card_8zpb3y"
+        "testimonial_card_8zpb3y",
+        "testimonial_card_AwmPtn",
+        "testimonial_card_NeXRnE",
+        "testimonial_card_HkAy7p",
+        "testimonial_card_kNwWiy",
+        "testimonial_card_rHGKWw"
       ],
       "name": "Celebrity Testimonials",
       "settings": {
