@@ -444,7 +444,6 @@
         "video_testimonial_card_mzgML6": {
           "type": "video-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/Joe_Rogan.jpg",
             "video_file": "shopify://files/videos/joe_rogan_loves_salus_saunas (720p).mp4",
             "name": "Joe Rogan",
             "description": "Host of the JRE Podcast, Comedian"
@@ -462,7 +461,7 @@
         "video_testimonial_card_fizjEq": {
           "type": "video-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/Sauna_Stock_Images_4_2_mobile.png",
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
           }
