@@ -420,6 +420,120 @@
         "products_to_display_collection": "infrared-saunas-highlight"
       }
     },
+    "celebrity_testimonials_PmJ8Jr": {
+      "type": "celebrity-testimonials",
+      "blocks": {
+        "static_testimonial_card_wpMAki": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
+            "quote": "Incredible results!",
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion"
+          }
+        },
+        "static_testimonial_card_FBWDFt": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/lady-in-a-sauna_1.jpg",
+            "quote": "A game changer!",
+            "name": "Teixeira Family",
+            "description": "Former UFC Lightweight Champion"
+          }
+        },
+        "video_testimonial_card_mzgML6": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Joe_Rogan.jpg",
+            "video_file": "shopify://files/videos/joe_rogan_loves_salus_saunas (720p).mp4",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
+        "static_testimonial_card_9rtKQM": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/6669ef64cc2409100b39c487_sauna_6c436b67-8e59-48e7-a2a3-39333f43240b.jpg",
+            "quote": "A game changer!",
+            "name": "Frankie Edgar",
+            "description": "Former UFC Lightweight Champion"
+          }
+        },
+        "video_testimonial_card_fizjEq": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Sauna_Stock_Images_4_2_mobile.png",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "static_testimonial_card_y67QUG": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-21T110804.574.png",
+            "quote": "Incredible results!",
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion"
+          }
+        },
+        "static_testimonial_card_Hx8PjX": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/Cleaning_a_sauna.jpg",
+            "quote": "A game changer!",
+            "name": "Teixeira Family",
+            "description": "Former UFC Lightweight Champion"
+          }
+        },
+        "video_testimonial_card_tTAN4C": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Sean Brady - Video - Salus Saunas.mp4",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
+        "static_testimonial_card_nKqad4": {
+          "type": "static-testimonial-card",
+          "settings": {
+            "image": "shopify://shop_images/a_person_cleaning_the_exterior_of_an_outdoor_suana.jpg",
+            "quote": "A game changer!",
+            "name": "Frankie Edgar",
+            "description": "Former UFC Lightweight Champion"
+          }
+        },
+        "video_testimonial_card_d3JW4C": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQOvyAPEZ5Po3Rc3Y01XMRTT49KfXas1fUni8yAAkV2HXCRa-4Pkf6KW3hIJrKezEHEA7WEW2r02qFzLHWX3xE08q5PGy8tLqjAThBc.mp4",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        }
+      },
+      "block_order": [
+        "static_testimonial_card_wpMAki",
+        "static_testimonial_card_FBWDFt",
+        "video_testimonial_card_mzgML6",
+        "static_testimonial_card_9rtKQM",
+        "video_testimonial_card_fizjEq",
+        "static_testimonial_card_y67QUG",
+        "static_testimonial_card_Hx8PjX",
+        "video_testimonial_card_tTAN4C",
+        "static_testimonial_card_nKqad4",
+        "video_testimonial_card_d3JW4C"
+      ],
+      "name": "Celebrity Testimonials",
+      "settings": {
+        "subheading": "<p>100s of verified 5-star reviews</p>",
+        "heading": "Trusted by leading athletes & figures",
+        "button_text": "See More",
+        "button_link": "",
+        "desktop_cards_per_row": 5,
+        "tablet_cards_per_row": 2,
+        "mobile_cards_per_row": 2
+      }
+    },
     "multi-column": {
       "type": "multi-column",
       "blocks": {
@@ -1180,6 +1294,7 @@
     "product_carousel_p9jgXD",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
+    "celebrity_testimonials_PmJ8Jr",
     "multi-column",
     "testimonials_YnNhRy",
     "video",
