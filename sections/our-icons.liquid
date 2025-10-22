@@ -1,812 +1,536 @@
-{%- comment -%}theme-check-disable LiquidTag{%- endcomment -%}
-{%- if section.blocks.size > 0 -%}
-  {%- liquid
-    # constants
-    assign breakpoint_sm = 600
-    assign breakpoint_md = 769
-    assign breakpoint_lg = 1024
+<style>
+  .celebrity-testimonials {
+    padding: 40px 0;
+    text-align: center;
+  }
 
-    assign color_scheme = section.settings.color_scheme
+  .celebrity-testimonials__header {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
 
-    if section.settings.image_ratio == 'shortest'
-      assign image_ratio = 0
-      for block in section.blocks
-        assign this_image_ratio = block.settings.image.aspect_ratio | default: 1.77
-        if this_image_ratio > image_ratio
-          assign image_ratio = this_image_ratio
-        endif
-      endfor
-    elsif section.settings.image_ratio == 'tallest'
-      assign image_ratio = 99
-      for block in section.blocks
-        assign this_image_ratio = block.settings.image.aspect_ratio | default: 1.77
-        if this_image_ratio < image_ratio
-          assign image_ratio = this_image_ratio
-        endif
-      endfor
-    else
-      assign image_ratio = section.settings.image_ratio
-    endif
-  -%}
-  {% style %}
-    {% if section.settings.column_size == 'small' %}
-      @media (min-width: {{ breakpoint_sm }}px) {
-        #{{ section.id }} .multi-column {
-          width: calc(50% - var(--column-gap));
-        }
-      }
-      @media (min-width: {{ breakpoint_md }}px) {
-        #{{ section.id }} .multi-column {
-          width: calc((100% / 3) - var(--column-gap));
-        }
-      }
-      @media (min-width: {{ breakpoint_lg }}px) {
-        #{{ section.id }}.g-large .multi-column {
-          width: calc(25% - 80px);
-        }
-        #{{ section.id }} .multi-column {
-          width: calc(25% - var(--column-gap));
-        }
-      }
-    {% else %}
-      @media (min-width: {{ breakpoint_md }}px) {
-        #{{ section.id }} .multi-column {
-          width: calc(50% - var(--column-gap));
-        }
-      }
-      {% if section.settings.column_size == 'medium' %}
-        @media (min-width: {{ breakpoint_lg }}px) {
-          #{{ section.id }} .multi-column {
-            width: calc((100% / 3) - var(--column-gap));
-          }
-        }
-      {% endif %}
+  .celebrity-testimonials__subheading {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .celebrity-testimonials__heading {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .celebrity-testimonials__grid {
+    display: grid;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: var(--page-width, 1400px);
+    padding: 0 15px;
+  }
+
+  .testimonial-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-card__media-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2; /* Keep image above video for initial state */
+  }
+
+  .testimonial-card__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3; /* Keep button above image/video */
+    border: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .testimonial-card__play-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .testimonial-card__play-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #000;
+  }
+
+  /* Styling for video playing directly in card */
+  .testimonial-card__media-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Visible by default in HTML, but hidden by JS until play */
+    z-index: 1; /* Below image and button initially */
+  }
+
+  /* State when video is playing */
+  .testimonial-card__media-wrapper.is-playing .testimonial-card__image,
+  .testimonial-card__media-wrapper.is-playing .testimonial-card__play-button {
+    display: none;
+  }
+
+  .testimonial-card__media-wrapper.is-playing video {
+    z-index: 4; /* Bring video to front when playing */
+  }
+
+  .testimonial-card__content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .testimonial-card__stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 10px;
+    height: 20px;
+  }
+
+  .testimonial-card__stars svg {
+    width: 16px;
+    height: 16px;
+    fill: #FFC107;
+  }
+
+  .testimonial-card__quote {
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card__name {
+    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 5px;
+  }
+
+  .testimonial-card__description {
+    font-size: 13px;
+    color: #777;
+  }
+
+  .celebrity-testimonials__button-wrapper {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: 1px solid #000;
+  }
+
+  .button:hover {
+    background-color: #eee;
+    color: #000;
+    border-color: #000;
+  }
+
+  /* Responsive Grid Settings - Mobile First */
+  .celebrity-testimonials__grid {
+    grid-template-columns: repeat({{ section.settings.mobile_cards_per_row }}, 1fr);
+  }
+
+  /* Tablet */
+  @media screen and (min-width: 768px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
+    }
+  }
+
+  /* Desktop */
+  @media screen and (min-width: 1024px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
+    }
+  }
+</style>
+
+<div class="celebrity-testimonials">
+  <div class="celebrity-testimonials__header">
+    {% if section.settings.subheading != blank %}
+      <div class="celebrity-testimonials__subheading">{{ section.settings.subheading }}</div>
     {% endif %}
-  {% endstyle %}
-{% endif %}
-<div class="icons-popups-wrapper" id="our-icons">
-  {% for block in section.blocks %}
-    {% if block.settings.enable_popup %}
-      <div class="icon-popup" id="our-icon-{{ forloop.index }}">
-        <div class="icon-popup-content">
-          <span id="closePopup" class="close">{% render 'close-icon' %}</span>
-
-          <div class="icon-content-row">
-            <div class="icon-card-info">
-              <div class="icon--info-title">
-                <h3>
-                  {{ block.settings.heading }}
-                  <span>
-                    <img
-                      src="{{ 'icon-link-copy.svg' | asset_url }}"
-                      class="copy_link"
-                      data-href="{% if block.settings.link != blank %}{{ block.settings.link }}{% else %}{{ shop.url }}{% endif %}"
-                    >
-                    <span class="copy-link-tooltip">Copy Link</span>
-                  </span>
-                </h3>
-                <span>{{ block.settings.text }}</span>
-              </div>
-
-              <div class="icon--info-body">
-                <div class="icon--info-reviews">
-                  {% if block.settings.review_title1 != blank or block.settings.review_detail1 != blank %}
-                    <div class="icon-review">
-                      <div class="icon-revie-title">
-                        <h4>
-                          {{ block.settings.review_title1 -}}
-                        </h4>
-                        <span>1/{{ block.settings.no_reviews }}</span>
-                      </div>
-                      {{ block.settings.review_detail1 }}
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.review_title2 != blank or block.settings.review_detail2 != blank %}
-                    <div class="icon-review">
-                      <div class="icon-revie-title">
-                        <h4>
-                          {{ block.settings.review_title2 -}}
-                        </h4>
-                        <span>2/{{ block.settings.no_reviews }}</span>
-                      </div>
-                      {{ block.settings.review_detail2 }}
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.review_title3 != blank or block.settings.review_detail3 != blank %}
-                    <div class="icon-review">
-                      <div class="icon-revie-title">
-                        <h4>
-                          {{ block.settings.review_title3 }}
-                        </h4>
-                        <span>3/{{ block.settings.no_reviews }}</span>
-                      </div>
-                      {{ block.settings.review_detail3 }}
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.review_title4 != blank or block.settings.review_detail4 != blank %}
-                    <div class="icon-review">
-                      <div class="icon-revie-title">
-                        <h4>
-                          {{ block.settings.review_title4 }}
-                        </h4>
-                        <span>4/{{ block.settings.no_reviews }}</span>
-                      </div>
-                      {{ block.settings.review_detail4 }}
-                    </div>
-                  {% endif %}
-                </div>
-                {% if block.settings.products != blank %}
-                  <div class="icon--info-products">
-                    <h4>{{ block.settings.pd_title }}</h4>
-                    <div class="icon-pd-wrapper">
-                      <div class="swiper iconsProducts-slideShow">
-                        <div class="swiper-wrapper">
-                          {% for product in block.settings.products %}
-                            <div class="swiper-slide">
-                              <div class="icon-product-box">
-                                <div class="icon-product-img">
-                                  <img
-                                    src="{{ product.featured_image | img_url:'master' }}"
-                                    alt="{{ product.featured_image.alt }}"
-                                  >
-                                </div>
-                                <div class="icon-product-content">
-                                  <h4>{{ product.title }}</h4>
-                                  <p>{{ product.selected_or_first_available_variant.price | money }}</p>
-                                  <a href="{{ product.url }}">Buy Now</a>
-                                </div>
-                              </div>
-                            </div>
-                          {% endfor %}
-                        </div>
-                      </div>
-                      <div class="icon-slider-btns">
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                      </div>
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-            </div>
-            <div class="icon-card-media">
-              {% if block.settings.poster_image != blank %}
-                {% assign image = block.settings.poster_image | img_url: 'master' %}
-              {% elsif block.settings.video_shopify != blank %}
-                {% assign image = block.settings.video_shopify.preview_image | img_url: 'master' %}
-              {% else %}
-                {% assign image = '' %}
-              {% endif %}
-              {{
-                block.settings.video_shopify
-                | video_tag:
-                  poster: image,
-                  type: 'video/mp4',
-                  preload: 'metadata',
-                  autoplay: false,
-                  class: 'block w-full h-full'
-              }}
-
-              {% if block.settings.video_shopify != blank %}
-                <span class="play-btn">
-                  <img src="https://cdn.shopify.com/s/files/1/0720/7695/1854/files/play-btn.svg?v=1721897508" alt="">
-                </span>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-<div
-  class="section milti-column-sec color-scheme color-scheme--{{- color_scheme -}}"
-  id="{{ section.id }}"
->
-  {%- if section.settings.title != blank or section.settings.button_label != blank -%}
-    <div class="container">
-      <div
-        class="section__header {% if  section.settings.title == blank %}m-0{% endif %} items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"
-        {% if settings.animations_enabled != 'disabled' %}
-          data-cc-animate
-        {% endif %}
-      >
-        {%- if section.settings.title != blank -%}
-          <h2 class="h2 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
-            {{- section.settings.title | escape -}}
-          </h2>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
-
-  <div class="container">
-    <ul
-      class="loadMore__items flex flex-wrap gap-x-theme{% if color_scheme == 'none' %} gap-y-12 md:gap-y-6{% else %} gap-y-6{% endif %}"
-      role="list"
-    >
-      {%- for block in section.blocks -%}
-        {%- liquid
-          if section.settings.image_ratio == 'natural'
-            if block.settings.image != blank
-              assign image_ratio = block.settings.image.aspect_ratio
-            else
-              assign image_ratio = 1.77
-            endif
-          endif
-        -%}
-        <li
-          class="multi-column ourIcon-items grow w-full max-w-none"
-          data-id="our-icon-{{ forloop.index }}"
-          {{ block.shopify_attributes -}}
-          {% if settings.animations_enabled != 'disabled' %}
-            data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
-          {% endif %}
-        >
-          <div class="card {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %} relative flex flex-col h-full">
-            {%- if block.settings.enable_media -%}
-              {%- liquid
-                if section.settings.column_size == 'small'
-                  assign cols = 3
-                else
-                  assign cols = 2
-                endif
-                capture sizes
-                  render 'sizes-attribute', grid: true, min: 1, md: cols
-                endcapture
-              -%}
-
-              <div
-                class="card__media media relative w-full{% if section.settings.image_ratio == "natural" %} {{ section.settings.media_align }}{% endif %}"
-                style="{% unless section.settings.image_ratio == "natural" %}padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;{% endunless %}{% if section.settings.image_ratio == "natural" and block.settings.video_shopify %}padding-top: 56.25%;{% endif %}{% if block.settings.media_scale < 100 %} transform: scale({{ block.settings.media_scale | divided_by: 100.0 }});{% endif %}"
-              >
-                {%- if block.settings.image != blank %}
-                  {%- liquid
-                    assign image_class = 'video-played-hidden'
-                    unless section.settings.image_ratio == 'natural'
-                      assign image_class = image_class | append: ' img-fit'
-                    endunless
-                    if section.settings.image_ratio == 'natural'
-                      assign image_class = image_class | append: ' img-fit'
-                    endif
-                  -%}
-                  {% render 'image',
-                    image: block.settings.image,
-                    widths: '460, 700, 860, 1296',
-                    src_width: 700,
-                    sizes: sizes,
-                    section_index: section.index,
-                    class: image_class
-                  %}
-                {%- else -%}
-                  {%- liquid
-                    assign placeholder_class = 'media__placeholder'
-                    unless section.settings.image_ratio == 'natural'
-                      assign placeholder_class = placeholder_class | append: ' img-fit'
-                    endunless
-                  -%}
-                  {{- 'image' | placeholder_svg_tag: placeholder_class -}}
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-
-            <div class="card__info flex flex-col flex-auto items-start pt-6{% if section.settings.column_align == 'center' %} text-center items-center{% endif %}">
-              {% if block.settings.subtext != blank %}
-                <p class="subtext">{{ block.settings.subtext }}</p>
-              {% endif %}
-              {%- if block.settings.heading != blank -%}
-                <h3 class="h5 card__title">{{ block.settings.heading | escape }}</h3>
-              {%- endif -%}
-
-              {%- if block.settings.text != blank -%}
-                <div class="card__rte flex-auto rte">
-                  {{ block.settings.text }}
-                </div>
-              {%- endif -%}
-
-              {% if block.settings.button_link %}
-                <div class="mt-8{% if section.settings.color_scheme == 'none' %} mb-8{% endif %}">
-                  <a
-                    class="card__button{% if block.settings.button_label == blank %}{% if section.settings.button_style == 'link' %} btn--primary{% else %} {{ section.settings.button_style }}{% endif %} btn btn--icon btn--lg has-ltr-icon{% else %} {{ section.settings.button_style }}{% endif %}"
-                    {% if block.settings.button_link != blank %}
-                      href="{{ block.settings.button_link }}"
-                    {% else %}
-                      role="link" aria-disabled="true"
-                    {% endif %}
-                  >
-                    {%- if block.settings.button_label != blank -%}
-                      {{- block.settings.button_label | escape -}}
-                    {%- else -%}
-                      <span class="visually-hidden">
-                        {{- 'general.labels.please_select' | t -}}
-                        {%- if block.settings.heading != blank %} {{ block.settings.heading }}{% endif -%}
-                      </span>
-                      {%- render 'icon-arrow-right' -%}
-                    {%- endif -%}
-                  </a>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        </li>
-      {%- endfor -%}
-    </ul>
-    {% if section.settings.button_label != blank and section.blocks.size > 12 %}
-      <div class="load-more">
-        <a href="" class="btn">{{ section.settings.button_label | escape }}</a>
-      </div>
+    {% if section.settings.heading != blank %}
+      <h2 class="celebrity-testimonials__heading">{{ section.settings.heading }}</h2>
     {% endif %}
   </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="celebrity-testimonials__grid">
+      {% for block in section.blocks limit: 10 %}
+        {% assign card_image = null %}
+        {% assign is_video_card = false %}
+        {% assign card_alt_text = block.settings.name %}
+        {% assign media_wrapper_padding = '100%' %} {# Default 1:1 for static image cards #}
+
+        {% if block.type == 'static-testimonial-card' %}
+          {% assign card_image = block.settings.image %}
+          {% assign card_alt_text = block.settings.image.alt | default: block.settings.name %}
+        {% elsif block.type == 'video-testimonial-card' %}
+          {% if block.settings.video_file != blank %}
+            {% assign card_image = block.settings.video_file.preview_image %}
+            {% assign card_alt_text = block.settings.video_file.preview_image.alt | default: block.settings.name %}
+            {% assign is_video_card = true %}
+            {% if block.settings.video_file.aspect_ratio %}
+              {% assign media_wrapper_padding = 1
+                | divided_by: block.settings.video_file.aspect_ratio
+                | times: 100
+                | append: '%'
+              %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-card__media-wrapper" style="padding-bottom: {{ media_wrapper_padding }};">
+            {% if card_image != blank %}
+              <img
+                class="testimonial-card__image"
+                src="{{ card_image | image_url: width: 300 }}"
+                srcset="
+                  {{ card_image | image_url: width: 300 }} 300w,
+                  {{ card_image | image_url: width: 500 }} 500w,
+                  {{ card_image | image_url: width: 700 }} 700w,
+                  {{ card_image | image_url: width: 1000 }} 1000w
+                "
+                sizes="
+                  (min-width: 1024px) calc( (var(--page-width, 1400px) - 90px) / {{ section.settings.desktop_cards_per_row }}),
+                  (min-width: 768px) calc( (100vw - 60px) / {{ section.settings.tablet_cards_per_row }}),
+                  calc(100vw - 30px)
+                "
+                alt="{{ card_alt_text }}"
+                loading="lazy"
+                width="{{ card_image.width }}"
+                height="{{ card_image.height }}"
+              >
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
+            {% endif %}
+
+            {% if is_video_card and block.settings.video_file != blank %}
+              {{
+                block.settings.video_file
+                | video_tag:
+                  poster: card_image,
+                  autoplay: false,
+                  controls: true,
+                  muted: true,
+                  playsinline: true,
+                  class: 'testimonial-card__inline-video'
+              }}
+              <button
+                class="testimonial-card__play-button"
+                aria-label="Play video by {{ block.settings.name | escape }}"
+              >
+                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            {% endif %}
+          </div>
+
+          <div class="testimonial-card__content">
+            {% if block.type == 'static-testimonial-card' %}
+              <div class="testimonial-card__stars">
+                {% for i in (1..5) %}
+                  {% render 'icon-star' %}
+                {% endfor %}
+              </div>
+              {% if block.settings.quote != blank %}
+                <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
+              {% endif %}
+            {% endif %}
+            <p class="testimonial-card__name">{{ block.settings.name }}</p>
+            {% if block.settings.description != blank %}
+              <p class="testimonial-card__description">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.blocks.size > 10 and section.settings.button_link != blank %}
+      <div class="celebrity-testimonials__button-wrapper">
+        <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+      </div>
+    {% endif %}
+  {% else %}
+    <p>Please add testimonial cards to this section.</p>
+  {% endif %}
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const playbtn = document.querySelectorAll(".icon-card-media span.play-btn");
-    const video = document.querySelectorAll(".icon-card-media video");
-    const copy_link = document.querySelectorAll('.copy_link');
-    const tooptip = document.querySelectorAll('.copy-link-tooltip');
-     let ourIcons = document.querySelectorAll('.ourIcon-items');
-    let allPopups = document.querySelectorAll('.icon-popup');
+  (function () {
+    const playButtons = document.querySelectorAll('.testimonial-card__play-button');
+    let currentPlayingVideo = null; // Tracks the <video> element currently playing
 
-    ourIcons.forEach((icon) => {
-      icon.addEventListener('click', () => {
-        let activeIcon = icon.getAttribute('data-id');
+    playButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const mediaWrapper = button.closest('.testimonial-card__media-wrapper');
+        const videoElement = mediaWrapper.querySelector('.testimonial-card__inline-video');
 
-        allPopups.forEach(popup => {
-          popup.classList.remove('active');
-        });
-
-        // Add 'active' class to the corresponding popup
-        let targetPopup = document.getElementById(activeIcon);
-        if (targetPopup) {
-          targetPopup.classList.add('active');
+        if (!videoElement) {
+          console.error('Video element not found in card.');
+          return;
         }
-      });
-    });
 
-    document.querySelectorAll('.close').forEach((close, index) =>{
-      close.addEventListener('click', () =>{
-        allPopups.forEach(popup => {
-            popup.classList.remove('active');
-              video.forEach(vid => {
-                vid.pause();
-              });
-              playbtn.forEach(btn => {
-                btn.classList.remove('play');
-              })
-
-            // video[index].pause();
-            // playbtn[index].classList.remove("play");
-        })
-      });
-    });
-
-
-    playbtn.forEach((btn, index) => {
-      btn.addEventListener("click", () => {
-        console.log("po");
-        video.forEach((vid, vidIndex) => {
-          if (vidIndex === index) {
-            if (vid.paused) {
-              vid.play();
-              btn.classList.add("play");
-            } else {
-              vid.pause();
-              btn.classList.remove("play");
-            }
+        // If this is the video currently playing, toggle pause/play
+        if (currentPlayingVideo === videoElement) {
+          if (videoElement.paused) {
+            videoElement.play();
+            mediaWrapper.classList.add('is-playing');
           } else {
-            vid.pause();
-            playbtn[vidIndex].classList.remove("play");
+            videoElement.pause();
+            mediaWrapper.classList.remove('is-playing');
+          }
+          return;
+        }
+
+        // Pause any other currently playing video
+        if (currentPlayingVideo && !currentPlayingVideo.paused) {
+          currentPlayingVideo.pause();
+          currentPlayingVideo.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
+        }
+
+        // Play the new video
+        videoElement
+          .play()
+          .then(() => {
+            mediaWrapper.classList.add('is-playing');
+            currentPlayingVideo = videoElement;
+          })
+          .catch((error) => {
+            console.error('Video play failed:', error);
+            // If autoplay fails, ensure the card state is correct (showing thumbnail)
+            mediaWrapper.classList.remove('is-playing');
+            currentPlayingVideo = null;
+          });
+      });
+
+      // Add event listener to video itself to handle when it pauses (e.g., by user) or ends
+      const videoElement = button
+        .closest('.testimonial-card__media-wrapper')
+        .querySelector('.testimonial-card__inline-video');
+      if (videoElement) {
+        videoElement.addEventListener('pause', () => {
+          videoElement.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
           }
         });
-      });
-    });
-    copy_link.forEach((link , link_index) =>{
-        link.addEventListener('click', ()=>{
-          let dataHref = link.getAttribute('data-href');
-
-          navigator.clipboard.writeText(dataHref).then(function() {
-            console.log('Copied to clipboard:', dataHref);
-          }).catch(function(error) {
-              console.error('Error copying to clipboard:', error);
-          });
-          tooptip.forEach((tt , tt_index) => {
-            if(link_index == tt_index){
-              tt.textContent = "Copied!";
-              setTimeout(()=>{ tt.textContent = "Copy Link"},1200);
-            }
-          });
+        videoElement.addEventListener('ended', () => {
+          videoElement.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
+          }
         });
-
-
-      });
-
-
-  });
+      }
+    });
+  })();
 </script>
 
 {% schema %}
 {
-  "name": "Our Icons",
-  "class": "cc-multi-column",
+  "name": "Celebrity Testimonials",
+  "tag": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "Section header"
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>100s of verified 5-star reviews</p>"
     },
     {
       "type": "text",
-      "id": "title",
+      "id": "heading",
       "label": "Heading",
-      "default": "Multi-column"
-    },
-    {
-      "type": "select",
-      "id": "heading_align",
-      "label": "Heading alignment",
-      "options": [
-        {
-          "value": "text-start",
-          "label": "Left"
-        },
-        {
-          "value": "text-center",
-          "label": "Center"
-        },
-        {
-          "value": "text-end",
-          "label": "Right"
-        }
-      ],
-      "default": "text-start"
+      "default": "Trusted by leading athletes & figures"
     },
     {
       "type": "text",
-      "id": "button_label",
-      "label": "View more label"
+      "id": "button_text",
+      "label": "Button text",
+      "default": "See More"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "View more link"
+      "label": "Button link"
     },
     {
-      "type":"checkbox",
-      "id":"enable_load_more",
-      "label":"Enable Load More",
-      "info":"if you enable this then 12 card show initially,"
+      "type": "range",
+      "id": "desktop_cards_per_row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Desktop)",
+      "default": 5
     },
     {
-      "type": "header",
-      "content": "Layout"
+      "type": "range",
+      "id": "tablet_cards_per_row",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Tablet)",
+      "default": 2
     },
     {
-      "type": "select",
-      "id": "column_size",
-      "label": "Column size",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ],
-      "default": "medium"
-    },
-    {
-      "type": "select",
-      "id": "column_align",
-      "label": "Content alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "select",
-      "id": "media_align",
-      "label": "Media alignment",
-      "info": "Applies to small images with a \"Natural\" aspect ratio.",
-      "options": [
-        {
-          "value": "text-left",
-          "label": "Left"
-        },
-        {
-          "value": "text-center",
-          "label": "Center"
-        }
-      ],
-      "default": "text-center"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "label": "Media aspect ratio",
-      "options": [
-        {
-          "value": "natural",
-          "label": "Natural"
-        },
-        {
-          "value": "shortest",
-          "label": "Height of shortest image"
-        },
-        {
-          "value": "tallest",
-          "label": "Height of tallest image"
-        },
-        {
-          "value": "1.77",
-          "label": "Landscape"
-        },
-        {
-          "value": "1",
-          "label": "Square"
-        },
-        {
-          "value": "0.75",
-          "label": "Portrait"
-        }
-      ],
-      "default": "1"
-    },
-    {
-      "type": "header",
-      "content": "Style"
-    },
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "options": [
-        {
-          "value": "none",
-          "label": "Default"
-        },
-        {
-          "value": "1",
-          "label": "Scheme 1"
-        },
-        {
-          "value": "2",
-          "label": "Scheme 2"
-        },
-        {
-          "value": "3",
-          "label": "Scheme 3"
-        },
-        {
-          "value": "4",
-          "label": "Scheme 4"
-        }
-      ],
-      "default": "1"
-    },
-    {
-      "type": "select",
-      "id": "button_style",
-      "label": "Buttons",
-      "options": [
-        {
-          "value": "link",
-          "label": "Link"
-        },
-        {
-          "value": "btn btn--primary",
-          "label": "Primary button"
-        },
-        {
-          "value": "btn btn--secondary",
-          "label": "Secondary button"
-        }
-      ],
-      "default": "btn btn--secondary"
+      "type": "range",
+      "id": "mobile_cards_per_row",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Mobile)",
+      "default": 2
     }
   ],
   "blocks": [
     {
-      "type": "column",
-      "name": "Column",
+      "type": "static-testimonial-card",
+      "name": "Image Testimonial",
       "settings": [
-        {
-          "id": "enable_media",
-          "type": "checkbox",
-          "label": "Enable media",
-          "default": true
-        },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
-        },
-
-        {
-          "type": "range",
-          "id": "media_scale",
-          "min": 65,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "Media scale",
-          "default": 100
+          "label": "Testimonial Image",
+          "info": "Required. The main image for this static testimonial."
         },
         {
           "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Column"
-        },
-        {
-          "type":"text",
-          "id":"subtext",
-          "label":"Subtext"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>Pair text with an image to focus on a product, collection or blog post. Add details on availability, style, or even provide a review.</p>"
+          "id": "quote",
+          "label": "Quote",
+          "info": "e.g. 'A game changer!'"
         },
         {
           "type": "text",
-          "id": "button_label",
-          "label": "Button label",
-          "info": "Leave blank for an arrow button"
+          "id": "name",
+          "default": "Name Surname",
+          "label": "Name"
         },
         {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button link"
-        },
-        {
-          "type":"header",
-          "content":"Popup Content"
-        },
-        {
-          "type":"checkbox",
-          "id":"enable_popup",
-          "label":"Enable Popup"
-        },
+          "type": "text",
+          "id": "description",
+          "default": "Title/Affiliation",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "video-testimonial-card",
+      "name": "Video Testimonial",
+      "settings": [
         {
           "type": "video",
-          "id": "video_shopify",
-          "label": "Video upload",
-          "info": "Hosted by Shopify. Video will autoplay and be muted. [Read more](https://cleancanvas.co.uk/support/enterprise/using-videos)"
+          "id": "video_file",
+          "label": "Video File (from Shopify Files)",
+          "info": "Select a video file from your Shopify 'Content > Files'. The thumbnail and aspect ratio will be automatically handled."
         },
         {
-          "type":"image_picker",
-          "id":"poster_image",
-          "label":"Poster Image"
+          "type": "text",
+          "id": "name",
+          "default": "Name Surname",
+          "label": "Name"
         },
         {
-          "type":"header",
-          "content":"Reviews"
-        },
-        {
-          "type":"range",
-          "id":"no_reviews",
-          "label":"Number of Reviews",
-          "min":1,
-          "max":4,
-          "step": 1,
-          "default":3
-        },
-        {
-          "type":"header",
-          "content":"First Review"
-        },
-        {
-          "type":"text",
-          "id":"review_title1",
-          "label":"Title"
-        },
-        {
-          "type":"richtext",
-          "id":"review_detail1",
-          "label":"Content"
-        },
-
-        {
-          "type":"header",
-          "content":"Second Review"
-        },
-        {
-          "type":"text",
-          "id":"review_title2",
-          "label":"Title"
-        },
-        {
-          "type":"richtext",
-          "id":"review_detail2",
-          "label":"Content"
-        },
-
-        {
-          "type":"header",
-          "content":"Third Review"
-        },
-        {
-          "type":"text",
-          "id":"review_title3",
-          "label":"Title"
-        },
-        {
-          "type":"richtext",
-          "id":"review_detail3",
-          "label":"Content"
-        },
-
-        {
-          "type":"header",
-          "content":"Forth Review"
-        },
-        {
-          "type":"text",
-          "id":"review_title4",
-          "label":"Title"
-        },
-        {
-          "type":"richtext",
-          "id":"review_detail4",
-          "label":"Content"
-        },
-        {
-          "type":"header",
-          "content":"Products"
-        },
-        {
-          "type":"text",
-          "id":"pd_title",
-          "label":"Title"
-        },
-        {
-          "type":"product_list",
-          "id":"products",
-          "label":"Products"
+          "type": "text",
+          "id": "description",
+          "default": "Title/Affiliation",
+          "label": "Description"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Our Icons",
+      "name": "Celebrity Testimonials",
       "blocks": [
         {
-          "type": "column"
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion",
+            "quote": "Incredible results!"
+          }
         },
         {
-          "type": "column"
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Teixeira Family",
+            "description": "Former UFC Lightweight Champion",
+            "quote": "A game changer!"
+          }
         },
         {
-          "type": "column"
+          "type": "video-testimonial-card",
+          "settings": {
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
+        {
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Frankie Edgar",
+            "description": "Former UFC Lightweight Champion",
+            "quote": "A game changer!"
+          }
+        },
+        {
+          "type": "video-testimonial-card",
+          "settings": {
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
         }
       ]
     }
-  ],
-  "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
-  }
+  ]
 }
 {% endschema %}
