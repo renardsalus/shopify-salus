@@ -436,6 +436,7 @@
         "testimonial_card_LA9yRt": {
           "type": "testimonial-card",
           "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
             "video_url": "",
             "quote": "A game changer!",
             "name": "Teixeira Family",
@@ -454,6 +455,7 @@
         "testimonial_card_FDp3X6": {
           "type": "testimonial-card",
           "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
             "video_url": "",
             "quote": "A game changer!",
             "name": "Frankie Edgar",
@@ -463,6 +465,7 @@
         "testimonial_card_8zpb3y": {
           "type": "testimonial-card",
           "settings": {
+            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
             "video_url": "https://www.youtube.com/watch?v=Qh_i4k_eS_U",
             "quote": "",
             "name": "Gordon Ryan",
