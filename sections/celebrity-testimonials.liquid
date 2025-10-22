@@ -191,6 +191,103 @@
     cursor: pointer;
     z-index: 10000;
   }
+
+  /* Video Modal Styling */
+  .video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .video-modal.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .video-modal__content {
+    position: relative;
+    width: 90%;
+    /* Removed fixed padding-bottom as video element will handle aspect ratio */
+    max-width: 900px; /* Max width for video */
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .video-modal__player-container { /* Renamed from iframe-container */
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio for video */
+    background-color: #000; /* Ensure background even if video fails */
+  }
+
+  .video-modal__player-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Remove extra space below video */
+  }
+
+  .video-modal__close {
+    position: absolute;
+    top: -30px; /* Position outside the video content */
+    right: -30px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .five-stars {
+    display: flex;
+  }
+  @media (max-width: 767px) {
+    .video-modal__close {
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+  }
+
+  /* Responsive Grid Settings */
+  /* Mobile */
+  @media screen and (max-width: 767px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_cards_per_row }}, 1fr);
+    }
+  }
+
+  /* Tablet */
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
+    }
+  }
+
+  /* Desktop */
+  @media screen and (min-width: 1024px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
+    }
+  }
+
   @media (max-width: 767px) {
     .video-modal__close {
       top: 10px;
@@ -219,13 +316,13 @@
       grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
     }
 
-    /* Hide cards beyond the 10th on desktop only */
+    {% comment %} /* Hide cards beyond the 10th on desktop only */
     {%- assign desktop_limit = 10 -%}
     {% if section.blocks.size > desktop_limit %}
       .celebrity-testimonials__grid .testimonial-card:nth-child(n + {{ desktop_limit | plus: 1 }}) {
         display: none;
       }
-    {% endif %}
+    {% endif %} {% endcomment %}
   }
 </style>
 
@@ -241,20 +338,13 @@
 
   {% if section.blocks.size > 0 %}
     <div class="celebrity-testimonials__grid">
-      {% for block in section.blocks %}
+      {% for block in section.blocks limit: 10 %}
         <div class="testimonial-card" {{ block.shopify_attributes }}>
           <div class="testimonial-card__media-wrapper">
             {% if block.settings.image != blank %}
               <img
                 class="testimonial-card__image"
                 src="{{ block.settings.image | image_url: width: 300 }}"
-                {#
-                Optimized
-                src
-                for
-                initial
-                load
-                #}
                 srcset="
                   {{ block.settings.image | image_url: width: 300 }} 300w,
                   {{ block.settings.image | image_url: width: 500 }} 500w,
@@ -275,10 +365,16 @@
               {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
             {% endif %}
 
-            {% if block.settings.video_url != blank %}
+            {% if block.settings.media_reference != blank %}
               <button
                 class="testimonial-card__play-button"
-                data-video-url="{{ block.settings.video_url }}"
+                data-video-sources="{{ block.settings.media_reference | json | escape }}"
+                {#
+                Pass
+                sources
+                as
+                JSON
+                #}
                 aria-label="Play video by {{ block.settings.name | escape }}"
               >
                 <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="currentColor">
@@ -289,8 +385,14 @@
           </div>
 
           <div class="testimonial-card__content">
-            {% if block.settings.video_url == blank %}
-              <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+            {% if block.settings.media_reference == blank %}
+              <div class="five-stars">
+                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+                <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
+              </div>
               {% if block.settings.quote != blank %}
                 <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
               {% endif %}
@@ -317,7 +419,7 @@
 <div class="video-modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="video-modal__content">
     <button class="video-modal__close" aria-label="Close video player">&times;</button>
-    <div class="video-modal__iframe-container"></div>
+    <div class="video-modal__player-container"></div>
   </div>
 </div>
 
@@ -326,47 +428,65 @@
   (function () {
     const videoModal = document.querySelector('.video-modal');
     const modalCloseButton = videoModal.querySelector('.video-modal__close');
-    const iframeContainer = videoModal.querySelector('.video-modal__iframe-container');
+    const playerContainer = videoModal.querySelector('.video-modal__player-container');
     const playButtons = document.querySelectorAll('.testimonial-card__play-button');
 
-    function getEmbedUrl(url) {
-      if (!url) return '';
-      let embedUrl = '';
-      const youtubeMatch = url.match(
-        /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|)([\w-]{11})(?:(?:\?|&).*)?/
-      );
-      const vimeoMatch = url.match(/(?:https?:\/\/)?(?:www\.)?(?:vimeo\.com)\/(?:video\/|)(\d+)(?:(?:\?|&).*)?/);
+    function createVideoPlayer(videoSources) {
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute('autoplay', '');
+      videoElement.setAttribute('controls', '');
+      videoElement.setAttribute('playsinline', ''); // Important for mobile
+      videoElement.setAttribute('loop', ''); // Optional: loop video
 
-      if (youtubeMatch && youtubeMatch[1]) {
-        embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeMatch[1]}?autoplay=1&rel=0&showinfo=0&modestbranding=1`;
-      } else if (vimeoMatch && vimeoMatch[1]) {
-        embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1&title=0&byline=0&portrait=0`;
-      }
-      return embedUrl;
+      videoSources.forEach((source) => {
+        const sourceElement = document.createElement('source');
+        sourceElement.src = source.url;
+        sourceElement.type = source.mime_type;
+        videoElement.appendChild(sourceElement);
+      });
+
+      // Fallback for browsers that don't support video tag
+      const fallbackText = document.createElement('p');
+      fallbackText.textContent = 'Your browser does not support HTML5 video. Kindly update your browser.';
+      videoElement.appendChild(fallbackText);
+
+      return videoElement;
     }
 
-    function openModal(videoUrl) {
-      const embedUrl = getEmbedUrl(videoUrl);
-      if (!embedUrl) return;
+    function openModal(videoSourcesJSON) {
+      try {
+        const videoSources = JSON.parse(videoSourcesJSON);
+        if (!videoSources || videoSources.length === 0) {
+          console.error('No valid video sources provided.');
+          return;
+        }
 
-      iframeContainer.innerHTML = `<iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Video player"></iframe>`;
-      videoModal.classList.add('is-active');
-      videoModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling body
-      modalCloseButton.focus(); // Focus close button for accessibility
+        const videoPlayer = createVideoPlayer(videoSources);
+        playerContainer.innerHTML = ''; // Clear previous content
+        playerContainer.appendChild(videoPlayer);
+
+        videoModal.classList.add('is-active');
+        videoModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling body
+        modalCloseButton.focus(); // Focus close button for accessibility
+      } catch (e) {
+        console.error('Error parsing video sources or creating player:', e);
+      }
     }
 
     function closeModal() {
       videoModal.classList.remove('is-active');
       videoModal.setAttribute('aria-hidden', 'true');
-      iframeContainer.innerHTML = ''; // Stop video playback
+      playerContainer.innerHTML = ''; // Stop video playback by removing the element
       document.body.style.overflow = ''; // Restore body scrolling
     }
 
     playButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const videoUrl = button.dataset.videoUrl;
-        openModal(videoUrl);
+        const videoSourcesJSON = button.dataset.videoSources;
+        if (videoSourcesJSON) {
+          openModal(videoSourcesJSON);
+        }
       });
     });
 
@@ -444,7 +564,7 @@
       "step": 1,
       "unit": "crd",
       "label": "Cards per row (Mobile)",
-      "default": 1
+      "default": 2
     }
   ],
   "blocks": [
@@ -459,10 +579,10 @@
           "info": "Used as thumbnail for video or static image. (Required)"
         },
         {
-          "type": "url",
-          "id": "video_url",
-          "label": "YouTube/Vimeo Video URL",
-          "info": "If provided, this card will display as a video. Quote and stars will be hidden. e.g., https://www.youtube.com/watch?v=VIDEO_ID"
+          "type": "video",
+          "id": "media_reference",
+          "label": "Video File (from Shopify Files)",
+          "info": "Select a video file from your Shopify Files. If selected, quote and stars will be hidden."
         },
         {
           "type": "text",
@@ -509,8 +629,8 @@
           "type": "testimonial-card",
           "settings": {
             "name": "Joe Rogan",
-            "description": "Host of the JRE Podcast, Comedian",
-            "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            "description": "Host of the JRE Podcast, Comedian"
+            // No video_url here, this would be a file reference in actual use
           }
         },
         {
@@ -525,8 +645,7 @@
           "type": "testimonial-card",
           "settings": {
             "name": "Gordon Ryan",
-            "description": "Greatest no-gi grappler of all time",
-            "video_url": "https://www.youtube.com/watch?v=Qh_i4k_eS_U"
+            "description": "Greatest no-gi grappler of all time"
           }
         }
       ]
