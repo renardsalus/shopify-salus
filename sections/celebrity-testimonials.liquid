@@ -290,7 +290,7 @@
 
           <div class="testimonial-card__content">
             {% if block.settings.video_url == blank %}
-              <div class="testimonial-card__stars">{% render 'icon-star' %} {# Renders the 5-star SVG snippet #}</div>
+              <div class="testimonial-card__stars">{% render 'icon-star' %}</div>
               {% if block.settings.quote != blank %}
                 <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
               {% endif %}
@@ -311,11 +311,9 @@
     {% endif %}
   {% else %}
     <p>Please add testimonial cards to this section.</p>
-    {# Updated text #}
   {% endif %}
 </div>
 
-{# Video Modal HTML - Hidden by default #}
 <div class="video-modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="video-modal__content">
     <button class="video-modal__close" aria-label="Close video player">&times;</button>
