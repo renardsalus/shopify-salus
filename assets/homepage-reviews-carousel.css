@@ -30,9 +30,9 @@
     align-items: stretch;
 }
 
-.review-slide:last-child {
+/* .review-slide:last-child {
     margin-right: 0;
-}
+} */
 
 .homepage-reviews-slider__nav-button {
     position: absolute;
@@ -81,7 +81,6 @@
 @media screen and (max-width: 768px) {
     .review-slide {
         flex: 0 0 calc((100% / 1.5) - (15px * (1.5 - 1) / 1.5));
-        margin-right: 15px;
     }
 
     .carousel-track {
