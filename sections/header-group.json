@@ -11,6 +11,17 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "homepage_announcement_banner_EKeeb7": {
+      "type": "homepage-announcement-banner",
+      "name": "Homepage Announcement Banner",
+      "settings": {
+        "text": "Have questions? Give us a call",
+        "phone_number": "(888) 287-0111",
+        "background_color": "#FFFFFF",
+        "border_color": "#007BFF",
+        "text_color": "#000000"
+      }
+    },
     "announcement": {
       "type": "announcement",
       "blocks": {
@@ -26,6 +37,14 @@
           "type": "announcement",
           "settings": {
             "text": "<p>Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
+            "icon_select": "none"
+          }
+        },
+        "announcement_KjGgWa": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Welcome to our store. <a href='#' title='#'>Learn more</a></p>",
             "icon_select": "none"
           }
         },
@@ -73,12 +92,14 @@
       "block_order": [
         "announcement_YVH6F8",
         "announcement_q8b3be",
+        "announcement_KjGgWa",
         "announcement-1",
         "announcement_zg7xbp",
         "announcement_BCDBbF",
         "announcement_b846WE",
         "announcement_qykRi7"
       ],
+      "disabled": true,
       "settings": {
         "link1": "",
         "link1_label": "",
@@ -813,6 +834,7 @@
     }
   },
   "order": [
+    "homepage_announcement_banner_EKeeb7",
     "announcement",
     "header",
     "sales_popup_kNEhy3",
