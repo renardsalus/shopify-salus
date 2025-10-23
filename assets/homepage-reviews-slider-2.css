@@ -155,13 +155,6 @@
         padding-bottom: var(--homepage-reviews-slider-padding-bottom-mobile);
     }
 
-    .homepage-reviews-slider__wrapper {
-        padding-left: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
-        padding-right: 15px;
-    }
-
     .homepage-reviews-slider__card {
         padding-top: 20px;
         padding-bottom: 20px;

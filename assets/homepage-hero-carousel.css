@@ -371,17 +371,17 @@
     .homepage-hero-carousel__content-column {
         height: auto;
         background-color: #FDF7F1 !important; /* Ensure it has a background */
-        padding: 40px 20px;
+        padding: 20px 20px;
     }
 
     /* --- Minor typography and layout adjustments for mobile --- */
     .homepage-hero-carousel__headline {
-        font-size: 32px;
+        font-size: 25px;
         margin-bottom: 15px;
     }
 
     .homepage-hero-carousel__description {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 25px;
     }
 
