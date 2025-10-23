@@ -15,7 +15,7 @@
       "type": "homepage-announcement-banner",
       "name": "Homepage Announcement Banner",
       "settings": {
-        "text": "Have questions? Give us a call",
+        "text": "Give us a call",
         "phone_number": "(888) 287-0111",
         "background_color": "#FFFFFF",
         "border_color": "#007BFF",
