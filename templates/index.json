@@ -302,17 +302,6 @@
         "section_padding_bottom_mobile": 0
       }
     },
-    "homepage_announcement_banner_NJXzUM": {
-      "type": "homepage-announcement-banner",
-      "name": "Homepage Announcement Banner",
-      "settings": {
-        "text": "Have questions? Give us a call",
-        "phone_number": "(888) 287-0111",
-        "background_color": "#FFFFFF",
-        "border_color": "#007BFF",
-        "text_color": "#000000"
-      }
-    },
     "product_carousel_p9jgXD": {
       "type": "product-carousel",
       "name": "Product Carousel",
@@ -1340,7 +1329,6 @@
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
     "homepage_reviews_slider_2_gCdyWL",
-    "homepage_announcement_banner_NJXzUM",
     "product_carousel_p9jgXD",
     "logo_list_DaqLFK",
     "product_carousel_MGky87",
