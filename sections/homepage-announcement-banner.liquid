@@ -7,8 +7,6 @@
   .announcement-banner {
     background-color: {{ section.settings.background_color }};
     padding: 10px 15px;
-    border-top: 2px solid {{ section.settings.border_color }};
-    border-bottom: 2px solid {{ section.settings.border_color }};
   }
 
   .announcement-banner__content {
@@ -36,6 +34,10 @@
 
   .announcement-banner__text a:hover {
     text-decoration: underline;
+  }
+
+  .announcement-banner__text {
+    margin-bottom: 0px;
   }
 </style>
 
@@ -70,12 +72,6 @@
       "id": "background_color",
       "label": "Background color",
       "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border color",
-      "default": "#007BFF"
     },
     {
       "type": "color",
