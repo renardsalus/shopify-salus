@@ -1,4 +1,7 @@
 <style>
+  .sauna-value-proposition-container {
+    max-width: 1400px;
+  }
   .sauna-value-proposition {
     padding: 60px 100px; /* Default padding, adjust via CSS */
     max-width: var(--page-width, 1400px);
@@ -156,84 +159,86 @@
   }
 </style>
 
-<div class="sauna-value-proposition">
-  <div class="sauna-value-proposition__inner">
-    <div class="sauna-value-proposition__content">
-      {% if section.settings.main_heading_text != blank %}
-        <div class="sauna-value-proposition__heading">
-          {{ section.settings.main_heading_text }}
-        </div>
-      {% endif %}
+<div class="sauna-value-proposition-container mx-auto">
+  <div class="sauna-value-proposition">
+    <div class="sauna-value-proposition__inner">
+      <div class="sauna-value-proposition__content">
+        {% if section.settings.main_heading_text != blank %}
+          <div class="sauna-value-proposition__heading">
+            {{ section.settings.main_heading_text }}
+          </div>
+        {% endif %}
 
-      {% if section.settings.disclaimer_text != blank %}
-        <div class="sauna-value-proposition__disclaimer">
-          {{ section.settings.disclaimer_text }}
-        </div>
-      {% endif %}
+        {% if section.settings.disclaimer_text != blank %}
+          <div class="sauna-value-proposition__disclaimer">
+            {{ section.settings.disclaimer_text }}
+          </div>
+        {% endif %}
 
-      <div class="sauna-feature-list">
-        {% for block in section.blocks %}
-          {% if block.type == 'sauna-feature-item' %}
-            <div class="sauna-feature-item" {{ block.shopify_attributes }}>
-              {% if block.settings.featured_product != blank %}
-                <h3 class="sauna-feature-item__title">
-                  {{ block.settings.featured_product.title }}
-                </h3>
-                <div class="sauna-feature-item__financing">
-                  {% render 'affirm-messaging', product: block.settings.featured_product %}
-                </div>
-              {% else %}
-                <h3 class="sauna-feature-item__title">Placeholder Product Title</h3>
-                <div class="sauna-feature-item__financing">Starting at $XXX/mo or 0% APR with Affirm financing.</div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+        <div class="sauna-feature-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'sauna-feature-item' %}
+              <div class="sauna-feature-item" {{ block.shopify_attributes }}>
+                {% if block.settings.featured_product != blank %}
+                  <h3 class="sauna-feature-item__title">
+                    {{ block.settings.featured_product.title }}
+                  </h3>
+                  <div class="sauna-feature-item__financing">
+                    {% render 'affirm-messaging', product: block.settings.featured_product %}
+                  </div>
+                {% else %}
+                  <h3 class="sauna-feature-item__title">Placeholder Product Title</h3>
+                  <div class="sauna-feature-item__financing">Starting at $XXX/mo or 0% APR with Affirm financing.</div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button">
+            {{ section.settings.button_text }}
+            {% render 'icon-arrow-right' %} {# Assumes an icon-arrow-right snippet exists #}
+          </a>
+        {% endif %}
       </div>
 
-      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button">
-          {{ section.settings.button_text }}
-          {% render 'icon-arrow-right' %} {# Assumes an icon-arrow-right snippet exists #}
-        </a>
-      {% endif %}
-    </div>
+      <div class="sauna-value-proposition__media">
+        {% if section.settings.top_badge_text != blank %}
+          <div class="sauna-value-proposition__badge">
+            {{ section.settings.top_badge_text }}
+          </div>
+        {% endif %}
 
-    <div class="sauna-value-proposition__media">
-      {% if section.settings.top_badge_text != blank %}
-        <div class="sauna-value-proposition__badge">
-          {{ section.settings.top_badge_text }}
-        </div>
-      {% endif %}
+        {% if section.settings.composite_sauna_image != blank %}
+          <div class="sauna-value-proposition__image-wrapper">
+            <img
+              src="{{ section.settings.composite_sauna_image | image_url: width: 800 }}"
+              srcset="
+                {{ section.settings.composite_sauna_image | image_url: width: 400 }} 400w,
+                {{ section.settings.composite_sauna_image | image_url: width: 600 }} 600w,
+                {{ section.settings.composite_sauna_image | image_url: width: 800 }} 800w
+              "
+              sizes="(min-width: 768px) calc({{ 100 | minus: section.settings.desktop_column_ratio }}vw - 90px), calc(100vw - 30px)"
+              alt="{{ section.settings.composite_sauna_image.alt | default: 'Saunas' }}"
+              loading="lazy"
+              class="sauna-value-proposition__image"
+              width="{{ section.settings.composite_sauna_image.width }}"
+              height="{{ section.settings.composite_sauna_image.height }}"
+            >
+          </div>
+        {% else %}
+          <div class="sauna-value-proposition__image-wrapper">
+            {{ 'image' | placeholder_svg_tag: 'sauna-value-proposition__image' }}
+          </div>
+        {% endif %}
 
-      {% if section.settings.composite_sauna_image != blank %}
-        <div class="sauna-value-proposition__image-wrapper">
-          <img
-            src="{{ section.settings.composite_sauna_image | image_url: width: 800 }}"
-            srcset="
-              {{ section.settings.composite_sauna_image | image_url: width: 400 }} 400w,
-              {{ section.settings.composite_sauna_image | image_url: width: 600 }} 600w,
-              {{ section.settings.composite_sauna_image | image_url: width: 800 }} 800w
-            "
-            sizes="(min-width: 768px) calc({{ 100 | minus: section.settings.desktop_column_ratio }}vw - 90px), calc(100vw - 30px)"
-            alt="{{ section.settings.composite_sauna_image.alt | default: 'Saunas' }}"
-            loading="lazy"
-            class="sauna-value-proposition__image"
-            width="{{ section.settings.composite_sauna_image.width }}"
-            height="{{ section.settings.composite_sauna_image.height }}"
-          >
-        </div>
-      {% else %}
-        <div class="sauna-value-proposition__image-wrapper">
-          {{ 'image' | placeholder_svg_tag: 'sauna-value-proposition__image' }}
-        </div>
-      {% endif %}
-
-      {% if section.settings.bottom_badge_text != blank %}
-        <div class="sauna-value-proposition__badge">
-          {{ section.settings.bottom_badge_text }}
-        </div>
-      {% endif %}
+        {% if section.settings.bottom_badge_text != blank %}
+          <div class="sauna-value-proposition__badge">
+            {{ section.settings.bottom_badge_text }}
+          </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
