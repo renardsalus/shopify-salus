@@ -466,39 +466,31 @@
           "type": "video-testimonial-card",
           "settings": {
             "video_file": "shopify://files/videos/Joe Rogan Testimonials.mp4",
-            "name": "Joe Rogan",
-            "description": "Host of the JRE Podcast, UFC commentator, Comedian"
-          }
-        },
-        "video_testimonial_card_jz8crw": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "name": "Teixeira Family",
-            "description": "Former UFC Lightweight Champion"
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion"
           }
         },
         "static_testimonial_card_wpMAki": {
           "type": "static-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-22T092619.784.png",
-            "quote": "Incredible results!",
-            "name": "Wes Kitts",
-            "description": "US Olympian, Weightlifting Champion"
-          }
-        },
-        "static_testimonial_card_FBWDFt": {
-          "type": "static-testimonial-card",
-          "settings": {
-            "image": "shopify://shop_images/lady-in-a-sauna_1.jpg",
+            "image": "shopify://shop_images/Teixeira_Family_Testimonials.jpg",
             "quote": "A game changer!",
             "name": "Teixeira Family",
             "description": "Former UFC Lightweight Champion"
           }
         },
+        "video_testimonial_card_ejLPGK": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Joe Rogan Testimonials.mp4",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, UFC commentator, Comedian"
+          }
+        },
         "static_testimonial_card_9rtKQM": {
           "type": "static-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/6669ef64cc2409100b39c487_sauna_6c436b67-8e59-48e7-a2a3-39333f43240b.jpg",
+            "image": "shopify://shop_images/Frankie_Edgar_Testimonials.jpg",
             "quote": "A game changer!",
             "name": "Frankie Edgar",
             "description": "Former UFC Lightweight Champion"
@@ -507,67 +499,64 @@
         "video_testimonial_card_fizjEq": {
           "type": "video-testimonial-card",
           "settings": {
-            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
+            "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "video_testimonial_card_pnWDBJ": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
+            "name": "Kaleo Wassman",
+            "description": "Pepper’s Lead Vocalist/Guitarist"
+          }
+        },
+        "video_testimonial_card_Ay6EH8": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
+            "name": "Claire P. Thomas",
+            "description": "Fitness Creator"
           }
         },
         "static_testimonial_card_y67QUG": {
           "type": "static-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/Blog_Covers_-_Salus_Saunas_-_2025-10-21T110804.574.png",
+            "image": "shopify://shop_images/Lauryn_Bosstick_Testimonial.webp",
             "quote": "Incredible results!",
-            "name": "Wes Kitts",
-            "description": "US Olympian, Weightlifting Champion"
+            "name": "Lauryn Bosstick",
+            "description": "Lifestyle & Wellness Influencer"
           }
         },
-        "static_testimonial_card_Hx8PjX": {
-          "type": "static-testimonial-card",
-          "settings": {
-            "image": "shopify://shop_images/Cleaning_a_sauna.jpg",
-            "quote": "A game changer!",
-            "name": "Teixeira Family",
-            "description": "Former UFC Lightweight Champion"
-          }
-        },
-        "video_testimonial_card_tTAN4C": {
+        "video_testimonial_card_JUfpKD": {
           "type": "video-testimonial-card",
           "settings": {
-            "video_file": "shopify://files/videos/Sean Brady - Video - Salus Saunas.mp4",
-            "name": "Joe Rogan",
-            "description": "Host of the JRE Podcast, Comedian"
+            "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
+            "name": "Remi Ishizuka",
+            "description": "Wellness & Lifestyle Creator"
           }
         },
-        "static_testimonial_card_nKqad4": {
-          "type": "static-testimonial-card",
-          "settings": {
-            "image": "shopify://shop_images/a_person_cleaning_the_exterior_of_an_outdoor_suana.jpg",
-            "quote": "A game changer!",
-            "name": "Frankie Edgar",
-            "description": "Former UFC Lightweight Champion"
-          }
-        },
-        "video_testimonial_card_d3JW4C": {
+        "video_testimonial_card_fNqkAa": {
           "type": "video-testimonial-card",
           "settings": {
-            "video_file": "shopify://files/videos/Snapinst.app_video_AQOvyAPEZ5Po3Rc3Y01XMRTT49KfXas1fUni8yAAkV2HXCRa-4Pkf6KW3hIJrKezEHEA7WEW2r02qFzLHWX3xE08q5PGy8tLqjAThBc.mp4",
-            "name": "Gordon Ryan",
-            "description": "Greatest no-gi grappler of all time"
+            "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
+            "name": "Justin Baldoni",
+            "description": "Actor & Director"
           }
         }
       },
       "block_order": [
         "video_testimonial_card_mzgML6",
-        "video_testimonial_card_jz8crw",
         "static_testimonial_card_wpMAki",
-        "static_testimonial_card_FBWDFt",
+        "video_testimonial_card_ejLPGK",
         "static_testimonial_card_9rtKQM",
         "video_testimonial_card_fizjEq",
+        "video_testimonial_card_pnWDBJ",
+        "video_testimonial_card_Ay6EH8",
         "static_testimonial_card_y67QUG",
-        "static_testimonial_card_Hx8PjX",
-        "video_testimonial_card_tTAN4C",
-        "static_testimonial_card_nKqad4",
-        "video_testimonial_card_d3JW4C"
+        "video_testimonial_card_JUfpKD",
+        "video_testimonial_card_fNqkAa"
       ],
       "name": "Celebrity Testimonials",
       "settings": {
@@ -578,270 +567,6 @@
         "desktop_cards_per_row": 5,
         "tablet_cards_per_row": 2,
         "mobile_cards_per_row": 2
-      }
-    },
-    "multi-column": {
-      "type": "multi-column",
-      "blocks": {
-        "column_XPFNy9": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/icon-7.webp",
-            "media_scale": 100,
-            "heading": "Remi Ishizuka",
-            "subtext": "",
-            "text": "<p>Wellness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_AHwLrJ": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Frankie_Edgar_-_Icons_Page_1.png",
-            "media_scale": 100,
-            "heading": "Gordon Ryan",
-            "subtext": "",
-            "text": "<p>Martial Artist</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_WNXrha": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-5-min.jpg",
-            "media_scale": 100,
-            "heading": "Frankie Edgar",
-            "subtext": "",
-            "text": "<p>Former UFC Lightweight Champion</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_MUyT9i": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Joe_Rogan_-_Icons_Page.png",
-            "media_scale": 100,
-            "heading": "Joe Rogan",
-            "subtext": "",
-            "text": "<p>Podcaster, Commentator, Comedian</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_3Ah7eg": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
-            "media_scale": 100,
-            "heading": "Ian Somerhalder",
-            "subtext": "",
-            "text": "<p>Actor, Entrepreneur</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_XfaGyE": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Frame_17073.webp",
-            "media_scale": 100,
-            "heading": "Claire Thomas",
-            "subtext": "",
-            "text": "<p>Fitness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "multi-column-0": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-1-min.jpg",
-            "media_scale": 100,
-            "heading": "Wes Kitts",
-            "subtext": "",
-            "text": "<p>Olympian, Weightlifting Champion</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_UymgWR": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Sauna_PNGs_1_10fb9cf7-9bda-4c8d-8b04-5d9937db2dbf.png",
-            "media_scale": 100,
-            "heading": "Joe Andrews",
-            "subtext": "",
-            "text": "<p>Fitness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_QFyAEQ": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-6-min.jpg",
-            "media_scale": 100,
-            "heading": "Devin Booker",
-            "subtext": "",
-            "text": "<p>NBA Athlete</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_QjnreV": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-7-min.jpg",
-            "media_scale": 100,
-            "heading": "Tom Segura",
-            "subtext": "",
-            "text": "<p>Comedian</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_QAEDCM": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-2-min.jpg",
-            "media_scale": 100,
-            "heading": "Justin Baldoni",
-            "subtext": "",
-            "text": "<p>Actor, Producer</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_XPFNy9",
-        "column_AHwLrJ",
-        "column_WNXrha",
-        "column_MUyT9i",
-        "column_3Ah7eg",
-        "column_XfaGyE",
-        "multi-column-0",
-        "column_UymgWR",
-        "column_QFyAEQ",
-        "column_QjnreV",
-        "column_QAEDCM"
-      ],
-      "settings": {
-        "enable_padding": true,
-        "enable_gap": false,
-        "enable_fw": false,
-        "title": "Join renowned figures in their sauna journey",
-        "heading_align": "text-center",
-        "button_label": "Shop by tastemakers",
-        "button_link": "shopify://pages/our-icons",
-        "enable_load_more": false,
-        "layout": "carousel",
-        "column_size": "small",
-        "column_align": "center",
-        "media_align": "text-center",
-        "image_ratio": "1",
-        "color_scheme": "2",
-        "button_style": "btn btn--secondary"
-      }
-    },
-    "testimonials_YnNhRy": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_twbKTQ": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“Incredibly fast shipping with exceptional customer service from Jonathan! So excited to use this for years to come!”</p>",
-            "author": "Sean O Grady",
-            "author_info": "6 months ago",
-            "author_image": "shopify://shop_images/Frame_17071.png",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_QeTMTr": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“I think Salus Saunas’ customer service team went above and beyond and you won’t get that with a big box store.”</p>",
-            "author": "George Shlifer",
-            "author_info": "2 months ago",
-            "author_image": "shopify://shop_images/George_Shlifer.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_y3e7p3": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>\"As a seasoned firefighter of 21 years, I understand the value of reliability... My recent experience with Salus Saunas has left a lasting impression...\"</p>",
-            "author": "Miguel Porcell",
-            "author_info": "7 months ago",
-            "author_image": "shopify://shop_images/WhatsApp_Image_2025-01-19_at_00.17.44.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_4XYJ3Y": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“If you’re thinking about getting [a sauna or cold plunge], I suggest that you do. Please check out Salus Saunas, I can’t recommend them enough!”</p>",
-            "author": "Joe Rogan",
-            "author_info": "6 months ago",
-            "author_image": "shopify://shop_images/Joe_Rogan.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_HiDMt8": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>\"Salus Saunas Nordic II is just a game changer! I have just started using it and I already can feel many benefits...\"</p>",
-            "author": "Marco Teixeira",
-            "author_info": "2 months ago",
-            "author_image": "shopify://shop_images/WhatsApp_Image_2025-01-19_at_00.21.34.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_twbKTQ",
-        "testimonial_QeTMTr",
-        "testimonial_y3e7p3",
-        "testimonial_4XYJ3Y",
-        "testimonial_HiDMt8"
-      ],
-      "settings": {
-        "heading": "",
-        "show_quotes": true,
-        "testimonial_size": "h3",
-        "text_position": "justify-center",
-        "text_align": "text-center justify-center",
-        "view-more-text": "Show me more reviews",
-        "view-more": "shopify://pages/reviews",
-        "nav_style": "arrows",
-        "transition": "slide-fade",
-        "autoplay": true,
-        "slider_pause": true,
-        "autoplay_speed": 5,
-        "color_scheme": "default",
-        "full_width": true
       }
     },
     "video": {
@@ -1342,8 +1067,6 @@
     "product_carousel_MGky87",
     "homepage_sauna_value_proposition_hFfREm",
     "celebrity_testimonials_PmJ8Jr",
-    "multi-column",
-    "testimonials_YnNhRy",
     "video",
     "video_carousel_PNpByy",
     "slider_cards_4iLXF9",
