@@ -500,6 +500,7 @@
         "video_testimonial_card_fizjEq": {
           "type": "video-testimonial-card",
           "settings": {
+            "custom_thumbnail_image": "shopify://shop_images/Gordon_Ryan_Testimonials.jpg",
             "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
