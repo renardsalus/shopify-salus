@@ -43,7 +43,7 @@
   .testimonial-card__media-wrapper {
     position: relative;
     overflow: hidden;
-    border-radius: 10px
+    border-radius: 10px;
   }
 
   .testimonial-card__image {
@@ -129,7 +129,7 @@
   .testimonial-card__stars svg {
     width: 16px;
     height: 16px;
-    fill: #FFC107;
+    fill: #ffc107;
   }
 
   .testimonial-card__quote {
@@ -176,20 +176,20 @@
 
   /* Responsive Grid Settings - Mobile First */
   .celebrity-testimonials__grid {
-    grid-template-columns: repeat({{ section.settings.mobile_cards_per_row }}, 1fr);
+    grid-template-columns: repeat({{section.settings.mobile_cards_per_row}}, 1fr);
   }
 
   /* Tablet */
   @media screen and (min-width: 768px) {
     .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
+      grid-template-columns: repeat({{section.settings.tablet_cards_per_row}}, 1fr);
     }
   }
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
     .celebrity-testimonials__grid {
-      grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
+      grid-template-columns: repeat({{section.settings.desktop_cards_per_row}}, 1fr);
     }
   }
   @media screen and (max-width: 768px) {
@@ -224,7 +224,6 @@
           {% if block.settings.video_file != blank %}
             {% assign is_video_card = true %}
 
-            {# Prioritize custom thumbnail, fallback to auto-generated preview_image #}
             {% if block.settings.custom_thumbnail_image != blank %}
               {% assign card_image = block.settings.custom_thumbnail_image %}
               {% assign card_alt_text = block.settings.custom_thumbnail_image.alt | default: block.settings.name %}
