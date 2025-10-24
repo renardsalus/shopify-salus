@@ -12,7 +12,7 @@
   {%- endunless -%}
 
   <div
-    class="section promo-layout-{{- section.settings.section_layout }} {% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+    class="section promo-layout-{{- section.settings.section_layout }} {% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %} mx-auto"
     id="{{ section.id }}"
   >
     <div
