@@ -302,6 +302,45 @@
         "section_padding_bottom_mobile": 0
       }
     },
+    "homepage_sauna_value_proposition_hFfREm": {
+      "type": "homepage-sauna-value-proposition",
+      "blocks": {
+        "sauna_feature_item_JaGAY4": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "dynamic-1-2-person-infrared-sauna"
+          }
+        },
+        "sauna_feature_item_gxPnVT": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "uplift-full-spectrum-infrared-indoor-sauna"
+          }
+        },
+        "sauna_feature_item_fNnUjY": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "governor-mini-traditional-outdoor-sauna"
+          }
+        }
+      },
+      "block_order": [
+        "sauna_feature_item_JaGAY4",
+        "sauna_feature_item_gxPnVT",
+        "sauna_feature_item_fNnUjY"
+      ],
+      "name": "Sauna Value Proposition",
+      "settings": {
+        "main_heading_text": "<h2>Get started with your sauna journey for less than $4/day*</h2>",
+        "disclaimer_text": "<p>*Our saunas start at $104/mo or 0% APR with Affirm financing.</p>",
+        "button_text": "Shop Best Value Saunas",
+        "button_link": "",
+        "top_badge_text": "Best Value Picks – Includes FREE shipping + Warranty | $1000s in Value!",
+        "composite_sauna_image": "shopify://shop_images/Frame_15799.png",
+        "bottom_badge_text": "Best Value Picks – Includes FREE shipping + Warranty",
+        "desktop_column_ratio": 50
+      }
+    },
     "logo_list_DaqLFK": {
       "type": "logo-list",
       "blocks": {
@@ -418,45 +457,6 @@
         "button-label": "Explore All Infrared Saunas",
         "button_collection": "all-infrared-saunas",
         "products_to_display_collection": "infrared-saunas-highlight"
-      }
-    },
-    "homepage_sauna_value_proposition_hFfREm": {
-      "type": "homepage-sauna-value-proposition",
-      "blocks": {
-        "sauna_feature_item_JaGAY4": {
-          "type": "sauna-feature-item",
-          "settings": {
-            "featured_product": "dynamic-1-2-person-infrared-sauna"
-          }
-        },
-        "sauna_feature_item_gxPnVT": {
-          "type": "sauna-feature-item",
-          "settings": {
-            "featured_product": "uplift-full-spectrum-infrared-indoor-sauna"
-          }
-        },
-        "sauna_feature_item_fNnUjY": {
-          "type": "sauna-feature-item",
-          "settings": {
-            "featured_product": "governor-mini-traditional-outdoor-sauna"
-          }
-        }
-      },
-      "block_order": [
-        "sauna_feature_item_JaGAY4",
-        "sauna_feature_item_gxPnVT",
-        "sauna_feature_item_fNnUjY"
-      ],
-      "name": "Sauna Value Proposition",
-      "settings": {
-        "main_heading_text": "<h2>Get started with your sauna journey for less than $4/day*</h2>",
-        "disclaimer_text": "<p>*Our saunas start at $104/mo or 0% APR with Affirm financing.</p>",
-        "button_text": "Shop Best Value Saunas",
-        "button_link": "",
-        "top_badge_text": "Best Value Picks – Includes FREE shipping + Warranty | $1000s in Value!",
-        "composite_sauna_image": "shopify://shop_images/Frame_15799.png",
-        "bottom_badge_text": "Best Value Picks – Includes FREE shipping + Warranty",
-        "desktop_column_ratio": 50
       }
     },
     "celebrity_testimonials_PmJ8Jr": {
@@ -756,8 +756,8 @@
         "color_scheme": "4",
         "full_width": false,
         "enable_fw": false,
-        "top_padding": 170,
-        "bottom_padding": 170
+        "top_padding": 0,
+        "bottom_padding": 0
       }
     },
     "content_with_form_Q3amKV": {
