@@ -466,7 +466,7 @@
           "type": "video-testimonial-card",
           "settings": {
             "custom_thumbnail_image": "shopify://shop_images/Wes_Kitts_Testimonials.jpg",
-            "video_file": "shopify://files/videos/Joe Rogan Testimonials.mp4",
+            "video_file": "shopify://files/videos/Wes Kitts Testimonials.mp4",
             "name": "Wes Kitts",
             "description": "US Olympian, Weightlifting Champion"
           }
