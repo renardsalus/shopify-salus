@@ -604,98 +604,6 @@
         "color_scheme": "1"
       }
     },
-    "video_carousel_PNpByy": {
-      "type": "Video_Carousel",
-      "blocks": {
-        "video_QqRcVQ": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Glass&Class.mp4",
-            "poster": "shopify://shop_images/video-01.png",
-            "video_autoplay": true
-          }
-        },
-        "video_HGjRgX": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/round_cube_sauna (720p).mp4",
-            "poster": "shopify://shop_images/video-02.png",
-            "video_autoplay": true
-          }
-        }
-      },
-      "block_order": [
-        "video_QqRcVQ",
-        "video_HGjRgX"
-      ],
-      "settings": {
-        "title": "Disappear in our pleasure-inducing luxury saunas",
-        "button-text": "Explore our luxury saunas",
-        "link": "shopify://collections/luxury-traditional-saunas"
-      }
-    },
-    "slider_cards_4iLXF9": {
-      "type": "slider-cards",
-      "blocks": {
-        "blocks_kTjMmG": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Increased_Mortality-min.jpg",
-            "title": "Increased Mortality",
-            "description": "",
-            "link": "shopify://blogs/library-of-resources/skin-health"
-          }
-        },
-        "blocks_aRUU4i": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Sarcopenia_Arthritis_-_Salus_Saunas.png",
-            "title": "Sarcopenia & Arthritis",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_ki6RVB": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Endurance_Athletic_Performance_-_Salus_Saunas_1.png",
-            "title": "Endurance & Athletic Performance",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_YrEJjC": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Sleep_Relaxation-min.jpg",
-            "title": "Sleep & Relaxation",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_7mhRF7": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Library_of_Resources_-_Home_Page.png",
-            "title": "Heart Problems",
-            "description": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "blocks_kTjMmG",
-        "blocks_aRUU4i",
-        "blocks_ki6RVB",
-        "blocks_YrEJjC",
-        "blocks_7mhRF7"
-      ],
-      "settings": {
-        "title": "Unlock countless scientifically-backed health benefits",
-        "button-text": "See our library of resources",
-        "button-id": "shopify://blogs/library-of-resources"
-      }
-    },
     "promo_strip_yHMmpR": {
       "type": "promo-strip",
       "blocks": {
@@ -730,40 +638,6 @@
         "prevent_animation": false
       }
     },
-    "compare_model_Xqkj8N": {
-      "type": "compare-model",
-      "blocks": {
-        "blocks_jXB9Rp": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood-circle-min.png"
-          }
-        },
-        "blocks_87pFqm": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood-sauna-min.png"
-          }
-        },
-        "blocks_Azk93E": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood_circle_sauna-min.png"
-          }
-        }
-      },
-      "block_order": [
-        "blocks_jXB9Rp",
-        "blocks_87pFqm",
-        "blocks_Azk93E"
-      ],
-      "settings": {
-        "title": "Can’t decide which sauna’s for you? Talk to our sauna experts",
-        "button-text": "Give me expert help",
-        "link": "mailto:sales@salussaunas.com",
-        "bg-image": "shopify://shop_images/bg.png"
-      }
-    },
     "promo_strip_MEtcbi": {
       "type": "promo-strip",
       "blocks": {
@@ -796,118 +670,6 @@
         "color_scheme": "1",
         "full_width": true,
         "dividers": "border-top",
-        "prevent_animation": false
-      }
-    },
-    "media_with_text_aQTEjM": {
-      "type": "media-with-text",
-      "blocks": {
-        "subheading_DycxgB": {
-          "type": "subheading",
-          "settings": {
-            "text": "New Release"
-          }
-        },
-        "heading_YHGagY": {
-          "type": "heading",
-          "settings": {
-            "heading": "Unlock the benefits of contrast therapy and change your life",
-            "heading_size": "h3",
-            "heading_h1": false
-          }
-        },
-        "button_RpR7cG": {
-          "type": "button",
-          "settings": {
-            "button_label": "Explore cold plunges",
-            "button_link": "shopify://collections/cold-plunges",
-            "button_style": "btn btn--secondary",
-            "show_btn_icon": false
-          }
-        }
-      },
-      "block_order": [
-        "subheading_DycxgB",
-        "heading_YHGagY",
-        "button_RpR7cG"
-      ],
-      "settings": {
-        "sec_design": "2",
-        "enable_vertical_spacing": false,
-        "image": "shopify://shop_images/A_cold_plunge-min.jpg",
-        "video_external": "",
-        "video_description": "",
-        "video_autoplay": false,
-        "layout": "right",
-        "image_fit": "contain",
-        "media_width": 53,
-        "media_scale": 100,
-        "text_align": "text-start",
-        "color_scheme": "none",
-        "only_content_color_scheme": false
-      }
-    },
-    "icons_with_text_A6eThC": {
-      "type": "icons-with-text",
-      "blocks": {
-        "item_wC4WV3": {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "custom_icon": "shopify://shop_images/Plug-and-sweat.svg",
-            "icon_size": 24,
-            "heading": "Build & unwind",
-            "text": "<p>Our modular saunas are designed for an enjoyable build process</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_RdqEWF": {
-          "type": "item",
-          "settings": {
-            "icon": "price_tag",
-            "custom_icon": "shopify://shop_images/free_shipping.svg",
-            "icon_size": 24,
-            "heading": "100% free shipping",
-            "text": "<p>We take care of all shipping and delivery fees across the USA.</p>",
-            "link-text": "See our shipping details",
-            "link": "shopify://pages/shipping-policy"
-          }
-        },
-        "item_4yKEh9": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "custom_icon": "shopify://shop_images/warranty.png",
-            "icon_size": 24,
-            "heading": "Up to 7-year warranty",
-            "text": "<p>Sauna in peace with our extensive limited lifetime warranty</p>",
-            "link-text": "See our warranty agreement",
-            "link": "shopify://pages/sauna-warranty"
-          }
-        }
-      },
-      "block_order": [
-        "item_wC4WV3",
-        "item_RdqEWF",
-        "item_4yKEh9"
-      ],
-      "settings": {
-        "sec_layout": "slider",
-        "vertical_spacing": true,
-        "number_of_slides": "1",
-        "heading": "",
-        "heading_align": "text-start",
-        "text_layout": "1",
-        "icon_size": 48,
-        "title_type_scale": "medium",
-        "text_type_scale": "medium",
-        "icon_position": "inline",
-        "mobile_stack": false,
-        "section_height": "medium",
-        "color_scheme": "3",
-        "full_width": true,
-        "dividers": "none",
         "prevent_animation": false
       }
     },
@@ -1069,13 +831,8 @@
     "homepage_sauna_value_proposition_hFfREm",
     "celebrity_testimonials_PmJ8Jr",
     "video",
-    "video_carousel_PNpByy",
-    "slider_cards_4iLXF9",
     "promo_strip_yHMmpR",
-    "compare_model_Xqkj8N",
     "promo_strip_MEtcbi",
-    "media_with_text_aQTEjM",
-    "icons_with_text_A6eThC",
     "faq_T9BgCP",
     "content_with_form_Q3amKV"
   ]
