@@ -196,6 +196,7 @@
         },
         "column_n9RDpj": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "enable_media": true,
             "image": "shopify://shop_images/icon-8.jpg",
