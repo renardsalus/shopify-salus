@@ -462,6 +462,14 @@
     "celebrity_testimonials_PmJ8Jr": {
       "type": "celebrity-testimonials",
       "blocks": {
+        "video_testimonial_card_mzgML6": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/joe_rogan_loves_salus_saunas (720p).mp4",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
         "static_testimonial_card_wpMAki": {
           "type": "static-testimonial-card",
           "settings": {
@@ -478,14 +486,6 @@
             "quote": "A game changer!",
             "name": "Teixeira Family",
             "description": "Former UFC Lightweight Champion"
-          }
-        },
-        "video_testimonial_card_mzgML6": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "video_file": "shopify://files/videos/joe_rogan_loves_salus_saunas (720p).mp4",
-            "name": "Joe Rogan",
-            "description": "Host of the JRE Podcast, Comedian"
           }
         },
         "static_testimonial_card_9rtKQM": {
@@ -550,9 +550,9 @@
         }
       },
       "block_order": [
+        "video_testimonial_card_mzgML6",
         "static_testimonial_card_wpMAki",
         "static_testimonial_card_FBWDFt",
-        "video_testimonial_card_mzgML6",
         "static_testimonial_card_9rtKQM",
         "video_testimonial_card_fizjEq",
         "static_testimonial_card_y67QUG",
