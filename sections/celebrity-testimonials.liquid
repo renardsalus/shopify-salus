@@ -185,7 +185,7 @@
       grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
     }
   }
-  
+
   /* Desktop */
   @media screen and (min-width: 1024px) {
     .celebrity-testimonials__grid {
@@ -222,9 +222,17 @@
           {% assign card_alt_text = block.settings.image.alt | default: block.settings.name %}
         {% elsif block.type == 'video-testimonial-card' %}
           {% if block.settings.video_file != blank %}
-            {% assign card_image = block.settings.video_file.preview_image %}
-            {% assign card_alt_text = block.settings.video_file.preview_image.alt | default: block.settings.name %}
             {% assign is_video_card = true %}
+
+            {# Prioritize custom thumbnail, fallback to auto-generated preview_image #}
+            {% if block.settings.custom_thumbnail_image != blank %}
+              {% assign card_image = block.settings.custom_thumbnail_image %}
+              {% assign card_alt_text = block.settings.custom_thumbnail_image.alt | default: block.settings.name %}
+            {% else %}
+              {% assign card_image = block.settings.video_file.preview_image %}
+              {% assign card_alt_text = block.settings.video_file.preview_image.alt | default: block.settings.name %}
+            {% endif %}
+
             {% if block.settings.video_file.aspect_ratio %}
               {% assign media_wrapper_padding = 1
                 | divided_by: block.settings.video_file.aspect_ratio
@@ -476,6 +484,12 @@
       "type": "video-testimonial-card",
       "name": "Video Testimonial",
       "settings": [
+        {
+          "type": "image_picker", // ADD THIS SETTING
+          "id": "custom_thumbnail_image",
+          "label": "Custom Video Thumbnail (Optional)",
+          "info": "Upload an image to use as the video thumbnail. If left blank, Shopify's auto-generated preview image will be used."
+        },
         {
           "type": "video",
           "id": "video_file",
