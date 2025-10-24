@@ -465,9 +465,16 @@
         "video_testimonial_card_mzgML6": {
           "type": "video-testimonial-card",
           "settings": {
-            "video_file": "shopify://files/videos/joe_rogan_loves_salus_saunas (720p).mp4",
+            "video_file": "shopify://files/videos/Joe Rogan Testimonials.mp4",
             "name": "Joe Rogan",
-            "description": "Host of the JRE Podcast, Comedian"
+            "description": "Host of the JRE Podcast, UFC commentator, Comedian"
+          }
+        },
+        "video_testimonial_card_jz8crw": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "name": "Teixeira Family",
+            "description": "Former UFC Lightweight Champion"
           }
         },
         "static_testimonial_card_wpMAki": {
@@ -551,6 +558,7 @@
       },
       "block_order": [
         "video_testimonial_card_mzgML6",
+        "video_testimonial_card_jz8crw",
         "static_testimonial_card_wpMAki",
         "static_testimonial_card_FBWDFt",
         "static_testimonial_card_9rtKQM",
