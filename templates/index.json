@@ -237,7 +237,7 @@
           "type": "review_card",
           "settings": {
             "review_text": "<p>“Incredibly fast shipping with exceptional customer service from Jonathan! So excited to use this for years to come!”</p>",
-            "review_title": "Love my Salus Sauna!!!!",
+            "review_title": "",
             "author_image": "shopify://shop_images/sean_o_grady_icon_ee606c40-2080-4d14-aa5f-1f4c9cc0a3ed.webp",
             "author_name": "Sean O Grady",
             "is_verified": true
@@ -247,7 +247,7 @@
           "type": "review_card",
           "settings": {
             "review_text": "<p>“I think Salus Saunas’ customer service team went above and beyond and you won’t get that with a big box store.”</p>",
-            "review_title": "Love my Salus Sauna!!!!",
+            "review_title": "",
             "author_image": "shopify://shop_images/George_Shlifer_icon_89997207-913c-43dc-8f6d-306741b7f43e.png",
             "author_name": "George Shlifer",
             "is_verified": true
@@ -256,30 +256,30 @@
         "review_card_XdaTEj": {
           "type": "review_card",
           "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 3",
+            "review_text": "<p>\"As a seasoned firefighter of 21 years, I understand the value of reliability... My recent experience with Salus Saunas has left a lasting impression...\"</p>",
+            "review_title": "",
+            "author_image": "shopify://shop_images/Miguel_Porcell_icon_31f61b3c-8eb7-4332-8573-fc42a9dd2a7f.jpg",
+            "author_name": "Miguel Porcell",
             "is_verified": true
           }
         },
         "review_card_jNPzcC": {
           "type": "review_card",
           "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 4",
+            "review_text": "<p>“If you’re thinking about getting [a sauna or cold plunge], I suggest that you do. Please check out Salus Saunas, I can’t recommend them enough!”</p>",
+            "review_title": "",
+            "author_image": "shopify://shop_images/Joe_Rogan_icon_5b977173-bc21-4b5b-8b24-f9faec3d5eae.png",
+            "author_name": "Joe Rogan",
             "is_verified": true
           }
         },
         "review_card_9ftpeB": {
           "type": "review_card",
           "settings": {
-            "review_text": "<p>\"I use it nearly every day and it's completely revolutionized our backyard into a home spa.\"</p>",
-            "review_title": "Love my Salus Sauna!!!!",
-            "author_image": "shopify://shop_images/t2001x1212_3.webp",
-            "author_name": "Reviewer Name 5",
+            "review_text": "<p>\"Salus Saunas Nordic II is just a game changer! I have just started using it and I already can feel many benefits...\"</p>",
+            "review_title": "",
+            "author_image": "shopify://shop_images/Marco_Teixeira_icon_23af2ee0-e5d9-4105-88b8-d726622a91fe.png",
+            "author_name": "Marco Teixeira",
             "is_verified": true
           }
         }
