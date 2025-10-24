@@ -385,6 +385,7 @@
 
   .announcement__text .rte p {
     font-size: 16px;
+    display: inline;
   }
 
   p.card__tag {
@@ -3372,12 +3373,18 @@
   }
 
   .product-detail-title .product-accordion-scroll-link {
-    color: #0000ee;              /* blue */
-    text-decoration: underline;  /* underline */
-    font-weight: normal;         /* optional: remove bold if theme applies it */
-    background: none;            /* removes any button background */
-    border: none;                /* removes button borders if theme applies */
-    padding: 0;                  /* remove button padding */
+    color: #0000ee;
+    /* blue */
+    text-decoration: underline;
+    /* underline */
+    font-weight: normal;
+    /* optional: remove bold if theme applies it */
+    background: none;
+    /* removes any button background */
+    border: none;
+    /* removes button borders if theme applies */
+    padding: 0;
+    /* remove button padding */
     font-weight: 500;
     font-size: 16px !important;
     margin-left: 5px;

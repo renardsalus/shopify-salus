@@ -1,6 +1,6 @@
 <style>
   .celebrity-testimonials {
-    padding: 40px 0;
+    padding: 40px 100px;
     text-align: center;
   }
 
@@ -43,6 +43,7 @@
   .testimonial-card__media-wrapper {
     position: relative;
     overflow: hidden;
+    border-radius: 10px
   }
 
   .testimonial-card__image {
@@ -52,7 +53,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 2; /* Keep image above video for initial state */
+    z-index: 2; /* Thumbnail image over video initially */
+    transition: opacity 0.3s ease;
   }
 
   .testimonial-card__play-button {
@@ -68,9 +70,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 3; /* Keep button above image/video */
+    z-index: 3; /* Play button over everything initially */
     border: none;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.3s ease;
   }
 
   .testimonial-card__play-button:hover {
@@ -91,17 +93,21 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Visible by default in HTML, but hidden by JS until play */
+    display: block; /* Always takes up space */
     z-index: 1; /* Below image and button initially */
+    opacity: 0; /* Hidden by default, shown when playing */
+    transition: opacity 0.3s ease;
   }
 
   /* State when video is playing */
   .testimonial-card__media-wrapper.is-playing .testimonial-card__image,
   .testimonial-card__media-wrapper.is-playing .testimonial-card__play-button {
-    display: none;
+    opacity: 0;
+    pointer-events: none; /* Disable interaction with hidden elements */
   }
 
   .testimonial-card__media-wrapper.is-playing video {
+    opacity: 1;
     z-index: 4; /* Bring video to front when playing */
   }
 
@@ -179,11 +185,16 @@
       grid-template-columns: repeat({{ section.settings.tablet_cards_per_row }}, 1fr);
     }
   }
-
+  
   /* Desktop */
   @media screen and (min-width: 1024px) {
     .celebrity-testimonials__grid {
       grid-template-columns: repeat({{ section.settings.desktop_cards_per_row }}, 1fr);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .celebrity-testimonials {
+      padding: 20px 8px;
     }
   }
 </style>
@@ -204,7 +215,7 @@
         {% assign card_image = null %}
         {% assign is_video_card = false %}
         {% assign card_alt_text = block.settings.name %}
-        {% assign media_wrapper_padding = '100%' %} {# Default 1:1 for static image cards #}
+        {% assign media_wrapper_padding = '100%' %}
 
         {% if block.type == 'static-testimonial-card' %}
           {% assign card_image = block.settings.image %}
@@ -308,12 +319,30 @@
     let currentPlayingVideo = null; // Tracks the <video> element currently playing
 
     playButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const mediaWrapper = button.closest('.testimonial-card__media-wrapper');
-        const videoElement = mediaWrapper.querySelector('.testimonial-card__inline-video');
+      // Find the video element associated with this button, once per button
+      const mediaWrapper = button.closest('.testimonial-card__media-wrapper');
+      const videoElement = mediaWrapper.querySelector('.testimonial-card__inline-video');
 
+      // Attach event listeners for video pause/ended, once per video element
+      if (videoElement) {
+        videoElement.addEventListener('pause', () => {
+          mediaWrapper.classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
+          }
+        });
+        videoElement.addEventListener('ended', () => {
+          mediaWrapper.classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
+          }
+        });
+      }
+
+      // Attach the click listener to the play button
+      button.addEventListener('click', () => {
         if (!videoElement) {
-          console.error('Video element not found in card.');
+          console.error('Video element not found in card associated with play button.');
           return;
         }
 
@@ -349,25 +378,6 @@
             currentPlayingVideo = null;
           });
       });
-
-      // Add event listener to video itself to handle when it pauses (e.g., by user) or ends
-      const videoElement = button
-        .closest('.testimonial-card__media-wrapper')
-        .querySelector('.testimonial-card__inline-video');
-      if (videoElement) {
-        videoElement.addEventListener('pause', () => {
-          videoElement.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
-          if (currentPlayingVideo === videoElement) {
-            currentPlayingVideo = null;
-          }
-        });
-        videoElement.addEventListener('ended', () => {
-          videoElement.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
-          if (currentPlayingVideo === videoElement) {
-            currentPlayingVideo = null;
-          }
-        });
-      }
     });
   })();
 </script>

@@ -1,0 +1,26 @@
+{% comment %}
+  Renders a call icon SVG.
+
+  Usage:
+  {% render 'icon-call', class: 'my-custom-class', width: 21, height: 20, color: '#000000' %}
+
+  Parameters:
+  - class: (Optional) A custom CSS class to be added to the SVG element.
+  - width: (Optional) The width of the SVG. Defaults to 21.
+  - height: (Optional) The height of the SVG. Defaults to 20.
+  - color: (Optional) The fill color of the icon path. Defaults to 'black'.
+{% endcomment %}
+
+<svg
+  class="{{ class }}"
+  width="{{ width | default: 21 }}"
+  height="{{ height | default: 20 }}"
+  viewBox="0 0 21 20"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M19.3333 20C17.0185 20 14.727 19.5 12.4589 18.5C10.1907 17.5 8.13037 16.0741 6.27778 14.2222C4.42519 12.3704 2.99926 10.3148 2 8.05556C1.00074 5.7963 0.500741 3.5 0.5 1.16667V0H7.05556L8.08333 5.58333L4.91667 8.77778C5.32407 9.5 5.77778 10.1852 6.27778 10.8333C6.77778 11.4815 7.31481 12.0833 7.88889 12.6389C8.42593 13.1759 9.01407 13.69 9.65333 14.1811C10.2926 14.6722 10.9822 15.1304 11.7222 15.5556L14.9444 12.3333L20.5 13.4722V20H19.3333Z"
+    fill="{{ color | default: 'black' }}"
+  />
+</svg>
