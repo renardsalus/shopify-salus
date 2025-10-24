@@ -520,29 +520,29 @@
             "description": "Fitness Creator"
           }
         },
-        "static_testimonial_card_y67QUG": {
+        "static_testimonial_card_tkWkY3": {
           "type": "static-testimonial-card",
           "settings": {
-            "image": "shopify://shop_images/Lauryn_Bosstick_Testimonial.webp",
-            "quote": "Incredible results!",
-            "name": "Lauryn Bosstick",
-            "description": "Lifestyle & Wellness Influencer"
+            "image": "shopify://shop_images/Justin_Baldoni_Testimonials.webp",
+            "quote": "A game changer!",
+            "name": "Justin Baldoni",
+            "description": "Actor & Director"
           }
         },
         "video_testimonial_card_JUfpKD": {
           "type": "video-testimonial-card",
           "settings": {
+            "video_file": "shopify://files/videos/Lauryn Bosstick Testimonials.mp4",
+            "name": "Lauryn Bosstick",
+            "description": "Lifestyle & Wellness Influencer"
+          }
+        },
+        "video_testimonial_card_rBehdg": {
+          "type": "video-testimonial-card",
+          "settings": {
             "video_file": "shopify://files/videos/Remi Ishizuka Testimonials.mp4",
             "name": "Remi Ishizuka",
             "description": "Wellness & Lifestyle Creator"
-          }
-        },
-        "video_testimonial_card_fNqkAa": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "video_file": "shopify://files/videos/Justin Baldoni Testimonials.mp4",
-            "name": "Justin Baldoni",
-            "description": "Actor & Director"
           }
         }
       },
@@ -554,9 +554,9 @@
         "video_testimonial_card_fizjEq",
         "video_testimonial_card_pnWDBJ",
         "video_testimonial_card_Ay6EH8",
-        "static_testimonial_card_y67QUG",
+        "static_testimonial_card_tkWkY3",
         "video_testimonial_card_JUfpKD",
-        "video_testimonial_card_fNqkAa"
+        "video_testimonial_card_rBehdg"
       ],
       "name": "Celebrity Testimonials",
       "settings": {
