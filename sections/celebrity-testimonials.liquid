@@ -5,8 +5,25 @@
   }
 
   .celebrity-testimonials__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 20px; /* Space between left content and button */
     margin-bottom: 40px;
-    padding: 0 15px;
+    text-align: left; /* Default text alignment for left content */
+  }
+
+  .celebrity-testimonials__header-left {
+    flex-grow: 1; /* Allows it to take available space */
+    flex-shrink: 1;
+    min-width: 0; /* Allows content to shrink within flex item */
+  }
+
+  .celebrity-testimonials__container {
+    max-width: var(--page-width, 1400px); /* Your desired max width for content */
+    margin: 0 auto; /* Center the content container */
+    padding: 0 15px; /* Horizontal padding for content inside this container */
   }
 
   .celebrity-testimonials__subheading {
@@ -25,9 +42,29 @@
   .celebrity-testimonials__grid {
     display: grid;
     gap: 20px;
-    margin: 0 auto;
+    {% comment %} margin: 0 auto;
     max-width: var(--page-width, 1400px);
-    padding: 0 15px;
+    padding: 0 15px; {% endcomment %}
+  }
+
+  .celebrity-testimonials__reviews-summary {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between stars and text */
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555; /* Matches subheading color */
+  }
+
+  .celebrity-testimonials__reviews-summary svg {
+    width: 16px; /* Size for header stars */
+    height: 16px;
+    fill: #1F8A81; /* Teal for header stars, per icon-star.liquid */
+  }
+
+  .celebrity-testimonials__reviews-summary p {
+    margin-bottom: 0px;
   }
 
   .testimonial-card {
@@ -174,6 +211,22 @@
     border-color: #000;
   }
 
+  /* Specific styling for the header's "See More" button */
+  .celebrity-testimonials__header .button {
+    background-color: transparent; /* As per new design, it's white/transparent */
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50px; /* Pill shape */
+    padding: 12px 25px; /* Adjusted padding for pill shape */
+    flex-shrink: 0; /* Prevent button from shrinking in flex container */
+  }
+
+  .celebrity-testimonials__header .button:hover {
+    background-color: #000;
+    color: #fff;
+    /* Border transition handled by background-color and color transition */
+  }
+
   /* Responsive Grid Settings - Mobile First */
   .celebrity-testimonials__grid {
     grid-template-columns: repeat({{section.settings.mobile_cards_per_row}}, 1fr);
@@ -200,124 +253,141 @@
 </style>
 
 <div class="celebrity-testimonials">
-  <div class="celebrity-testimonials__header">
-    {% if section.settings.subheading != blank %}
-      <div class="celebrity-testimonials__subheading">{{ section.settings.subheading }}</div>
-    {% endif %}
-    {% if section.settings.heading != blank %}
-      <h2 class="celebrity-testimonials__heading">{{ section.settings.heading }}</h2>
-    {% endif %}
-  </div>
-
-  {% if section.blocks.size > 0 %}
-    <div class="celebrity-testimonials__grid">
-      {% for block in section.blocks limit: 10 %}
-        {% assign card_image = null %}
-        {% assign is_video_card = false %}
-        {% assign card_alt_text = block.settings.name %}
-        {% assign media_wrapper_padding = '100%' %}
-
-        {% if block.type == 'static-testimonial-card' %}
-          {% assign card_image = block.settings.image %}
-          {% assign card_alt_text = block.settings.image.alt | default: block.settings.name %}
-        {% elsif block.type == 'video-testimonial-card' %}
-          {% if block.settings.video_file != blank %}
-            {% assign is_video_card = true %}
-
-            {% if block.settings.custom_thumbnail_image != blank %}
-              {% assign card_image = block.settings.custom_thumbnail_image %}
-              {% assign card_alt_text = block.settings.custom_thumbnail_image.alt | default: block.settings.name %}
-            {% else %}
-              {% assign card_image = block.settings.video_file.preview_image %}
-              {% assign card_alt_text = block.settings.video_file.preview_image.alt | default: block.settings.name %}
-            {% endif %}
-
-            {% if block.settings.video_file.aspect_ratio %}
-              {% assign media_wrapper_padding = 1
-                | divided_by: block.settings.video_file.aspect_ratio
-                | times: 100
-                | append: '%'
-              %}
-            {% endif %}
-          {% endif %}
+  <div class="celebrity-testimonials__container">
+    <div class="celebrity-testimonials__header">
+      <div class="celebrity-testimonials__header-left">
+        {% if section.settings.subheading != blank %}
+          <div class="celebrity-testimonials__reviews-summary">
+            {% for i in (1..5) %}
+              {% render 'icon-star' %}
+            {% endfor %}
+            {{ section.settings.subheading }}
+          </div>
         {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="celebrity-testimonials__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
 
-        <div class="testimonial-card" {{ block.shopify_attributes }}>
-          <div class="testimonial-card__media-wrapper" style="padding-bottom: {{ media_wrapper_padding }};">
-            {% if card_image != blank %}
-              <img
-                class="testimonial-card__image"
-                src="{{ card_image | image_url: width: 300 }}"
-                srcset="
-                  {{ card_image | image_url: width: 300 }} 300w,
-                  {{ card_image | image_url: width: 500 }} 500w,
-                  {{ card_image | image_url: width: 700 }} 700w,
-                  {{ card_image | image_url: width: 1000 }} 1000w
-                "
-                sizes="
-                  (min-width: 1024px) calc( (var(--page-width, 1400px) - 90px) / {{ section.settings.desktop_cards_per_row }}),
-                  (min-width: 768px) calc( (100vw - 60px) / {{ section.settings.tablet_cards_per_row }}),
-                  calc(100vw - 30px)
-                "
-                alt="{{ card_alt_text }}"
-                loading="lazy"
-                width="{{ card_image.width }}"
-                height="{{ card_image.height }}"
-              >
-            {% else %}
-              {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
-            {% endif %}
-
-            {% if is_video_card and block.settings.video_file != blank %}
-              {{
-                block.settings.video_file
-                | video_tag:
-                  poster: card_image,
-                  autoplay: false,
-                  controls: true,
-                  muted: true,
-                  playsinline: true,
-                  class: 'testimonial-card__inline-video'
-              }}
-              <button
-                class="testimonial-card__play-button"
-                aria-label="Play video by {{ block.settings.name | escape }}"
-              >
-                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            {% endif %}
-          </div>
-
-          <div class="testimonial-card__content">
-            {% if block.type == 'static-testimonial-card' %}
-              <div class="testimonial-card__stars">
-                {% for i in (1..5) %}
-                  {% render 'icon-star' %}
-                {% endfor %}
-              </div>
-              {% if block.settings.quote != blank %}
-                <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
-              {% endif %}
-            {% endif %}
-            <p class="testimonial-card__name">{{ block.settings.name }}</p>
-            {% if block.settings.description != blank %}
-              <p class="testimonial-card__description">{{ block.settings.description }}</p>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="button">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
     </div>
 
-    {% if section.blocks.size > 10 and section.settings.button_link != blank %}
-      <div class="celebrity-testimonials__button-wrapper">
-        <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+    {% if section.blocks.size > 0 %}
+      <div class="celebrity-testimonials__grid">
+        {% for block in section.blocks limit: 10 %}
+          {% assign card_image = null %}
+          {% assign is_video_card = false %}
+          {% assign card_alt_text = block.settings.name %}
+          {% assign media_wrapper_padding = '100%' %}
+
+          {% if block.type == 'static-testimonial-card' %}
+            {% assign card_image = block.settings.image %}
+            {% assign card_alt_text = block.settings.image.alt | default: block.settings.name %}
+          {% elsif block.type == 'video-testimonial-card' %}
+            {% if block.settings.video_file != blank %}
+              {% assign is_video_card = true %}
+
+              {% if block.settings.custom_thumbnail_image != blank %}
+                {% assign card_image = block.settings.custom_thumbnail_image %}
+                {% assign card_alt_text = block.settings.custom_thumbnail_image.alt | default: block.settings.name %}
+              {% else %}
+                {% assign card_image = block.settings.video_file.preview_image %}
+                {% assign card_alt_text = block.settings.video_file.preview_image.alt | default: block.settings.name %}
+              {% endif %}
+
+              {% if block.settings.video_file.aspect_ratio %}
+                {% assign media_wrapper_padding = 1
+                  | divided_by: block.settings.video_file.aspect_ratio
+                  | times: 100
+                  | append: '%'
+                %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+          <div class="testimonial-card" {{ block.shopify_attributes }}>
+            <div class="testimonial-card__media-wrapper" style="padding-bottom: {{ media_wrapper_padding }};">
+              {% if card_image != blank %}
+                <img
+                  class="testimonial-card__image"
+                  src="{{ card_image | image_url: width: 300 }}"
+                  srcset="
+                    {{ card_image | image_url: width: 300 }} 300w,
+                    {{ card_image | image_url: width: 500 }} 500w,
+                    {{ card_image | image_url: width: 700 }} 700w,
+                    {{ card_image | image_url: width: 1000 }} 1000w
+                  "
+                  sizes="
+                    (min-width: 1024px) calc( (var(--page-width, 1400px) - 90px) / {{ section.settings.desktop_cards_per_row }}),
+                    (min-width: 768px) calc( (100vw - 60px) / {{ section.settings.tablet_cards_per_row }}),
+                    calc(100vw - 30px)
+                  "
+                  alt="{{ card_alt_text }}"
+                  loading="lazy"
+                  width="{{ card_image.width }}"
+                  height="{{ card_image.height }}"
+                >
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
+              {% endif %}
+
+              {% if is_video_card and block.settings.video_file != blank %}
+                {{
+                  block.settings.video_file
+                  | video_tag:
+                    poster: card_image,
+                    autoplay: false,
+                    controls: true,
+                    muted: true,
+                    playsinline: true,
+                    class: 'testimonial-card__inline-video'
+                }}
+                <button
+                  class="testimonial-card__play-button"
+                  aria-label="Play video by {{ block.settings.name | escape }}"
+                >
+                  <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+
+            <div class="testimonial-card__content">
+              {% if block.type == 'static-testimonial-card' %}
+                <div class="testimonial-card__stars">
+                  {% for i in (1..5) %}
+                    {% render 'icon-star' %}
+                  {% endfor %}
+                </div>
+                {% if block.settings.quote != blank %}
+                  <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
+                {% endif %}
+              {% endif %}
+              <p class="testimonial-card__name">{{ block.settings.name }}</p>
+              {% if block.settings.description != blank %}
+                <p class="testimonial-card__description">{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
+
+      {% comment %}
+        {% if section.blocks.size > 10 and section.settings.button_link != blank %}
+          <div class="celebrity-testimonials__button-wrapper">
+            <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+          </div>
+        {% endif %}
+      {% endcomment %}
+    {% else %}
+      <p>Please add testimonial cards to this section.</p>
     {% endif %}
-  {% else %}
-    <p>Please add testimonial cards to this section.</p>
-  {% endif %}
+  </div>
 </div>
 
 <script>
