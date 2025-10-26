@@ -119,35 +119,11 @@
             "feature_item_4": "FSA/HSA Eligible & Flexible Financing",
             "color_scheme": "dark"
           }
-        },
-        "hero_slide_pqxaYP": {
-          "type": "hero-slide",
-          "settings": {
-            "slide_image_desktop": "shopify://shop_images/Sauna_Stock_Images_4_2.png",
-            "desktop_image_alt": "Hello",
-            "slide_image_mobile": "shopify://shop_images/Sauna_Stock_Images_4_2_mobile.png",
-            "mobile_image_alt": "Hello",
-            "show_stars": true,
-            "reviews_text": "100s of verified 5-star reviews",
-            "headline": "Unlock evidence-based wellness, powered by heat",
-            "description": "<p>From longevity, sleep and recovery, to mental health, saunas brings it all together — make smarter choices today that your future self will thank you for.</p>",
-            "button1_text": "Shop All Saunas",
-            "button1_link": "shopify://collections/all-saunas",
-            "show_button1_arrow": true,
-            "button2_text": "Consult Our Experts",
-            "button2_link": "shopify://pages/contact",
-            "feature_item_1": "Free Shipping on all US orders",
-            "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
-            "feature_item_3": "Trusted by health professionals and athletes",
-            "feature_item_4": "FSA/HSA Eligible & Flexible Financing",
-            "color_scheme": "light"
-          }
         }
       },
       "block_order": [
         "hero_slide_fXR8VU",
-        "hero_slide_gQxa68",
-        "hero_slide_pqxaYP"
+        "hero_slide_gQxa68"
       ],
       "name": "Homepage Hero Carousel",
       "settings": {
