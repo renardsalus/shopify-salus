@@ -430,3 +430,48 @@
     font-size: 16px;
     padding: 20px;
 }
+
+/* Dark-mode slide */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
+  background-color: #111;
+  color: #f7f7f7;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__headline {
+  color: #ffffff;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__description,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__reviews-text,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item {
+  color: #cfcfcf;
+}
+
+/* Primary CTA: light background with dark text in dark mode */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary {
+  background-color: #f7f7f7;
+  color: #111;
+  border-color: #f7f7f7;
+}
+
+/* Secondary CTA: ghost/outline adapted for dark mode */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary {
+  background-color: transparent;
+  color: #f7f7f7;
+  border-color: #f7f7f7;
+}
+
+/* Keep accent (green) unchanged but ensure icon visibility */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__star-rating svg,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item svg {
+  fill: #38A169;
+}
+
+/* Ensure content column covers full width on mobile stacked layout */
+@media screen and (max-width: 767px) {
+  .homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
+    background-color: #111;
+  }
+}
+
+.homepage-hero-carousel__slide-inner > * { min-width: 0; min-height: 0; }

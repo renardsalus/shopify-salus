@@ -27,7 +27,7 @@
       <div class="swiper-container homepage-hero-carousel__swiper">
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
-            <div class="swiper-slide homepage-hero-carousel__slide" {{ block.shopify_attributes }}>
+            <div class="swiper-slide homepage-hero-carousel__slide homepage-hero-carousel__slide--{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
               <div class="homepage-hero-carousel__slide-inner">
                 <div
                   class="homepage-hero-carousel__content-column"
@@ -435,6 +435,16 @@
           "label": "Feature Item 4",
           "default": "FSA/HSA Eligible & Flexible Financing",
           "info": "Leave blank to hide."
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "options": [
+            { "value": "light", "label": "Light (default)" },
+            { "value": "dark", "label": "Dark" }
+          ],
+          "default": "light"
         }
       ]
     }
