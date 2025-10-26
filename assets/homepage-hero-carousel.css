@@ -87,9 +87,9 @@
 }
 
 .homepage-hero-carousel__star-rating svg {
-    width: 16px;
+    width: 13px;
     /* Size of star icon */
-    height: 16px;
+    height: 13px;
     fill: #38A169;
     /* Green color for stars, matching example */
 }
@@ -146,10 +146,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 30px;
+    padding: 0px 30px;
     border-radius: 50px;
     /* Slightly rounded corners */
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
@@ -376,17 +376,17 @@
 
     /* --- Minor typography and layout adjustments for mobile --- */
     .homepage-hero-carousel__headline {
-        font-size: 25px;
+        font-size: 28px;
         margin-bottom: 15px;
     }
 
     .homepage-hero-carousel__description {
-        font-size: 14px;
+        font-size: 15px;
         margin-bottom: 25px;
     }
 
     .homepage-hero-carousel__reviews-text {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .homepage-hero-carousel__reviews {
