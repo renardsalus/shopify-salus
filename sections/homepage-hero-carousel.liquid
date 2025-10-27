@@ -47,6 +47,11 @@
                           {% render 'icon-star' %}
                         </span>
                       {% endif %}
+                      {% if block.settings.show_house_icon %}
+                        <span class="homepage-hero-carousel__review-icon-house">
+                          {% render 'icon-review-house' %}
+                        </span>
+                      {% endif %}
                       <p class="homepage-hero-carousel__reviews-text">{{ block.settings.reviews_text }}</p>
                     </div>
                   {% endif %}
@@ -353,6 +358,12 @@
           "type": "checkbox",
           "id": "show_stars",
           "label": "Show 5-star rating icon",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_house_icon",
+          "label": "Show house icon",
           "default": true
         },
         {

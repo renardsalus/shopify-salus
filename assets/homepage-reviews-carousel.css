@@ -12,8 +12,8 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -21,7 +21,7 @@
 }
 
 .review-slide {
-    flex: 0 0 calc((100% / 3.5) - (10px * (3.5 - 1) / 3.5));
+    flex: 0 0 320px;
     margin-left: 20px;
     margin-right: 20px;
     height: auto;
@@ -86,6 +86,7 @@
     .carousel-track {
         padding-left: 0px;
         padding-right: 0px;
+        padding-bottom: 0px;
     }
 
     .homepage-reviews-slider__carousel {
@@ -103,5 +104,9 @@
 
     .homepage-reviews-slider__nav-button {
         display: flex;
+    }
+
+    .homepage-reviews-slider__action-area {
+        padding-bottom: 20px
     }
 }
