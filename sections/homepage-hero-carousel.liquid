@@ -172,11 +172,6 @@
           <button class="carousel-arrow arrow-left margin-left-50">❮</button>
           <button class="carousel-arrow arrow-right margin-right-50">❯</button>
         {% endif %}
-        {% comment %}
-          {% if section.settings.show_pagination_dots %}
-            <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
-          {% endif %}
-        {% endcomment %}
       </div>
     {% else %}
       <div class="placeholder-content">
@@ -184,13 +179,39 @@
       </div>
     {% endif %}
   </div>
+  {% if section.settings.show_pagination_dots %}
+    <div class="swiper-pagination homepage-hero-carousel__pagination"></div>
+  {% endif %}
 </section>
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
 
 <script>
+  const slideColorSchemes = [
+    {% for block in section.blocks %}
+      "{{ block.settings.color_scheme }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
   document.addEventListener('DOMContentLoaded', function() {
     const carouselElement = document.querySelector('.homepage-hero-carousel__swiper');
+
+    // This function now uses the reliable 'realIndex'
+    function updatePaginationColor(swiper) {
+      if (!swiper.el || !slideColorSchemes || typeof swiper.realIndex === 'undefined') return;
+
+      const currentScheme = slideColorSchemes[swiper.realIndex];
+      const sectionEl = carouselElement.closest('.homepage-hero-carousel');
+
+      if (!sectionEl) return;
+
+      if (currentScheme === 'dark') {
+        sectionEl.classList.add('pagination-on-dark-slide');
+      } else {
+        sectionEl.classList.remove('pagination-on-dark-slide');
+      }
+    }
+
     if (carouselElement) {
       const swiper = new Swiper(carouselElement, {
         loop: {{ section.settings.enable_loop }},
@@ -219,6 +240,21 @@
           lastSlideMessage: 'This is the last slide',
           paginationBulletMessage: '{% raw %}Go to slide {{index}}{% endraw %}',
         },
+
+        // Use 'slideChange' and 'realIndexChange' for loop mode
+        on: {
+          init: function(swiper) {
+            // Delay init check slightly to ensure 'realIndex' is set
+            setTimeout(() => updatePaginationColor(swiper), 0);
+          },
+          slideChange: function(swiper) {
+            updatePaginationColor(swiper);
+          },
+          // Add this as a fallback for loop mode
+          realIndexChange: function(swiper) {
+            updatePaginationColor(swiper);
+          }
+        }
       });
     }
   });

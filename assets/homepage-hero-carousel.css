@@ -293,17 +293,14 @@
     /* Adjust position */
 }
 
-.homepage-hero-carousel__pagination .swiper-pagination-bullet {
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Inactive dot color */
+/* .homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: #FFFFFF;
     opacity: 1;
-    /* Override swiper default opacity */
 }
 
 .homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
-    background-color: #38A169;
-    /* Active dot color (green from stars/checkmarks) */
-}
+    background-color: #33B6AB;
+} */
 
 .homepage-hero-carousel-desktop {
     display: block;
@@ -518,4 +515,46 @@
 /* Ensure proper alignment on dark slides */
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__review-icon-house svg path {
     fill: #33B6AB;
+}
+
+.swiper-pagination.homepage-hero-carousel__pagination {
+    display: None;
+}
+
+@media screen and (max-width:768px) {
+    .swiper-pagination.homepage-hero-carousel__pagination {
+        display: block;
+    }
+}
+
+/* 3. Default inactive dot (dark) - This rule already exists */
+.homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 1;
+}
+
+/* 4. Active dot (green) - This rule already exists */
+.homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
+    background-color: #38A169;
+}
+
+/* 5. NEW: Inactive dot (white) when on a dark slide */
+.homepage-hero-carousel__swiper.pagination-on-dark-slide .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 1);
+    /* White, semi-transparent */
+}
+
+/* 6. NEW: Ensure active dot (green) overrides the new white rule */
+.homepage-hero-carousel__swiper.pagination-on-dark-slide .swiper-pagination-bullet-active {
+    background-color: #38A169;
+    /* Re-state green to ensure specificity */
+}
+
+.homepage-hero-carousel.pagination-on-dark-slide .homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Ensure the active dot stays green */
+.homepage-hero-carousel.pagination-on-dark-slide .homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
+    background-color: #38A169;
 }
