@@ -1,25 +1,23 @@
 <div class="carousel-background-wrapper">
   <div class="carousel-section mx-auto">
+    {%- if section.settings.affirm_product != blank -%}
+      {%- assign affirm_product = all_products[section.settings.affirm_product] -%}
+      {% render 'affirm-messaging', product: affirm_product %}
+    {%- endif -%}
     <div class="carousel-header">
       <div class="header-left">
-        {%- if section.settings.affirm_product != blank -%}
-          {%- assign affirm_product = all_products[section.settings.affirm_product] -%}
-          {% render 'affirm-messaging', product: affirm_product %}
-        {%- endif -%}
-
         <h2>{{ section.settings.title }}</h2>
       </div>
-
       <div class="header-right">
         {%- assign button_collection = section.settings.button_collection -%}
         {%- if button_collection != blank and section.settings['button-label'] != blank -%}
           <a href="{{ button_collection.url }}" class="explore-all-btn cta-btn">
             {{ section.settings['button-label'] }}
-            <span class="cta-arrow">➜</span>
+            {% render 'icon-arrow-right-cta' %}
           </a>
         {%- else -%}
           <a href="{{ routes.collections_url }}" class="explore-all-btn cta-btn">
-            Explore All Saunas <span class="cta-arrow">➜</span>
+            Explore All Saunas {% render 'icon-arrow-right-cta' %}
           </a>
         {%- endif -%}
       </div>
