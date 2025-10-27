@@ -936,7 +936,10 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
 
 .faqs-section.section {
   padding: 130px 0 170px;
-  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 170px
 }
 
 .faqs-section h2.h4 {

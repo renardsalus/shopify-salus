@@ -11,15 +11,14 @@
   /* padding: 0 20px; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
-.carousel-header {
-  text-align: center;
-}
+
 .carousel-header h2 {
   font-size: 2.5em;
   font-weight: 600;
   margin-top: 50px;
 }
-.carousel-header .explore-all-btn {
+
+/* .carousel-header .explore-all-btn {
   display: inline-block;
   padding: 12px 24px;
   border: 1px solid #333;
@@ -29,14 +28,103 @@
   font-weight: 500;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .carousel-header .explore-all-btn:hover {
   background-color: #333;
   color: #fff;
+} */
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 0 0;
+  text-align: center;
 }
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: calc(100% - 240px);
+}
+
+.header-left h2 {
+  text-align: left;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* CTA styling (pill on the right) */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 220px;
+}
+
+.explore-all-btn.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background-color: #163f36;
+  /* target dark green; change as needed */
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.explore-all-btn.cta-btn:hover {
+  opacity: 0.92;
+}
+
+.cta-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 768px) {
+  .carousel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding-top: 18px;
+  }
+
+  .header-left {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .header-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .header-right {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .explore-all-btn.cta-btn {
+    width: auto;
+  }
+}
+
 .carousel-container {
   position: relative;
   margin-top: 20px;
 }
+
 .carousel-track {
   display: flex;
   overflow-x: auto;
@@ -45,9 +133,11 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .carousel-track::-webkit-scrollbar {
   display: none;
 }
+
 .product-card {
   flex: 0 0 23%;
   margin-right: 2%;
@@ -58,16 +148,19 @@
   display: flex;
   flex-direction: column;
 }
+
 .product-image-wrapper {
   position: relative;
   background-color: #fcf8f3;
   padding: 20px;
 }
+
 .product-image-wrapper img {
   width: 100%;
   height: auto;
   display: block;
 }
+
 .badge {
   position: absolute;
   padding: 5px 10px;
@@ -77,11 +170,13 @@
   background-color: #000;
   color: white;
 }
+
 .badge.release-badge {
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
 }
+
 .product-info {
   padding: 15px;
   text-align: center;
@@ -89,12 +184,14 @@
   flex-direction: column;
   flex-grow: 1;
 }
+
 .shipping-tag {
   font-size: 0.9em;
   color: #555;
   margin-bottom: 10px;
   min-height: 1.2em;
 }
+
 .product-title {
   font-size: 1.1em;
   font-weight: 600;
@@ -103,12 +200,14 @@
   display: block;
   margin-bottom: 10px;
 }
+
 .star-rating {
   margin-bottom: 10px;
   --star-size: 1.2rem;
   --star-color: #d1d1d1;
   --star-background: #ffc700;
 }
+
 .star-rating .stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
@@ -122,15 +221,16 @@
   content: '★★★★★';
   letter-spacing: 1px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
-  
+
   /* Vendor prefix for older WebKit browsers (Safari, Chrome) */
   -webkit-background-clip: text;
-  
+
   /* FIX: Add the standard property for maximum compatibility */
   background-clip: text;
-  
+
   -webkit-text-fill-color: transparent;
 }
+
 /* --- END OF CORRECTION --- */
 
 .price {
@@ -140,12 +240,14 @@
   margin-top: auto;
   text-align: start;
 }
+
 .price .compare-at-price {
   text-decoration: line-through;
   color: #777;
   font-size: 0.9em;
   margin-left: 5px;
 }
+
 .learn-more-btn {
   display: inline-block;
   width: 100%;
@@ -158,10 +260,12 @@
   margin-top: 15px;
   transition: background-color 0.3s;
 }
+
 .learn-more-btn:hover {
   background-color: #24413e;
   color: #ffffff;
 }
+
 .carousel-arrow {
   position: absolute;
   top: 40%;
@@ -175,12 +279,20 @@
   cursor: pointer;
   z-index: 10;
 }
-.carousel-arrow:hover{
+
+.carousel-arrow:hover {
   background-color: rgb(var(--text-color));
   color: #ffffff;
 }
-.arrow-left { left: -20px; }
-.arrow-right { right: -20px; }
+
+.arrow-left {
+  left: -20px;
+}
+
+.arrow-right {
+  right: -20px;
+}
+
 .product-card--empty {
   width: 100%;
   padding: 40px;
@@ -197,18 +309,24 @@
 }
 
 .product-title {
-    font-size: 19px;
-    font-weight: 700;
-    text-align: start !important;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Truncate after 2 lines */
-    -webkit-box-orient: vertical;
-  }
+  font-size: 19px;
+  font-weight: 700;
+  text-align: start !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Truncate after 2 lines */
+  -webkit-box-orient: vertical;
+}
 
 @media (max-width: 768px) {
-  .product-card { flex-basis: 65%; }
-  .carousel-arrow { display: none; }
+  .product-card {
+    flex-basis: 65%;
+  }
+
+  .carousel-arrow {
+    display: none;
+  }
 
   .carousel-background-wrapper {
     background-color: #f9f9f9 !important;
@@ -220,7 +338,7 @@
     font-size: 15px;
     font-weight: 700;
   }
-  
+
   .price {
     font-size: 16px;
     font-weight: 600;
@@ -231,8 +349,8 @@
     font-size: 24px;
     max-width: 350px;
     line-height: 36px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0px;
   }
 
@@ -257,6 +375,7 @@
     --star-color: #d1d1d1;
     --star-background: #ffc700;
   }
+
   .star-rating .stars {
     --percent: calc(var(--rating) / 5 * 100%);
     display: inline-block;
@@ -302,6 +421,7 @@
     --star-color: #d1d1d1;
     --star-background: #ffc700;
   }
+
   .star-rating .stars {
     --percent: calc(var(--rating) / 5 * 100%);
     display: inline-block;

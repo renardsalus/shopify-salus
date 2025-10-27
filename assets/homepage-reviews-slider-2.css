@@ -15,7 +15,8 @@
 }
 
 .homepage-reviews-slider__wrapper {
-    max-width: 1400px;
+    /* max-width: 1400px; */
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
