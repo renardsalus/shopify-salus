@@ -95,7 +95,7 @@
 }
 
 .homepage-hero-carousel__reviews-text {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
     font-weight: 500;
     color: #333;
@@ -184,8 +184,7 @@
     border: 2px solid #1F8A81;
 }
 
-.homepage-hero-carousel__button--primary svg,
-.homepage-hero-carousel__button--secondary svg {
+.homepage-hero-carousel__button--primary svg {
     margin-left: 10px;
     /* Space for arrow icon */
     width: 16px;
@@ -458,26 +457,27 @@
 
 /* Primary CTA: light background with dark text in dark mode */
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary {
-    background-color: #000000;
-    color: #FBFBFB;
-    border: 2px solid #FBFBFB;
-}
-
-/* Secondary CTA: ghost/outline adapted for dark mode */
-.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary {
     background-color: #FBFBFB;
     color: #222120;
     border: 2px solid #FBFBFB;
 }
 
+/* Secondary CTA: ghost/outline adapted for dark mode */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary {
+    background-color: #222120;
+    color: #FBFBFB;
+    border: 2px solid #FBFBFB;
+}
+
 /* Keep accent (green) unchanged but ensure icon visibility */
-.homepage-hero-carousel__slide--dark .homepage-hero-carousel__star-rating svg,
+/* .homepage-hero-carousel__slide--dark .homepage-hero-carousel__star-rating svg,
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item svg {
     fill: #33B6AB;
-}
+} */
 
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary:hover {
     background-color: #1F8A81;
+    color: #FBFBFB;
     border-color: #1F8A81;
 }
 
@@ -487,14 +487,9 @@
     border: 2px solid #1F8A81;
 }
 
-.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary svg,
-.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary svg {
-    margin-left: 10px;
-    /* Space for arrow icon */
-    width: 16px;
-    height: 19px;
-    fill: currentColor;
-    /* Inherit color from button text */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary svg path {
+    fill: currentColor !important;
+    /* Forces the color to match the button text */
 }
 
 /* Ensure content column covers full width on mobile stacked layout */
@@ -516,8 +511,8 @@
 }
 
 .homepage-hero-carousel__review-icon-house svg {
-    width: 21px;
-    height: 20px;
+    width: 13px;
+    height: 13px;
 }
 
 /* Ensure proper alignment on dark slides */

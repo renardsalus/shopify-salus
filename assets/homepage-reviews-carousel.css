@@ -12,8 +12,8 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .carousel-track::-webkit-scrollbar {
