@@ -15,7 +15,7 @@
 }
 
 .homepage-reviews-slider__wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -36,8 +36,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center; /* Keep this for overall card centering, adjust internal elements */
-    text-align: center; /* Keep this for overall card centering, adjust internal elements */
+    align-items: center;
+    /* Keep this for overall card centering, adjust internal elements */
+    text-align: center;
+    /* Keep this for overall card centering, adjust internal elements */
     height: 100%;
     max-width: 400px;
 }
@@ -58,8 +60,10 @@
     line-height: 34px;
     color: #333;
     margin-bottom: 20px;
-    font-style: italic; /* Applied font style */
-    text-align: left; /* Adjusted alignment */
+    font-style: italic;
+    /* Applied font style */
+    text-align: left;
+    /* Adjusted alignment */
 }
 
 .homepage-reviews-slider__text p {
@@ -68,9 +72,11 @@
 
 .homepage-reviews-slider__star-rating {
     display: flex;
-    gap: 2px; /* Narrower spacing between stars */
+    gap: 2px;
+    /* Narrower spacing between stars */
     margin-bottom: 15px;
-    align-self: flex-start; /* Left-align the stars within the card */
+    align-self: flex-start;
+    /* Left-align the stars within the card */
 }
 
 .homepage-reviews-slider__star-rating svg {
@@ -86,18 +92,25 @@
     color: #222;
     margin-top: 0;
     margin-bottom: 25px;
-    text-align: left; /* Adjusted alignment */
-    align-self: flex-start; /* Ensure left alignment within the card */
+    text-align: left;
+    /* Adjusted alignment */
+    align-self: flex-start;
+    /* Ensure left alignment within the card */
 }
 
 .homepage-reviews-slider__author-details {
     display: flex;
-    flex-direction: row; /* Changed to horizontal layout */
-    align-items: center; /* Vertically align items in the row */
-    justify-content: flex-start; /* Center the whole author details row */
-    gap: 10px; /* Spacing between image, name, and checkmark */
+    flex-direction: row;
+    /* Changed to horizontal layout */
+    align-items: center;
+    /* Vertically align items in the row */
+    justify-content: flex-start;
+    /* Center the whole author details row */
+    gap: 10px;
+    /* Spacing between image, name, and checkmark */
     margin-top: auto;
-    width: 100%; /* Allow it to take full width for centering */
+    width: 100%;
+    /* Allow it to take full width for centering */
 }
 
 .homepage-reviews-slider__author-image {
@@ -105,8 +118,10 @@
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Made circular */
-    overflow: hidden; /* Ensures the image respects the border-radius */
+    border-radius: 50%;
+    /* Made circular */
+    overflow: hidden;
+    /* Ensures the image respects the border-radius */
 }
 
 .homepage-reviews-slider__author-name {

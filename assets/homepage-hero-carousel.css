@@ -95,7 +95,7 @@
 }
 
 .homepage-hero-carousel__reviews-text {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
     color: #333;
@@ -119,7 +119,7 @@
 
 /* --- Description --- */
 .homepage-hero-carousel__description {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     color: #555;
@@ -146,7 +146,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 30px;
+    padding: 15px 30px;
     border-radius: 50px;
     /* Slightly rounded corners */
     font-size: 16px;
@@ -214,7 +214,7 @@
 .homepage-hero-carousel__feature-item {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     color: #555;
     margin-bottom: 10px;
@@ -343,23 +343,26 @@
     */
     .homepage-hero-carousel__slide-inner {
         display: flex;
-        flex-direction: column-reverse; /* The key fix for ordering */
+        flex-direction: column-reverse;
+        /* The key fix for ordering */
     }
-    
+
     /*
       Ensure the image column has a reasonable height without creating large gaps.
       Using aspect-ratio is a modern way to maintain image shape.
     */
     .homepage-hero-carousel__image-column {
         height: 200px;
-        min-height: 0; /* Reset min-height */
+        min-height: 0;
+        /* Reset min-height */
         /* aspect-ratio: 4 / 3; Give the image a default shape, adjust if needed */
     }
-    
+
     /* The image itself should cover its container. */
     .homepage-hero-carousel__image-column img,
     .homepage-hero-carousel__image {
-        position: static; /* Let the image sit naturally in the document flow */
+        position: static;
+        /* Let the image sit naturally in the document flow */
         height: 200px;
         width: 100%;
         object-fit: cover;
@@ -370,7 +373,8 @@
     */
     .homepage-hero-carousel__content-column {
         height: auto;
-        background-color: #FDF7F1 !important; /* Ensure it has a background */
+        background-color: #FDF7F1 !important;
+        /* Ensure it has a background */
         padding: 20px 20px;
     }
 
@@ -436,46 +440,71 @@
     position: relative;
     z-index: 1;
 }
+
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
-  background-color: #222120 !important;
-  color: #FBFBFB;
+    background-color: #222120 !important;
+    color: #FBFBFB;
 }
 
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__headline {
-  color: #FBFBFB;
+    color: #FBFBFB;
 }
 
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__description,
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__reviews-text,
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item {
-  color: #FBFBFB;
+    color: #FBFBFB;
 }
 
 /* Primary CTA: light background with dark text in dark mode */
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary {
-  background-color: #FBFBFB;
-  color: #111;
-  border-color: #FBFBFB;
+    background-color: #000000;
+    color: #FBFBFB;
+    border: 2px solid #FBFBFB;
 }
 
 /* Secondary CTA: ghost/outline adapted for dark mode */
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary {
-  background-color: #222120;
-  color: #FBFBFB;
-  border-color: #FBFBFB;
+    background-color: #FBFBFB;
+    color: #222120;
+    border: 2px solid #FBFBFB;
 }
 
 /* Keep accent (green) unchanged but ensure icon visibility */
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__star-rating svg,
 .homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item svg {
-  fill: #33B6AB;
+    fill: #33B6AB;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary:hover {
+    background-color: #1F8A81;
+    border-color: #1F8A81;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary:hover {
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border: 2px solid #1F8A81;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary svg,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary svg {
+    margin-left: 10px;
+    /* Space for arrow icon */
+    width: 16px;
+    height: 19px;
+    fill: currentColor;
+    /* Inherit color from button text */
 }
 
 /* Ensure content column covers full width on mobile stacked layout */
 @media screen and (max-width: 767px) {
-  .homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
-    background-color: #222120;
-  }
+    .homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
+        background-color: #222120;
+    }
 }
 
-.homepage-hero-carousel__slide-inner > * { min-width: 0; min-height: 0; }
+.homepage-hero-carousel__slide-inner>* {
+    min-width: 0;
+    min-height: 0;
+}

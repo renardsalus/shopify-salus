@@ -12,8 +12,8 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 20px;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -96,10 +96,10 @@
         display: none;
     }
 
-    .homepage-reviews-slider__wrapper {
+    /* .homepage-reviews-slider__wrapper {
         margin-bottom: 50px;
         margin-top: 50px;
-    }
+    } */
 
     .homepage-reviews-slider__nav-button {
         display: flex;
