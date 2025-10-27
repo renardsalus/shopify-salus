@@ -425,7 +425,7 @@
       "name": "Product Carousel",
       "settings": {
         "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
+        "button-label": "Shop Traditional",
         "button_collection": "traditional-sauna-v2",
         "affirm_product": "governor-mini-traditional-outdoor-sauna",
         "products_to_display_collection": "traditional-saunas-highlight"
@@ -436,7 +436,7 @@
       "name": "Product Carousel",
       "settings": {
         "title": "Explore our best-in-class infrared saunas",
-        "button-label": "Explore All Infrared Saunas",
+        "button-label": "Shop Infrared",
         "button_collection": "all-infrared-saunas",
         "affirm_product": "dynamic-1-2-person-infrared-sauna",
         "products_to_display_collection": "infrared-saunas-highlight"
