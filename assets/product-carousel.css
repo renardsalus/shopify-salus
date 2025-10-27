@@ -81,10 +81,10 @@
 .explore-all-btn.cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
+  padding: 15px 30px;
   border-radius: 50px;
   background-color: #1B413E;
+  transition: all 0.2s ease-in-out;
   /* target dark green; change as needed */
   color: #ffffff;
   text-decoration: none;
@@ -102,6 +102,7 @@
 .header-right svg {
   height: 19px;
   width: 16px;
+  margin-left: 10px;
 }
 
 .cta-arrow {
@@ -144,7 +145,7 @@
   margin-top: 20px;
 }
 
-.carousel-track {
+.carousel-container .carousel-track {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
