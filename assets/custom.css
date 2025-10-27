@@ -942,6 +942,12 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
   margin-bottom: 170px
 }
 
+@media screen and (max-width: 768px) {
+  .faqs-section.section {
+    margin-bottom: 30px
+  }
+}
+
 .faqs-section h2.h4 {
   font-family: var(--custom-body-font);
   font-size: 42px;

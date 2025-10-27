@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  /* gap: 6px; */
   max-width: calc(100% - 240px);
 }
 
@@ -115,14 +115,14 @@
   .carousel-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: start;
+    text-align: left;
     gap: 12px;
-    padding-top: 18px;
+    padding-top: 10px;
   }
 
   .header-left {
-    align-items: center;
+    margin-left: 20px;
     max-width: 100%;
   }
 
@@ -131,12 +131,16 @@
   }
 
   .header-right {
-    min-width: auto;
+    /* min-width: auto; */
+    max-width: 100%;
     width: 100%;
+    justify-content: left;
+    margin-left: 20px;
   }
 
   .explore-all-btn.cta-btn {
     width: auto;
+    margin-top: 10px;
   }
 }
 
@@ -145,7 +149,7 @@
   margin-top: 20px;
 }
 
-.carousel-container .carousel-track {
+.carousel-track {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -363,6 +367,25 @@
     font-size: 16px;
     font-weight: 600;
   }
+
+  .carousel-container.homepage-reviews-slider__carousel .carousel-track {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .carousel-container.homepage-reviews-slider__carousel .carousel-track .review-slide:first-child {
+    margin-left: 0px;
+  }
+
+  .carousel-container.homepage-reviews-slider__carousel .carousel-track .review-slide:last-child {
+    margin-right: 0px;
+  }
+
+  .carousel-section .affirm-as-low-as.custom-affirm {
+    margin-left: 20px;
+  }
+
+
 
   /* Reduce the font size of the main section heading on mobile */
   .carousel-header h2 {
