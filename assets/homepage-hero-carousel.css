@@ -40,7 +40,7 @@
 
 .homepage-hero-carousel__slide-inner {
     display: grid;
-    grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
     /* Desktop: 55/45 split between content and image */
     gap: 0;
     /* No gap between columns */
