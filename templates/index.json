@@ -427,6 +427,7 @@
         "title": "Discover our time-tested traditional saunas",
         "button-label": "Explore All Traditional Saunas",
         "button_collection": "traditional-sauna-v2",
+        "affirm_product": "allure-4-person-full-spectrum-infrared-sauna",
         "products_to_display_collection": "traditional-saunas-highlight"
       }
     },
@@ -437,6 +438,7 @@
         "title": "Explore our best-in-class infrared saunas",
         "button-label": "Explore All Infrared Saunas",
         "button_collection": "all-infrared-saunas",
+        "affirm_product": "",
         "products_to_display_collection": "infrared-saunas-highlight"
       }
     },
