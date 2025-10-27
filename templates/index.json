@@ -105,7 +105,7 @@
             "desktop_image_alt": "Hello",
             "slide_image_mobile": "shopify://shop_images/dark_mode_slide_hero_section_sauna.png",
             "mobile_image_alt": "Hello",
-            "show_stars": true,
+            "show_stars": false,
             "show_house_icon": true,
             "reviews_text": "Highly rated for build quality and craftsmanship",
             "headline": "Elevate any space into a personal wellness sanctuary",
