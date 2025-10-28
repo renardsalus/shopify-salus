@@ -1,0 +1,96 @@
+{% comment %}
+  This is a non-sticky announcement banner for the top of the page.
+  It includes a telephone icon and customizable text with a phone number.
+{% endcomment %}
+
+<style>
+  .announcement-banner {
+    background-color: {{ section.settings.background_color }};
+    padding: 10px 15px;
+    border-bottom: 2px solid #E8E8E8;
+  }
+
+  .announcement-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .announcement-banner__icon {
+    margin-right: 10px;
+    width: 13px;
+    height: 13px;
+    fill: {{ section.settings.text_color }};
+  }
+
+  .announcement-banner__text a {
+    color: {{ section.settings.text_color }};
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .announcement-banner__text a:hover {
+    text-decoration: underline;
+  }
+
+  .announcement-banner__text {
+    margin-bottom: 0px;
+  }
+
+  @media screen and (max-width: 769px) {
+    .announcement-banner__text {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="announcement-banner">
+  <div class="announcement-banner__content">
+    {% render 'call-icon', class: 'announcement-banner__icon', color: section.settings.text_color, width: 18, height: 18 %}
+    <p class="announcement-banner__text">
+      {{ section.settings.text | escape }}
+      <a href="tel:{{ section.settings.phone_number | escape }}">{{ section.settings.phone_number | escape }}</a>
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Have questions? Give us a call"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone number",
+      "default": "(888) 287-0111"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Announcement Banner"
+    }
+  ]
+}
+{% endschema %}

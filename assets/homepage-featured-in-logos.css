@@ -1,0 +1,126 @@
+.featured-in-section {
+  padding: 40px 20px 15px;
+  text-align: center;
+}
+
+.featured-in-title {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.logo-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 40px; /* Vertical and horizontal gap */
+}
+
+/* .logo-bar__item {
+  max-width: 80px;
+  width: auto;
+  height: 80px;
+  max-height: 80px;
+} */
+
+.logo-bar__item img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* .logo-bar__item:nth-child(1) img{
+    height: 33px;
+    width: 181px;
+}
+.logo-bar__item:nth-child(2) img{
+    height: 38px;
+    width: 137px;
+}
+.logo-bar__item:nth-child(3) img{
+    height: 49px;
+    width: 115px;
+}
+.logo-bar__item:nth-child(4) img{
+    height: 47px;
+    width: 53px;
+}
+.logo-bar__item:nth-child(5) img{
+    height: 38px;
+    width: 170px;
+}
+.logo-bar__item:nth-child(6) img{
+    height: 29px;
+    width: 214px;
+}
+.logo-bar__item:nth-child(7) img{
+    height: 37px;
+    width: 256px;
+} */
+
+.logo-bar__item:nth-child(1) img{
+    height: 28px;
+    width: 149px;
+}
+.logo-bar__item:nth-child(2) img{
+    height: 31px;
+    width: 113px;
+}
+.logo-bar__item:nth-child(3) img{
+    height: 39px;
+    width: 95px;
+}
+.logo-bar__item:nth-child(4) img{
+    height: 39px;
+    width: 44px;
+}
+.logo-bar__item:nth-child(5) img{
+    height: 31px;
+    width: 141px;
+}
+.logo-bar__item:nth-child(6) img{
+    height: 24px;
+    width: 177px;
+}
+.logo-bar__item:nth-child(7) img{
+    height: 31px;
+    width: 212px;
+}
+
+.placeholder-svg-container .placeholder-svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+@media (max-width: 768px) {
+  .featured-in-title {
+    font-size: 18px;
+  }
+
+  .featured-in-section .page-width {
+    width: 100%;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .logo-bar-container {
+    overflow: hidden;
+  }
+
+  .logo-bar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 30px 40px;
+    width: fit-content;
+    animation: scroll 20s linear infinite;
+    display: flex;
+  }
+  
+  .logo-bar__item {
+    flex-shrink: 0;
+  }
+}

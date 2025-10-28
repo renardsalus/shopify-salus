@@ -343,19 +343,19 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const playbtn = document.querySelectorAll(".icon-card-media span.play-btn");
-    const video = document.querySelectorAll(".icon-card-media video");
+  document.addEventListener('DOMContentLoaded', () => {
+    const playbtn = document.querySelectorAll('.icon-card-media span.play-btn');
+    const video = document.querySelectorAll('.icon-card-media video');
     const copy_link = document.querySelectorAll('.copy_link');
     const tooptip = document.querySelectorAll('.copy-link-tooltip');
-     let ourIcons = document.querySelectorAll('.ourIcon-items');
+    let ourIcons = document.querySelectorAll('.ourIcon-items');
     let allPopups = document.querySelectorAll('.icon-popup');
 
     ourIcons.forEach((icon) => {
       icon.addEventListener('click', () => {
         let activeIcon = icon.getAttribute('data-id');
 
-        allPopups.forEach(popup => {
+        allPopups.forEach((popup) => {
           popup.classList.remove('active');
         });
 
@@ -367,64 +367,64 @@
       });
     });
 
-    document.querySelectorAll('.close').forEach((close, index) =>{
-      close.addEventListener('click', () =>{
-        allPopups.forEach(popup => {
-            popup.classList.remove('active');
-              video.forEach(vid => {
-                vid.pause();
-              });
-              playbtn.forEach(btn => {
-                btn.classList.remove('play');
-              })
+    document.querySelectorAll('.close').forEach((close, index) => {
+      close.addEventListener('click', () => {
+        allPopups.forEach((popup) => {
+          popup.classList.remove('active');
+          video.forEach((vid) => {
+            vid.pause();
+          });
+          playbtn.forEach((btn) => {
+            btn.classList.remove('play');
+          });
 
-            // video[index].pause();
-            // playbtn[index].classList.remove("play");
-        })
+          // video[index].pause();
+          // playbtn[index].classList.remove("play");
+        });
       });
     });
 
-
     playbtn.forEach((btn, index) => {
-      btn.addEventListener("click", () => {
-        console.log("po");
+      btn.addEventListener('click', () => {
+        console.log('po');
         video.forEach((vid, vidIndex) => {
           if (vidIndex === index) {
             if (vid.paused) {
               vid.play();
-              btn.classList.add("play");
+              btn.classList.add('play');
             } else {
               vid.pause();
-              btn.classList.remove("play");
+              btn.classList.remove('play');
             }
           } else {
             vid.pause();
-            playbtn[vidIndex].classList.remove("play");
+            playbtn[vidIndex].classList.remove('play');
           }
         });
       });
     });
-    copy_link.forEach((link , link_index) =>{
-        link.addEventListener('click', ()=>{
-          let dataHref = link.getAttribute('data-href');
+    copy_link.forEach((link, link_index) => {
+      link.addEventListener('click', () => {
+        let dataHref = link.getAttribute('data-href');
 
-          navigator.clipboard.writeText(dataHref).then(function() {
+        navigator.clipboard
+          .writeText(dataHref)
+          .then(function () {
             console.log('Copied to clipboard:', dataHref);
-          }).catch(function(error) {
-              console.error('Error copying to clipboard:', error);
+          })
+          .catch(function (error) {
+            console.error('Error copying to clipboard:', error);
           });
-          tooptip.forEach((tt , tt_index) => {
-            if(link_index == tt_index){
-              tt.textContent = "Copied!";
-              setTimeout(()=>{ tt.textContent = "Copy Link"},1200);
-            }
-          });
+        tooptip.forEach((tt, tt_index) => {
+          if (link_index == tt_index) {
+            tt.textContent = 'Copied!';
+            setTimeout(() => {
+              tt.textContent = 'Copy Link';
+            }, 1200);
+          }
         });
-
-
       });
-
-
+    });
   });
 </script>
 
@@ -474,10 +474,10 @@
       "label": "View more link"
     },
     {
-      "type":"checkbox",
-      "id":"enable_load_more",
-      "label":"Enable Load More",
-      "info":"if you enable this then 12 card show initially,"
+      "type": "checkbox",
+      "id": "enable_load_more",
+      "label": "Enable Load More",
+      "info": "if you enable this then 12 card show initially,"
     },
     {
       "type": "header",
@@ -655,9 +655,9 @@
           "default": "Column"
         },
         {
-          "type":"text",
-          "id":"subtext",
-          "label":"Subtext"
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext"
         },
         {
           "type": "richtext",
@@ -677,13 +677,13 @@
           "label": "Button link"
         },
         {
-          "type":"header",
-          "content":"Popup Content"
+          "type": "header",
+          "content": "Popup Content"
         },
         {
-          "type":"checkbox",
-          "id":"enable_popup",
-          "label":"Enable Popup"
+          "type": "checkbox",
+          "id": "enable_popup",
+          "label": "Enable Popup"
         },
         {
           "type": "video",
@@ -692,95 +692,95 @@
           "info": "Hosted by Shopify. Video will autoplay and be muted. [Read more](https://cleancanvas.co.uk/support/enterprise/using-videos)"
         },
         {
-          "type":"image_picker",
-          "id":"poster_image",
-          "label":"Poster Image"
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster Image"
         },
         {
-          "type":"header",
-          "content":"Reviews"
+          "type": "header",
+          "content": "Reviews"
         },
         {
-          "type":"range",
-          "id":"no_reviews",
-          "label":"Number of Reviews",
-          "min":1,
-          "max":4,
+          "type": "range",
+          "id": "no_reviews",
+          "label": "Number of Reviews",
+          "min": 1,
+          "max": 4,
           "step": 1,
-          "default":3
+          "default": 3
         },
         {
-          "type":"header",
-          "content":"First Review"
+          "type": "header",
+          "content": "First Review"
         },
         {
-          "type":"text",
-          "id":"review_title1",
-          "label":"Title"
+          "type": "text",
+          "id": "review_title1",
+          "label": "Title"
         },
         {
-          "type":"richtext",
-          "id":"review_detail1",
-          "label":"Content"
-        },
-
-        {
-          "type":"header",
-          "content":"Second Review"
-        },
-        {
-          "type":"text",
-          "id":"review_title2",
-          "label":"Title"
-        },
-        {
-          "type":"richtext",
-          "id":"review_detail2",
-          "label":"Content"
+          "type": "richtext",
+          "id": "review_detail1",
+          "label": "Content"
         },
 
         {
-          "type":"header",
-          "content":"Third Review"
+          "type": "header",
+          "content": "Second Review"
         },
         {
-          "type":"text",
-          "id":"review_title3",
-          "label":"Title"
+          "type": "text",
+          "id": "review_title2",
+          "label": "Title"
         },
         {
-          "type":"richtext",
-          "id":"review_detail3",
-          "label":"Content"
+          "type": "richtext",
+          "id": "review_detail2",
+          "label": "Content"
         },
 
         {
-          "type":"header",
-          "content":"Forth Review"
+          "type": "header",
+          "content": "Third Review"
         },
         {
-          "type":"text",
-          "id":"review_title4",
-          "label":"Title"
+          "type": "text",
+          "id": "review_title3",
+          "label": "Title"
         },
         {
-          "type":"richtext",
-          "id":"review_detail4",
-          "label":"Content"
+          "type": "richtext",
+          "id": "review_detail3",
+          "label": "Content"
+        },
+
+        {
+          "type": "header",
+          "content": "Forth Review"
         },
         {
-          "type":"header",
-          "content":"Products"
+          "type": "text",
+          "id": "review_title4",
+          "label": "Title"
         },
         {
-          "type":"text",
-          "id":"pd_title",
-          "label":"Title"
+          "type": "richtext",
+          "id": "review_detail4",
+          "label": "Content"
         },
         {
-          "type":"product_list",
-          "id":"products",
-          "label":"Products"
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "text",
+          "id": "pd_title",
+          "label": "Title"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products"
         }
       ]
     }
@@ -802,11 +802,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
+    "groups": ["header", "footer", "aside"]
   }
 }
 {% endschema %}

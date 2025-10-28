@@ -1,0 +1,79 @@
+{{ 'homepage-featured-in-logos.css' | asset_url | stylesheet_tag }}
+
+<div class="featured-in-section">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="featured-in-title h4">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="logo-bar-container" data-scroll-container>
+        <div class="logo-bar" data-scroll-content>
+          {% comment %} First set of logos {% endcomment %}
+          {% for block in section.blocks %}
+            <div class="logo-bar__item" {{ block.shopify_attributes }}>
+              {%- assign image = block.settings.image -%}
+              {% if image != blank %}
+                  <img src="{{ image | image_url: width: 300 }}"
+                       alt="{{ image.alt | default: 'Logo' | escape }}"
+                       width="{{ image.width }}"
+                       height="{{ image.height }}"
+                       loading="lazy">
+              {% else %}
+                <div class="placeholder-svg-container">
+                  {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          {% comment %} DUPLICATED set of logos for seamless loop {% endcomment %}
+          {% for block in section.blocks %}
+            <div class="logo-bar__item" {{ block.shopify_attributes }}>
+              {%- assign image = block.settings.image -%}
+              {% if image != blank %}
+                  <img src="{{ image | image_url: width: 300 }}"
+                       alt="{{ image.alt | default: 'Logo' | escape }}"
+                       width="{{ image.width }}"
+                       height="{{ image.height }}"
+                       loading="lazy"
+                       aria-hidden="true">
+              {% else %}
+                <div class="placeholder-svg-container" aria-hidden="true">
+                  {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Featured In Logos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "As featured in"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

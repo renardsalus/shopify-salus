@@ -1,0 +1,567 @@
+/*
+  ============================================================
+  Asset: Homepage Hero Carousel CSS
+  ============================================================
+  Custom styles for the Homepage Hero Carousel section.
+  Uses BEM-like naming convention and a desktop-first approach.
+*/
+
+/* --- Base Section Styles --- */
+.homepage-hero-carousel {
+    /* Dynamic padding set via Liquid variables */
+    padding-top: var(--homepage-hero-carousel-padding-top-desktop);
+    padding-bottom: var(--homepage-hero-carousel-padding-bottom-desktop);
+    position: relative;
+    /* Needed for absolute positioning of nav/pagination if not in swiper */
+    overflow: hidden;
+    /* Ensures nothing spills out of the section */
+}
+
+/* --- Swiper Container --- */
+.homepage-hero-carousel__swiper {
+    width: 100%;
+    height: 100%;
+    /* Or a defined height if not dynamic */
+    max-width: 100%;
+    /* Ensure it doesn't break out of its container */
+}
+
+/* --- Individual Slide Styles --- */
+.homepage-hero-carousel__slide {
+    display: flex;
+    /* Make the slide a flex container for its inner columns */
+    align-items: stretch;
+    /* Ensures columns stretch to equal height */
+    min-height: 550px;
+    /* Example minimum height for the slide, adjust as needed */
+    background-color: transparent;
+    /* Default, will be overridden by content column or image */
+}
+
+.homepage-hero-carousel__slide-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+    /* Desktop: 55/45 split between content and image */
+    gap: 0;
+    /* No gap between columns */
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Content Column (Left on Desktop, Overlay on Mobile) --- */
+.homepage-hero-carousel__content-column {
+    /* Background color set via Liquid variable */
+    display: block;
+    align-items: center;
+    /* Vertically center content */
+    justify-content: center;
+    /* Horizontally center content */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: calc(var(--gutter) + 10px);
+    padding-right: 60px;
+    scroll-padding-block: 80px;
+    /* Generous padding around the content on desktop */
+    flex: 1;
+    flex-direction: column;
+}
+
+.homepage-hero-carousel__content-wrapper {
+    max-width: 550px;
+    /* Constrain content width for readability */
+    width: 100%;
+}
+
+/* --- Reviews --- */
+.homepage-hero-carousel__reviews {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.homepage-hero-carousel__star-rating {
+    display: flex;
+    gap: 4px;
+    /* Space between stars */
+    margin-right: 10px;
+}
+
+.homepage-hero-carousel__star-rating svg {
+    width: 13px;
+    /* Size of star icon */
+    height: 13px;
+    fill: #38A169;
+    /* Green color for stars, matching example */
+}
+
+.homepage-hero-carousel__reviews-text {
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #333;
+    /* Dark gray for text */
+    margin: 0;
+    /* Remove default paragraph margin */
+}
+
+/* --- Headline --- */
+.homepage-hero-carousel__headline {
+    font-size: 44px;
+    /* Large headline for impact */
+    line-height: 1.1;
+    font-weight: 400;
+    /* Bold */
+    color: #222;
+    /* Very dark color for headline */
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* --- Description --- */
+.homepage-hero-carousel__description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #555;
+    /* Slightly lighter than headline */
+    margin-bottom: 40px;
+}
+
+.homepage-hero-carousel__description p {
+    margin: 0;
+    /* Remove default paragraph margin within richtext */
+}
+
+/* --- CTA Buttons --- */
+.homepage-hero-carousel__cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on smaller desktop screens */
+    gap: 20px;
+    /* Space between buttons */
+    margin-bottom: 40px;
+}
+
+.homepage-hero-carousel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 50px;
+    /* Slightly rounded corners */
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    /* Prevent button text from breaking */
+}
+
+.homepage-hero-carousel__button--primary {
+    background-color: #222120;
+    /* Dark background */
+    color: #FBFBFB;
+    /* White text */
+    border: 1px solid #222120;
+}
+
+.homepage-hero-carousel__button--primary:hover {
+    background-color: #1F8A81;
+    border-color: #1F8A81;
+}
+
+.homepage-hero-carousel__button--secondary {
+    background-color: transparent;
+    color: #222120;
+    /* Dark text */
+    border: 2px solid #222120;
+    /* Dark border */
+}
+
+.homepage-hero-carousel__button--secondary:hover {
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border: 2px solid #1F8A81;
+}
+
+.homepage-hero-carousel__button--primary svg {
+    margin-left: 10px;
+    /* Space for arrow icon */
+    width: 16px;
+    height: 19px;
+    fill: currentColor;
+    /* Inherit color from button text */
+}
+
+.homepage-hero-carousel__button-icon {
+    margin-right: 8px;
+    /* Space for button 2 icon */
+    border-radius: 50%;
+    /* Make it circular if it's an avatar */
+    object-fit: cover;
+}
+
+
+/* --- Feature List --- */
+.homepage-hero-carousel__feature-list {
+    list-style: none;
+    /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.homepage-hero-carousel__feature-item {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.homepage-hero-carousel__feature-item svg {
+    margin-right: 10px;
+    /* Space for checkmark icon */
+    width: 18px;
+    height: 18px;
+    fill: #38A169;
+    /* Green color for checkmark */
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+/* --- Trust Badges (REMOVED - STYLES NO LONGER NEEDED) --- */
+/*
+.homepage-hero-carousel__trust-badges {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.homepage-hero-carousel__truemed-logo {
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+.homepage-hero-carousel__truemed-text {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+.homepage-hero-carousel__bottom-trust-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+*/
+
+/* --- Image Column (Right on Desktop) --- */
+.homepage-hero-carousel__image-column {
+    overflow: hidden;
+    position: relative;
+    /* Hide anything that spills out, especially rounded corners if applied to img */
+    display: flex;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Helps center image if it's smaller than column */
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    /* A subtle background in case image doesn't fill */
+    height: 100%;
+    min-height: 550px;
+}
+
+.homepage-hero-carousel__image-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Ensures image covers the area, cropping if necessary */
+}
+
+/* Styling for pagination dots */
+.homepage-hero-carousel__pagination.swiper-pagination-bullets {
+    bottom: 30px;
+    /* Adjust position */
+}
+
+/* .homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: #FFFFFF;
+    opacity: 1;
+}
+
+.homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
+    background-color: #33B6AB;
+} */
+
+.homepage-hero-carousel-desktop {
+    display: block;
+}
+
+.homepage-hero-carousel-mobile {
+    display: none;
+}
+
+@media screen and (min-width: 1550px) {
+    .homepage-hero-carousel__content-column {
+        padding-right: 80px;
+    }
+}
+
+
+/* --- Mobile Styles (max-width: 767px) --- */
+@media screen and (max-width: 767px) {
+    .homepage-hero-carousel {
+        padding-top: var(--homepage-hero-carousel-padding-top-mobile);
+        padding-bottom: var(--homepage-hero-carousel-padding-bottom-mobile);
+    }
+
+    .homepage-hero-carousel-desktop {
+        display: none;
+    }
+
+    .homepage-hero-carousel-mobile {
+        display: block;
+    }
+
+    /*
+      Let the slide height be determined by its content to remove extra space.
+    */
+    .homepage-hero-carousel__slide {
+        min-height: auto;
+    }
+
+    /*
+      1. Switch to Flexbox for mobile layout.
+      2. Use 'column-reverse' to stack the image (second item in HTML) on top of the content (first item).
+    */
+    .homepage-hero-carousel__slide-inner {
+        display: flex;
+        flex-direction: column-reverse;
+        /* The key fix for ordering */
+    }
+
+    /*
+      Ensure the image column has a reasonable height without creating large gaps.
+      Using aspect-ratio is a modern way to maintain image shape.
+    */
+    .homepage-hero-carousel__image-column {
+        height: 200px;
+        min-height: 0;
+        /* Reset min-height */
+        /* aspect-ratio: 4 / 3; Give the image a default shape, adjust if needed */
+    }
+
+    /* The image itself should cover its container. */
+    .homepage-hero-carousel__image-column img,
+    .homepage-hero-carousel__image {
+        position: static;
+        /* Let the image sit naturally in the document flow */
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /*
+      Style the content block for its new position below the image.
+    */
+    .homepage-hero-carousel__content-column {
+        height: auto;
+        background-color: #FDF7F1 !important;
+        /* Ensure it has a background */
+        padding: 20px 20px;
+    }
+
+    /* --- Minor typography and layout adjustments for mobile --- */
+    .homepage-hero-carousel__headline {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .homepage-hero-carousel__description {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .homepage-hero-carousel__reviews-text {
+        font-size: 12px;
+    }
+
+    .homepage-hero-carousel__reviews {
+        margin-bottom: 15px;
+    }
+
+    .homepage-hero-carousel__cta-buttons {
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .homepage-hero-carousel__button {
+        width: 100%;
+        /* Full width buttons */
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .homepage-hero-carousel__feature-list {
+        margin-bottom: 25px;
+    }
+
+    .homepage-hero-carousel__feature-item {
+        font-size: 15px;
+    }
+
+    .homepage-hero-carousel__pagination.swiper-pagination-bullets {
+        bottom: 15px;
+    }
+}
+
+/* Placeholder content for theme editor when no blocks are added */
+.placeholder-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-family: sans-serif;
+    color: #777;
+    font-size: 16px;
+    padding: 20px;
+}
+
+/* Dark-mode slide */
+.homepage-hero-carousel__slide--dark {
+    position: relative;
+    z-index: 1;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
+    background-color: #222120 !important;
+    color: #FBFBFB;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__headline {
+    color: #FBFBFB;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__description,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__reviews-text,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item {
+    color: #FBFBFB;
+}
+
+/* Primary CTA: light background with dark text in dark mode */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary {
+    background-color: #FBFBFB;
+    color: #222120;
+    border: 2px solid #FBFBFB;
+}
+
+/* Secondary CTA: ghost/outline adapted for dark mode */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary {
+    background-color: #222120;
+    color: #FBFBFB;
+    border: 2px solid #FBFBFB;
+}
+
+/* Keep accent (green) unchanged but ensure icon visibility */
+/* .homepage-hero-carousel__slide--dark .homepage-hero-carousel__star-rating svg,
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__feature-item svg {
+    fill: #33B6AB;
+} */
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary:hover {
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border-color: #1F8A81;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--secondary:hover {
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border: 2px solid #1F8A81;
+}
+
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__button--primary svg path {
+    fill: currentColor !important;
+    /* Forces the color to match the button text */
+}
+
+/* Ensure content column covers full width on mobile stacked layout */
+@media screen and (max-width: 768px) {
+    .homepage-hero-carousel__slide--dark .homepage-hero-carousel__content-column {
+        background-color: #222120;
+    }
+}
+
+.homepage-hero-carousel__slide-inner>* {
+    min-width: 0;
+    min-height: 0;
+}
+
+.homepage-hero-carousel__review-icon-house {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.homepage-hero-carousel__review-icon-house svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* Ensure proper alignment on dark slides */
+.homepage-hero-carousel__slide--dark .homepage-hero-carousel__review-icon-house svg path {
+    fill: #33B6AB;
+}
+
+.swiper-pagination.homepage-hero-carousel__pagination {
+    display: None;
+}
+
+@media screen and (max-width:768px) {
+    .swiper-pagination.homepage-hero-carousel__pagination {
+        display: block;
+    }
+}
+
+/* 3. Default inactive dot (dark) - This rule already exists */
+.homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 1;
+}
+
+/* 4. Active dot (green) - This rule already exists */
+.homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
+    background-color: #38A169;
+}
+
+/* 5. NEW: Inactive dot (white) when on a dark slide */
+.homepage-hero-carousel__swiper.pagination-on-dark-slide .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 1);
+    /* White, semi-transparent */
+}
+
+/* 6. NEW: Ensure active dot (green) overrides the new white rule */
+.homepage-hero-carousel__swiper.pagination-on-dark-slide .swiper-pagination-bullet-active {
+    background-color: #38A169;
+    /* Re-state green to ensure specificity */
+}
+
+.homepage-hero-carousel.pagination-on-dark-slide .homepage-hero-carousel__pagination .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Ensure the active dot stays green */
+.homepage-hero-carousel.pagination-on-dark-slide .homepage-hero-carousel__pagination .swiper-pagination-bullet-active {
+    background-color: #38A169;
+}

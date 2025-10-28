@@ -1,0 +1,119 @@
+.homepage-reviews-slider__carousel {
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 0;
+}
+
+.carousel-container.homepage-reviews-slider__carousel .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 20px;
+    /* padding-left: var(--gutter);
+    padding-right: var(--gutter); */
+    width: 100%;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.review-slide {
+    flex: 0 0 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 25%;
+}
+
+.review-slide:first-child {
+    margin-left: 0;
+}
+.review-slide:last-child {
+    margin-right: 0;
+}
+
+.homepage-reviews-slider__nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.homepage-reviews-slider__nav-button:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-reviews-slider__nav-button--prev {
+    left: 0;
+    margin-left: 30px;
+    transform: translateY(-50%) translateX(-100%);
+}
+
+.homepage-reviews-slider__nav-button--next {
+    right: 0;
+    margin-right: 30px;
+    transform: translateY(-50%) translateX(100%);
+}
+
+.homepage-reviews-slider__nav-button svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+@media screen and (max-width: 768px) {
+    .review-slide {
+        /* flex: 0 0 66%; */
+        max-width: 75%;
+    }
+
+    .carousel-track {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .homepage-reviews-slider__carousel {
+        margin-top: 0px;
+    }
+
+    .homepage-reviews-slider__nav-button {
+        display: none;
+    }
+
+    /* .homepage-reviews-slider__wrapper {
+        margin-bottom: 50px;
+        margin-top: 50px;
+    } */
+
+    .homepage-reviews-slider__nav-button {
+        display: flex;
+    }
+
+    .homepage-reviews-slider__action-area {
+        padding-bottom: 20px;
+        padding-top: 0px;
+    }
+}
