@@ -357,12 +357,12 @@
       "name": "Sauna Value Proposition",
       "settings": {
         "main_heading_text": "<h2>Get started with your sauna journey for less than $4/day*</h2>",
-        "disclaimer_text": "<p>*Our saunas start at $104/mo or 0% APR with Affirm financing.</p>",
+        "disclaimer_text": "",
         "button_text": "Shop Best Value Saunas",
         "button_link": "",
         "top_badge_text": "Best Value Picks – Includes FREE shipping + Warranty | $1000s in Value!",
         "composite_sauna_image": "shopify://shop_images/Frame_15799.png",
-        "bottom_badge_text": "Best Value Picks – Includes FREE shipping + Warranty",
+        "bottom_badge_text": "*Our saunas start at $104/mo or 0% APR with Affirm financing.",
         "desktop_column_ratio": 50
       }
     },
