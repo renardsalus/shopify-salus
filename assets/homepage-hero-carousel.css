@@ -408,6 +408,7 @@
         width: 100%;
         /* Full width buttons */
         padding: 15px 20px;
+        font-size: 16px;
     }
 
     .homepage-hero-carousel__feature-list {

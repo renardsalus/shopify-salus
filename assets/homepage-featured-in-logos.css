@@ -1,10 +1,9 @@
 .featured-in-section {
-  padding: 70px 15px;
+  padding: 40px 20px 15px;
   text-align: center;
 }
 
 .featured-in-title {
-  margin-bottom: 30px;
   font-size: 21px;
   font-weight: 500;
 }
@@ -94,32 +93,34 @@
 }
 
 @media (max-width: 768px) {
-  /* This defines the scrolling animation */
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); } /* Moves left by the width of the first set of logos */
+  .featured-in-title {
+    font-size: 18px;
   }
 
-  /* The container that hides the overflowing logos */
+  .featured-in-section .page-width {
+    width: 100%;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .logo-bar-container {
     overflow: hidden;
-    /* Optional: Adds a nice fade effect on the edges */
-    /* -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); */
   }
 
-  /* The scrolling element */
   .logo-bar {
-    /* Override desktop styles */
     flex-wrap: nowrap;
     justify-content: flex-start;
     padding: 0;
-
-    /* Set width to accommodate two sets of logos */
+    gap: 30px 40px;
     width: fit-content;
-
-    /* Apply the animation */
-    /* You can change '35s' to make it faster or slower */
-    animation: scroll 35s linear infinite;
+    animation: scroll 20s linear infinite;
+    display: flex;
+  }
+  
+  .logo-bar__item {
+    flex-shrink: 0;
   }
 }

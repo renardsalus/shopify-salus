@@ -147,7 +147,12 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    margin-bottom: 
+}
+
+@media screen and (max-width: 768px) {
+    .homepage-reviews-slider__action-area {
+        margin-bottom: 30px;
+    }
 }
 
 .homepage-reviews-slider__button {
@@ -202,8 +207,8 @@
     }
 
     .homepage-reviews-slider__button {
-        margin-top: 20px;
-        margin-top: 20px;
+        margin-top: 10px;
+        font-size: 16px;
     }
 }
 
