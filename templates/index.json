@@ -494,50 +494,43 @@
         "logo_image_UCgaiV": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/bloomberg-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/bloomberg-logo.png"
           }
         },
         "logo_image_XXKPgp": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/yahoo-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/yahoo-logo.png"
           }
         },
         "logo_image_YUkCQb": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/digital-journal-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/digital-journal-logo.png"
           }
         },
         "logo_image_z89QQt": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/ap-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/ap-logo.png"
           }
         },
         "logo_image_hcnBfL": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/morningstar-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/morningstar-logo.png"
           }
         },
         "logo_image_cLkTcE": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/benzinga-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/benzinga-logo.png"
           }
         },
         "logo_image_LcmbQF": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/marketwatch-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/marketwatch-logo.png"
           }
         }
       },
@@ -605,13 +598,12 @@
             "description": "Former UFC Lightweight Champion"
           }
         },
-        "video_testimonial_card_LhHjzY": {
+        "video_testimonial_card_rBehdg": {
           "type": "video-testimonial-card",
           "settings": {
-            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
-            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
-            "name": "Teixeira Family",
-            "description": "Wellness & Lifestyle Creators"
+            "video_file": "shopify://files/videos/Remi Ishizuka Testimonials.mp4",
+            "name": "Remi Ishizuka",
+            "description": "Wellness & Lifestyle Creator"
           }
         },
         "video_testimonial_card_fizjEq": {
@@ -640,6 +632,15 @@
             "description": "Pepper’s Lead Vocalist/Guitarist"
           }
         },
+        "video_testimonial_card_LhHjzY": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
+            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
+            "name": "Teixeira Family",
+            "description": "Wellness & Lifestyle Creators"
+          }
+        },
         "static_testimonial_card_tkWkY3": {
           "type": "static-testimonial-card",
           "disabled": true,
@@ -648,14 +649,6 @@
             "quote": "A game changer!",
             "name": "Justin Baldoni",
             "description": "Actor & Director"
-          }
-        },
-        "video_testimonial_card_rBehdg": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "video_file": "shopify://files/videos/Remi Ishizuka Testimonials.mp4",
-            "name": "Remi Ishizuka",
-            "description": "Wellness & Lifestyle Creator"
           }
         },
         "video_testimonial_card_Ay6EH8": {
@@ -679,12 +672,12 @@
         "video_testimonial_card_mzgML6",
         "video_testimonial_card_ejLPGK",
         "static_testimonial_card_9rtKQM",
-        "video_testimonial_card_LhHjzY",
+        "video_testimonial_card_rBehdg",
         "video_testimonial_card_fizjEq",
         "video_testimonial_card_DBgwXe",
         "video_testimonial_card_pnWDBJ",
+        "video_testimonial_card_LhHjzY",
         "static_testimonial_card_tkWkY3",
-        "video_testimonial_card_rBehdg",
         "video_testimonial_card_Ay6EH8",
         "video_testimonial_card_JUfpKD"
       ],
