@@ -85,7 +85,8 @@
 
 @media screen and (max-width: 768px) {
     .review-slide {
-        flex: 0 0 calc((100% / 1.5) - (15px * (1.5 - 1) / 1.5));
+        /* flex: 0 0 66%; */
+        max-width: 75%;
     }
 
     .carousel-track {
@@ -112,6 +113,7 @@
     }
 
     .homepage-reviews-slider__action-area {
-        padding-bottom: 20px
+        padding-bottom: 20px;
+        padding-top: 0px;
     }
 }

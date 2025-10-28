@@ -199,6 +199,10 @@
     .homepage-reviews-slider__author-name {
         font-size: 14px;
     }
+
+    .homepage-reviews-slider__button {
+        margin-top: 0px;
+    }
 }
 
 .placeholder-content {
