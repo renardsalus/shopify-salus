@@ -505,13 +505,6 @@
             "link": ""
           }
         },
-        "logo_image_z89QQt": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/ap-logo.png",
-            "link": ""
-          }
-        },
         "logo_image_YUkCQb": {
           "type": "logo_image",
           "settings": {
@@ -519,10 +512,10 @@
             "link": ""
           }
         },
-        "logo_image_cLkTcE": {
+        "logo_image_z89QQt": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/benzinga-logo.png",
+            "image": "shopify://shop_images/ap-logo.png",
             "link": ""
           }
         },
@@ -530,6 +523,13 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/morningstar-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_cLkTcE": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/benzinga-logo.png",
             "link": ""
           }
         },
@@ -544,10 +544,10 @@
       "block_order": [
         "logo_image_UCgaiV",
         "logo_image_XXKPgp",
-        "logo_image_z89QQt",
         "logo_image_YUkCQb",
-        "logo_image_cLkTcE",
+        "logo_image_z89QQt",
         "logo_image_hcnBfL",
+        "logo_image_cLkTcE",
         "logo_image_LcmbQF"
       ],
       "name": "Featured In Logos",
