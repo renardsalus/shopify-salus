@@ -22,7 +22,7 @@
 }
 
 .logo-bar__item img {
-  max-width: 100%;
+  max-width: calc(100%/8);
   height: auto; /* This is key for responsiveness */
   display: block;
   margin: 0 auto;
