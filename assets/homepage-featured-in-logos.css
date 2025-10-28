@@ -15,17 +15,45 @@
   gap: 30px 40px; /* Vertical and horizontal gap */
 }
 
-.logo-bar__item {
-  /* You can set a max-width if you want to control the size */
-  max-width: 160px;
-  width: 100%;
-}
+/* .logo-bar__item {
+  max-width: 80px;
+  width: auto;
+  height: 80px;
+  max-height: 80px;
+} */
 
 .logo-bar__item img {
-  max-width: calc(100%/8);
-  height: auto; /* This is key for responsiveness */
   display: block;
   margin: 0 auto;
+}
+
+.logo-bar__item img:nth-child(0) {
+    height: 43px;
+    width: 232px;
+}
+.logo-bar__item img:nth-child(1) {
+    height: 49px;
+    width: 175px;
+}
+.logo-bar__item img:nth-child(2) {
+    height: 60px;
+    width: 170px;
+}
+.logo-bar__item img:nth-child(3) {
+    height: 60px;
+    width: 68px;
+}
+.logo-bar__item img:nth-child(4) {
+    height: 49px;
+    width: 218px;
+}
+.logo-bar__item img:nth-child(5) {
+    height: 37px;
+    width: 274px;
+}
+.logo-bar__item img:nth-child(6) {
+    height: 48px;
+    width: 328px;
 }
 
 .placeholder-svg-container .placeholder-svg {

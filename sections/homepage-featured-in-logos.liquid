@@ -12,13 +12,11 @@
           <div class="logo-bar__item" {{ block.shopify_attributes }}>
             {%- assign image = block.settings.image -%}
             {% if image != blank %}
-              <a href="{{ block.settings.link | default: '#' }}" aria-label="{{ image.alt | default: 'Logo' | escape }}">
                 <img src="{{ image | image_url: width: 300 }}"
                      alt="{{ image.alt | default: 'Logo' | escape }}"
                      width="{{ image.width }}"
                      height="{{ image.height }}"
                      loading="lazy">
-              </a>
             {% else %}
               <div class="placeholder-svg-container">
                 {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
