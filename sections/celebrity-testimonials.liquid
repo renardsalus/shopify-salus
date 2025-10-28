@@ -1,0 +1,681 @@
+<style>
+  .celebrity-testimonials-container {
+    max-width: 1400px;
+  }
+  .celebrity-testimonials {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .celebrity-testimonials__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 20px; /* Space between left content and button */
+    margin-bottom: 40px;
+    text-align: left; /* Default text alignment for left content */
+  }
+
+  .celebrity-testimonials__header-left {
+    flex-grow: 1; /* Allows it to take available space */
+    flex-shrink: 1;
+    min-width: 0; /* Allows content to shrink within flex item */
+  }
+
+  .celebrity-testimonials__container {
+    max-width: var(--page-width, 1400px); /* Your desired max width for content */
+    margin: 0 auto; /* Center the content container */
+    padding: 0 15px; /* Horizontal padding for content inside this container */
+  }
+
+  .celebrity-testimonials__subheading {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .celebrity-testimonials__heading {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .celebrity-testimonials__grid {
+    display: grid;
+    gap: 20px;
+    {% comment %} margin: 0 auto;
+    max-width: var(--page-width, 1400px);
+    padding: 0 15px; {% endcomment %}
+  }
+
+  .celebrity-testimonials__reviews-summary {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between stars and text */
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555; /* Matches subheading color */
+  }
+
+  .celebrity-testimonials__reviews-summary svg {
+    width: 13px; /* Size for header stars */
+    height: 13px;
+    fill: #1F8A81; /* Teal for header stars, per icon-star.liquid */
+  }
+
+  .celebrity-testimonials__reviews-summary p {
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .testimonial-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-right: 15px;
+  }
+
+  .testimonial-card__media-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .testimonial-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2; /* Thumbnail image over video initially */
+    transition: opacity 0.3s ease;
+  }
+
+  .testimonial-card__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3; /* Play button over everything initially */
+    border: none;
+    transition: background-color 0.2s ease, opacity 0.3s ease;
+  }
+
+  .testimonial-card__play-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .testimonial-card__play-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #000;
+  }
+
+  /* Styling for video playing directly in card */
+  .testimonial-card__media-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Always takes up space */
+    z-index: 1; /* Below image and button initially */
+    opacity: 0; /* Hidden by default, shown when playing */
+    transition: opacity 0.3s ease;
+  }
+
+  /* State when video is playing */
+  .testimonial-card__media-wrapper.is-playing .testimonial-card__image,
+  .testimonial-card__media-wrapper.is-playing .testimonial-card__play-button {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction with hidden elements */
+  }
+
+  .testimonial-card__media-wrapper.is-playing video {
+    opacity: 1;
+    z-index: 4; /* Bring video to front when playing */
+  }
+
+  .testimonial-card__content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .testimonial-card__content:has(.testimonial-card__stars) {
+    margin-top: 35px;
+    background-color: #F7F7F7;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .testimonial-card__stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 10px;
+    height: 20px;
+  }
+
+  .testimonial-card__stars svg {
+    width: 16px;
+    height: 16px;
+    fill: #ffc107;
+  }
+
+  .testimonial-card__quote {
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card__name {
+    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 5px;
+  }
+
+  .testimonial-card__description {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 0px !important;
+  }
+
+  .celebrity-testimonials__button-wrapper {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: 1px solid #000;
+  }
+
+  .button:hover {
+    background-color: #eee;
+    color: #000;
+    border-color: #000;
+  }
+
+  /* Specific styling for the header's "See More" button */
+  .celebrity-testimonials__header .button {
+    background-color: #1b413e; /* As per new design, it's white/transparent */
+    color: #FFFFFF;
+    border: 1px solid ##1b413e;
+    border-radius: 50px; /* Pill shape */
+    padding: 12px 25px; /* Adjusted padding for pill shape */
+    flex-shrink: 0; /* Prevent button from shrinking in flex container */
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .celebrity-testimonials__header .button:hover {
+    background-color: #1F8A81;
+    color: #FBFBFB;
+    border: 1px solid #1F8A81;
+    /* Border transition handled by background-color and color transition */
+  }
+
+  /* Responsive Grid Settings - Mobile First */
+  .celebrity-testimonials__grid {
+    grid-template-columns: repeat({{section.settings.mobile_cards_per_row}}, 1fr);
+  }
+
+  /* Tablet */
+  @media screen and (min-width: 768px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{section.settings.tablet_cards_per_row}}, 1fr);
+    }
+  }
+
+  /* Desktop */
+  @media screen and (min-width: 1024px) {
+    .celebrity-testimonials__grid {
+      grid-template-columns: repeat({{section.settings.desktop_cards_per_row}}, 1fr);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .celebrity-testimonials {
+      padding: 40px 8px;
+    }
+
+    .celebrity-testimonials__heading {
+      margin-bottom: 0px;
+    }
+
+    .testimonial-card__content {
+      padding-top: 15px;
+    }
+
+    .celebrity-testimonials__header .button {
+      font-size: 16px;
+    }
+
+    {% comment %} .celebrity-testimonials__heading {
+      display: block;
+      text-align: center;
+    } {% endcomment %}
+
+    {% comment %} .celebrity-testimonials__header .button {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    } {% endcomment %}
+  }
+</style>
+
+<div class="celebrity-testimonials-container mx-auto">
+  <div class="celebrity-testimonials">
+    <div class="celebrity-testimonials__container">
+      <div class="celebrity-testimonials__header">
+        <div class="celebrity-testimonials__header-left">
+          {% if section.settings.subheading != blank %}
+            <div class="celebrity-testimonials__reviews-summary">
+              {% for i in (1..5) %}
+                {% render 'icon-star' %}
+              {% endfor %}
+              {{ section.settings.subheading }}
+            </div>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2 class="celebrity-testimonials__heading">{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.blocks.size > 0 %}
+        <div class="celebrity-testimonials__grid">
+          {% for block in section.blocks limit: 10 %}
+            {% assign card_image = null %}
+            {% assign is_video_card = false %}
+            {% assign card_alt_text = block.settings.name %}
+            {% assign media_wrapper_padding = '100%' %}
+
+            {% if block.type == 'static-testimonial-card' %}
+              {% assign card_image = block.settings.image %}
+              {% assign card_alt_text = block.settings.image.alt | default: block.settings.name %}
+            {% elsif block.type == 'video-testimonial-card' %}
+              {% if block.settings.video_file != blank %}
+                {% assign is_video_card = true %}
+
+                {% if block.settings.custom_thumbnail_image != blank %}
+                  {% assign card_image = block.settings.custom_thumbnail_image %}
+                  {% assign card_alt_text = block.settings.custom_thumbnail_image.alt | default: block.settings.name %}
+                {% else %}
+                  {% assign card_image = block.settings.video_file.preview_image %}
+                  {% assign card_alt_text = block.settings.video_file.preview_image.alt
+                    | default: block.settings.name
+                  %}
+                {% endif %}
+
+                {% if block.settings.video_file.aspect_ratio %}
+                  {% assign media_wrapper_padding = 1
+                    | divided_by: block.settings.video_file.aspect_ratio
+                    | times: 100
+                    | append: '%'
+                  %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+
+            <div class="testimonial-card" {{ block.shopify_attributes }}>
+              <div class="testimonial-card__media-wrapper" style="padding-bottom: {{ media_wrapper_padding }};">
+                {% if card_image != blank %}
+                  <img
+                    class="testimonial-card__image"
+                    src="{{ card_image | image_url: width: 300 }}"
+                    srcset="
+                      {{ card_image | image_url: width: 300 }} 300w,
+                      {{ card_image | image_url: width: 500 }} 500w,
+                      {{ card_image | image_url: width: 700 }} 700w,
+                      {{ card_image | image_url: width: 1000 }} 1000w
+                    "
+                    sizes="
+                      (min-width: 1024px) calc( (var(--page-width, 1400px) - 90px) / {{ section.settings.desktop_cards_per_row }}),
+                      (min-width: 768px) calc( (100vw - 60px) / {{ section.settings.tablet_cards_per_row }}),
+                      calc(100vw - 30px)
+                    "
+                    alt="{{ card_alt_text }}"
+                    loading="lazy"
+                    width="{{ card_image.width }}"
+                    height="{{ card_image.height }}"
+                  >
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'testimonial-card__image' }}
+                {% endif %}
+
+                {% if is_video_card and block.settings.video_file != blank %}
+                  {{
+                    block.settings.video_file
+                    | video_tag:
+                      poster: card_image,
+                      autoplay: false,
+                      controls: true,
+                      muted: true,
+                      playsinline: true,
+                      class: 'testimonial-card__inline-video'
+                  }}
+                  <button
+                    class="testimonial-card__play-button"
+                    aria-label="Play video by {{ block.settings.name | escape }}"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </button>
+                {% endif %}
+              </div>
+
+              <div class="testimonial-card__content">
+                {% if block.type == 'static-testimonial-card' %}
+                  <div class="testimonial-card__stars">
+                    {% for i in (1..5) %}
+                      {% render 'icon-star' %}
+                    {% endfor %}
+                  </div>
+                  {% if block.settings.quote != blank %}
+                    <p class="testimonial-card__quote">{{ block.settings.quote }}</p>
+                  {% endif %}
+                {% endif %}
+                <p class="testimonial-card__name">{{ block.settings.name }}</p>
+                {% if block.settings.description != blank %}
+                  <p class="testimonial-card__description">{{ block.settings.description }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% comment %}
+          {% if section.blocks.size > 10 and section.settings.button_link != blank %}
+            <div class="celebrity-testimonials__button-wrapper">
+              <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+            </div>
+          {% endif %}
+        {% endcomment %}
+      {% else %}
+        <p>Please add testimonial cards to this section.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const playButtons = document.querySelectorAll('.testimonial-card__play-button');
+    let currentPlayingVideo = null; // Tracks the <video> element currently playing
+
+    playButtons.forEach((button) => {
+      // Find the video element associated with this button, once per button
+      const mediaWrapper = button.closest('.testimonial-card__media-wrapper');
+      const videoElement = mediaWrapper.querySelector('.testimonial-card__inline-video');
+
+      // Attach event listeners for video pause/ended, once per video element
+      if (videoElement) {
+        videoElement.addEventListener('pause', () => {
+          mediaWrapper.classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
+          }
+        });
+        videoElement.addEventListener('ended', () => {
+          mediaWrapper.classList.remove('is-playing');
+          if (currentPlayingVideo === videoElement) {
+            currentPlayingVideo = null;
+          }
+        });
+      }
+
+      // Attach the click listener to the play button
+      button.addEventListener('click', () => {
+        if (!videoElement) {
+          console.error('Video element not found in card associated with play button.');
+          return;
+        }
+
+        // If this is the video currently playing, toggle pause/play
+        if (currentPlayingVideo === videoElement) {
+          if (videoElement.paused) {
+            videoElement.play();
+            mediaWrapper.classList.add('is-playing');
+          } else {
+            videoElement.pause();
+            mediaWrapper.classList.remove('is-playing');
+          }
+          return;
+        }
+
+        // Pause any other currently playing video
+        if (currentPlayingVideo && !currentPlayingVideo.paused) {
+          currentPlayingVideo.pause();
+          currentPlayingVideo.closest('.testimonial-card__media-wrapper').classList.remove('is-playing');
+        }
+
+        // Play the new video
+        videoElement
+          .play()
+          .then(() => {
+            mediaWrapper.classList.add('is-playing');
+            currentPlayingVideo = videoElement;
+          })
+          .catch((error) => {
+            console.error('Video play failed:', error);
+            // If autoplay fails, ensure the card state is correct (showing thumbnail)
+            mediaWrapper.classList.remove('is-playing');
+            currentPlayingVideo = null;
+          });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Celebrity Testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>100s of verified 5-star reviews</p>"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by leading athletes & figures"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "See More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "desktop_cards_per_row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Desktop)",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "tablet_cards_per_row",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Tablet)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "mobile_cards_per_row",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "crd",
+      "label": "Cards per row (Mobile)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "static-testimonial-card",
+      "name": "Image Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Testimonial Image",
+          "info": "Required. The main image for this static testimonial."
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote",
+          "info": "e.g. 'A game changer!'"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Name Surname",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Title/Affiliation",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "video-testimonial-card",
+      "name": "Video Testimonial",
+      "settings": [
+        {
+          "type": "image_picker", // ADD THIS SETTING
+          "id": "custom_thumbnail_image",
+          "label": "Custom Video Thumbnail (Optional)",
+          "info": "Upload an image to use as the video thumbnail. If left blank, Shopify's auto-generated preview image will be used."
+        },
+        {
+          "type": "video",
+          "id": "video_file",
+          "label": "Video File (from Shopify Files)",
+          "info": "Select a video file from your Shopify 'Content > Files'. The thumbnail and aspect ratio will be automatically handled."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Name Surname",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Title/Affiliation",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Celebrity Testimonials",
+      "blocks": [
+        {
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion",
+            "quote": "Incredible results!"
+          }
+        },
+        {
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Teixeira Family",
+            "description": "Former UFC Lightweight Champion",
+            "quote": "A game changer!"
+          }
+        },
+        {
+          "type": "video-testimonial-card",
+          "settings": {
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, Comedian"
+          }
+        },
+        {
+          "type": "static-testimonial-card",
+          "settings": {
+            "name": "Frankie Edgar",
+            "description": "Former UFC Lightweight Champion",
+            "quote": "A game changer!"
+          }
+        },
+        {
+          "type": "video-testimonial-card",
+          "settings": {
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -24,20 +24,24 @@ Usage: {% render 'affirm-messaging' %}
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  const target = document.body; // or a more specific container if you know where Affirm inserts
-  const observer = new MutationObserver(function(mutations, obs) {
+    const observer = new MutationObserver(() => {
       const affirmTriggers = document.querySelectorAll(".affirm-modal-trigger");
-      if (affirmTriggers.length > 0) {
-        affirmTriggers.forEach(function(el) {
-          el.textContent = "See if you qualify";
-        });
-        obs.disconnect(); // Stop observing once we've done our thing
-      }
-    });
 
-    observer.observe(target, {
+      affirmTriggers.forEach((el) => {
+        if (!el.dataset.modified) { // prevent duplicate edits
+          const targetNode = el.querySelector("span") || el;
+          targetNode.textContent = "See if you qualify";
+          el.dataset.modified = "true";
+        }
+      });
+    }); 
+
+    observer.observe(document.body, {
       childList: true,
       subtree: true
     });
+
+    // optional: stop observing after some time
+    setTimeout(() => observer.disconnect(), 10000);
   });
 </script>

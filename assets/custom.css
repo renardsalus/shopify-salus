@@ -468,10 +468,10 @@ p.card__tag {
 }
 
 .section.logo-list-sec {
-  padding-left:75px;
-  padding-right:75px;
-  padding-top:60px;
-  padding-bottom:10px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-top: 60px;
+  padding-bottom: 10px;
 }
 
 .logo-list-sec .section__header .h2 {
@@ -702,6 +702,8 @@ blockquote.testimonial__quote p {
 
 .section.promo-layout-1 {
   padding: 50px 40px;
+  background-color: #FFFFFF;
+  max-width: 1400px;
 }
 
 .section.promo-layout-1 .promo-strip__container {
@@ -715,10 +717,10 @@ blockquote.testimonial__quote p {
 }
 
 .section.promo-layout-1 .promo-strip__rte p {
-  color: #ffffff;
+  color: #222120;
   font-family: var(--custom-body-font);
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 36px;
   text-align: left;
 }
@@ -731,9 +733,9 @@ blockquote.testimonial__quote p {
   line-height: 31.5px;
   text-align: left;
   background: transparent;
-  border: solid 2px #fff;
-  border-radius: 1000px;
-  color: #fff;
+  border: solid 2px #222120;
+  border-radius: 50px;
+  color: #222120;
   opacity: 1 !important;
 }
 
@@ -934,13 +936,22 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
 
 .faqs-section.section {
   padding: 130px 0 170px;
-  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 170px
+}
+
+@media screen and (max-width: 768px) {
+  .faqs-section.section {
+    margin-bottom: 30px
+  }
 }
 
 .faqs-section h2.h4 {
   font-family: var(--custom-body-font);
-  font-size: 42px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 400;
   line-height: 63px;
 }
 
@@ -949,7 +960,7 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
   padding-top: 80px;
   padding-bottom: 80px;
   border-radius: 10px;
-  max-width: 1530px;
+  max-width: 1400px;
 }
 
 .faqs-section .container.faq-fw {
@@ -965,7 +976,7 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
 
 .faqs-section .disclosure__title {
   font-family: var(--custom-body-font);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   color: #222120;
   line-height: 36px;
@@ -1687,7 +1698,7 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
 }
 
 .faqs-section .disclosure>summary {
-  padding: 37px 0 !important;
+  padding: 25px 0 !important;
 }
 
 .footer__base>div>span {
@@ -1770,8 +1781,9 @@ a.btn.btn--secondary:hover {
 }
 
 .section.promo-layout-1 .promo-strip__button a:hover {
-  color: #000;
-  background: #fff !important;
+  color: #FFFFFF;
+  background: #1F8A81 !important;
+  border: solid 2px #1F8A81;
 }
 
 .sauna-compare-title a:hover {
@@ -2904,7 +2916,7 @@ body .jdgm-preview-badge .jdgm-star {
 }
 
 body .jdgm-preview-badge .jdgm-prev-badge__text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 27px;
   text-align: left;
@@ -3722,4 +3734,16 @@ a.secondary-nav__item.secondary-nav__cta {
 .rte ul li p:first-child,
 .rte ol li p:first-child {
   display: initial;
+}
+
+.margin-left-50 {
+  margin-left: 50px
+}
+
+.margin-right-50 {
+  margin-right: 50px
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
 }

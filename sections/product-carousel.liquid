@@ -1,41 +1,46 @@
 <div class="carousel-background-wrapper">
   <div class="carousel-section mx-auto">
+    {%- if section.settings.affirm_product != blank -%}
+      {%- assign affirm_product = all_products[section.settings.affirm_product] -%}
+      {% render 'affirm-messaging', product: affirm_product %}
+    {%- endif -%}
     <div class="carousel-header">
-      <h2>{{ section.settings.title }}</h2>
-      {%# This variable holds the collection object selected in the theme editor. #%}
-      {%# This variable holds the collection for the BUTTON LINK. #%}
-      {%- assign button_collection = section.settings.button_collection -%}
-    
-      {%# Check if a collection for the button has been selected. #%}
-      {%- if button_collection != blank and section.settings.button-label != blank -%}
-        <a href="{{ button_collection.url }}" class="explore-all-btn">
-          {{ section.settings.button-label }}
-        </a>
-      {%- else -%}
-        <a href="{{ routes.collections_url }}" class="explore-all-btn">
-          Explore All Saunas
-        </a>
-      {%- endif -%}
+      <div class="header-left">
+        <h2>{{ section.settings.title }}</h2>
+      </div>
+      <div class="header-right">
+        {%- assign button_collection = section.settings.button_collection -%}
+        {%- if button_collection != blank and section.settings['button-label'] != blank -%}
+          <a href="{{ button_collection.url }}" class="explore-all-btn cta-btn">
+            {{ section.settings['button-label'] }}
+            {% render 'icon-arrow-right-cta' %}
+          </a>
+        {%- else -%}
+          <a href="{{ routes.collections_url }}" class="explore-all-btn cta-btn">
+            Explore All Saunas {% render 'icon-arrow-right-cta' %}
+          </a>
+        {%- endif -%}
+      </div>
     </div>
     <div class="carousel-container">
       <div class="carousel-track">
-        
-        {%# This variable holds the collection for the PRODUCTS to display. #%}
+        {% # This variable holds the collection for the PRODUCTS to display. # %}
         {%- assign products_to_display_collection = section.settings.products_to_display_collection -%}
 
-        {%# Loop through the products from the DISPLAY collection. #%}
+        {% # Loop through the products from the DISPLAY collection. # %}
         {%- for product in products_to_display_collection.products -%}
           <div class="product-card">
             <div class="product-image-wrapper">
               <a href="{{ product.url }}">
-                <img 
-                  src="{{ product.featured_image | image_url: width: 400 }}" 
+                <img
+                  src="{{ product.featured_image | image_url: width: 400 }}"
                   alt="{{ product.featured_image.alt | escape }}"
                   width="400"
                   height="{{ 400 | divided_by: product.featured_image.aspect_ratio | round }}"
-                  loading="lazy">
+                  loading="lazy"
+                >
               </a>
-              
+
               {%- if product.tags contains 'New Release' -%}
                 <span class="badge release-badge">✦ New Release</span>
               {%- endif -%}
@@ -43,23 +48,25 @@
             <div class="product-info">
               <div class="shipping-tag">
                 {% if product.metafields.custom.product_tag_free_shipping != blank %}
-                <div class="card-shipping-tag">
-                  <span
-                    ><img src="{{ 'shipping-icon.svg' | asset_url }}" alt="shipping icon indicator">
-                    {{- product.metafields.custom.product_tag_free_shipping -}}
-                  </span>
-                </div>
-              {% endif %}
+                  <div class="card-shipping-tag">
+                    <span
+                      ><img src="{{ 'shipping-icon.svg' | asset_url }}" alt="shipping icon indicator">
+                      {{- product.metafields.custom.product_tag_free_shipping -}}
+                    </span>
+                  </div>
+                {% endif %}
               </div>
               <a href="{{ product.url }}" class="product-title">{{ product.title }}</a>
               {% comment %} {%- assign rating_metafield = product.metafields.reviews.rating.value -%} {% endcomment %}
               {% comment %} {%- assign rating_value_as_number = rating_metafield.rating | plus: 0 -%} {% endcomment %}
-              {% comment %} {%- if rating_metafield and rating_value_as_number > 0 -%}
-                <div class="star-rating">
-                  <span class="stars" style="--rating: {{ rating_metafield.rating | default: 0 }};"></span>
-                  <span>({{ product.metafields.reviews.rating_count }})</span>
-                </div>
-              {%- endif -%} {% endcomment %}
+              {% comment %}
+                {%- if rating_metafield and rating_value_as_number > 0 -%}
+                  <div class="star-rating">
+                    <span class="stars" style="--rating: {{ rating_metafield.rating | default: 0 }};"></span>
+                    <span>({{ product.metafields.reviews.rating_count }})</span>
+                  </div>
+                {%- endif -%}
+              {% endcomment %}
               {%- if settings.card_show_rating -%}
                 <div class="product_ratings">
                   <div class="jdgm-widget jdgm-preview-badge">
@@ -79,9 +86,7 @@
           </div>
         {%- else -%}
           <div class="product-card--empty">
-            <p>
-              No products found. Please select a collection in the theme editor settings for this section.
-            </p>
+            <p>No products found. Please select a collection in the theme editor settings for this section.</p>
           </div>
         {%- endfor -%}
       </div>
@@ -131,6 +136,12 @@
     {
       "type": "header",
       "content": "Products to Display"
+    },
+    {
+      "type": "product",
+      "id": "affirm_product",
+      "label": "Affirm Product (optional)",
+      "info": "Select a product to use for Affirm promotional messaging above the heading."
     },
     {
       "type": "collection",

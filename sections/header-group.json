@@ -11,6 +11,17 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "homepage_announcement_banner_EKeeb7": {
+      "type": "homepage-announcement-banner",
+      "name": "Homepage Announcement Banner",
+      "settings": {
+        "text": "Give us a call",
+        "phone_number": "(888) 287-0111",
+        "background_color": "#FFFFFF",
+        "border_color": "#007BFF",
+        "text_color": "#000000"
+      }
+    },
     "announcement": {
       "type": "announcement",
       "blocks": {
@@ -25,7 +36,15 @@
         "announcement_q8b3be": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Have questions? Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
+            "text": "<p>Give us a call <a href=\"tel:+18882870111\"><strong>(888) 287-0111</strong></a></p>",
+            "icon_select": "none"
+          }
+        },
+        "announcement_KjGgWa": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Welcome to our store. <a href='#' title='#'>Learn more</a></p>",
             "icon_select": "none"
           }
         },
@@ -73,12 +92,14 @@
       "block_order": [
         "announcement_YVH6F8",
         "announcement_q8b3be",
+        "announcement_KjGgWa",
         "announcement-1",
         "announcement_zg7xbp",
         "announcement_BCDBbF",
         "announcement_b846WE",
         "announcement_qykRi7"
       ],
+      "disabled": true,
       "settings": {
         "link1": "",
         "link1_label": "",
@@ -291,7 +312,7 @@
       ],
       "settings": {
         "enable_sticky": true,
-        "mobile_menu_position": "burger-right",
+        "mobile_menu_position": "burger-left",
         "logo_text": "",
         "logo_type_scale": "2",
         "logo": "{{ shop.brand.logo }}",
@@ -299,7 +320,7 @@
         "logo_h1": true,
         "logo_center": false,
         "enable_search": true,
-        "minimise_search_mobile": false,
+        "minimise_search_mobile": true,
         "minimise_search_desktop": false,
         "menu": "main-menu-2-0",
         "menu_center": true,
@@ -813,6 +834,7 @@
     }
   },
   "order": [
+    "homepage_announcement_banner_EKeeb7",
     "announcement",
     "header",
     "sales_popup_kNEhy3",

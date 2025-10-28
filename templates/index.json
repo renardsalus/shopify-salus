@@ -9,94 +9,6 @@
  */
 {
   "sections": {
-    "image_slideshow_grM3zD": {
-      "type": "image-slideshow",
-      "blocks": {
-        "slide_TkJRQw": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-1-new.png"
-          }
-        },
-        "slide_Xe4ieb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-4-new.png"
-          }
-        },
-        "slide_9tkLYm": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-3.png"
-          }
-        },
-        "slide_QVBxtb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/200821_King_Nordic_Front_View_c936965f-3a28-43e1-9b53-5911fb8ed978.webp"
-          }
-        },
-        "slide_UxebLE": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/SaunaPNGs_84.webp"
-          }
-        },
-        "slide_hhVfEq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-1-new.png"
-          }
-        },
-        "slide_MNTkGg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-2-new.webp"
-          }
-        },
-        "slide_mXqpgc": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/slide-3.png"
-          }
-        },
-        "slide_VEaFT9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/240820_Gran_Nordic_Front_Glass_Front_View_1f34ceec-4462-47ff-8436-4d004351376c.webp"
-          }
-        },
-        "slide_Rdqnc3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Sauna_PNGs_38.webp"
-          }
-        }
-      },
-      "block_order": [
-        "slide_TkJRQw",
-        "slide_Xe4ieb",
-        "slide_9tkLYm",
-        "slide_QVBxtb",
-        "slide_UxebLE",
-        "slide_hhVfEq",
-        "slide_MNTkGg",
-        "slide_mXqpgc",
-        "slide_VEaFT9",
-        "slide_Rdqnc3"
-      ],
-      "settings": {
-        "backgpround_image": "shopify://shop_images/image-slideshow-bg.png",
-        "subheading": "USA’S ONE STOP SAUNA SHOP",
-        "heading": "The best in home saunas you’ll ever find",
-        "content": "<p>Whether you need a traditional sauna, infrared sauna, hybrid sauna, or a cold plunge, you’re in the right place.</p>",
-        "btn_label1": "Browse all saunas",
-        "btn_link1": "shopify://collections/all-saunas",
-        "btn_label2": "Browse cold plunges",
-        "btn_link2": "shopify://collections/cold-plunges",
-        "note": "Join the happy customers we’ve served for 14 years"
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -159,81 +71,74 @@
         "prevent_animation": true
       }
     },
-    "icons_with_text_fkdCn4": {
-      "type": "icons-with-text",
+    "homepage_hero_carousel_iKVfwn": {
+      "type": "homepage-hero-carousel",
       "blocks": {
-        "item_nWjEMq": {
-          "type": "item",
+        "hero_slide_fXR8VU": {
+          "type": "hero-slide",
           "settings": {
-            "icon": "truck",
-            "custom_icon": "shopify://shop_images/rating-new.svg",
-            "icon_size": 62,
-            "heading": "",
-            "text": "<p>282+ Google reviews</p>",
-            "link-text": "",
-            "link": ""
+            "slide_image_desktop": "shopify://shop_images/Sauna_Stock_Images_4_2.png",
+            "desktop_image_alt": "Hello",
+            "slide_image_mobile": "shopify://shop_images/Sauna_Stock_Images_4_2_mobile.png",
+            "mobile_image_alt": "Hello",
+            "show_stars": true,
+            "show_house_icon": false,
+            "reviews_text": "100s of verified 5-star reviews",
+            "headline": "Unlock evidence-based wellness, powered by heat",
+            "description": "<p>From longevity, sleep and recovery, to mental health, saunas brings it all together — make smarter choices today that your future self will thank you for.</p>",
+            "button1_text": "Shop All Saunas",
+            "button1_link": "shopify://collections/all-saunas",
+            "show_button1_arrow": true,
+            "button2_text": "Consult Our Experts",
+            "button2_link": "shopify://pages/contact",
+            "feature_item_1": "Free Shipping on all US orders",
+            "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
+            "feature_item_3": "Trusted by health professionals and athletes",
+            "feature_item_4": "FSA/HSA Eligible & Flexible Financing",
+            "color_scheme": "light"
           }
         },
-        "item_L8XHzP": {
-          "type": "item",
+        "hero_slide_gQxa68": {
+          "type": "hero-slide",
           "settings": {
-            "icon": "price_tag",
-            "custom_icon": "shopify://shop_images/free-shipping.svg",
-            "icon_size": 34,
-            "heading": "",
-            "text": "<p>Free shipping across USA</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_Eg8jRm": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "custom_icon": "shopify://shop_images/rating-a.svg",
-            "icon_size": 40,
-            "heading": "",
-            "text": "<p>BBB Rating & Accreditation</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_czCKfC": {
-          "type": "item",
-          "settings": {
-            "icon": "chat_bubble",
-            "custom_icon": "shopify://shop_images/min-price.svg",
-            "icon_size": 34,
-            "heading": "",
-            "text": "<p>as low as $270/mo</p>",
-            "link-text": "",
-            "link": ""
+            "slide_image_desktop": "shopify://shop_images/dark_mode_slide_hero_section_sauna.png",
+            "desktop_image_alt": "Hello",
+            "slide_image_mobile": "shopify://shop_images/dark_mode_slide_hero_section_sauna.png",
+            "mobile_image_alt": "Hello",
+            "show_stars": false,
+            "show_house_icon": true,
+            "reviews_text": "Highly rated for build quality and craftsmanship",
+            "headline": "Elevate any space into a personal wellness sanctuary",
+            "description": "<p>Discover our premium collection of indoor and outdoor saunas — traditional, hybrid, and infrared — each designed to refine your home, body, and mind.</p>",
+            "button1_text": "Shop All Saunas",
+            "button1_link": "shopify://collections/all-saunas",
+            "show_button1_arrow": true,
+            "button2_text": "Consult Our Experts",
+            "button2_link": "shopify://pages/contact",
+            "feature_item_1": "Free Shipping on all US orders",
+            "feature_item_2": "5-7 Year Limited Lifetime Sauna Warranty",
+            "feature_item_3": "Trusted by health professionals and athletes",
+            "feature_item_4": "FSA/HSA Eligible & Flexible Financing",
+            "color_scheme": "dark"
           }
         }
       },
       "block_order": [
-        "item_nWjEMq",
-        "item_L8XHzP",
-        "item_Eg8jRm",
-        "item_czCKfC"
+        "hero_slide_fXR8VU",
+        "hero_slide_gQxa68"
       ],
+      "name": "Homepage Hero Carousel",
       "settings": {
-        "sec_layout": "slider",
-        "vertical_spacing": false,
-        "number_of_slides": "2",
-        "heading": "",
-        "heading_align": "text-start",
-        "text_layout": "1",
-        "icon_size": 40,
-        "title_type_scale": "medium",
-        "text_type_scale": "medium",
-        "icon_position": "beside",
-        "mobile_stack": false,
-        "section_height": "medium",
-        "color_scheme": "none",
-        "full_width": true,
-        "dividers": "none",
-        "prevent_animation": false
+        "content_background_color": "#fdf7f1",
+        "enable_autoplay": true,
+        "autoplay_speed": 5000,
+        "enable_loop": true,
+        "show_navigation_arrows": true,
+        "show_pagination_dots": true,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
       }
     },
     "products_card_section_PzCHqp": {
@@ -306,14 +211,182 @@
         "open_email": true
       }
     },
-    "product_carousel_dkNQRn": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
+    "homepage_reviews_slider_2_gCdyWL": {
+      "type": "homepage-reviews-slider-2",
+      "blocks": {
+        "review_card_7Krz7A": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>I have had an amazing experience with Salus Saunas. The build quality is fantastic, it works very well, and the customer service is by far one of the best I've worked with. I highly recommend this product to anyone looking for a high quality infrared sauna.</p>",
+            "review_title": "The build quality is fantastic",
+            "author_image": "shopify://shop_images/Frame_17127_1.png",
+            "author_name": "Dr. Joaquin Rosado",
+            "is_verified": true
+          }
+        },
+        "review_card_qyUQ8X": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Also they are all ultra low or near zero EMF! Wow! And I have to say, I appreciate their customer service too. They even have hours for east coast customers which means their employees are on the phone lines starting at 6am their time. That’s above and beyond...</p>",
+            "review_title": "7 year warranty & free shipping!",
+            "author_image": "shopify://shop_images/Frame_17125.png",
+            "author_name": "Ashley Soltes",
+            "is_verified": true
+          }
+        },
+        "review_card_XdaTEj": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>You gotta’ get a Salus Saunas, they’re the guys that did ours and they have serious heaters. Mine gets to 200°F!</p>",
+            "review_title": "Mine gets to 200°F!",
+            "author_image": "shopify://shop_images/Frame_17127_2.png",
+            "author_name": "Joe Rogan",
+            "is_verified": true
+          }
+        },
+        "review_card_394HCY": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>I use it nearly every day and it’s completely revolutionized our backyard into a home spa. It’s a wonderful addition and I truly feel the health benefits. The customer service, product quality, and overall experience has been top notch at every stage.</p>",
+            "review_title": "Love my Salus Saunas!!!!",
+            "author_image": "shopify://shop_images/Frame_17127.png",
+            "author_name": "Ben Feldman",
+            "is_verified": true
+          }
+        },
+        "review_card_jNPzcC": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>This company deserves 10 stars!! From the moment I spoke with Amber to purchase it, to its delivery everything was perfection. Easy install and works like a charm. Delivery company is top notch! I love it !</p>",
+            "review_title": "Deserves 10 stars!!",
+            "author_image": "shopify://shop_images/Frame_17127_3.png",
+            "author_name": "Bryan Nagle",
+            "is_verified": true
+          }
+        },
+        "review_card_9ftpeB": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>They were professional, knowledgeable, kind and prompt and when I had a problem with a broken piece due to the shipping, they were quick to respond with a replacement piece. I’ve been very happy with my beautiful Sauna!!!</p>",
+            "review_title": "Can’t say enough good things!",
+            "author_image": "shopify://shop_images/Frame_17127_4.png",
+            "author_name": "noelle sprenger",
+            "is_verified": true
+          }
+        },
+        "review_card_jLtUnf": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>We have had our Salus Sauna for nearly a year, and our family uses it daily. The key differentiator has been the exemplary level of customer service! Mark and Ethan provide immediate responses and work to assure total satisfaction!!</p>",
+            "review_title": "Our family uses it daily",
+            "author_image": "shopify://shop_images/Frame_17126.png",
+            "author_name": "Greg Wharton",
+            "is_verified": true
+          }
+        },
+        "review_card_BLQmXy": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Excellent service. Very professional and helpful during purchase and setup. Especially when it came to working with our electrician and explaining the setup steps.</p>",
+            "review_title": "Excellent service",
+            "author_image": "shopify://shop_images/Frame_17127_5.png",
+            "author_name": "Ramesh Rajagopal",
+            "is_verified": true
+          }
+        },
+        "review_card_DwnnLY": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>We LOVE our Salus Sauna! Ordering was easy, customer service was great, assembly was simple. All in all it was a great buying experience and an even better SAUNA experience!</p>",
+            "review_title": "We LOVE our Salus Saunas!",
+            "author_image": "shopify://shop_images/Frame_17127_6.png",
+            "author_name": "Taylor Doolittle",
+            "is_verified": true
+          }
+        },
+        "review_card_a3wVfw": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Any time I ran into challenges or had questions, the staff was very responsive and helped out any way they could. Even 3 years later, they are still ready and willing to help with questions or concerns. I recommend getting a sauna from Salus has been great!</p>",
+            "review_title": "Fun to build!",
+            "author_image": "shopify://shop_images/Frame_17125_1.png",
+            "author_name": "Josh Anderson",
+            "is_verified": true
+          }
+        },
+        "review_card_a3WzmR": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Because there are so many different saunas out there and it's an expensive proposition for something that hopefully you will keep for a lifetime I did a lot of research. I am so glad that I found this sauna. It is so well made, so beautiful and so enjoyable to be in it's one of the best purchases I've ever made.</p>",
+            "review_title": "Friendly, competent And Timely",
+            "author_image": "shopify://shop_images/Frame_17127_7.png",
+            "author_name": "Elijah Nisenboim",
+            "is_verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_card_7Krz7A",
+        "review_card_qyUQ8X",
+        "review_card_XdaTEj",
+        "review_card_394HCY",
+        "review_card_jNPzcC",
+        "review_card_9ftpeB",
+        "review_card_jLtUnf",
+        "review_card_BLQmXy",
+        "review_card_DwnnLY",
+        "review_card_a3wVfw",
+        "review_card_a3WzmR"
+      ],
+      "name": "Homepage Reviews Slider",
       "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Explore All Traditional Saunas",
-        "button_collection": "traditional-sauna-v2",
-        "products_to_display_collection": "traditional-saunas-highlight"
+        "show_navigation_arrows": true,
+        "button_label": "Show me more reviews",
+        "button_link": "shopify://pages/reviews",
+        "section_padding_top_desktop": 50,
+        "section_padding_bottom_desktop": 70,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
+      }
+    },
+    "homepage_sauna_value_proposition_hFfREm": {
+      "type": "homepage-sauna-value-proposition",
+      "blocks": {
+        "sauna_feature_item_JaGAY4": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "dynamic-1-2-person-infrared-sauna"
+          }
+        },
+        "sauna_feature_item_gxPnVT": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "uplift-full-spectrum-infrared-indoor-sauna"
+          }
+        },
+        "sauna_feature_item_fNnUjY": {
+          "type": "sauna-feature-item",
+          "settings": {
+            "featured_product": "governor-mini-traditional-outdoor-sauna"
+          }
+        }
+      },
+      "block_order": [
+        "sauna_feature_item_JaGAY4",
+        "sauna_feature_item_gxPnVT",
+        "sauna_feature_item_fNnUjY"
+      ],
+      "name": "Sauna Value Proposition",
+      "settings": {
+        "main_heading_text": "<h2>Get started with your sauna journey for less than $4/day*</h2>",
+        "disclaimer_text": "",
+        "button_text": "Shop Best Value Saunas",
+        "button_link": "shopify://collections/all-saunas",
+        "sort_order": "price-ascending",
+        "top_badge_text": "Best Value Picks – Includes FREE shipping + Warranty | $1000s in Value!",
+        "composite_sauna_image": "shopify://shop_images/Frame_15799.png",
+        "bottom_badge_text": "*Our saunas start at $104/mo or 0% APR with Affirm financing.",
+        "desktop_column_ratio": 50
       }
     },
     "logo_list_DaqLFK": {
@@ -402,6 +475,7 @@
         "logo_iYyVXy",
         "logo_UGHdJ9"
       ],
+      "disabled": true,
       "settings": {
         "title": "As featured in",
         "heading_align": "text-center",
@@ -414,278 +488,215 @@
         "full_width": true
       }
     },
+    "homepage_featured_in_logos_dxK7jf": {
+      "type": "homepage-featured-in-logos",
+      "blocks": {
+        "logo_image_UCgaiV": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/bloomberg-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_XXKPgp": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/yahoo-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_YUkCQb": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/digital-journal-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_z89QQt": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/ap-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_hcnBfL": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/morningstar-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_cLkTcE": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/benzinga-logo.png",
+            "link": ""
+          }
+        },
+        "logo_image_LcmbQF": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/marketwatch-logo.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_UCgaiV",
+        "logo_image_XXKPgp",
+        "logo_image_YUkCQb",
+        "logo_image_z89QQt",
+        "logo_image_hcnBfL",
+        "logo_image_cLkTcE",
+        "logo_image_LcmbQF"
+      ],
+      "name": "Featured In Logos",
+      "settings": {
+        "title": "As featured in"
+      }
+    },
+    "product_carousel_p9jgXD": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Shop Traditional",
+        "button_collection": "traditional-sauna-v2",
+        "affirm_product": "governor-mini-traditional-outdoor-sauna",
+        "products_to_display_collection": "traditional-saunas-highlight"
+      }
+    },
     "product_carousel_MGky87": {
       "type": "product-carousel",
       "name": "Product Carousel",
       "settings": {
         "title": "Explore our best-in-class infrared saunas",
-        "button-label": "Explore All Infrared Saunas",
+        "button-label": "Shop Infrared",
         "button_collection": "all-infrared-saunas",
+        "affirm_product": "dynamic-1-2-person-infrared-sauna",
         "products_to_display_collection": "infrared-saunas-highlight"
       }
     },
-    "multi-column": {
-      "type": "multi-column",
+    "celebrity_testimonials_PmJ8Jr": {
+      "type": "celebrity-testimonials",
       "blocks": {
-        "column_XPFNy9": {
-          "type": "column",
+        "video_testimonial_card_mzgML6": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/icon-7.webp",
-            "media_scale": 100,
-            "heading": "Remi Ishizuka",
-            "subtext": "",
-            "text": "<p>Wellness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
+            "video_file": "shopify://files/videos/Wes Kitts Testimonials.mp4",
+            "name": "Wes Kitts",
+            "description": "US Olympian, Weightlifting Champion"
           }
         },
-        "column_AHwLrJ": {
-          "type": "column",
+        "video_testimonial_card_ejLPGK": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Frankie_Edgar_-_Icons_Page_1.png",
-            "media_scale": 100,
-            "heading": "Gordon Ryan",
-            "subtext": "",
-            "text": "<p>Martial Artist</p>",
-            "button_label": "",
-            "button_link": ""
+            "video_file": "shopify://files/videos/Joe Rogan Testimonials.mp4",
+            "name": "Joe Rogan",
+            "description": "Host of the JRE Podcast, UFC commentator, Comedian"
           }
         },
-        "column_WNXrha": {
-          "type": "column",
+        "static_testimonial_card_9rtKQM": {
+          "type": "static-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-5-min.jpg",
-            "media_scale": 100,
-            "heading": "Frankie Edgar",
-            "subtext": "",
-            "text": "<p>Former UFC Lightweight Champion</p>",
-            "button_label": "",
-            "button_link": ""
+            "image": "shopify://shop_images/Frankie_Edgar_Testimonials.jpg",
+            "quote": "A game changer!",
+            "name": "Frankie Edgar",
+            "description": "Former UFC Lightweight Champion"
           }
         },
-        "column_MUyT9i": {
-          "type": "column",
+        "video_testimonial_card_LhHjzY": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Joe_Rogan_-_Icons_Page.png",
-            "media_scale": 100,
-            "heading": "Joe Rogan",
-            "subtext": "",
-            "text": "<p>Podcaster, Commentator, Comedian</p>",
-            "button_label": "",
-            "button_link": ""
+            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
+            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
+            "name": "Teixeira Family",
+            "description": "Wellness & Lifestyle Creators"
           }
         },
-        "column_3Ah7eg": {
-          "type": "column",
+        "video_testimonial_card_fizjEq": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Ian_Somerhalder_-_Icons_Page_2.png",
-            "media_scale": 100,
-            "heading": "Ian Somerhalder",
-            "subtext": "",
-            "text": "<p>Actor, Entrepreneur</p>",
-            "button_label": "",
-            "button_link": ""
+            "custom_thumbnail_image": "shopify://shop_images/Frame_17241.jpg",
+            "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
+            "name": "Gordon Ryan",
+            "description": "Greatest no-gi grappler of all time"
           }
         },
-        "column_XfaGyE": {
-          "type": "column",
+        "video_testimonial_card_DBgwXe": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Frame_17073.webp",
-            "media_scale": 100,
-            "heading": "Claire Thomas",
-            "subtext": "",
-            "text": "<p>Fitness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
+            "custom_thumbnail_image": "shopify://shop_images/IMG_9466.jpg",
+            "video_file": "shopify://files/videos/Salus.MOV",
+            "name": "Shelby Robins",
+            "description": "Fitness Creator"
           }
         },
-        "multi-column-0": {
-          "type": "column",
+        "video_testimonial_card_pnWDBJ": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Kaleo Wassman Testimonials.mp4",
+            "name": "Kaleo Wassman",
+            "description": "Pepper’s Lead Vocalist/Guitarist"
+          }
+        },
+        "static_testimonial_card_tkWkY3": {
+          "type": "static-testimonial-card",
           "disabled": true,
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-1-min.jpg",
-            "media_scale": 100,
-            "heading": "Wes Kitts",
-            "subtext": "",
-            "text": "<p>Olympian, Weightlifting Champion</p>",
-            "button_label": "",
-            "button_link": ""
+            "image": "shopify://shop_images/Justin_Baldoni_Testimonials.webp",
+            "quote": "A game changer!",
+            "name": "Justin Baldoni",
+            "description": "Actor & Director"
           }
         },
-        "column_UymgWR": {
-          "type": "column",
+        "video_testimonial_card_rBehdg": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/Sauna_PNGs_1_10fb9cf7-9bda-4c8d-8b04-5d9937db2dbf.png",
-            "media_scale": 100,
-            "heading": "Joe Andrews",
-            "subtext": "",
-            "text": "<p>Fitness Influencer</p>",
-            "button_label": "",
-            "button_link": ""
+            "video_file": "shopify://files/videos/Remi Ishizuka Testimonials.mp4",
+            "name": "Remi Ishizuka",
+            "description": "Wellness & Lifestyle Creator"
           }
         },
-        "column_QFyAEQ": {
-          "type": "column",
-          "disabled": true,
+        "video_testimonial_card_Ay6EH8": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-6-min.jpg",
-            "media_scale": 100,
-            "heading": "Devin Booker",
-            "subtext": "",
-            "text": "<p>NBA Athlete</p>",
-            "button_label": "",
-            "button_link": ""
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
+            "name": "Claire P. Thomas",
+            "description": "Fitness Creator"
           }
         },
-        "column_QjnreV": {
-          "type": "column",
-          "disabled": true,
+        "video_testimonial_card_JUfpKD": {
+          "type": "video-testimonial-card",
           "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-7-min.jpg",
-            "media_scale": 100,
-            "heading": "Tom Segura",
-            "subtext": "",
-            "text": "<p>Comedian</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "column_QAEDCM": {
-          "type": "column",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/sauna-journey-2-min.jpg",
-            "media_scale": 100,
-            "heading": "Justin Baldoni",
-            "subtext": "",
-            "text": "<p>Actor, Producer</p>",
-            "button_label": "",
-            "button_link": ""
+            "video_file": "shopify://files/videos/Lauryn Bosstick Testimonials.mp4",
+            "name": "Lauryn Bosstick",
+            "description": "Lifestyle & Wellness Influencer"
           }
         }
       },
       "block_order": [
-        "column_XPFNy9",
-        "column_AHwLrJ",
-        "column_WNXrha",
-        "column_MUyT9i",
-        "column_3Ah7eg",
-        "column_XfaGyE",
-        "multi-column-0",
-        "column_UymgWR",
-        "column_QFyAEQ",
-        "column_QjnreV",
-        "column_QAEDCM"
+        "video_testimonial_card_mzgML6",
+        "video_testimonial_card_ejLPGK",
+        "static_testimonial_card_9rtKQM",
+        "video_testimonial_card_LhHjzY",
+        "video_testimonial_card_fizjEq",
+        "video_testimonial_card_DBgwXe",
+        "video_testimonial_card_pnWDBJ",
+        "static_testimonial_card_tkWkY3",
+        "video_testimonial_card_rBehdg",
+        "video_testimonial_card_Ay6EH8",
+        "video_testimonial_card_JUfpKD"
       ],
+      "name": "Celebrity Testimonials",
       "settings": {
-        "enable_padding": true,
-        "enable_gap": false,
-        "enable_fw": false,
-        "title": "Join renowned figures in their sauna journey",
-        "heading_align": "text-center",
-        "button_label": "Shop by tastemakers",
+        "subheading": "<p>100s of verified 5-star reviews</p>",
+        "heading": "Trusted by leading athletes & figures",
+        "button_text": "See More",
         "button_link": "shopify://pages/our-icons",
-        "enable_load_more": false,
-        "layout": "carousel",
-        "column_size": "small",
-        "column_align": "center",
-        "media_align": "text-center",
-        "image_ratio": "1",
-        "color_scheme": "2",
-        "button_style": "btn btn--secondary"
-      }
-    },
-    "testimonials_YnNhRy": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_twbKTQ": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“Incredibly fast shipping with exceptional customer service from Jonathan! So excited to use this for years to come!”</p>",
-            "author": "Sean O Grady",
-            "author_info": "6 months ago",
-            "author_image": "shopify://shop_images/Frame_17071.png",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_QeTMTr": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“I think Salus Saunas’ customer service team went above and beyond and you won’t get that with a big box store.”</p>",
-            "author": "George Shlifer",
-            "author_info": "2 months ago",
-            "author_image": "shopify://shop_images/George_Shlifer.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_y3e7p3": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>\"As a seasoned firefighter of 21 years, I understand the value of reliability... My recent experience with Salus Saunas has left a lasting impression...\"</p>",
-            "author": "Miguel Porcell",
-            "author_info": "7 months ago",
-            "author_image": "shopify://shop_images/WhatsApp_Image_2025-01-19_at_00.17.44.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_4XYJ3Y": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>“If you’re thinking about getting [a sauna or cold plunge], I suggest that you do. Please check out Salus Saunas, I can’t recommend them enough!”</p>",
-            "author": "Joe Rogan",
-            "author_info": "6 months ago",
-            "author_image": "shopify://shop_images/Joe_Rogan.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        },
-        "testimonial_HiDMt8": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>\"Salus Saunas Nordic II is just a game changer! I have just started using it and I already can feel many benefits...\"</p>",
-            "author": "Marco Teixeira",
-            "author_info": "2 months ago",
-            "author_image": "shopify://shop_images/WhatsApp_Image_2025-01-19_at_00.21.34.jpg",
-            "show_star_rating": true,
-            "star_rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_twbKTQ",
-        "testimonial_QeTMTr",
-        "testimonial_y3e7p3",
-        "testimonial_4XYJ3Y",
-        "testimonial_HiDMt8"
-      ],
-      "settings": {
-        "heading": "",
-        "show_quotes": true,
-        "testimonial_size": "h3",
-        "text_position": "justify-center",
-        "text_align": "text-center justify-center",
-        "view-more-text": "Show me more reviews",
-        "view-more": "shopify://pages/reviews",
-        "nav_style": "arrows",
-        "transition": "slide-fade",
-        "autoplay": true,
-        "slider_pause": true,
-        "autoplay_speed": 5,
-        "color_scheme": "default",
-        "full_width": true
+        "desktop_cards_per_row": 5,
+        "tablet_cards_per_row": 2,
+        "mobile_cards_per_row": 2
       }
     },
     "video": {
@@ -722,98 +733,6 @@
         "color_scheme": "1"
       }
     },
-    "video_carousel_PNpByy": {
-      "type": "Video_Carousel",
-      "blocks": {
-        "video_QqRcVQ": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Glass&Class.mp4",
-            "poster": "shopify://shop_images/video-01.png",
-            "video_autoplay": true
-          }
-        },
-        "video_HGjRgX": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/round_cube_sauna (720p).mp4",
-            "poster": "shopify://shop_images/video-02.png",
-            "video_autoplay": true
-          }
-        }
-      },
-      "block_order": [
-        "video_QqRcVQ",
-        "video_HGjRgX"
-      ],
-      "settings": {
-        "title": "Disappear in our pleasure-inducing luxury saunas",
-        "button-text": "Explore our luxury saunas",
-        "link": "shopify://collections/luxury-traditional-saunas"
-      }
-    },
-    "slider_cards_4iLXF9": {
-      "type": "slider-cards",
-      "blocks": {
-        "blocks_kTjMmG": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Increased_Mortality-min.jpg",
-            "title": "Increased Mortality",
-            "description": "",
-            "link": "shopify://blogs/library-of-resources/skin-health"
-          }
-        },
-        "blocks_aRUU4i": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Sarcopenia_Arthritis_-_Salus_Saunas.png",
-            "title": "Sarcopenia & Arthritis",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_ki6RVB": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Endurance_Athletic_Performance_-_Salus_Saunas_1.png",
-            "title": "Endurance & Athletic Performance",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_YrEJjC": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Sleep_Relaxation-min.jpg",
-            "title": "Sleep & Relaxation",
-            "description": "",
-            "link": ""
-          }
-        },
-        "blocks_7mhRF7": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/Library_of_Resources_-_Home_Page.png",
-            "title": "Heart Problems",
-            "description": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "blocks_kTjMmG",
-        "blocks_aRUU4i",
-        "blocks_ki6RVB",
-        "blocks_YrEJjC",
-        "blocks_7mhRF7"
-      ],
-      "settings": {
-        "title": "Unlock countless scientifically-backed health benefits",
-        "button-text": "See our library of resources",
-        "button-id": "shopify://blogs/library-of-resources"
-      }
-    },
     "promo_strip_yHMmpR": {
       "type": "promo-strip",
       "blocks": {
@@ -839,6 +758,7 @@
         "text_36hyim",
         "button_83eWBL"
       ],
+      "disabled": true,
       "settings": {
         "section_layout": "1",
         "section_height": "default",
@@ -846,40 +766,6 @@
         "full_width": true,
         "dividers": "border-top",
         "prevent_animation": false
-      }
-    },
-    "compare_model_Xqkj8N": {
-      "type": "compare-model",
-      "blocks": {
-        "blocks_jXB9Rp": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood-circle-min.png"
-          }
-        },
-        "blocks_87pFqm": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood-sauna-min.png"
-          }
-        },
-        "blocks_Azk93E": {
-          "type": "blocks",
-          "settings": {
-            "image": "shopify://shop_images/wood_circle_sauna-min.png"
-          }
-        }
-      },
-      "block_order": [
-        "blocks_jXB9Rp",
-        "blocks_87pFqm",
-        "blocks_Azk93E"
-      ],
-      "settings": {
-        "title": "Can’t decide which sauna’s for you? Talk to our sauna experts",
-        "button-text": "Give me expert help",
-        "link": "mailto:sales@salussaunas.com",
-        "bg-image": "shopify://shop_images/bg.png"
       }
     },
     "promo_strip_MEtcbi": {
@@ -914,118 +800,6 @@
         "color_scheme": "1",
         "full_width": true,
         "dividers": "border-top",
-        "prevent_animation": false
-      }
-    },
-    "media_with_text_aQTEjM": {
-      "type": "media-with-text",
-      "blocks": {
-        "subheading_DycxgB": {
-          "type": "subheading",
-          "settings": {
-            "text": "New Release"
-          }
-        },
-        "heading_YHGagY": {
-          "type": "heading",
-          "settings": {
-            "heading": "Unlock the benefits of contrast therapy and change your life",
-            "heading_size": "h3",
-            "heading_h1": false
-          }
-        },
-        "button_RpR7cG": {
-          "type": "button",
-          "settings": {
-            "button_label": "Explore cold plunges",
-            "button_link": "shopify://collections/cold-plunges",
-            "button_style": "btn btn--secondary",
-            "show_btn_icon": false
-          }
-        }
-      },
-      "block_order": [
-        "subheading_DycxgB",
-        "heading_YHGagY",
-        "button_RpR7cG"
-      ],
-      "settings": {
-        "sec_design": "2",
-        "enable_vertical_spacing": false,
-        "image": "shopify://shop_images/A_cold_plunge-min.jpg",
-        "video_external": "",
-        "video_description": "",
-        "video_autoplay": false,
-        "layout": "right",
-        "image_fit": "contain",
-        "media_width": 53,
-        "media_scale": 100,
-        "text_align": "text-start",
-        "color_scheme": "none",
-        "only_content_color_scheme": false
-      }
-    },
-    "icons_with_text_A6eThC": {
-      "type": "icons-with-text",
-      "blocks": {
-        "item_wC4WV3": {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "custom_icon": "shopify://shop_images/Plug-and-sweat.svg",
-            "icon_size": 24,
-            "heading": "Build & unwind",
-            "text": "<p>Our modular saunas are designed for an enjoyable build process</p>",
-            "link-text": "",
-            "link": ""
-          }
-        },
-        "item_RdqEWF": {
-          "type": "item",
-          "settings": {
-            "icon": "price_tag",
-            "custom_icon": "shopify://shop_images/free_shipping.svg",
-            "icon_size": 24,
-            "heading": "100% free shipping",
-            "text": "<p>We take care of all shipping and delivery fees across the USA.</p>",
-            "link-text": "See our shipping details",
-            "link": "shopify://pages/shipping-policy"
-          }
-        },
-        "item_4yKEh9": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "custom_icon": "shopify://shop_images/warranty.png",
-            "icon_size": 24,
-            "heading": "Up to 7-year warranty",
-            "text": "<p>Sauna in peace with our extensive limited lifetime warranty</p>",
-            "link-text": "See our warranty agreement",
-            "link": "shopify://pages/sauna-warranty"
-          }
-        }
-      },
-      "block_order": [
-        "item_wC4WV3",
-        "item_RdqEWF",
-        "item_4yKEh9"
-      ],
-      "settings": {
-        "sec_layout": "slider",
-        "vertical_spacing": true,
-        "number_of_slides": "1",
-        "heading": "",
-        "heading_align": "text-start",
-        "text_layout": "1",
-        "icon_size": 48,
-        "title_type_scale": "medium",
-        "text_type_scale": "medium",
-        "icon_position": "inline",
-        "mobile_stack": false,
-        "section_height": "medium",
-        "color_scheme": "3",
-        "full_width": true,
-        "dividers": "none",
         "prevent_animation": false
       }
     },
@@ -1112,8 +886,8 @@
         "color_scheme": "4",
         "full_width": false,
         "enable_fw": false,
-        "top_padding": 170,
-        "bottom_padding": 170
+        "top_padding": 0,
+        "bottom_padding": 0
       }
     },
     "content_with_form_Q3amKV": {
@@ -1176,24 +950,20 @@
     }
   },
   "order": [
-    "image_slideshow_grM3zD",
     "slideshow",
-    "icons_with_text_fkdCn4",
+    "homepage_hero_carousel_iKVfwn",
     "products_card_section_PzCHqp",
     "products_card_section_YF9fnK",
-    "product_carousel_dkNQRn",
+    "homepage_reviews_slider_2_gCdyWL",
+    "homepage_sauna_value_proposition_hFfREm",
     "logo_list_DaqLFK",
+    "homepage_featured_in_logos_dxK7jf",
+    "product_carousel_p9jgXD",
     "product_carousel_MGky87",
-    "multi-column",
-    "testimonials_YnNhRy",
+    "celebrity_testimonials_PmJ8Jr",
     "video",
-    "video_carousel_PNpByy",
-    "slider_cards_4iLXF9",
     "promo_strip_yHMmpR",
-    "compare_model_Xqkj8N",
     "promo_strip_MEtcbi",
-    "media_with_text_aQTEjM",
-    "icons_with_text_A6eThC",
     "faq_T9BgCP",
     "content_with_form_Q3amKV"
   ]

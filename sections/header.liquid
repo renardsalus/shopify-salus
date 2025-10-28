@@ -30,22 +30,33 @@
 
 {%- style -%}
   .header {
-  --bg-color: {{ section.settings.bg_color.rgba }};
-  --text-color: {{ section.settings.text_color.rgb }};
-  --nav-bg-color: {{ section.settings.bg_color.rgb }};
-  --nav-text-color: {{ section.settings.text_color.rgb }};
-  --nav-child-bg-color:  {{ section.settings.bg_color.rgb }};
-  --nav-child-text-color: {{ section.settings.text_color.rgb }};
-  --header-accent-color: {{ section.settings.accent_color.rgb }};
-  --search-bg-color: {{ section.settings.bg_color | color_mix: section.settings.text_color, 90 }};
-  {% unless section.settings.logo %}
-    --logo_type_scale: var(--body-font-size) * {{ section.settings.logo_type_scale }};
-    --logo_font-size: calc((var(--logo_type_scale) / 1.5) * var(--fluid-1-5));
-  {% endunless %}
-  {% if settings.cart_shaking and cart != empty %}
-    --shake-delay: 4s;
-  {% endif %}
+    --bg-color: {{ section.settings.bg_color.rgba }};
+    --text-color: {{ section.settings.text_color.rgb }};
+    --nav-bg-color: {{ section.settings.bg_color.rgb }};
+    --nav-text-color: {{ section.settings.text_color.rgb }};
+    --nav-child-bg-color:  {{ section.settings.bg_color.rgb }};
+    --nav-child-text-color: {{ section.settings.text_color.rgb }};
+    --header-accent-color: {{ section.settings.accent_color.rgb }};
+    --search-bg-color: {{ section.settings.bg_color | color_mix: section.settings.text_color, 90 }};
+    {% unless section.settings.logo %}
+      --logo_type_scale: var(--body-font-size) * {{ section.settings.logo_type_scale }};
+      --logo_font-size: calc((var(--logo_type_scale) / 1.5) * var(--fluid-1-5));
+    {% endunless %}
+    {% if settings.cart_shaking and cart != empty %}
+      --shake-delay: 4s;
+    {% endif %}
   }
+
+  @media screen and (max-width: 768px) {
+    .header__icon.icon-customer.text-current {
+      display: None;
+    }
+
+    #cart-icon {
+      display: None;
+    }
+  }
+
 {%- endstyle -%}
 
 <store-header
