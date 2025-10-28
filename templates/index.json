@@ -520,13 +520,22 @@
             "description": "US Olympian, Weightlifting Champion"
           }
         },
+        "video_testimonial_card_LhHjzY": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
+            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
+            "name": "Teixeira Family",
+            "description": "Wellness & Lifestyle Creators"
+          }
+        },
         "static_testimonial_card_wpMAki": {
           "type": "static-testimonial-card",
           "settings": {
             "image": "shopify://shop_images/Teixeira_Family_Testimonials.jpg",
             "quote": "A game changer!",
             "name": "Teixeira Family",
-            "description": "Former UFC Lightweight Champion"
+            "description": "Wellness"
           }
         },
         "video_testimonial_card_ejLPGK": {
@@ -599,6 +608,7 @@
       },
       "block_order": [
         "video_testimonial_card_mzgML6",
+        "video_testimonial_card_LhHjzY",
         "static_testimonial_card_wpMAki",
         "video_testimonial_card_ejLPGK",
         "static_testimonial_card_9rtKQM",
