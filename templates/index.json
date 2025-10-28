@@ -520,24 +520,6 @@
             "description": "US Olympian, Weightlifting Champion"
           }
         },
-        "video_testimonial_card_LhHjzY": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
-            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
-            "name": "Teixeira Family",
-            "description": "Wellness & Lifestyle Creators"
-          }
-        },
-        "static_testimonial_card_wpMAki": {
-          "type": "static-testimonial-card",
-          "settings": {
-            "image": "shopify://shop_images/Teixeira_Family_Testimonials.jpg",
-            "quote": "A game changer!",
-            "name": "Teixeira Family",
-            "description": "Wellness"
-          }
-        },
         "video_testimonial_card_ejLPGK": {
           "type": "video-testimonial-card",
           "settings": {
@@ -555,6 +537,15 @@
             "description": "Former UFC Lightweight Champion"
           }
         },
+        "video_testimonial_card_LhHjzY": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "custom_thumbnail_image": "shopify://shop_images/Screenshot_2025-10-29_at_01.23.16_1.png",
+            "video_file": "shopify://files/videos/Teixeira Family Sauna Build.mp4",
+            "name": "Teixeira Family",
+            "description": "Wellness & Lifestyle Creators"
+          }
+        },
         "video_testimonial_card_fizjEq": {
           "type": "video-testimonial-card",
           "settings": {
@@ -562,6 +553,15 @@
             "video_file": "shopify://files/videos/Gordon Ryan Testimonials.mp4",
             "name": "Gordon Ryan",
             "description": "Greatest no-gi grappler of all time"
+          }
+        },
+        "video_testimonial_card_DBgwXe": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "custom_thumbnail_image": "shopify://shop_images/IMG_9466.jpg",
+            "video_file": "shopify://files/videos/Salus.MOV",
+            "name": "Shelby Robins",
+            "description": "Fitness Creator"
           }
         },
         "video_testimonial_card_pnWDBJ": {
@@ -572,16 +572,9 @@
             "description": "Pepper’s Lead Vocalist/Guitarist"
           }
         },
-        "video_testimonial_card_Ay6EH8": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
-            "name": "Claire P. Thomas",
-            "description": "Fitness Creator"
-          }
-        },
         "static_testimonial_card_tkWkY3": {
           "type": "static-testimonial-card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Justin_Baldoni_Testimonials.webp",
             "quote": "A game changer!",
@@ -589,12 +582,12 @@
             "description": "Actor & Director"
           }
         },
-        "video_testimonial_card_JUfpKD": {
+        "video_testimonial_card_Ay6EH8": {
           "type": "video-testimonial-card",
           "settings": {
-            "video_file": "shopify://files/videos/Lauryn Bosstick Testimonials.mp4",
-            "name": "Lauryn Bosstick",
-            "description": "Lifestyle & Wellness Influencer"
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
+            "name": "Claire P. Thomas",
+            "description": "Fitness Creator"
           }
         },
         "video_testimonial_card_rBehdg": {
@@ -604,20 +597,28 @@
             "name": "Remi Ishizuka",
             "description": "Wellness & Lifestyle Creator"
           }
+        },
+        "video_testimonial_card_JUfpKD": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Lauryn Bosstick Testimonials.mp4",
+            "name": "Lauryn Bosstick",
+            "description": "Lifestyle & Wellness Influencer"
+          }
         }
       },
       "block_order": [
         "video_testimonial_card_mzgML6",
-        "video_testimonial_card_LhHjzY",
-        "static_testimonial_card_wpMAki",
         "video_testimonial_card_ejLPGK",
         "static_testimonial_card_9rtKQM",
+        "video_testimonial_card_LhHjzY",
         "video_testimonial_card_fizjEq",
+        "video_testimonial_card_DBgwXe",
         "video_testimonial_card_pnWDBJ",
-        "video_testimonial_card_Ay6EH8",
         "static_testimonial_card_tkWkY3",
-        "video_testimonial_card_JUfpKD",
-        "video_testimonial_card_rBehdg"
+        "video_testimonial_card_Ay6EH8",
+        "video_testimonial_card_rBehdg",
+        "video_testimonial_card_JUfpKD"
       ],
       "name": "Celebrity Testimonials",
       "settings": {
