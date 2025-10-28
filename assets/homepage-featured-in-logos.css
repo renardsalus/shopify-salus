@@ -8,6 +8,10 @@
   font-weight: 500;
 }
 
+.second-blocks {
+  display: None;
+}
+
 .logo-bar {
   display: flex;
   flex-wrap: wrap;
@@ -99,6 +103,10 @@
 
   .featured-in-section .page-width {
     width: 100%;
+  }
+
+  .second-blocks {
+    display: block;
   }
 
   @keyframes scroll {
