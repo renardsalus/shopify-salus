@@ -493,48 +493,49 @@
         "logo_image_UCgaiV": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/bloomberg-logo.png",
             "link": ""
           }
         },
         "logo_image_XXKPgp": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/yahoo-logo.png",
             "link": ""
           }
         },
         "logo_image_z89QQt": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/ap-logo.png",
             "link": ""
           }
         },
         "logo_image_YUkCQb": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/digital-journal-logo.png",
             "link": ""
           }
         },
         "logo_image_cLkTcE": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/benzinga-logo.png",
             "link": ""
           }
         },
         "logo_image_hcnBfL": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/morningstar-logo.png",
             "link": ""
           }
         },
         "logo_image_LcmbQF": {
           "type": "logo_image",
           "settings": {
-            "link": ""
-          }
-        },
-        "logo_image_xNTNjM": {
-          "type": "logo_image",
-          "settings": {
+            "image": "shopify://shop_images/marketwatch-logo.png",
             "link": ""
           }
         }
@@ -546,8 +547,7 @@
         "logo_image_YUkCQb",
         "logo_image_cLkTcE",
         "logo_image_hcnBfL",
-        "logo_image_LcmbQF",
-        "logo_image_xNTNjM"
+        "logo_image_LcmbQF"
       ],
       "name": "Featured In Logos",
       "settings": {
