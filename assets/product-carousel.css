@@ -334,11 +334,11 @@
 
 .product-title {
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: start !important;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   /* Truncate after 2 lines */
   -webkit-box-orient: vertical;
 }
