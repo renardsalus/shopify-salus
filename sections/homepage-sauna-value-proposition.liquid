@@ -122,22 +122,22 @@
     align-items: center;
     gap: 10px;
     padding: 15px 30px;
-    background-color: #1a4d36; /* Dark green background */
+    background-color: #1B413E; /* Dark green background */
     color: #fff;
     text-decoration: none;
-    border-radius: 6px; /* Rounded corners */
-    font-weight: 600;
+    border-radius: 50px; /* Rounded corners */
+    font-size: 18px;
+    font-weight: 500;
     transition: background-color 0.3s ease;
-    margin-top: 30px;
   }
 
   .sauna-value-proposition__button:hover {
-    background-color: #123d29; /* Darker green on hover */
+    background-color: #1F8A81; /* Darker green on hover */
   }
 
   .sauna-value-proposition__button svg {
     width: 16px;
-    height: 16px;
+    height: 19px;
     fill: currentColor; /* Inherit color from button text */
   }
 
@@ -300,7 +300,7 @@
         {% if section.settings.button_text != blank and section.settings.button_link != blank %}
           <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button">
             {{ section.settings.button_text }}
-            {% render 'icon-arrow-right' %}
+            {% render 'icon-arrow-right-cta' %}
           </a>
         {% endif %}
       </div>
