@@ -298,7 +298,8 @@
         </div>
 
         {% if section.settings.button_text != blank and section.settings.button_link != blank %}
-          <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button">
+          {% comment %} <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button"> {% endcomment %}
+          <a href="/collections/all-saunas?sort_by=price-ascending" class="sauna-value-proposition__button">
             {{ section.settings.button_text }}
             {% render 'icon-arrow-right-cta' %}
           </a>
