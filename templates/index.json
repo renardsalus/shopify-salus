@@ -214,16 +214,6 @@
     "homepage_reviews_slider_2_gCdyWL": {
       "type": "homepage-reviews-slider-2",
       "blocks": {
-        "review_card_394HCY": {
-          "type": "review_card",
-          "settings": {
-            "review_text": "<p>I use it nearly every day and it’s completely revolutionized our backyard into a home spa. It’s a wonderful addition and I truly feel the health benefits. The customer service, product quality, and overall experience has been top notch at every stage.</p>",
-            "review_title": "Love my Salus Saunas!!!!",
-            "author_image": "shopify://shop_images/Frame_17127.png",
-            "author_name": "Ben Feldman",
-            "is_verified": true
-          }
-        },
         "review_card_7Krz7A": {
           "type": "review_card",
           "settings": {
@@ -234,6 +224,16 @@
             "is_verified": true
           }
         },
+        "review_card_qyUQ8X": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Also they are all ultra low or near zero EMF! Wow! And I have to say, I appreciate their customer service too. They even have hours for east coast customers which means their employees are on the phone lines starting at 6am their time. That’s above and beyond...</p>",
+            "review_title": "7 year warranty & free shipping!",
+            "author_image": "shopify://shop_images/Frame_17125.png",
+            "author_name": "Ashley Soltes",
+            "is_verified": true
+          }
+        },
         "review_card_XdaTEj": {
           "type": "review_card",
           "settings": {
@@ -241,6 +241,16 @@
             "review_title": "Mine gets to 200°F!",
             "author_image": "shopify://shop_images/Frame_17127_2.png",
             "author_name": "Joe Rogan",
+            "is_verified": true
+          }
+        },
+        "review_card_394HCY": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>I use it nearly every day and it’s completely revolutionized our backyard into a home spa. It’s a wonderful addition and I truly feel the health benefits. The customer service, product quality, and overall experience has been top notch at every stage.</p>",
+            "review_title": "Love my Salus Saunas!!!!",
+            "author_image": "shopify://shop_images/Frame_17127.png",
+            "author_name": "Ben Feldman",
             "is_verified": true
           }
         },
@@ -294,27 +304,39 @@
             "is_verified": true
           }
         },
-        "review_card_qyUQ8X": {
+        "review_card_a3wVfw": {
           "type": "review_card",
           "settings": {
-            "review_text": "<p>Also they are all ultra low or near zero EMF! Wow! And I have to say, I appreciate their customer service too. They even have hours for east coast customers which means their employees are on the phone lines starting at 6am their time. That’s above and beyond...</p>",
-            "review_title": "7 year warranty & free shipping!",
-            "author_image": "shopify://shop_images/Frame_17125.png",
-            "author_name": "Ashley Soltes",
+            "review_text": "<p>Any time I ran into challenges or had questions, the staff was very responsive and helped out any way they could. Even 3 years later, they are still ready and willing to help with questions or concerns. I recommend getting a sauna from Salus has been great!</p>",
+            "review_title": "Fun to build!",
+            "author_image": "shopify://shop_images/Frame_17125_1.png",
+            "author_name": "Josh Anderson",
+            "is_verified": true
+          }
+        },
+        "review_card_a3WzmR": {
+          "type": "review_card",
+          "settings": {
+            "review_text": "<p>Because there are so many different saunas out there and it's an expensive proposition for something that hopefully you will keep for a lifetime I did a lot of research. I am so glad that I found this sauna. It is so well made, so beautiful and so enjoyable to be in it's one of the best purchases I've ever made.</p>",
+            "review_title": "Friendly, competent And Timely",
+            "author_image": "shopify://shop_images/Frame_17127_7.png",
+            "author_name": "Elijah Nisenboim",
             "is_verified": true
           }
         }
       },
       "block_order": [
-        "review_card_394HCY",
         "review_card_7Krz7A",
+        "review_card_qyUQ8X",
         "review_card_XdaTEj",
+        "review_card_394HCY",
         "review_card_jNPzcC",
         "review_card_9ftpeB",
         "review_card_jLtUnf",
         "review_card_BLQmXy",
         "review_card_DwnnLY",
-        "review_card_qyUQ8X"
+        "review_card_a3wVfw",
+        "review_card_a3WzmR"
       ],
       "name": "Homepage Reviews Slider",
       "settings": {
