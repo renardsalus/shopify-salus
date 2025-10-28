@@ -87,7 +87,7 @@
           {% endif %}
         >
           {%- if section.settings.heading != blank -%}
-            <h2 class="{% if section.settings.heading_size == '1' %}h4{% else %}h5{% endif %} section__heading mb-12 {{ section.settings.heading_align }}">
+            <h2 class="{% if section.settings.heading_size == '1' %}h4{% else %}h5{% endif %} section__heading margin-bottom-20 {{ section.settings.heading_align }}">
               {{ section.settings.heading | escape }}
             </h2>
           {%- endif -%}

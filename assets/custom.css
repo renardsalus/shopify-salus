@@ -1698,7 +1698,7 @@ body .shopify-section .section.products-card-sec .card__media>a>img {
 }
 
 .faqs-section .disclosure>summary {
-  padding: 37px 0 !important;
+  padding: 25px 0 !important;
 }
 
 .footer__base>div>span {
@@ -3742,4 +3742,8 @@ a.secondary-nav__item.secondary-nav__cta {
 
 .margin-right-50 {
   margin-right: 50px
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
 }
