@@ -12,8 +12,9 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 20px;
-    padding-left: 60px;
-    padding-right: 60px;
+    /* padding-left: var(--gutter);
+    padding-right: var(--gutter); */
+    width: 100%;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -21,18 +22,22 @@
 }
 
 .review-slide {
-    flex: 0 0 450px;
+    flex: 0 0 100%;
     margin-left: 20px;
     margin-right: 20px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: stretch;
+    max-width: 33%;
 }
 
-/* .review-slide:last-child {
+.review-slide:first-child {
+    margin-left: 0;
+}
+.review-slide:last-child {
     margin-right: 0;
-} */
+}
 
 .homepage-reviews-slider__nav-button {
     position: absolute;

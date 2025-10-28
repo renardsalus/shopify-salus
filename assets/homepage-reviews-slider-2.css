@@ -15,10 +15,10 @@
 }
 
 .homepage-reviews-slider__wrapper {
-    /* max-width: 1400px; */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    /* width: 33%; */
+    max-width: calc(var(--page-width, 1320px) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
     position: relative;
     overflow: hidden;
 }
@@ -42,7 +42,8 @@
     text-align: center;
     /* Keep this for overall card centering, adjust internal elements */
     height: 100%;
-    max-width: 400px;
+    width: 100%;
+    /* max-width: 400px; */
 }
 
 .homepage-reviews-slider__quote-icon {
