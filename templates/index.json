@@ -498,6 +498,73 @@
         "products_to_display_collection": "traditional-saunas-highlight"
       }
     },
+    "homepage_featured_in_logos_dxK7jf": {
+      "type": "homepage-featured-in-logos",
+      "blocks": {
+        "logo_image_UCgaiV": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_XXKPgp": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_z89QQt": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_YUkCQb": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_cLkTcE": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_hcnBfL": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_LcmbQF": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_image_xNTNjM": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_UCgaiV",
+        "logo_image_XXKPgp",
+        "logo_image_z89QQt",
+        "logo_image_YUkCQb",
+        "logo_image_cLkTcE",
+        "logo_image_hcnBfL",
+        "logo_image_LcmbQF",
+        "logo_image_xNTNjM"
+      ],
+      "name": "Featured In Logos",
+      "settings": {
+        "title": "As featured in"
+      }
+    },
     "product_carousel_MGky87": {
       "type": "product-carousel",
       "name": "Product Carousel",
@@ -890,6 +957,7 @@
     "homepage_sauna_value_proposition_hFfREm",
     "logo_list_DaqLFK",
     "product_carousel_p9jgXD",
+    "homepage_featured_in_logos_dxK7jf",
     "product_carousel_MGky87",
     "celebrity_testimonials_PmJ8Jr",
     "video",
