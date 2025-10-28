@@ -29,7 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
-    max-width: 33%;
+    max-width: 25%;
 }
 
 .review-slide:first-child {

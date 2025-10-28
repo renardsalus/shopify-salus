@@ -310,6 +310,12 @@
     display: none;
 }
 
+@media screen and (min-width: 1550px) {
+    .homepage-hero-carousel__content-column {
+        padding-right: 80px;
+    }
+}
+
 
 /* --- Mobile Styles (max-width: 767px) --- */
 @media screen and (max-width: 767px) {

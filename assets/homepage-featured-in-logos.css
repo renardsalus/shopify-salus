@@ -1,0 +1,25 @@
+.featured-in-section {
+  padding: 40px 0;
+}
+
+.featured-in-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-bar__item {
+  max-width: 150px; /* Adjust as needed */
+}
+
+.logo-bar__item img {
+  max-width: 100%;
+  height: auto;
+}
