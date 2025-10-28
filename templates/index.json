@@ -582,20 +582,20 @@
             "description": "Actor & Director"
           }
         },
-        "video_testimonial_card_Ay6EH8": {
-          "type": "video-testimonial-card",
-          "settings": {
-            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
-            "name": "Claire P. Thomas",
-            "description": "Fitness Creator"
-          }
-        },
         "video_testimonial_card_rBehdg": {
           "type": "video-testimonial-card",
           "settings": {
             "video_file": "shopify://files/videos/Remi Ishizuka Testimonials.mp4",
             "name": "Remi Ishizuka",
             "description": "Wellness & Lifestyle Creator"
+          }
+        },
+        "video_testimonial_card_Ay6EH8": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Snapinst.app_video_AQPj08Xk43MCfK0ImyUGkQFNTn27nddqoJps4hiCeegEmZTkJLrPu3DOnbvECXhJdvnFmsWLpny--Czhnut2tvCPd4POD6SujyTfgzs.mp4",
+            "name": "Claire P. Thomas",
+            "description": "Fitness Creator"
           }
         },
         "video_testimonial_card_JUfpKD": {
@@ -616,8 +616,8 @@
         "video_testimonial_card_DBgwXe",
         "video_testimonial_card_pnWDBJ",
         "static_testimonial_card_tkWkY3",
-        "video_testimonial_card_Ay6EH8",
         "video_testimonial_card_rBehdg",
+        "video_testimonial_card_Ay6EH8",
         "video_testimonial_card_JUfpKD"
       ],
       "name": "Celebrity Testimonials",
