@@ -344,7 +344,7 @@
         "button_label": "Show me more reviews",
         "button_link": "shopify://pages/reviews",
         "section_padding_top_desktop": 50,
-        "section_padding_bottom_desktop": 50,
+        "section_padding_bottom_desktop": 60,
         "section_padding_top_mobile": 0,
         "section_padding_bottom_mobile": 0
       }
@@ -382,6 +382,7 @@
         "disclaimer_text": "",
         "button_text": "Shop Best Value Saunas",
         "button_link": "shopify://collections/all-saunas",
+        "sort_order": "price-ascending",
         "top_badge_text": "Best Value Picks – Includes FREE shipping + Warranty | $1000s in Value!",
         "composite_sauna_image": "shopify://shop_images/Frame_15799.png",
         "bottom_badge_text": "*Our saunas start at $104/mo or 0% APR with Affirm financing.",
