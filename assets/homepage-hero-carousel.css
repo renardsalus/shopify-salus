@@ -58,8 +58,8 @@
     /* Horizontally center content */
     padding-top: 80px;
     padding-bottom: 80px;
-    padding-left: var(--gutter);
-    padding-right: 50px;
+    padding-left: calc(var(--gutter) + 10px);
+    padding-right: 60px;
     scroll-padding-block: 80px;
     /* Generous padding around the content on desktop */
     flex: 1;
