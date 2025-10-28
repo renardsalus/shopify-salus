@@ -1,10 +1,10 @@
 .featured-in-section {
-  padding: 40px 0;
+  padding: 40px 15px;
+  text-align: center;
 }
 
 .featured-in-title {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .logo-bar {
@@ -12,14 +12,24 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 30px 40px; /* Vertical and horizontal gap */
 }
 
 .logo-bar__item {
-  max-width: 150px; /* Adjust as needed */
+  /* You can set a max-width if you want to control the size */
+  max-width: 160px;
+  width: 100%;
 }
 
 .logo-bar__item img {
   max-width: 100%;
-  height: auto;
+  height: auto; /* This is key for responsiveness */
+  display: block;
+  margin: 0 auto;
+}
+
+.placeholder-svg-container .placeholder-svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
 }

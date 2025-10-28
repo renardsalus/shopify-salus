@@ -1,25 +1,33 @@
+{{ 'homepage-featured-in-logos.css' | asset_url | stylesheet_tag }}
+
 <div class="featured-in-section">
   <div class="page-width">
     {% if section.settings.title != blank %}
-      <h2 class="featured-in-title">{{ section.settings.title }}</h2>
+      <h2 class="featured-in-title h4">{{ section.settings.title | escape }}</h2>
     {% endif %}
-    <div class="logo-bar">
-      {% for block in section.blocks %}
-        <div class="logo-bar__item">
-          {% if block.settings.link != blank %}
-            <a href="{{ block.settings.link }}">
-          {% endif %}
-          {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.image.alt | escape }}">
-          {% else %}
-            {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
-          {% endif %}
-          {% if block.settings.link != blank %}
-            </a>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="logo-bar">
+        {% for block in section.blocks %}
+          <div class="logo-bar__item" {{ block.shopify_attributes }}>
+            {%- assign image = block.settings.image -%}
+            {% if image != blank %}
+              <a href="{{ block.settings.link | default: '#' }}" aria-label="{{ image.alt | default: 'Logo' | escape }}">
+                <img src="{{ image | image_url: width: 300 }}"
+                     alt="{{ image.alt | default: 'Logo' | escape }}"
+                     width="{{ image.width }}"
+                     height="{{ image.height }}"
+                     loading="lazy">
+              </a>
+            {% else %}
+              <div class="placeholder-svg-container">
+                {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -47,7 +55,8 @@
         {
           "type": "url",
           "id": "link",
-          "label": "Link (optional)"
+          "label": "Link (optional)",
+          "info": "Link to the article or feature."
         }
       ]
     }
