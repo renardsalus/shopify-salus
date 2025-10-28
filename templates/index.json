@@ -487,17 +487,6 @@
         "full_width": true
       }
     },
-    "product_carousel_p9jgXD": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "title": "Discover our time-tested traditional saunas",
-        "button-label": "Shop Traditional",
-        "button_collection": "traditional-sauna-v2",
-        "affirm_product": "governor-mini-traditional-outdoor-sauna",
-        "products_to_display_collection": "traditional-saunas-highlight"
-      }
-    },
     "homepage_featured_in_logos_dxK7jf": {
       "type": "homepage-featured-in-logos",
       "blocks": {
@@ -563,6 +552,17 @@
       "name": "Featured In Logos",
       "settings": {
         "title": "As featured in"
+      }
+    },
+    "product_carousel_p9jgXD": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
+      "settings": {
+        "title": "Discover our time-tested traditional saunas",
+        "button-label": "Shop Traditional",
+        "button_collection": "traditional-sauna-v2",
+        "affirm_product": "governor-mini-traditional-outdoor-sauna",
+        "products_to_display_collection": "traditional-saunas-highlight"
       }
     },
     "product_carousel_MGky87": {
@@ -956,8 +956,8 @@
     "homepage_reviews_slider_2_gCdyWL",
     "homepage_sauna_value_proposition_hFfREm",
     "logo_list_DaqLFK",
-    "product_carousel_p9jgXD",
     "homepage_featured_in_logos_dxK7jf",
+    "product_carousel_p9jgXD",
     "product_carousel_MGky87",
     "celebrity_testimonials_PmJ8Jr",
     "video",
