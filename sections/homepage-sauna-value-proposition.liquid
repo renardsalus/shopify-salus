@@ -298,10 +298,14 @@
         </div>
 
         {% if section.settings.button_text != blank and section.settings.button_link != blank %}
-          {% comment %} <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button"> {% endcomment %}
-          <a href="/collections/all-saunas?sort_by=price-ascending" class="sauna-value-proposition__button">
+          {% assign button_url = section.settings.button_link %}
+          {% if section.settings.sort_order != blank %}
+            {% assign button_url = button_url | append: '?sort_by=' | append: section.settings.sort_order %}
+          {% endif %}
+          
+          <a href="{{ button_url }}" class="sauna-value-proposition__button">
             {{ section.settings.button_text }}
-            {% render 'icon-arrow-right-cta' %}
+            {% render 'icon-arrow-right' %}
           </a>
         {% endif %}
       </div>
@@ -379,6 +383,30 @@
       "type": "url",
       "id": "button_link",
       "label": "Call to Action Button Link"
+    },
+    {
+      "type": "select",
+      "id": "sort_order",
+      "label": "Sort Order",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Featured"
+        },
+        {
+          "value": "best-selling",
+          "label": "Best selling"
+        },
+        {
+          "value": "price-ascending",
+          "label": "Price, low to high"
+        },
+        {
+          "value": "price-descending",
+          "label": "Price, high to low"
+        }
+      ],
+      "default": "price-ascending"
     },
     {
       "type": "header",
