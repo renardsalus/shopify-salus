@@ -59,7 +59,7 @@
     .sauna-value-proposition__badge:has(+ .sauna-value-proposition__image-wrapper) {
       display: None;
     }
-  }z
+  }
 
   .sauna-value-proposition__heading {
     font-size: 36px;
@@ -300,7 +300,7 @@
         {% if section.settings.button_text != blank and section.settings.button_link != blank %}
           <a href="{{ section.settings.button_link }}" class="sauna-value-proposition__button">
             {{ section.settings.button_text }}
-            {% render 'icon-arrow-right' %} {# Assumes an icon-arrow-right snippet exists #}
+            {% render 'icon-arrow-right' %}
           </a>
         {% endif %}
       </div>

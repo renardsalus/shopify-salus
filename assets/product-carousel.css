@@ -89,7 +89,7 @@
   color: #ffffff;
   text-decoration: none;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   box-shadow: none;
 }
@@ -217,12 +217,7 @@
 }
 
 .product-title {
-  font-size: 1.1em;
-  font-weight: 600;
-  text-decoration: none;
-  color: #333;
-  display: block;
-  margin-bottom: 10px;
+
 }
 
 .star-rating {
@@ -277,7 +272,7 @@
   width: 100%;
   font-weight: 500;
   padding: 12px;
-  background-color: #212529;
+  background-color: #1b413e;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -286,7 +281,7 @@
 }
 
 .learn-more-btn:hover {
-  background-color: #24413e;
+  background-color: #1F8A81;
   color: #ffffff;
 }
 
@@ -334,11 +329,14 @@
 
 .product-title {
   font-size: 19px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: start !important;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  text-decoration: none;
+  color: #333;
+  display: block;
   /* Truncate after 2 lines */
   -webkit-box-orient: vertical;
 }
