@@ -659,6 +659,14 @@
             "description": "Fitness Creator"
           }
         },
+        "video_testimonial_card_VmpRnL": {
+          "type": "video-testimonial-card",
+          "settings": {
+            "video_file": "shopify://files/videos/Ian Somerhalder Clip (1).mp4",
+            "name": "Ian Somerhalder",
+            "description": "Actor, Entrepreneur"
+          }
+        },
         "video_testimonial_card_JUfpKD": {
           "type": "video-testimonial-card",
           "settings": {
@@ -679,6 +687,7 @@
         "video_testimonial_card_LhHjzY",
         "static_testimonial_card_tkWkY3",
         "video_testimonial_card_Ay6EH8",
+        "video_testimonial_card_VmpRnL",
         "video_testimonial_card_JUfpKD"
       ],
       "name": "Celebrity Testimonials",
