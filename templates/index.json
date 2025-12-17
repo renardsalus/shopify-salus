@@ -355,7 +355,7 @@
         "sauna_feature_item_JaGAY4": {
           "type": "sauna-feature-item",
           "settings": {
-            "featured_product": "dynamic-1-2-person-infrared-sauna"
+            "featured_product": "glamour-1-2-person-infrared-sauna"
           }
         },
         "sauna_feature_item_gxPnVT": {
@@ -494,50 +494,43 @@
         "logo_image_UCgaiV": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/bloomberg-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/bloomberg-logo.png"
           }
         },
         "logo_image_XXKPgp": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/yahoo-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/yahoo-logo.png"
           }
         },
         "logo_image_YUkCQb": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/digital-journal-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/digital-journal-logo.png"
           }
         },
         "logo_image_z89QQt": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/ap-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/ap-logo.png"
           }
         },
         "logo_image_hcnBfL": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/morningstar-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/morningstar-logo.png"
           }
         },
         "logo_image_cLkTcE": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/benzinga-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/benzinga-logo.png"
           }
         },
         "logo_image_LcmbQF": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify://shop_images/marketwatch-logo.png",
-            "link": ""
+            "image": "shopify://shop_images/marketwatch-logo.png"
           }
         }
       },
@@ -573,7 +566,7 @@
         "title": "Explore our best-in-class infrared saunas",
         "button-label": "Shop Infrared",
         "button_collection": "all-infrared-saunas",
-        "affirm_product": "dynamic-1-2-person-infrared-sauna",
+        "affirm_product": "glamour-1-2-person-infrared-sauna",
         "products_to_display_collection": "infrared-saunas-highlight"
       }
     },
